@@ -165,15 +165,36 @@ export const useBuilderStore = defineStore('builder', () => {
         img.style.removeProperty('height')
       }
     } else if (ctx.type === 'bg') {
+      // Collect elements that have a background-image OR a background
+      // shorthand that contains url() — matching the detection in CanvasBlock.
       const bgEls = []
       div.querySelectorAll('*').forEach(el => {
-        if (el.style.backgroundImage && el.style.backgroundImage !== 'none') {
+        const bgImg       = el.style.backgroundImage
+        const bgShorthand = el.style.background
+        if (
+          (bgImg && bgImg !== 'none' && bgImg.includes('url(')) ||
+          (bgShorthand && bgShorthand.includes('url('))
+        ) {
           bgEls.push(el)
         }
       })
       const bgEl = bgEls[ctx.elementIndex]
       if (bgEl) {
-        bgEl.style.backgroundImage = `url("${src}")`
+        const bgImg = bgEl.style.backgroundImage
+        if (bgImg && bgImg !== 'none' && bgImg.includes('url(')) {
+          // Property is background-image — update it directly
+          bgEl.style.backgroundImage = `url("${src}")`
+        } else if (bgEl.style.background && bgEl.style.background.includes('url(')) {
+          // Property is the background shorthand — replace only the url() part,
+          // preserving position, size, repeat, etc.
+          bgEl.style.background = bgEl.style.background.replace(
+            /url\(["']?[^"')]+["']?\)/,
+            `url("${src}")`
+          )
+        } else {
+          // Fallback
+          bgEl.style.backgroundImage = `url("${src}")`
+        }
       }
     }
 

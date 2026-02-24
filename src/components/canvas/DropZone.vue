@@ -23,6 +23,7 @@ function onAdd(event) {
   <draggable
     :list="store.canvasBlocks"
     class="drop-zone"
+    :class="{ 'is-empty': !store.hasBlocks }"
     :group="{ name: 'canvas-blocks', pull: false, put: true }"
     :animation="200"
     ghost-class="drag-ghost"

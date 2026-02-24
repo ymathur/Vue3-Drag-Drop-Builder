@@ -34,7 +34,7 @@ export const heroBlocks = [
       </div>
       <div class="col-lg-6">
         <div class="bg-primary rounded-4 d-flex align-items-center justify-content-center text-white fw-semibold fs-4" style="height:380px;">
-          Hero Image Area
+          <img src="https://www.forgebox.io/includes/images/ForgeBox.png">
         </div>
       </div>
     </div>
@@ -53,6 +53,105 @@ export const heroBlocks = [
     <div class="d-flex gap-3 justify-content-center flex-wrap">
       <a href="#" class="btn btn-light btn-lg px-5 py-3 fw-semibold rounded-pill">Start Free Trial</a>
       <a href="#" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">See the Demo</a>
+    </div>
+  </div>
+</section>`
+  },
+  {
+    id: 'hero-bg-image',
+    categoryId: 'heroes',
+    label: 'Full-Width Background Image Hero',
+    html: `<section class="py-5 text-white text-center position-relative" style="background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1400&q=80') center/cover no-repeat; min-height: 520px; display:flex; align-items:center;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,0.55);"></div>
+  <div class="container py-5 position-relative">
+    <span class="badge bg-primary mb-3 fs-6 px-3 py-2">Explore the World</span>
+    <h1 class="display-3 fw-bold mb-3">Where Will You Go Next?</h1>
+    <p class="lead mb-5 mx-auto" style="max-width:580px; opacity:0.88">Discover breathtaking destinations, curated itineraries, and unforgettable experiences tailored just for you.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="#" class="btn btn-light btn-lg px-5 fw-semibold rounded-pill">Start Exploring</a>
+      <a href="#" class="btn btn-outline-light btn-lg px-5 rounded-pill">View Gallery</a>
+    </div>
+  </div>
+</section>`
+  },
+  {
+    id: 'hero-split-with-img',
+    categoryId: 'heroes',
+    label: 'Split Hero (Text + Real Image)',
+    html: `<section class="py-5">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge text-bg-success fw-semibold mb-3">New Arrival</span>
+        <h1 class="display-5 fw-bold lh-1 mb-3">Crafted for Those Who Demand the Best</h1>
+        <p class="lead text-muted mb-4">Award-winning design meets cutting-edge technology. Our flagship product redefines what's possible — built for creators, leaders, and innovators.</p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="#" class="btn btn-dark btn-lg px-4">Shop Now</a>
+          <a href="#" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
+        </div>
+        <div class="mt-4 d-flex gap-4">
+          <div><div class="fw-bold fs-4">10k+</div><div class="text-muted small">Happy Customers</div></div>
+          <div><div class="fw-bold fs-4">4.9★</div><div class="text-muted small">Average Rating</div></div>
+          <div><div class="fw-bold fs-4">2yr</div><div class="text-muted small">Warranty</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80" alt="Product showcase" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+      </div>
+    </div>
+  </div>
+</section>`
+  },
+  {
+    id: 'hero-centered-with-img',
+    categoryId: 'heroes',
+    label: 'Centered Hero with Image Below',
+    html: `<section class="py-5 text-center bg-light">
+  <div class="container py-4">
+    <p class="text-primary fw-semibold text-uppercase small mb-2">Introducing v2.0</p>
+    <h1 class="display-4 fw-bold mb-3 mx-auto" style="max-width:700px">The Smarter Way to Manage Your Business</h1>
+    <p class="lead text-muted mb-4 mx-auto" style="max-width:580px">All your tools in one place. Analytics, team collaboration, and automation that adapts to how you work.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
+      <a href="#" class="btn btn-primary btn-lg px-5 rounded-pill">Get Started Free</a>
+      <a href="#" class="btn btn-outline-dark btn-lg px-5 rounded-pill">Watch Demo</a>
+    </div>
+    <div class="rounded-4 overflow-hidden shadow-lg border mx-auto" style="max-width:900px;">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="Dashboard preview" class="img-fluid d-block" style="width:100%;">
+    </div>
+  </div>
+</section>`
+  },
+  {
+    id: 'hero-video',
+    categoryId: 'heroes',
+    label: 'Video Hero (Play Button + Modal)',
+    html: `<section class="py-5 text-center" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);">
+  <div class="container py-5">
+    <span class="badge bg-danger mb-3 px-3 py-2 fs-6">▶ Watch the Story</span>
+    <h1 class="display-4 fw-bold text-white mb-3">See It in Action</h1>
+    <p class="lead mb-5 mx-auto text-white-50" style="max-width:560px">Two minutes. That's all it takes to see why thousands of teams switched to our platform.</p>
+    <!-- Video thumbnail with play overlay — click to open modal -->
+    <div class="position-relative mx-auto rounded-4 overflow-hidden shadow-lg" style="max-width:720px; cursor:pointer;" data-bs-toggle="modal" data-bs-target="#videoHeroModal">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=720&q=80" alt="Video preview" class="img-fluid d-block" style="width:100%; aspect-ratio:16/9; object-fit:cover;">
+      <!-- Play button circle -->
+      <div class="position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center rounded-circle bg-white shadow" style="width:72px; height:72px; transition:transform 0.2s;">
+        <i class="bi bi-play-fill text-primary" style="font-size:2rem; margin-left:4px;"></i>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap Video Modal — replace iframe src with your YouTube/Vimeo embed URL -->
+  <div class="modal fade" id="videoHeroModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark border-0">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0 pb-1">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Product Demo" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>`

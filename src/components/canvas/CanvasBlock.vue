@@ -181,8 +181,11 @@ function scanBgImages() {
   if (!blockRef.value) return
   bgImageEls.value = []
   blockRef.value.querySelectorAll('*').forEach(el => {
-    const bg = el.style.backgroundImage
-    if (bg && bg !== 'none' && bg.includes('url(')) {
+    const bgImg = el.style.backgroundImage
+    const bgShorthand = el.style.background
+    // Detect both background-image and background shorthand containing url()
+    if ((bgImg && bgImg !== 'none' && bgImg.includes('url(')) ||
+        (bgShorthand && bgShorthand.includes('url('))) {
       bgImageEls.value.push(el)
     }
   })
@@ -249,8 +252,10 @@ function handleBgClick(bgEl, e) {
   store.selectBlock(props.block.instanceId)
 
   const idx   = bgImageEls.value.indexOf(bgEl)
-  const bgRaw = bgEl.style.backgroundImage
-  const bgUrl = bgRaw.replace(/^url\(["']?/, '').replace(/["']?\)$/, '')
+  // Extract URL from background-image or background shorthand
+  const bgRaw = bgEl.style.backgroundImage || bgEl.style.background || ''
+  const urlMatch = bgRaw.match(/url\(["']?([^"')]+)["']?\)/)
+  const bgUrl = urlMatch ? urlMatch[1] : ''
 
   store.openImagePicker({
     instanceId:   props.block.instanceId,
@@ -342,7 +347,8 @@ function setupRepeatableListeners() {
   repeatableItems.forEach(el => {
     el.addEventListener('mouseenter', onRepEnter)
     el.addEventListener('mouseleave', onRepLeave)
-    el.addEventListener('mousemove',  onRepMove)
+    // NOTE: no mousemove listener — updating the rect on every move
+    // causes the overlay to chase the cursor, making it unclickable.
   })
 }
 
@@ -350,7 +356,6 @@ function cleanupRepeatableListeners() {
   repeatableItems.forEach(el => {
     el.removeEventListener('mouseenter', onRepEnter)
     el.removeEventListener('mouseleave', onRepLeave)
-    el.removeEventListener('mousemove',  onRepMove)
   })
   repeatableItems  = []
   hoveredRepEl.value = null
@@ -360,15 +365,12 @@ function onRepEnter(e) {
   if (!isSelected.value) return
   clearTimeout(repLeaveTimer)
   hoveredRepEl.value   = e.currentTarget
+  // Capture position ONCE on enter — never update on mousemove so the
+  // overlay stays stable and the user can reach it without it jumping.
   repeatableRect.value = e.currentTarget.getBoundingClientRect()
 }
 function onRepLeave() {
-  repLeaveTimer = setTimeout(() => { hoveredRepEl.value = null }, 100)
-}
-function onRepMove(e) {
-  if (hoveredRepEl.value === e.currentTarget) {
-    repeatableRect.value = e.currentTarget.getBoundingClientRect()
-  }
+  repLeaveTimer = setTimeout(() => { hoveredRepEl.value = null }, 120)
 }
 function keepRepOverlay() { clearTimeout(repLeaveTimer) }
 function hideRepOverlay() {
@@ -460,15 +462,13 @@ onUnmounted(() => {
 // ─── Repeatable overlay position helper ──────────────────────
 function repOverlayStyle() {
   if (!repeatableRect.value) return {}
-  const r   = repeatableRect.value
-  const GAP = 6
-  // Prefer right side; fall back to left if it would overflow
-  const left = r.right + GAP + 64 < window.innerWidth
-    ? r.right + GAP
-    : r.left - 64 - GAP
+  const r = repeatableRect.value
+  // Sit directly ON the element — top-right corner, 4px inset.
+  // Mouse never has to leave the element to click the buttons.
+  const OVERLAY_W = 64  // ≈ 2 × 26px buttons + gap + padding
   return {
-    top:      `${r.top}px`,
-    left:     `${left}px`,
+    top:  `${r.top  + 4}px`,
+    left: `${r.right - OVERLAY_W - 4}px`,
   }
 }
 
@@ -503,50 +503,73 @@ function bgOverlayStyle() {
 
     <!-- Block HTML — managed manually; NO v-html to avoid cursor jump -->
     <div ref="blockRef" class="block-content" />
+
+    <!-- ── Side reorder controls (always visible on hover) ── -->
+    <div class="side-reorder-controls" @click.stop>
+      <button
+        title="Move block up"
+        :disabled="index === 0"
+        @click="store.moveBlock(block.instanceId, 'up')"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+      <button
+        title="Move block down"
+        :disabled="index === totalBlocks - 1"
+        @click="store.moveBlock(block.instanceId, 'down')"
+      >
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+
+    <!--
+      IMPORTANT: All Teleport elements are INSIDE the main wrapper div.
+      Having them outside creates a Vue fragment (multiple root nodes),
+      which breaks vuedraggable — it can't determine the single root DOM
+      element for the list item and the drag handle stops working.
+    -->
+    <Teleport to="body">
+      <!-- ── Repeatable-item +/× controls ── -->
+      <div
+        v-if="isSelected && hoveredRepEl && repeatableRect"
+        class="repeatable-controls-overlay"
+        :style="repOverlayStyle()"
+        @mouseenter="keepRepOverlay"
+        @mouseleave="hideRepOverlay"
+      >
+        <button title="Duplicate item" @click.stop="duplicateRepItem">
+          <i class="bi bi-plus-lg"></i>
+        </button>
+        <button title="Remove item" class="rep-delete" @click.stop="removeRepItem">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- ── BG-image "Replace Background" overlay ── -->
+      <div
+        v-if="isSelected && hoveredBgEl && hoveredBgRect"
+        class="bg-replace-overlay"
+        :style="bgOverlayStyle()"
+        @mouseenter="keepBgOverlay"
+        @mouseleave="hideBgOverlay"
+        @click.stop="handleBgClick(hoveredBgEl, $event)"
+      >
+        <i class="bi bi-image me-1"></i>Replace BG
+      </div>
+
+      <!-- ── Image resize overlay ── -->
+      <div
+        v-if="isSelected && selectedImgEl && imgResizeRect"
+        class="img-resize-overlay"
+        :style="{
+          top:    imgResizeRect.top    + 'px',
+          left:   imgResizeRect.left   + 'px',
+          width:  imgResizeRect.width  + 'px',
+          height: imgResizeRect.height + 'px',
+        }"
+      >
+        <div class="resize-handle resize-se" @mousedown="onResizeMousedown" />
+      </div>
+    </Teleport>
   </div>
-
-  <!-- ── Repeatable-item +/× controls (teleported, position:fixed) ── -->
-  <Teleport to="body">
-    <div
-      v-if="isSelected && hoveredRepEl && repeatableRect"
-      class="repeatable-controls-overlay"
-      :style="repOverlayStyle()"
-      @mouseenter="keepRepOverlay"
-      @mouseleave="hideRepOverlay"
-    >
-      <button title="Duplicate item" @click.stop="duplicateRepItem">
-        <i class="bi bi-plus-lg"></i>
-      </button>
-      <button title="Remove item" class="rep-delete" @click.stop="removeRepItem">
-        <i class="bi bi-x-lg"></i>
-      </button>
-    </div>
-
-    <!-- ── BG-image "Replace Background" overlay ── -->
-    <div
-      v-if="isSelected && hoveredBgEl && hoveredBgRect"
-      class="bg-replace-overlay"
-      :style="bgOverlayStyle()"
-      @mouseenter="keepBgOverlay"
-      @mouseleave="hideBgOverlay"
-      @click.stop="handleBgClick(hoveredBgEl, $event)"
-    >
-      <i class="bi bi-image me-1"></i>Replace BG
-    </div>
-
-    <!-- ── Image resize overlay ── -->
-    <div
-      v-if="isSelected && selectedImgEl && imgResizeRect"
-      class="img-resize-overlay"
-      :style="{
-        top:    imgResizeRect.top    + 'px',
-        left:   imgResizeRect.left   + 'px',
-        width:  imgResizeRect.width  + 'px',
-        height: imgResizeRect.height + 'px',
-      }"
-    >
-      <!-- Bottom-right corner handle -->
-      <div class="resize-handle resize-se" @mousedown="onResizeMousedown" />
-    </div>
-  </Teleport>
 </template>
