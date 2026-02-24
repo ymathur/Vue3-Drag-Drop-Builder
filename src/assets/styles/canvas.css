@@ -1,0 +1,177 @@
+/* =====================================================
+   Canvas Block Rendering & Interaction
+   ===================================================== */
+
+/* --- Block Wrapper --- */
+.canvas-block-wrapper {
+  position: relative;
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  transition: outline-color 0.15s ease;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.canvas-block-wrapper:hover {
+  outline-color: rgba(59, 130, 246, 0.45);
+}
+
+.canvas-block-wrapper.is-selected {
+  outline-color: #3b82f6;
+}
+
+/* --- Block Controls Toolbar --- */
+.block-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  gap: 2px;
+  background: #1e293b;
+  border-radius: 0 0 0 8px;
+  padding: 4px 6px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.canvas-block-wrapper.is-selected .block-controls {
+  opacity: 1;
+}
+
+.block-controls button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: background 0.12s, color 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-controls button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.block-controls button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.block-controls button:disabled:hover {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.block-controls .btn-delete:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.block-controls-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 2px 2px;
+}
+
+/* --- Selected Block Label --- */
+.block-label-chip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #1e293b;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 0 6px 0 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.canvas-block-wrapper.is-selected .block-label-chip {
+  opacity: 1;
+}
+
+/* --- Contenteditable Editing States --- */
+.editable-active {
+  outline: 1px dashed #3b82f6 !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+  cursor: text !important;
+  min-height: 1em;
+}
+
+.editable-active:empty::before {
+  content: 'Click to edit...';
+  color: #94a3b8;
+  font-style: italic;
+  pointer-events: none;
+}
+
+.editable-active:focus {
+  outline: 2px solid #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.04) !important;
+}
+
+/* Prevent Enter key newlines in heading/button elements */
+[contenteditable].no-newlines {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* --- Drag States --- */
+.drag-ghost {
+  opacity: 0.35;
+  background: #dbeafe !important;
+  border: 2px dashed #3b82f6 !important;
+}
+
+.drag-chosen {
+  cursor: grabbing !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* --- Drop Zone --- */
+/* Fill the full canvas height so the entire area is a valid drop target */
+.drop-zone {
+  min-height: calc(100vh - 56px - 3rem);
+  position: relative;
+}
+
+/* --- Drag Reorder Handle --- */
+.block-reorder-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1px 14px 3px;
+  border-radius: 0 0 8px 8px;
+  cursor: grab;
+  z-index: 55;
+  opacity: 0;
+  transition: opacity 0.15s;
+  font-size: 1.1rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.canvas-block-wrapper:hover .block-reorder-handle,
+.canvas-block-wrapper.is-selected .block-reorder-handle {
+  opacity: 1;
+}
+
+.block-reorder-handle:active {
+  cursor: grabbing;
+}

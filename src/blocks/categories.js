@@ -1,0 +1,12 @@
+export const categories = [
+  { id: 'navigation',   label: 'Navigation',    icon: 'bi-layout-navbar' },
+  { id: 'heroes',       label: 'Heroes',         icon: 'bi-image' },
+  { id: 'features',     label: 'Features',       icon: 'bi-grid-3x3-gap' },
+  { id: 'content',      label: 'Content',        icon: 'bi-file-text' },
+  { id: 'cards',        label: 'Cards',          icon: 'bi-card-text' },
+  { id: 'testimonials', label: 'Testimonials',   icon: 'bi-chat-quote' },
+  { id: 'cta',          label: 'Call to Action', icon: 'bi-megaphone' },
+  { id: 'forms',        label: 'Forms',          icon: 'bi-ui-checks' },
+  { id: 'pricing',      label: 'Pricing',        icon: 'bi-tag' },
+  { id: 'footers',      label: 'Footers',        icon: 'bi-layout-sidebar-reverse' },
+]
