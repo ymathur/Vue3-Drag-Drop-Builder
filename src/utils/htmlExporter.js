@@ -14,13 +14,20 @@ function cleanHtml(html) {
 
   // Remove builder-injected CSS classes
   const builderClasses = ['editable-active', 'is-selected']
-  root.querySelectorAll('.' + builderClasses.join(', .')).forEach(el => {
+  root.querySelectorAll('[class]').forEach(el => {
     builderClasses.forEach(cls => el.classList.remove(cls))
   })
 
-  // Remove data-builder attributes if any were added
-  root.querySelectorAll('[data-builder]').forEach(el => {
-    el.removeAttribute('data-builder')
+  // Remove ALL data-builder-* attributes the editor may have added
+  root.querySelectorAll('*').forEach(el => {
+    Array.from(el.attributes)
+      .filter(a => a.name.startsWith('data-builder'))
+      .forEach(a => el.removeAttribute(a.name))
+  })
+
+  // Belt-and-suspenders: strip any lingering contenteditable="false"
+  root.querySelectorAll('[contenteditable]').forEach(el => {
+    el.removeAttribute('contenteditable')
   })
 
   return root.innerHTML

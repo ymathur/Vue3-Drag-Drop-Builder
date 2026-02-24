@@ -8,7 +8,7 @@
   outline: 2px solid transparent;
   outline-offset: 0;
   transition: outline-color 0.15s ease;
-  cursor: pointer;
+  cursor: default;
   margin-bottom: 2px;
 }
 
@@ -18,6 +18,11 @@
 
 .canvas-block-wrapper.is-selected {
   outline-color: #3b82f6;
+}
+
+/* Block content container */
+.block-content {
+  cursor: default;
 }
 
 /* --- Block Controls Toolbar --- */
@@ -102,9 +107,13 @@
   opacity: 1;
 }
 
-/* --- Contenteditable Editing States --- */
+/* --- Contenteditable / Click-to-Edit --- */
+/*
+ * Only the *clicked* element gets the dashed outline —
+ * NOT the whole block. This is the key UX change from the old approach.
+ */
 .editable-active {
-  outline: 1px dashed #3b82f6 !important;
+  outline: 2px dashed #3b82f6 !important;
   outline-offset: 2px !important;
   border-radius: 2px;
   cursor: text !important;
@@ -112,7 +121,7 @@
 }
 
 .editable-active:empty::before {
-  content: 'Click to edit...';
+  content: 'Click to edit…';
   color: #94a3b8;
   font-style: italic;
   pointer-events: none;
@@ -123,10 +132,14 @@
   background: rgba(59, 130, 246, 0.04) !important;
 }
 
-/* Prevent Enter key newlines in heading/button elements */
-[contenteditable].no-newlines {
-  white-space: nowrap;
-  overflow: hidden;
+/* Images: pointer cursor + hover hint they are replaceable */
+.canvas-block-wrapper img {
+  cursor: pointer !important;
+}
+
+.canvas-block-wrapper.is-selected img:hover {
+  outline: 2px dashed #6366f1;
+  outline-offset: 2px;
 }
 
 /* --- Drag States --- */
@@ -142,7 +155,6 @@
 }
 
 /* --- Drop Zone --- */
-/* Fill the full canvas height so the entire area is a valid drop target */
 .drop-zone {
   min-height: calc(100vh - 56px - 3rem);
   position: relative;
@@ -174,4 +186,474 @@
 
 .block-reorder-handle:active {
   cursor: grabbing;
+}
+
+/* =====================================================
+   Floating Rich Text Toolbar
+   ===================================================== */
+.rich-text-toolbar {
+  position: fixed;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  pointer-events: all;
+  animation: rt-appear 0.1s ease;
+}
+
+@keyframes rt-appear {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rich-text-toolbar button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.1s, color 0.1s;
+}
+
+.rich-text-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.rich-text-toolbar button.active {
+  background: rgba(59, 130, 246, 0.35);
+  color: #93c5fd;
+}
+
+.rt-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 3px;
+}
+
+.rt-apply {
+  background: rgba(34, 197, 94, 0.25) !important;
+  color: #86efac !important;
+}
+
+.rt-link-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: #f1f5f9;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  width: 200px;
+  outline: none;
+}
+
+.rt-link-input:focus {
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.rt-link-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* =====================================================
+   Repeatable Item Controls (+/×)
+   ===================================================== */
+.repeatable-controls-overlay {
+  position: fixed;
+  z-index: 8000;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 3px;
+  background: #1e293b;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  pointer-events: all;
+}
+
+.repeatable-controls-overlay button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.1s, color 0.1s;
+}
+
+.repeatable-controls-overlay button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.repeatable-controls-overlay .rep-delete:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+/* =====================================================
+   Background Image Replace Overlay
+   ===================================================== */
+.bg-replace-overlay {
+  position: fixed;
+  z-index: 8000;
+  background: rgba(30, 41, 59, 0.9);
+  color: #f1f5f9;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  transition: background 0.15s;
+  pointer-events: all;
+}
+
+.bg-replace-overlay:hover {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+/* =====================================================
+   Image Resize Overlay
+   ===================================================== */
+.img-resize-overlay {
+  position: fixed;
+  z-index: 7900;
+  outline: 2px solid #6366f1;
+  outline-offset: 1px;
+  pointer-events: none;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #6366f1;
+  border-radius: 3px;
+  pointer-events: all;
+}
+
+.resize-se {
+  bottom: -6px;
+  right: -6px;
+  cursor: se-resize;
+}
+
+/* =====================================================
+   Image Picker Modal
+   ===================================================== */
+.ip-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  background: rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+}
+
+.ip-modal {
+  background: #fff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.ip-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 0.5rem;
+}
+
+.ip-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1e293b;
+  flex: 1;
+}
+
+.ip-close-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: background 0.12s, color 0.12s;
+}
+
+.ip-close-btn:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.ip-tabs {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 1.25rem;
+}
+
+.ip-tabs button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+  margin-bottom: -1px;
+}
+
+.ip-tabs button:hover { color: #1e293b; }
+
+.ip-tabs button.active {
+  color: #1d4ed8;
+  border-bottom-color: #1d4ed8;
+  font-weight: 600;
+}
+
+.ip-body {
+  padding: 1rem 1.25rem;
+}
+
+.ip-alt-row {
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.ip-dropzone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ip-dropzone:hover,
+.ip-dropzone.is-dragging {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.ip-upload-icon {
+  font-size: 2.2rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.ip-drop-label {
+  font-size: 0.88rem;
+  color: #475569;
+}
+
+.ip-warning {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #b45309;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ip-field-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.ip-url-input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.88rem;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ip-url-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.ip-error {
+  font-size: 0.8rem;
+  color: #dc2626;
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ip-preview-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.25rem 0.75rem;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.ip-preview-img {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ip-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* =====================================================
+   Canvas Area (unchanged from original)
+   ===================================================== */
+.canvas-area {
+  flex: 1;
+  overflow-y: auto;
+  background: #e2e8f0;
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+.canvas-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.canvas-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  border: 2px dashed #94a3b8;
+  border-radius: 16px;
+  color: #94a3b8;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.canvas-empty-state i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.canvas-empty-state h5 { font-weight: 600; color: #64748b; }
+.canvas-empty-state p  { font-size: 0.9rem; max-width: 280px; }
+
+/* =====================================================
+   Preview Modal
+   ===================================================== */
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-toolbar {
+  height: 52px;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.preview-toolbar .preview-title {
+  font-weight: 600;
+  color: #f8fafc;
+  font-size: 0.9rem;
+  margin-right: auto;
+}
+
+.preview-iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+}
+
+/* =====================================================
+   Scrollbars
+   ===================================================== */
+.sidebar::-webkit-scrollbar,
+.block-palette::-webkit-scrollbar,
+.canvas-area::-webkit-scrollbar,
+.category-tabs::-webkit-scrollbar { width: 5px; }
+
+.sidebar::-webkit-scrollbar-track,
+.block-palette::-webkit-scrollbar-track,
+.canvas-area::-webkit-scrollbar-track,
+.category-tabs::-webkit-scrollbar-track { background: transparent; }
+
+.sidebar::-webkit-scrollbar-thumb,
+.block-palette::-webkit-scrollbar-thumb,
+.canvas-area::-webkit-scrollbar-thumb,
+.category-tabs::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
 }
