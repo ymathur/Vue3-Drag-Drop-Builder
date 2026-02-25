@@ -2,6 +2,7 @@ export default {
   id: 'agency',
   name: 'Agency',
   description: 'Bold black & electric yellow — zero compromises. Maximum impact, maximum attitude.',
+  group:       'core',
   thumbnail: ['#facc15', '#ffffff', '#09090b', '#fafafa'],
   googleFonts: ['Space Grotesk'],
   vars: {

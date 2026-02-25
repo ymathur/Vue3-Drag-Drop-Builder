@@ -2,6 +2,7 @@ export default {
   id: 'dark',
   name: 'Dark',
   description: 'Sleek, modern dark mode. Built for developer tools and night-owl users.',
+  group:       'core',
   thumbnail: ['#6ea8fe', '#adb5bd', '#1a1d23', '#e2e8f0'],
   googleFonts: ['Inter'],
   vars: {

@@ -1035,12 +1035,62 @@
 
 .tp-close-btn:hover { background: #f1f5f9; color: #1e293b; }
 
+/* Scrollable body area */
+.tp-body {
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Group section */
+.tp-section {
+  border-bottom: 1px solid #f1f5f9;
+}
+.tp-section:last-child { border-bottom: none; }
+
+/* Group header row */
+.tp-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.75rem 0.3rem;
+  gap: 1rem;
+}
+.tp-group-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tp-group-icon {
+  font-size: 0.85rem;
+  color: #6366f1;
+}
+.tp-group-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.tp-group-count {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.1rem 0.45rem;
+  line-height: 1.6;
+}
+.tp-group-desc {
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
 /* Theme cards grid */
 .tp-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   gap: 1rem;
-  padding: 1.25rem 1.75rem;
+  padding: 0.6rem 1.75rem 1.25rem;
 }
 
 .tp-card {

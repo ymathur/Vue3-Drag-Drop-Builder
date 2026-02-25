@@ -2,6 +2,7 @@ export default {
   id: 'light',
   name: 'Light',
   description: 'Clean, professional, and timeless. The classic look — refined.',
+  group:       'core',
   thumbnail: ['#0d6efd', '#6c757d', '#ffffff', '#212529'],
   googleFonts: ['Inter'],
   vars: {

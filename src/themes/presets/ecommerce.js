@@ -2,6 +2,7 @@ export default {
   id: 'ecommerce',
   name: 'E-Commerce',
   description: 'Warm oranges & amber — built to convert. Friendly, trustworthy, action-driving.',
+  group:       'core',
   thumbnail: ['#ea580c', '#f59e0b', '#fffbf5', '#1c1917'],
   googleFonts: ['DM Sans', 'Playfair Display'],
   vars: {

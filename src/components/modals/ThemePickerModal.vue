@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useThemeStore } from '@/stores/theme.js'
 
 const themeStore = useThemeStore()
@@ -16,6 +16,26 @@ function dismiss() {
   // Only allow dismissal if a theme is already chosen
   if (themeStore.activeThemeId) themeStore.closePicker()
 }
+
+// ── Group themes by their group field ──────────────────────
+const GROUP_META = {
+  core:     { label: 'Core Themes',     icon: 'bi-stars',      desc: 'General-purpose styles for any project' },
+  industry: { label: 'Industry Themes', icon: 'bi-briefcase',  desc: 'Tailored for specific business verticals' },
+}
+
+const themeGroups = computed(() => {
+  const map = new Map()
+  for (const theme of themeStore.themes) {
+    const key = theme.group || 'core'
+    if (!map.has(key)) map.set(key, [])
+    map.get(key).push(theme)
+  }
+  return [...map.entries()].map(([key, themes]) => ({
+    key,
+    ...( GROUP_META[key] ?? { label: key, icon: 'bi-grid', desc: '' }),
+    themes,
+  }))
+})
 </script>
 
 <template>
@@ -47,42 +67,61 @@ function dismiss() {
             </button>
           </div>
 
-          <!-- Theme grid -->
-          <div class="tp-grid">
-            <button
-              v-for="theme in themeStore.themes"
-              :key="theme.id"
-              class="tp-card"
-              :class="{
-                'tp-card--active':  themeStore.activeThemeId === theme.id,
-                'tp-card--hovered': hoveredId === theme.id,
-              }"
-              @click="pick(theme)"
-              @mouseenter="hoveredId = theme.id"
-              @mouseleave="hoveredId = null"
+          <!-- Grouped theme sections -->
+          <div class="tp-body">
+            <div
+              v-for="group in themeGroups"
+              :key="group.key"
+              class="tp-section"
             >
-              <!-- Swatch strip -->
-              <div class="tp-swatches">
-                <div
-                  v-for="(color, i) in theme.thumbnail"
-                  :key="i"
-                  class="tp-swatch"
-                  :style="{ background: color }"
-                />
+              <!-- Group heading -->
+              <div class="tp-group-header">
+                <div class="tp-group-header-left">
+                  <i :class="['bi', group.icon, 'tp-group-icon']"></i>
+                  <span class="tp-group-label">{{ group.label }}</span>
+                  <span class="tp-group-count">{{ group.themes.length }}</span>
+                </div>
+                <span class="tp-group-desc">{{ group.desc }}</span>
               </div>
 
-              <!-- Label -->
-              <div class="tp-card-body">
-                <div class="tp-card-name">
-                  {{ theme.name }}
-                  <i
-                    v-if="themeStore.activeThemeId === theme.id"
-                    class="bi bi-check-circle-fill tp-check"
-                  ></i>
-                </div>
-                <p class="tp-card-desc">{{ theme.description }}</p>
+              <!-- Theme cards grid -->
+              <div class="tp-grid">
+                <button
+                  v-for="theme in group.themes"
+                  :key="theme.id"
+                  class="tp-card"
+                  :class="{
+                    'tp-card--active':  themeStore.activeThemeId === theme.id,
+                    'tp-card--hovered': hoveredId === theme.id,
+                  }"
+                  @click="pick(theme)"
+                  @mouseenter="hoveredId = theme.id"
+                  @mouseleave="hoveredId = null"
+                >
+                  <!-- Swatch strip -->
+                  <div class="tp-swatches">
+                    <div
+                      v-for="(color, i) in theme.thumbnail"
+                      :key="i"
+                      class="tp-swatch"
+                      :style="{ background: color }"
+                    />
+                  </div>
+
+                  <!-- Label -->
+                  <div class="tp-card-body">
+                    <div class="tp-card-name">
+                      {{ theme.name }}
+                      <i
+                        v-if="themeStore.activeThemeId === theme.id"
+                        class="bi bi-check-circle-fill tp-check"
+                      ></i>
+                    </div>
+                    <p class="tp-card-desc">{{ theme.description }}</p>
+                  </div>
+                </button>
               </div>
-            </button>
+            </div>
           </div>
 
           <!-- Footer -->

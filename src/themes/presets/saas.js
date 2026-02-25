@@ -2,6 +2,7 @@ export default {
   id: 'saas',
   name: 'SaaS',
   description: 'Vibrant violet & cyan gradients. Built for modern SaaS products that demand attention.',
+  group:       'core',
   thumbnail: ['#7c3aed', '#06b6d4', '#0a0a0f', '#e2e8f0'],
   googleFonts: ['Inter', 'Poppins'],
   vars: {
