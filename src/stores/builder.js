@@ -227,8 +227,6 @@ export const useBuilderStore = defineStore('builder', () => {
     canvasBlocks,
     selectedBlockId,
     previewOpen,
-    iframePickerOpen,
-    iframePickerContext,
     imagePickerOpen,
     imagePickerContext,
     lastAppliedImageContext,
