@@ -7,14 +7,21 @@ import CanvasBlock from './CanvasBlock.vue'
 const store = useBuilderStore()
 
 /**
- * Use :list (not v-model) so vuedraggable mutates store.canvasBlocks in-place
- * *before* @add fires. With v-model the setter runs after @add, so the dropped
- * item isn't in the array yet when onAdd reads it.
+ * When a block is dragged from the sidebar (pull:'clone'), vuedraggable splices
+ * the raw block definition (no instanceId) into store.canvasBlocks before @add
+ * fires. We locate it by the absence of instanceId rather than trusting
+ * event.newIndex, which can be unreliable when item-key="instanceId" and the
+ * dropped item doesn't yet have one.
  */
 function onAdd(event) {
-  const raw = store.canvasBlocks[event.newIndex]
+  // Find the first entry that hasn't been turned into a canvas instance yet.
+  // Raw sidebar definitions never have instanceId; canvas blocks always do.
+  const idx = store.canvasBlocks.findIndex(b => !b.instanceId)
+  if (idx === -1) return               // nothing to process (shouldn't happen)
+  const raw = store.canvasBlocks[idx]
+  if (!raw?.html) return               // guard against malformed definitions
   const cloned = cloneBlock(raw)
-  store.canvasBlocks.splice(event.newIndex, 1, cloned)
+  store.canvasBlocks.splice(idx, 1, cloned)
   store.selectBlock(cloned.instanceId)
 }
 </script>

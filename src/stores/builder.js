@@ -10,6 +10,14 @@ export const useBuilderStore = defineStore('builder', () => {
   const selectedBlockId = ref(null)
   const previewOpen     = ref(false)
 
+  // ─── Iframe Picker State ──────────────────────────────────
+  /**
+   * iframePickerContext shape:
+   * { instanceId: string, elementIndex: number, currentSrc: string }
+   */
+  const iframePickerOpen    = ref(false)
+  const iframePickerContext = ref(null)
+
   // ─── Image Picker State ────────────────────────────────────
   const imagePickerOpen    = ref(false)
   /**
@@ -115,6 +123,38 @@ export const useBuilderStore = defineStore('builder', () => {
     URL.revokeObjectURL(url)
   }
 
+  // ─── Iframe Picker Actions ────────────────────────────────
+  function openIframePicker(context) {
+    iframePickerContext.value = context
+    iframePickerOpen.value    = true
+  }
+
+  function closeIframePicker() {
+    iframePickerOpen.value    = false
+    iframePickerContext.value = null
+  }
+
+  function applyIframe({ src }) {
+    const ctx = iframePickerContext.value
+    if (!ctx) return
+
+    const block = canvasBlocks.value.find(b => b.instanceId === ctx.instanceId)
+    if (!block) return
+
+    const div     = document.createElement('div')
+    div.innerHTML = block.editedHtml || block.html
+
+    const iframes = div.querySelectorAll('iframe')
+    const iframe  = iframes[ctx.elementIndex]
+    if (iframe) {
+      iframe.src = src
+      iframe.setAttribute('src', src)
+    }
+
+    block.editedHtml = div.innerHTML
+    closeIframePicker()
+  }
+
   // ─── Image Picker Actions ──────────────────────────────────
   function openImagePicker(context) {
     imagePickerContext.value = context
@@ -216,6 +256,8 @@ export const useBuilderStore = defineStore('builder', () => {
     canvasBlocks,
     selectedBlockId,
     previewOpen,
+    iframePickerOpen,
+    iframePickerContext,
     imagePickerOpen,
     imagePickerContext,
     lastAppliedImageContext,
@@ -236,6 +278,10 @@ export const useBuilderStore = defineStore('builder', () => {
     reorderBlocks,
     clearCanvas,
     exportHTML,
+    // iframe picker actions
+    openIframePicker,
+    closeIframePicker,
+    applyIframe,
     // image picker actions
     openImagePicker,
     openImagePickerWithPreload,

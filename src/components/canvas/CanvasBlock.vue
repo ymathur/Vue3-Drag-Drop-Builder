@@ -25,8 +25,24 @@ function setBlockHtml(html) {
   blockRef.value.innerHTML = html
   nextTick(() => {
     initBootstrapComponents()
-    if (isSelected.value) setupRepeatableListeners()
+    // ── Order matters ──────────────────────────────────────────────────────
+    // 1. cleanupBgListeners first so old DOM listeners are removed before we
+    //    throw away the old element references in scanBgImages.
+    // 2. scanBgImages re-populates bgImageEls with fresh DOM elements.
+    // 3. Only THEN attach hover listeners and repeatable listeners so they
+    //    reference the current DOM (not stale elements from previous renders).
+    //
+    // Bug this fixes: bg-image blocks weren't editable because scanBgImages
+    // was called but setupBgListeners was never called afterwards — the hover
+    // listeners were only attached inside watch(isSelected), which doesn't
+    // re-fire when the block HTML is re-rendered.
+    cleanupBgListeners()
     scanBgImages()
+    scanIframes()
+    if (isSelected.value) {
+      setupRepeatableListeners()
+      setupBgListeners()
+    }
   })
 }
 
@@ -230,6 +246,28 @@ watch(isSelected, (selected) => {
   else cleanupBgListeners()
 })
 
+// ─── Iframe scanning + click → URL editor ────────────────────
+// Iframes capture all mouse events, so we add pointer-events:none via CSS
+// and let the wrapper click bubble up to us instead.
+const iframeEls = ref([])
+
+function scanIframes() {
+  if (!blockRef.value) return
+  iframeEls.value = Array.from(blockRef.value.querySelectorAll('iframe'))
+}
+
+function handleIframeClick(iframeEl, e) {
+  e.stopPropagation()
+  store.selectBlock(props.block.instanceId)
+
+  const idx = iframeEls.value.indexOf(iframeEl)
+  store.openIframePicker({
+    instanceId:   props.block.instanceId,
+    elementIndex: idx >= 0 ? idx : 0,
+    currentSrc:   iframeEl.getAttribute('src') || '',
+  })
+}
+
 // ─── Image click → picker ────────────────────────────────────
 function handleImgClick(imgEl, e) {
   e.stopPropagation()
@@ -424,7 +462,15 @@ function onWrapperClick(e) {
   // Always select the block on any click
   store.selectBlock(props.block.instanceId)
 
-  // 1. <img> click → image picker
+  // 1a. <iframe> click → video URL editor
+  // (iframes have pointer-events:none in canvas so clicks bubble up here)
+  const iframeEl = e.target.closest('iframe')
+  if (iframeEl && blockRef.value?.contains(iframeEl)) {
+    handleIframeClick(iframeEl, e)
+    return
+  }
+
+  // 1b. <img> click → image picker
   const imgEl = e.target.closest('img')
   if (imgEl && blockRef.value?.contains(imgEl)) {
     handleImgClick(imgEl, e)
