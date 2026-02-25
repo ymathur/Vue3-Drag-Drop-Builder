@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, watch } from 'vue'
 import { useBuilderStore } from '@/stores/builder.js'
 import { useThemeStore }   from '@/stores/theme.js'
 import AppHeader   from '@/components/layout/AppHeader.vue'
@@ -15,8 +15,44 @@ import '@/assets/styles/canvas.css'
 const store      = useBuilderStore()
 const themeStore = useThemeStore()
 
+// ─── Auto-save ────────────────────────────────────────────
+const AUTO_SAVE_KEY = 'builder-project'
+let _autoSaveTimer  = null
+
+function doAutoSave() {
+  try {
+    const payload = {
+      version:        '1.0',
+      savedAt:        new Date().toISOString(),
+      blocks:         JSON.parse(JSON.stringify(store.canvasBlocks)),
+      activeCategory: store.activeCategory,
+    }
+    localStorage.setItem(AUTO_SAVE_KEY, JSON.stringify(payload))
+  } catch (_) { /* storage unavailable */ }
+}
+
+function scheduleAutoSave() {
+  clearTimeout(_autoSaveTimer)
+  _autoSaveTimer = setTimeout(doAutoSave, 1000)
+}
+
+watch(() => store.canvasBlocks,    scheduleAutoSave, { deep: true })
+watch(() => store.activeCategory,  scheduleAutoSave)
+
+// ─── Restore auto-save on startup ────────────────────────
+function tryRestoreAutoSave() {
+  try {
+    const raw = localStorage.getItem(AUTO_SAVE_KEY)
+    if (!raw) return
+    const data = JSON.parse(raw)
+    if (!Array.isArray(data?.blocks) || data.blocks.length === 0) return
+    store.loadCanvasData({ blocks: data.blocks, activeCategory: data.activeCategory })
+  } catch (_) { /* corrupt storage — ignore */ }
+}
+
 // ─── Auto-open theme picker on first launch ───────────────
 onMounted(() => {
+  tryRestoreAutoSave()
   // If no theme has ever been selected, open the picker immediately
   if (!themeStore.activeThemeId) {
     themeStore.openPicker()

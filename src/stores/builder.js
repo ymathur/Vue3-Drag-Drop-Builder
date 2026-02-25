@@ -110,6 +110,17 @@ export const useBuilderStore = defineStore('builder', () => {
     selectedBlockId.value = null
   }
 
+  /**
+   * Restore canvas state from a saved project payload.
+   * Blocks are stored as full objects (including html + editedHtml),
+   * so they can be assigned directly without re-cloning.
+   */
+  function loadCanvasData({ blocks, activeCategory: cat }) {
+    canvasBlocks.value   = blocks ?? []
+    activeCategory.value = cat   ?? 'navigation'
+    selectedBlockId.value = null
+  }
+
   function exportHTML() {
     const html = generateFullHtml(canvasBlocks.value)
     const blob = new Blob([html], { type: 'text/html' })
@@ -277,6 +288,7 @@ export const useBuilderStore = defineStore('builder', () => {
     updateBlockHtml,
     reorderBlocks,
     clearCanvas,
+    loadCanvasData,
     exportHTML,
     // iframe picker actions
     openIframePicker,

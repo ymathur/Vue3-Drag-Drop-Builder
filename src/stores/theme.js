@@ -178,7 +178,7 @@ h1,h2,h3,h4,h5,h6 { color: ${heading}; font-family: ${font}; }
 p, span, li, label, td, th, caption, figcaption { font-family: ${font}; }
 a { color: ${link}; }
 a:hover { color: ${linkHover}; }
-section { background-color: ${bodyBg} !important; }
+section:not([class*="bg-"]) { background-color: ${bodyBg} !important; }
 
 /* ── Buttons — primary ── */
 .btn-primary {

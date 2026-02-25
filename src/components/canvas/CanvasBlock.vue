@@ -275,12 +275,26 @@ function handleIframeClick(iframeEl, e) {
   e.stopPropagation()
   store.selectBlock(props.block.instanceId)
 
-  const idx = iframeEls.value.indexOf(iframeEl)
-  store.openIframePicker({
-    instanceId:   props.block.instanceId,
-    elementIndex: idx >= 0 ? idx : 0,
-    currentSrc:   iframeEl.getAttribute('src') || '',
-  })
+  const currentSrc = iframeEl.getAttribute('src') || ''
+  const input = window.prompt('Video URL\n\nYouTube or Vimeo links are auto-converted to embed:', currentSrc)
+  if (input === null) return   // user pressed Cancel
+  let src = input.trim()
+  if (!src) return
+
+  // Auto-convert YouTube watch → embed
+  const ytWatch = src.match(/youtube\.com\/watch\?(?:.*&)?v=([a-zA-Z0-9_-]+)/)
+  if (ytWatch) src = `https://www.youtube.com/embed/${ytWatch[1]}`
+  const ytShort = src.match(/youtu\.be\/([a-zA-Z0-9_-]+)/)
+  if (ytShort) src = `https://www.youtube.com/embed/${ytShort[1]}`
+  const vimeo = src.match(/vimeo\.com\/(\d+)/)
+  if (vimeo) src = `https://player.vimeo.com/video/${vimeo[1]}`
+
+  if (!src.startsWith('http')) return
+
+  // Update the live DOM element and persist back to store
+  iframeEl.src = src
+  iframeEl.setAttribute('src', src)
+  store.updateBlockHtml(props.block.instanceId, blockRef.value.innerHTML)
 }
 
 // ─── Image click → picker ────────────────────────────────────
