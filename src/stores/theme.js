@@ -253,12 +253,17 @@ export const useThemeStore = defineStore('theme', () => {
     const secondaryDark = darken(secondary)
 
     return `/* ── Dynamic Bootstrap component overrides ── */
+
+/* ── Base typography & layout ── */
 body { background-color: ${bodyBg} !important; color: ${bodyColor} !important; font-family: ${font}; }
+body * { font-family: inherit; }
 h1,h2,h3,h4,h5,h6 { color: ${heading}; font-family: ${font}; }
+p, span, li, label, td, th, caption, figcaption { font-family: ${font}; }
 a { color: ${link}; }
 a:hover { color: ${linkHover}; }
+section { background-color: ${bodyBg} !important; }
 
-/* Buttons — primary */
+/* ── Buttons — primary ── */
 .btn-primary {
   --bs-btn-bg: ${primary};
   --bs-btn-border-color: ${primary};
@@ -268,7 +273,14 @@ a:hover { color: ${linkHover}; }
   --bs-btn-active-border-color: ${primaryDark};
   --bs-btn-color: #fff;
   --bs-btn-hover-color: #fff;
+  background-color: ${primary} !important;
+  border-color: ${primary} !important;
+  color: #fff !important;
   border-radius: ${radius};
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active {
+  background-color: ${primaryDark} !important;
+  border-color: ${primaryDark} !important;
 }
 .btn-outline-primary {
   --bs-btn-color: ${primary};
@@ -277,59 +289,98 @@ a:hover { color: ${linkHover}; }
   --bs-btn-hover-border-color: ${primary};
   --bs-btn-active-bg: ${primary};
   --bs-btn-active-border-color: ${primary};
+  color: ${primary} !important;
+  border-color: ${primary} !important;
   border-radius: ${radius};
 }
+.btn-outline-primary:hover, .btn-outline-primary:active {
+  background-color: ${primary} !important;
+  color: #fff !important;
+}
 
-/* Buttons — secondary */
+/* ── Buttons — secondary ── */
 .btn-secondary {
   --bs-btn-bg: ${secondary};
   --bs-btn-border-color: ${secondary};
   --bs-btn-hover-bg: ${secondaryDark};
   --bs-btn-hover-border-color: ${secondaryDark};
+  background-color: ${secondary} !important;
+  border-color: ${secondary} !important;
   border-radius: ${radius};
+}
+.btn-secondary:hover, .btn-secondary:active {
+  background-color: ${secondaryDark} !important;
+  border-color: ${secondaryDark} !important;
 }
 .btn-outline-secondary {
   --bs-btn-color: ${secondary};
   --bs-btn-border-color: ${secondary};
   --bs-btn-hover-bg: ${secondary};
   --bs-btn-hover-border-color: ${secondary};
+  color: ${secondary} !important;
+  border-color: ${secondary} !important;
   border-radius: ${radius};
 }
+.btn-outline-secondary:hover, .btn-outline-secondary:active {
+  background-color: ${secondary} !important;
+  color: #fff !important;
+}
 
-/* Buttons — semantic */
-.btn-success { --bs-btn-bg: ${success}; --bs-btn-border-color: ${success}; --bs-btn-hover-bg: ${darken(success)}; border-radius: ${radius}; }
-.btn-danger  { --bs-btn-bg: ${danger};  --bs-btn-border-color: ${danger};  --bs-btn-hover-bg: ${darken(danger)};  border-radius: ${radius}; }
+/* ── Buttons — semantic ── */
+.btn-success { --bs-btn-bg: ${success}; --bs-btn-border-color: ${success}; background-color: ${success} !important; border-color: ${success} !important; border-radius: ${radius}; }
+.btn-success:hover { background-color: ${darken(success)} !important; }
+.btn-danger  { --bs-btn-bg: ${danger};  --bs-btn-border-color: ${danger};  background-color: ${danger}  !important; border-color: ${danger}  !important; border-radius: ${radius}; }
+.btn-danger:hover  { background-color: ${darken(danger)}  !important; }
 .btn-light, .btn-outline-light { border-radius: ${radius}; }
+.btn { border-radius: ${radius}; font-family: ${font}; }
 
-/* Badges */
+/* ── Badges ── */
 .badge.bg-primary   { background-color: ${primary}   !important; }
 .badge.bg-secondary { background-color: ${secondary} !important; }
 .badge.bg-success   { background-color: ${success}   !important; }
 .badge.bg-danger    { background-color: ${danger}     !important; }
 
-/* Nav + links */
+/* ── Background utilities ── */
+.bg-primary   { background-color: ${primary}   !important; }
+.bg-secondary { background-color: ${secondary} !important; }
+.bg-success   { background-color: ${success}   !important; }
+.bg-danger    { background-color: ${danger}     !important; }
+
+/* ── Text color utilities ── */
+.text-primary   { color: ${primary}   !important; }
+.text-secondary { color: ${secondary} !important; }
+.text-success   { color: ${success}   !important; }
+.text-danger    { color: ${danger}    !important; }
+.text-body      { color: ${bodyColor} !important; }
+
+/* ── Border utilities ── */
+.border-primary   { border-color: ${primary}   !important; }
+.border-secondary { border-color: ${secondary} !important; }
+
+/* ── Nav + links ── */
 .nav-link { color: ${link}; }
 .nav-link:hover { color: ${linkHover}; }
 .navbar-light .navbar-nav .nav-link { color: ${bodyColor}; }
 .navbar-light .navbar-nav .nav-link:hover { color: ${primary}; }
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show > .nav-link { color: ${primary}; }
+.navbar-dark .navbar-nav .nav-link:hover { color: ${primary}; }
+.navbar-dark .navbar-nav .nav-link.active { color: ${primary}; }
 
-/* Form controls */
-.form-control:focus, .form-select:focus { border-color: ${primary}; box-shadow: 0 0 0 0.25rem color-mix(in srgb, ${primary} 25%, transparent); }
+/* ── Form controls ── */
+.form-control:focus, .form-select:focus {
+  border-color: ${primary};
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, ${primary} 25%, transparent);
+}
 .form-check-input:checked { background-color: ${primary}; border-color: ${primary}; }
+input[type="range"]::-webkit-slider-thumb { background-color: ${primary}; }
 
-/* Progress & misc */
+/* ── Progress ── */
 .progress-bar { background-color: ${primary}; }
-.bg-primary   { background-color: ${primary}   !important; }
-.bg-secondary { background-color: ${secondary} !important; }
-.text-primary { color: ${primary}   !important; }
-.text-secondary { color: ${secondary} !important; }
-.border-primary { border-color: ${primary} !important; }
+.progress-bar.bg-primary { background-color: ${primary} !important; }
 
-/* Card & layout radius */
+/* ── Cards & layout ── */
 .card, .modal-content, .dropdown-menu { border-radius: ${radiusLg}; }
-section { background-color: ${bodyBg}; }
 `
   }
 

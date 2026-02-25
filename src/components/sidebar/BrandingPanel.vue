@@ -1,9 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { useThemeStore } from '@/stores/theme.js'
+import { useThemeStore }   from '@/stores/theme.js'
+import { useBuilderStore } from '@/stores/builder.js'
 import { GOOGLE_FONTS } from '@/themes/variables.js'
 
-const themeStore = useThemeStore()
+const themeStore   = useThemeStore()
+const builderStore = useBuilderStore()
 
 // Accordion sections — Identity open by default
 const openSections = ref(new Set(['identity']))
@@ -26,6 +28,10 @@ function getField(key) {
 /** Update a branding field; empty string = "use theme value". */
 function setField(key, value) {
   themeStore.updateBranding(key, value)
+  // When logo URL is explicitly cleared, restore original logos in blocks
+  if (key === 'logoUrl' && !value) {
+    builderStore.applyBrandLogo('')
+  }
 }
 
 /** The current effective theme value for a CSS var (used as placeholder hint). */
@@ -67,9 +73,18 @@ const logoPreviewSrc = computed(() => {
 
 const logoError = ref(false)
 
+let logoInjectTimer = null
+
 function onLogoInput(e) {
   logoError.value = false
-  setField('logoUrl', e.target.value)
+  const url = e.target.value
+  setField('logoUrl', url)
+
+  // Debounce logo injection into blocks (avoids updating on every keystroke)
+  clearTimeout(logoInjectTimer)
+  logoInjectTimer = setTimeout(() => {
+    builderStore.applyBrandLogo(url)
+  }, 600)
 }
 
 // ─── Font handling ───────────────────────────────────────────

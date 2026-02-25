@@ -1,11 +1,12 @@
 <script setup>
-import { ref, watch, computed } from 'vue'
+import { ref, watch, computed, nextTick } from 'vue'
 import { useBuilderStore } from '@/stores/builder.js'
 
 const store = useBuilderStore()
 
-const urlInput  = ref('')
-const urlError  = ref('')
+const urlInput    = ref('')
+const urlError    = ref('')
+const urlInputRef = ref(null)  // template ref for programmatic focus
 
 // ─── Detect platform from URL ─────────────────────────────────
 const platform = computed(() => {
@@ -53,6 +54,8 @@ watch(
     if (open) {
       urlInput.value = store.iframePickerContext?.currentSrc || ''
       urlError.value = ''
+      // Auto-focus the input after the modal's DOM is ready
+      nextTick(() => urlInputRef.value?.focus())
     }
   }
 )
@@ -106,10 +109,13 @@ function cancel() {
             <label class="ip-field-label" for="iframe-url-input">Video URL</label>
             <input
               id="iframe-url-input"
+              ref="urlInputRef"
               v-model="urlInput"
-              type="url"
+              type="text"
               class="ip-url-input"
               placeholder="https://www.youtube.com/watch?v=..."
+              autocomplete="off"
+              spellcheck="false"
               @keydown.enter.prevent="apply"
               @keydown.escape.prevent="cancel"
               @input="urlError = ''"
