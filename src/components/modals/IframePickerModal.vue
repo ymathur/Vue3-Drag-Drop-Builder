@@ -54,8 +54,15 @@ watch(
     if (open) {
       urlInput.value = store.iframePickerContext?.currentSrc || ''
       urlError.value = ''
-      // Auto-focus the input after the modal's DOM is ready
-      nextTick(() => urlInputRef.value?.focus())
+      // Auto-focus the input — use setTimeout to guarantee DOM is ready
+      // after Vue flushes the v-if insertion (nextTick alone is insufficient
+      // in some Chrome versions with Teleport).
+      nextTick(() => {
+        setTimeout(() => {
+          urlInputRef.value?.focus()
+          urlInputRef.value?.select()
+        }, 30)
+      })
     }
   }
 )
@@ -84,9 +91,8 @@ function cancel() {
 
 <template>
   <Teleport to="body">
-    <Transition name="ip-fade">
-      <div v-if="store.iframePickerOpen" class="ip-backdrop" @click.self="cancel">
-        <div class="ip-modal" role="dialog" aria-modal="true" aria-label="Edit Video URL">
+    <div v-if="store.iframePickerOpen" class="ip-backdrop" @click.self="cancel">
+      <div class="ip-modal" role="dialog" aria-modal="true" aria-label="Edit Video URL">
 
           <!-- Header -->
           <div class="ip-header">
@@ -161,6 +167,5 @@ function cancel() {
           </div>
         </div>
       </div>
-    </Transition>
   </Teleport>
 </template>

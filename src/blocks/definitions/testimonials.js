@@ -88,5 +88,98 @@ export const testimonialBlocks = [
     </div>
   </div>
 </section>`
+  },
+  {
+    id: 'testimonials-carousel',
+    categoryId: 'testimonials',
+    label: 'Testimonials Carousel',
+    html: `<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Our Customers Say</h2>
+    </div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-primary" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-primary" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-primary" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner pb-5">
+        <div class="carousel-item active">
+          <div class="text-center px-5 mx-auto" style="max-width:680px">
+            <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-4" style="width:60px;height:60px">SM</div>
+            <p class="fs-4 fst-italic fw-light mb-4">"This platform completely revolutionized how our team approaches campaigns. We saw results in the very first week."</p>
+            <div class="fw-semibold">Sarah M.</div>
+            <div class="text-muted small">Marketing Director</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="text-center px-5 mx-auto" style="max-width:680px">
+            <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-4" style="width:60px;height:60px">JK</div>
+            <p class="fs-4 fst-italic fw-light mb-4">"As a CTO I care deeply about reliability and developer experience. This product delivers on both without compromise."</p>
+            <div class="fw-semibold">James K.</div>
+            <div class="text-muted small">CTO</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="text-center px-5 mx-auto" style="max-width:680px">
+            <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-4" style="width:60px;height:60px">PR</div>
+            <p class="fs-4 fst-italic fw-light mb-4">"I built my entire startup on this. The support team feels like co-founders. Couldn't have shipped without them."</p>
+            <div class="fw-semibold">Priya R.</div>
+            <div class="text-muted small">Founder</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="filter:invert(1)"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="filter:invert(1)"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>`
+  },
+  {
+    id: 'testimonials-video',
+    categoryId: 'testimonials',
+    label: 'Video Testimonial',
+    html: `<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <div class="position-relative rounded-4 overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" class="w-100" alt="Video testimonial thumbnail" style="height:350px;object-fit:cover;">
+          <div class="position-absolute top-50 start-50 translate-middle">
+            <button class="btn btn-light btn-lg rounded-circle shadow" style="width:70px;height:70px;">
+              <i class="bi bi-play-fill text-primary fs-3"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <i class="bi bi-quote fs-1 text-primary mb-3"></i>
+        <p class="fst-italic fs-5 fw-light mb-4">"Switching to this platform was the best decision we made all year. Our team's productivity doubled, our churn dropped, and customers keep telling us how much smoother everything feels now."</p>
+        <div class="d-flex align-items-center mb-3">
+          <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width:48px;height:48px;">AL</div>
+          <div>
+            <div class="fw-semibold">Alex Lee</div>
+            <div class="text-muted small">Head of Product, Launchpad Co.</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <i class="bi bi-star-fill text-warning small"></i>
+          <i class="bi bi-star-fill text-warning small"></i>
+          <i class="bi bi-star-fill text-warning small"></i>
+          <i class="bi bi-star-fill text-warning small"></i>
+          <i class="bi bi-star-fill text-warning small"></i>
+        </div>
+        <a href="#" class="btn btn-outline-primary mt-1" style="width:fit-content;">Watch Full Story &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>`
   }
 ]

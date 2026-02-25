@@ -9,4 +9,8 @@ export const categories = [
   { id: 'forms',        label: 'Forms',          icon: 'bi-ui-checks' },
   { id: 'pricing',      label: 'Pricing',        icon: 'bi-tag' },
   { id: 'footers',      label: 'Footers',        icon: 'bi-layout-sidebar-reverse' },
+  { id: 'gallery',      label: 'Gallery',        icon: 'bi-images' },
+  { id: 'social-proof', label: 'Social Proof',   icon: 'bi-patch-check' },
+  { id: 'process',      label: 'Process',        icon: 'bi-diagram-3' },
+  { id: 'products',     label: 'Products',       icon: 'bi-bag' },
 ]

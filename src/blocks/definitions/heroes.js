@@ -33,9 +33,7 @@ export const heroBlocks = [
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="bg-primary rounded-4 d-flex align-items-center justify-content-center text-white fw-semibold fs-4" style="height:380px;">
-          <img src="https://www.forgebox.io/includes/images/ForgeBox.png">
-        </div>
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=80" alt="Hero visual" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>
@@ -155,5 +153,66 @@ export const heroBlocks = [
     </div>
   </div>
 </section>`
+  },
+  {
+    id: 'hero-app-download',
+    categoryId: 'heroes',
+    label: 'App Download Hero',
+    html: `<section class="py-5 bg-light">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge bg-primary fw-semibold mb-3 px-3 py-2">NEW App</span>
+        <h1 class="display-5 fw-bold lh-1 mb-3">Download Our App Today</h1>
+        <p class="lead text-muted mb-4">Everything you need, right in your pocket. Stay connected, productive, and in control — wherever you are.</p>
+        <div class="d-flex gap-3 flex-wrap mb-4">
+          <a href="#" class="btn btn-dark btn-lg d-flex align-items-center gap-2 px-4">
+            <i class="bi bi-apple fs-5"></i>
+            <span>App Store</span>
+          </a>
+          <a href="#" class="btn btn-outline-dark btn-lg d-flex align-items-center gap-2 px-4">
+            <i class="bi bi-google-play fs-5"></i>
+            <span>Google Play</span>
+          </a>
+        </div>
+        <p class="text-muted small mb-0">
+          <span class="text-warning fw-semibold">★★★★★</span>
+          <span class="ms-1 fw-semibold text-dark">4.9</span>
+          <span class="ms-1">from 50k+ reviews</span>
+        </p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=80" alt="Mobile app mockup" class="rounded-4 shadow-lg" style="height:400px; width:100%; object-fit:cover; max-width:360px;">
+      </div>
+    </div>
+  </div>
+</section>`
+  },
+  {
+    id: 'hero-announcement',
+    categoryId: 'heroes',
+    label: 'Announcement + Hero',
+    html: `<div>
+  <!-- Announcement Banner -->
+  <div class="bg-warning text-dark py-2 text-center">
+    <div class="container d-flex align-items-center justify-content-center gap-2 flex-wrap">
+      <span class="badge bg-dark text-warning fw-bold px-2 py-1">NEW</span>
+      <span class="fw-semibold small">We just launched our Pro plan with unlimited everything.</span>
+      <a href="#" class="text-dark fw-bold small text-decoration-none">See what's included &rarr;</a>
+    </div>
+  </div>
+  <!-- Main Hero -->
+  <section class="py-5 bg-light text-center">
+    <div class="container py-5">
+      <h1 class="display-4 fw-bold mb-3 mx-auto" style="max-width:720px">The All-in-One Platform Your Team Has Been Waiting For</h1>
+      <p class="lead text-muted mb-4 mx-auto" style="max-width:580px">Streamline your workflow, collaborate in real time, and ship products your customers love — without the complexity.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap mb-3">
+        <a href="#" class="btn btn-primary btn-lg px-5 rounded-pill">Get Started Free</a>
+        <a href="#" class="btn btn-outline-secondary btn-lg px-5 rounded-pill">See a Demo</a>
+      </div>
+      <p class="text-muted small mb-0">No credit card required &middot; Free 14-day trial</p>
+    </div>
+  </section>
+</div>`
   }
 ]

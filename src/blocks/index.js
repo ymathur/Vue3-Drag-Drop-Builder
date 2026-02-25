@@ -9,6 +9,10 @@ import { ctaBlocks } from './definitions/cta.js'
 import { formBlocks } from './definitions/forms.js'
 import { pricingBlocks } from './definitions/pricing.js'
 import { footerBlocks } from './definitions/footers.js'
+import { galleryBlocks } from './definitions/gallery.js'
+import { socialProofBlocks } from './definitions/social-proof.js'
+import { processBlocks } from './definitions/process.js'
+import { productBlocks } from './definitions/products.js'
 
 export const allBlocks = [
   ...navigationBlocks,
@@ -21,6 +25,10 @@ export const allBlocks = [
   ...formBlocks,
   ...pricingBlocks,
   ...footerBlocks,
+  ...galleryBlocks,
+  ...socialProofBlocks,
+  ...processBlocks,
+  ...productBlocks,
 ]
 
 export const blocksByCategory = categories.reduce((acc, cat) => {
