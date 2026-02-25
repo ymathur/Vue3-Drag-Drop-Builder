@@ -120,41 +120,6 @@ export const heroBlocks = [
 </section>`
   },
   {
-    id: 'hero-video',
-    categoryId: 'heroes',
-    label: 'Video Hero (Play Button + Modal)',
-    html: `<section class="py-5 text-center" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);">
-  <div class="container py-5">
-    <span class="badge bg-danger mb-3 px-3 py-2 fs-6">▶ Watch the Story</span>
-    <h1 class="display-4 fw-bold text-white mb-3">See It in Action</h1>
-    <p class="lead mb-5 mx-auto text-white-50" style="max-width:560px">Two minutes. That's all it takes to see why thousands of teams switched to our platform.</p>
-    <!-- Video thumbnail with play overlay — click to open modal -->
-    <div class="position-relative mx-auto rounded-4 overflow-hidden shadow-lg" style="max-width:720px; cursor:pointer;" data-bs-toggle="modal" data-bs-target="#videoHeroModal">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=720&q=80" alt="Video preview" class="img-fluid d-block" style="width:100%; aspect-ratio:16/9; object-fit:cover;">
-      <!-- Play button circle -->
-      <div class="position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center rounded-circle bg-white shadow" style="width:72px; height:72px; transition:transform 0.2s;">
-        <i class="bi bi-play-fill text-primary" style="font-size:2rem; margin-left:4px;"></i>
-      </div>
-    </div>
-  </div>
-  <!-- Bootstrap Video Modal — replace iframe src with your YouTube/Vimeo embed URL -->
-  <div class="modal fade" id="videoHeroModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-dark border-0">
-        <div class="modal-header border-0 pb-0">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0 pb-1">
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Product Demo" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>`
-  },
-  {
     id: 'hero-app-download',
     categoryId: 'heroes',
     label: 'App Download Hero',

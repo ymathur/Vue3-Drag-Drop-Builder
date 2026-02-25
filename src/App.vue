@@ -52,9 +52,6 @@ function tryRestoreAutoSave() {
 // ─── Auto-open theme picker on first launch ───────────────
 onMounted(() => {
   tryRestoreAutoSave()
-  // Force-close iframe picker — it's now handled by window.prompt() in CanvasBlock,
-  // so any stale iframePickerOpen=true state (e.g. from HMR) must never show a UI.
-  store.closeIframePicker()
   // If no theme has ever been selected, open the picker immediately
   if (!themeStore.activeThemeId) {
     themeStore.openPicker()
