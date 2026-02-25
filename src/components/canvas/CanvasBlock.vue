@@ -256,6 +256,21 @@ function scanIframes() {
   iframeEls.value = Array.from(blockRef.value.querySelectorAll('iframe'))
 }
 
+/**
+ * Find which scanned iframe (if any) was visually clicked.
+ * pointer-events:none makes iframes transparent to events, so e.target is
+ * never the iframe — we fall back to checking click coordinates against each
+ * iframe's bounding rect.
+ */
+function getClickedIframe(e) {
+  const x = e.clientX
+  const y = e.clientY
+  return iframeEls.value.find(iframe => {
+    const r = iframe.getBoundingClientRect()
+    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom
+  })
+}
+
 function handleIframeClick(iframeEl, e) {
   e.stopPropagation()
   store.selectBlock(props.block.instanceId)
@@ -463,9 +478,10 @@ function onWrapperClick(e) {
   store.selectBlock(props.block.instanceId)
 
   // 1a. <iframe> click → video URL editor
-  // (iframes have pointer-events:none in canvas so clicks bubble up here)
-  const iframeEl = e.target.closest('iframe')
-  if (iframeEl && blockRef.value?.contains(iframeEl)) {
+  // pointer-events:none on iframes means e.target is never the iframe itself —
+  // clicks pass through to the element below. Use coordinate-based detection instead.
+  const iframeEl = getClickedIframe(e)
+  if (iframeEl) {
     handleIframeClick(iframeEl, e)
     return
   }

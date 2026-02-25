@@ -101,20 +101,20 @@ export async function exportZip(canvasBlocks, themeStore = null, filename = 'my-
 
   if (themeStore?.activeTheme) {
     const theme = themeStore.activeTheme
-    const vars  = themeStore.mergedVars
+    const vars  = themeStore.mergedVars  // already includes branding overrides
 
     themeRootCss  = buildRootCss(vars)
     themeExtraCss = theme.extraCss || ''
     googleFontNames = theme.googleFonts || []
 
-    // Include any font family override from customizations
+    // Include any font family override from customizations or branding
     const fontVar = vars['--bs-font-sans-serif']
     if (fontVar) {
       const m = fontVar.match(/["']([^"']+)["']/)
       if (m && m[1]) googleFontNames = [...new Set([...googleFontNames, m[1]])]
     }
-    // Remove non-Google-Font sentinel
-    googleFontNames = googleFontNames.filter(n => n && n !== 'System Default')
+    // Remove non-Google-Font sentinels
+    googleFontNames = googleFontNames.filter(n => n && n !== 'System Default' && n !== '-apple-system')
   }
 
   const googleFontsUrl = buildGoogleFontsUrl(googleFontNames)
@@ -139,8 +139,12 @@ export async function exportZip(canvasBlocks, themeStore = null, filename = 'my-
   // ── 4. Build index.html ────────────────────────────────────
   const bodyContent = htmlParts.join('\n\n')
 
+  // Page title: branding name > theme name > default
+  const brandName   = themeStore?.brandingSettings?.brandName?.trim()
+  const pageTitle   = brandName || (themeStore?.activeTheme ? `${themeStore.activeTheme.name} — My Page` : 'My Page')
+
   const themeNameComment = themeStore?.activeTheme
-    ? `<!-- Theme: ${themeStore.activeTheme.name} -->\n  `
+    ? `<!-- Theme: ${themeStore.activeTheme.name}${brandName ? ` | Brand: ${brandName}` : ''} -->\n  `
     : ''
 
   const indexHtml = `<!DOCTYPE html>
@@ -148,7 +152,7 @@ export async function exportZip(canvasBlocks, themeStore = null, filename = 'my-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Page</title>
+  <title>${pageTitle}</title>
 
   <!-- Bootstrap 5.3 CSS -->
   <link
