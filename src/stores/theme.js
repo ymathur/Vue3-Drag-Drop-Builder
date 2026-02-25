@@ -1,13 +1,11 @@
 /**
- * Theme store — manages active theme, per-variable overrides, branding settings,
- * and live CSS injection.
+ * Theme store — manages active theme, per-variable overrides, and live CSS injection.
  *
  * CSS injection priority (low → high):
  *   1. :root { preset vars }
  *   2. :root { user customizations (via ThemePanel) }
- *   3. :root { branding overrides (via BrandingPanel) }   ← highest
- *   4. Dynamic Bootstrap component overrides (buttons, badges, etc.)
- *   5. Preset extraCss (brand-specific decorative styles)
+ *   3. Dynamic Bootstrap component overrides (buttons, badges, etc.)
+ *   4. Preset extraCss (brand-specific decorative styles)
  */
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
@@ -18,38 +16,6 @@ const STYLE_TAG_ID = 'theme-styles'
 const FONTS_TAG_ID = 'theme-fonts'
 const STORAGE_KEY  = 'builder-theme'
 
-// ─── Branding field → CSS variable mapping ───────────────────────────────────
-const BRANDING_MAP = {
-  primaryColor:    ['--bs-primary'],
-  secondaryColor:  ['--bs-secondary'],
-  bodyBg:          ['--bs-body-bg'],
-  bodyColor:       ['--bs-body-color'],
-  headingColor:    ['--bs-heading-color'],
-  linkColor:       ['--bs-link-color'],
-  success:         ['--bs-success'],
-  danger:          ['--bs-danger'],
-  fontFamily:      ['--bs-font-sans-serif'],
-  borderRadius:    ['--bs-border-radius', '--bs-border-radius-sm'],
-  borderRadiusLg:  ['--bs-border-radius-lg'],
-  borderRadiusPill:['--bs-border-radius-pill'],
-}
-
-const EMPTY_BRANDING = {
-  brandName:        '',
-  logoUrl:          '',
-  primaryColor:     '',
-  secondaryColor:   '',
-  bodyBg:           '',
-  bodyColor:        '',
-  headingColor:     '',
-  linkColor:        '',
-  success:          '',
-  danger:           '',
-  fontFamily:       '',
-  borderRadius:     '',
-  borderRadiusLg:   '',
-  borderRadiusPill: '',
-}
 
 export const useThemeStore = defineStore('theme', () => {
 
@@ -59,9 +25,6 @@ export const useThemeStore = defineStore('theme', () => {
 
   /** User overrides via ThemePanel: { '--bs-primary': '#ff0000', ... }  */
   const customizations  = ref({})
-
-  /** Client branding overrides — highest priority. Empty string = "use theme value". */
-  const brandingSettings = ref({ ...EMPTY_BRANDING })
 
   /** Whether the launch / onboarding picker modal is showing. */
   const pickerOpen = ref(false)
@@ -74,39 +37,13 @@ export const useThemeStore = defineStore('theme', () => {
   )
 
   /**
-   * Merged vars — three-layer priority:
-   *   preset.vars  →  customizations  →  branding overrides
+   * Merged vars — two-layer priority:
+   *   preset.vars  →  customizations (ThemePanel overrides)
    */
   const mergedVars = computed(() => {
     if (!activeTheme.value) return {}
-
-    // Layer 1 + 2: preset base + user customizations
-    const base = { ...activeTheme.value.vars, ...customizations.value }
-
-    // Layer 3: branding overrides (only when field is non-empty)
-    const b = brandingSettings.value
-    for (const [brandKey, cssKeys] of Object.entries(BRANDING_MAP)) {
-      const v = b[brandKey]
-      if (v) cssKeys.forEach(k => { base[k] = v })
-    }
-
-    // Keep RGB companions in sync for branding colors
-    if (b.primaryColor) {
-      const rgb = hexToRgb(b.primaryColor)
-      if (rgb) base['--bs-primary-rgb'] = rgb
-    }
-    if (b.secondaryColor) {
-      const rgb = hexToRgb(b.secondaryColor)
-      if (rgb) base['--bs-secondary-rgb'] = rgb
-    }
-
-    return base
+    return { ...activeTheme.value.vars, ...customizations.value }
   })
-
-  /** True if any branding field has a non-empty value. */
-  const hasBranding = computed(() =>
-    Object.values(brandingSettings.value).some(v => v !== '')
-  )
 
   // ─── Actions ────────────────────────────────────────────────
 
@@ -147,24 +84,6 @@ export const useThemeStore = defineStore('theme', () => {
   }
 
   /**
-   * Update a single branding field.
-   * When value is non-empty it overrides the corresponding theme CSS variable(s).
-   * When value is empty-string the theme value takes over again.
-   */
-  function updateBranding(key, value) {
-    brandingSettings.value = { ...brandingSettings.value, [key]: value }
-    applyToCanvas()
-    persistState()
-  }
-
-  /** Clear ALL branding fields — theme values take full effect again. */
-  function clearBranding() {
-    brandingSettings.value = { ...EMPTY_BRANDING }
-    applyToCanvas()
-    persistState()
-  }
-
-  /**
    * Inject theme + component + branding styles into document <head>.
    * Creates / updates <style id="theme-styles"> and <link id="theme-fonts">.
    */
@@ -197,9 +116,8 @@ export const useThemeStore = defineStore('theme', () => {
   function persistState() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        activeThemeId:    activeThemeId.value,
-        customizations:   customizations.value,
-        brandingSettings: brandingSettings.value,
+        activeThemeId:  activeThemeId.value,
+        customizations: customizations.value,
       }))
     } catch (_) { /* storage not available */ }
   }
@@ -209,11 +127,10 @@ export const useThemeStore = defineStore('theme', () => {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (!raw) return
       const parsed = JSON.parse(raw)
-      const { activeThemeId: id, customizations: cust, brandingSettings: branding } = parsed
+      const { activeThemeId: id, customizations: cust } = parsed
       if (id && getThemeById(id)) {
-        activeThemeId.value    = id
-        customizations.value   = cust ?? {}
-        brandingSettings.value = { ...EMPTY_BRANDING, ...(branding ?? {}) }
+        activeThemeId.value  = id
+        customizations.value = cust ?? {}
         applyToCanvas()
       }
     } catch (_) { /* ignore corrupt storage */ }
@@ -412,17 +329,10 @@ input[type="range"]::-webkit-slider-thumb { background-color: ${primary}; }
   function injectFonts(googleFontNames, vars) {
     const names = new Set(googleFontNames)
 
-    // Include font from vars (ThemePanel or BrandingPanel override)
+    // Include font from vars (ThemePanel override)
     const fontVar = vars['--bs-font-sans-serif']
     if (fontVar) {
       const extracted = extractFontName(fontVar)
-      if (extracted) names.add(extracted)
-    }
-
-    // Include branding font if set
-    const brandFont = brandingSettings.value.fontFamily
-    if (brandFont) {
-      const extracted = extractFontName(brandFont)
       if (extracted) names.add(extracted)
     }
 
@@ -458,20 +368,16 @@ input[type="range"]::-webkit-slider-thumb { background-color: ${primary}; }
     // state
     activeThemeId,
     customizations,
-    brandingSettings,
     pickerOpen,
     // computed
     activeTheme,
     mergedVars,
-    hasBranding,
     // actions
     openPicker,
     closePicker,
     selectTheme,
     updateVar,
     resetToPreset,
-    updateBranding,
-    clearBranding,
     applyToCanvas,
     removeFromCanvas,
     // data

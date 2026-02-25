@@ -698,50 +698,105 @@
 }
 
 /* =====================================================
-   Iframe Picker Modal extras
+   Iframe URL Edit Bar (non-blocking bottom panel)
+   Replaces the old backdrop-modal approach — no overlay
+   so the user can see the canvas while editing the URL.
    ===================================================== */
-.ifp-convert-hint {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 8px;
-  padding: 0.6rem 0.75rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.ifp-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: #1e293b;
+  border-top: 2px solid #3b82f6;
+  padding: 0.55rem 1.25rem;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.45);
 }
 
-.ifp-hint-text {
+.ifp-bar-inner {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: #166534;
+  gap: 0.6rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ifp-bar-label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ifp-bar-input {
   flex: 1;
   min-width: 0;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 7px;
+  padding: 0.42rem 0.75rem;
+  font-size: 0.88rem;
+  color: #f1f5f9;
+  background: rgba(255,255,255,0.07);
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+.ifp-bar-input::placeholder { color: rgba(255,255,255,0.3); }
+.ifp-bar-input:focus {
+  border-color: #3b82f6;
+  background: rgba(255,255,255,0.11);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
 }
 
-.ifp-embed-preview {
-  background: rgba(0,0,0,0.06);
-  border-radius: 4px;
-  padding: 1px 6px;
-  font-size: 0.72rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-  display: inline-block;
-}
-
-.ifp-platform-badge {
-  font-size: 0.82rem;
-  color: #475569;
+.ifp-bar-convert {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: #fcd34d;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* Fade transition for the modal backdrop (reuses ip-fade from image picker) */
+.ifp-convert-btn {
+  background: rgba(252,211,77,0.12);
+  border: 1px solid rgba(252,211,77,0.3);
+  border-radius: 5px;
+  color: #fcd34d;
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  cursor: pointer;
+  transition: background 0.12s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ifp-convert-btn:hover { background: rgba(252,211,77,0.22); }
+
+.ifp-bar-ready {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: #86efac;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ifp-bar-error {
+  font-size: 0.78rem;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ip-fade still used by ImagePickerModal's Transition */
 .ip-fade-enter-active,
 .ip-fade-leave-active { transition: opacity 0.15s ease; }
 .ip-fade-enter-from,
@@ -1320,16 +1375,8 @@
 }
 
 /* =====================================================
-   Sidebar — 3-tab layout (Blocks / Theme / Brand)
-   ===================================================== */
-/* Shrink tab padding when 3 tabs share the same width */
-.sidebar-tabs:has(.sidebar-tab:nth-child(3)) .sidebar-tab {
-  padding: 0.5rem 0.25rem;
-  font-size: 0.75rem;
-}
-
-/* =====================================================
-   Branding Panel (BrandingPanel.vue)
+   (Branding Panel CSS below is kept for reference but
+    the BrandingPanel feature has been removed)
    ===================================================== */
 .brand-panel {
   display: flex;

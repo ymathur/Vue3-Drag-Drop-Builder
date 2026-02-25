@@ -34,12 +34,44 @@ function cleanHtml(html) {
 }
 
 /**
+ * Reads the live theme CSS injected by the theme store (<style id="theme-styles">)
+ * so the exported page inherits the current theme colours and typography.
+ */
+function getThemeCss() {
+  if (typeof document === 'undefined') return ''
+  const el = document.getElementById('theme-styles')
+  return el ? el.textContent : ''
+}
+
+/**
+ * Returns the Google Fonts href if one has been injected by the theme store
+ * (<link id="theme-fonts">), so the exported page loads the same typefaces.
+ */
+function getGoogleFontsHref() {
+  if (typeof document === 'undefined') return null
+  const el = document.getElementById('theme-fonts')
+  return (el && el.href) ? el.href : null
+}
+
+/**
  * Assembles a complete standalone HTML page from the array of canvas block instances.
+ * Includes the active theme CSS and Google Fonts so the exported page matches the design.
  */
 export function generateFullHtml(canvasBlocks) {
   const bodyContent = canvasBlocks
     .map(block => cleanHtml(block.editedHtml || block.html))
     .join('\n\n')
+
+  const themeCss        = getThemeCss()
+  const googleFontsHref = getGoogleFontsHref()
+
+  const googleFontsTag = googleFontsHref
+    ? `\n  <!-- Google Fonts -->\n  <link rel="preconnect" href="https://fonts.googleapis.com" />\n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n  <link rel="stylesheet" href="${googleFontsHref}" />`
+    : ''
+
+  const themeStyleTag = themeCss
+    ? `\n  <!-- Theme overrides (exported from builder) -->\n  <style>\n${themeCss}\n  </style>`
+    : ''
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -51,21 +83,19 @@ export function generateFullHtml(canvasBlocks) {
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous"
   />
   <!-- Bootstrap Icons -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
+  />${googleFontsTag}${themeStyleTag}
 </head>
 <body>
 ${bodyContent}
   <!-- Bootstrap 5.3 JS Bundle -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmia4i9B4BNKGH3G3lFaQgNNa8V"
     crossorigin="anonymous"
   ><\/script>
 </body>

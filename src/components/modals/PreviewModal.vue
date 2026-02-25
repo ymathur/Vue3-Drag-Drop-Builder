@@ -1,14 +1,39 @@
 <script setup>
+import { ref, watch, onUnmounted } from 'vue'
 import { useBuilderStore } from '@/stores/builder.js'
 
-const store = useBuilderStore()
+const store   = useBuilderStore()
+const blobUrl = ref(null)
 
+// ─── Blob URL lifecycle ───────────────────────────────────────
+// Using a blob URL instead of srcdoc lets Bootstrap's JS bundle load from
+// the CDN without any sandbox restrictions, so accordions, dropdowns, and
+// carousels all work correctly in the preview iframe.
+watch(
+  () => store.previewOpen,
+  (open) => {
+    // Revoke any previous URL first to free memory
+    if (blobUrl.value) {
+      URL.revokeObjectURL(blobUrl.value)
+      blobUrl.value = null
+    }
+    if (open) {
+      const blob = new Blob([store.previewHtml], { type: 'text/html' })
+      blobUrl.value = URL.createObjectURL(blob)
+    }
+  }
+)
+
+onUnmounted(() => {
+  if (blobUrl.value) URL.revokeObjectURL(blobUrl.value)
+})
+
+// ─── Actions ─────────────────────────────────────────────────
 function openInNewTab() {
   const html = store.previewHtml
   const blob = new Blob([html], { type: 'text/html' })
-  const url = URL.createObjectURL(blob)
+  const url  = URL.createObjectURL(blob)
   window.open(url, '_blank')
-  // Cleanup after a short delay
   setTimeout(() => URL.revokeObjectURL(url), 10000)
 }
 
@@ -20,6 +45,7 @@ function close() {
 <template>
   <Teleport to="body">
     <div v-if="store.previewOpen" class="preview-overlay">
+
       <!-- Toolbar -->
       <div class="preview-toolbar">
         <span class="preview-title">
@@ -39,13 +65,14 @@ function close() {
         </button>
       </div>
 
-      <!-- Preview Iframe -->
+      <!-- Preview Iframe — blob URL for unrestricted Bootstrap JS execution -->
       <iframe
+        v-if="blobUrl"
         class="preview-iframe"
-        :srcdoc="store.previewHtml"
-        sandbox="allow-same-origin allow-scripts allow-forms"
+        :src="blobUrl"
         title="Page Preview"
       />
+
     </div>
   </Teleport>
 </template>

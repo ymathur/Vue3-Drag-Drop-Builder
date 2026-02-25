@@ -249,48 +249,6 @@ export const useBuilderStore = defineStore('builder', () => {
     setTimeout(() => { lastAppliedImageContext.value = null }, 300)
   }
 
-  // ─── Brand Logo Injection ──────────────────────────────────
-  /**
-   * Scans all canvas blocks for logo images (inside .navbar-brand) and
-   * replaces their src with the provided logo URL. Pass an empty string
-   * to restore the original src saved before the first replacement.
-   */
-  function applyBrandLogo(logoUrl) {
-    for (const block of canvasBlocks.value) {
-      const html = block.editedHtml || block.html
-      const div  = document.createElement('div')
-      div.innerHTML = html
-
-      // Target images that are inside Bootstrap navbar-brand elements
-      const logoImgs = div.querySelectorAll('.navbar-brand img')
-      if (!logoImgs.length) continue
-
-      let changed = false
-      logoImgs.forEach(img => {
-        if (logoUrl) {
-          // Save original src once (for restore when logo is cleared)
-          if (!img.dataset.originalSrc) {
-            img.dataset.originalSrc = img.getAttribute('src') || ''
-          }
-          img.src = logoUrl
-          img.setAttribute('src', logoUrl)
-          changed = true
-        } else {
-          // Restore original src
-          const original = img.dataset.originalSrc
-          if (original !== undefined) {
-            img.src = original
-            img.setAttribute('src', original)
-            delete img.dataset.originalSrc
-            changed = true
-          }
-        }
-      })
-
-      if (changed) block.editedHtml = div.innerHTML
-    }
-  }
-
   // ─── Exports ───────────────────────────────────────────────
   return {
     // state
@@ -329,7 +287,5 @@ export const useBuilderStore = defineStore('builder', () => {
     openImagePickerWithPreload,
     closeImagePicker,
     applyImage,
-    // brand logo injection
-    applyBrandLogo,
   }
 })
