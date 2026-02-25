@@ -7,7 +7,6 @@ import Sidebar     from '@/components/layout/Sidebar.vue'
 import Canvas      from '@/components/layout/Canvas.vue'
 import PreviewModal         from '@/components/modals/PreviewModal.vue'
 import ImagePickerModal     from '@/components/modals/ImagePickerModal.vue'
-import IframePickerModal    from '@/components/modals/IframePickerModal.vue'
 import ThemePickerModal     from '@/components/modals/ThemePickerModal.vue'
 import FloatingRichTextToolbar from '@/components/canvas/FloatingRichTextToolbar.vue'
 import '@/assets/styles/canvas.css'
@@ -53,6 +52,9 @@ function tryRestoreAutoSave() {
 // ─── Auto-open theme picker on first launch ───────────────
 onMounted(() => {
   tryRestoreAutoSave()
+  // Force-close iframe picker — it's now handled by window.prompt() in CanvasBlock,
+  // so any stale iframePickerOpen=true state (e.g. from HMR) must never show a UI.
+  store.closeIframePicker()
   // If no theme has ever been selected, open the picker immediately
   if (!themeStore.activeThemeId) {
     themeStore.openPicker()
@@ -99,7 +101,6 @@ function onPaste(e) {
     <!-- Global modals (teleported to <body> internally) -->
     <PreviewModal />
     <ImagePickerModal />
-    <IframePickerModal />
     <ThemePickerModal />
 
     <!-- Floating rich-text formatting toolbar -->
