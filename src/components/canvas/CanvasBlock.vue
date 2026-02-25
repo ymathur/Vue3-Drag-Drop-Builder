@@ -246,10 +246,18 @@ watch(isSelected, (selected) => {
   else cleanupBgListeners()
 })
 
-// ─── Iframe scanning + click → URL editor ────────────────────
+// ─── Iframe scanning + mousedown → URL editor ────────────────
 // Iframes capture all mouse events, so we add pointer-events:none via CSS
-// and let the wrapper click bubble up to us instead.
+// and let the wrapper events bubble up to us instead.
+//
+// IMPORTANT: we intercept on MOUSEDOWN, not click.  When window.prompt()
+// closes, Chrome fires a synthetic click event at the same page coordinates
+// (the iframe area).  If we handled iframes on 'click', that synthetic click
+// would re-open the prompt immediately after the user dismissed it.
+// Handling on 'mousedown' lets us set a flag that suppresses the paired
+// 'click' event that naturally follows the same user press.
 const iframeEls = ref([])
+let _iframeHandledOnMouseDown = false   // flag set when mousedown opens prompt
 
 function scanIframes() {
   if (!blockRef.value) return
@@ -271,13 +279,11 @@ function getClickedIframe(e) {
   })
 }
 
-function handleIframeClick(iframeEl, e) {
-  e.stopPropagation()
-  store.selectBlock(props.block.instanceId)
-
+function handleIframeEdit(iframeEl) {
   const currentSrc = iframeEl.getAttribute('src') || ''
   const input = window.prompt('Video URL\n\nYouTube or Vimeo links are auto-converted to embed:', currentSrc)
   if (input === null) return   // user pressed Cancel
+
   let src = input.trim()
   if (!src) return
 
@@ -295,6 +301,29 @@ function handleIframeClick(iframeEl, e) {
   iframeEl.src = src
   iframeEl.setAttribute('src', src)
   store.updateBlockHtml(props.block.instanceId, blockRef.value.innerHTML)
+}
+
+function onWrapperMouseDown(e) {
+  // Only intercept when a scanned iframe is under the cursor
+  const iframeEl = getClickedIframe(e)
+  if (!iframeEl) return
+
+  // Prevent text-selection drag from starting on the iframe area
+  e.preventDefault()
+  e.stopPropagation()
+
+  store.selectBlock(props.block.instanceId)
+
+  // Mark that this mousedown handled an iframe so the subsequent
+  // 'click' event (and any synthetic click Chrome fires after the
+  // dialog closes) is ignored in onWrapperClick.
+  _iframeHandledOnMouseDown = true
+
+  handleIframeEdit(iframeEl)
+
+  // Keep the flag active long enough to absorb the paired click +
+  // any synthetic post-dialog click Chrome fires (~300 ms is plenty).
+  setTimeout(() => { _iframeHandledOnMouseDown = false }, 600)
 }
 
 // ─── Image click → picker ────────────────────────────────────
@@ -488,17 +517,15 @@ function onWrapperClick(e) {
   if (e.target.closest('.repeatable-controls-overlay')) return
   if (e.target.closest('.bg-replace-overlay')) return
 
-  // Always select the block on any click
-  store.selectBlock(props.block.instanceId)
-
-  // 1a. <iframe> click → video URL editor
-  // pointer-events:none on iframes means e.target is never the iframe itself —
-  // clicks pass through to the element below. Use coordinate-based detection instead.
+  // Iframe presses are handled on mousedown (onWrapperMouseDown).
+  // Suppress any click — including the synthetic one Chrome fires after a
+  // window.prompt() dialog closes — that still lands on the iframe area.
+  if (_iframeHandledOnMouseDown) return
   const iframeEl = getClickedIframe(e)
-  if (iframeEl) {
-    handleIframeClick(iframeEl, e)
-    return
-  }
+  if (iframeEl) return   // mousedown handler will / did deal with it
+
+  // Always select the block on any non-iframe click
+  store.selectBlock(props.block.instanceId)
 
   // 1b. <img> click → image picker
   const imgEl = e.target.closest('img')
@@ -561,6 +588,7 @@ function bgOverlayStyle() {
   <div
     class="canvas-block-wrapper"
     :class="{ 'is-selected': isSelected }"
+    @mousedown="onWrapperMouseDown"
     @click="onWrapperClick"
   >
     <!-- Drag handle -->
