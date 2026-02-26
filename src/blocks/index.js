@@ -14,6 +14,12 @@ import { socialProofBlocks } from './definitions/social-proof.js'
 import { processBlocks } from './definitions/process.js'
 import { productBlocks } from './definitions/products.js'
 
+// Industry theme blocks
+import { jewelleryBlocks } from './definitions/jewellery.js'
+import { furnitureBlocks } from './definitions/furniture.js'
+import { handicraftBlocks } from './definitions/handicraft.js'
+import { trailerBlocks } from './definitions/trailer.js'
+
 export const allBlocks = [
   ...navigationBlocks,
   ...heroBlocks,
@@ -29,6 +35,11 @@ export const allBlocks = [
   ...socialProofBlocks,
   ...processBlocks,
   ...productBlocks,
+  // Industry theme blocks
+  ...jewelleryBlocks,
+  ...furnitureBlocks,
+  ...handicraftBlocks,
+  ...trailerBlocks,
 ]
 
 export const blocksByCategory = categories.reduce((acc, cat) => {
