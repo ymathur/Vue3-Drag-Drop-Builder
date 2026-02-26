@@ -28,14 +28,23 @@ export default {
     '--bs-border-radius-sm':   '0.25rem',
     '--bs-border-radius-lg':   '0.5rem',
     '--bs-border-radius-pill': '50rem',
+    // Surface palette — consumed by buildComponentCss for .bg-dark / .bg-light
+    '--bs-dark':       '#212529',
+    '--bs-light':      '#f8fafc',
+    '--bs-dark-text':  '#ffffff',
+    '--bs-light-text': '#212529',
   },
   extraCss: `
 /* ── Light Theme ── */
+body { background: var(--bs-body-bg) !important; color: var(--bs-body-color) !important; }
+section:not([class*="bg-"]) { background-color: var(--bs-body-bg) !important; }
+.bg-light  { background-color: var(--bs-light) !important; color: var(--bs-light-text) !important; }
+.bg-white  { background-color: var(--bs-body-bg) !important; color: var(--bs-body-color) !important; }
+.bg-dark   { background-color: var(--bs-dark)  !important; color: var(--bs-dark-text)  !important; }
+.bg-primary { background-color: var(--bs-primary) !important; color: #fff !important; }
 .navbar { box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
 .card { box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04); border-color: #f1f5f9; }
-.btn-primary { background-color: #0d6efd; border-color: #0d6efd; }
-.btn-primary:hover { background-color: #0a58ca; border-color: #0a53be; }
-section { background-color: #ffffff; }
-.bg-light { background-color: #f8fafc !important; }
+.btn-primary { background-color: var(--bs-primary); border-color: var(--bs-primary); }
+p, body { font-family: var(--bs-font-sans-serif); }
 `,
 }

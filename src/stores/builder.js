@@ -220,6 +220,71 @@ export const useBuilderStore = defineStore('builder', () => {
     setTimeout(() => { lastAppliedImageContext.value = null }, 300)
   }
 
+  // ─── Palette Normalizer ────────────────────────────────────
+  // Map of known hardcoded theme palette hex values → the CSS variable they
+  // should map to. Ordered longest-first so partial overlaps don't bite.
+  // Once converted, var() references update automatically when themes change,
+  // making all further theme-switches and ThemePanel tweaks live instantly.
+  const PALETTE_CSS_VAR_MAP = [
+    // ── Jewellery (Obsidian #0a0a0a · Gold #c9a96e) ──────────
+    ['#0f0d0b', 'var(--bs-body-bg)'],
+    ['#080808', 'var(--bs-body-bg)'],
+    ['#151515', 'var(--bs-body-bg)'],
+    ['#0a0a0a', 'var(--bs-body-bg)'],
+    ['#050302', 'var(--bs-dark)'],
+    ['#1a1612', 'var(--bs-dark)'],
+    ['#1c1510', 'var(--bs-dark)'],
+    ['#c9a96e', 'var(--bs-primary)'],
+    // ── Furniture (Linen #fef6ec · Terracotta #c27a56 · Walnut #3d2b1f) ──
+    ['#f5e6d8', 'var(--bs-body-bg)'],
+    ['#fef6ec', 'var(--bs-body-bg)'],
+    ['#5a3e30', 'var(--bs-dark)'],
+    ['#4e3728', 'var(--bs-dark)'],
+    ['#3d2b1f', 'var(--bs-dark)'],
+    ['#c27a56', 'var(--bs-primary)'],
+    ['#7a5c47', 'var(--bs-secondary)'],
+    ['#e8d5c0', 'var(--bs-border-color)'],
+    // ── Handicraft (Parchment #fdf8f0 · Saffron #f0a500 · Indigo #2d2f6b) ──
+    ['#fdf8f0', 'var(--bs-body-bg)'],
+    ['#2d2f6b', 'var(--bs-dark)'],
+    ['#f0a500', 'var(--bs-primary)'],
+    ['#e5d8c0', 'var(--bs-border-color)'],
+    // ── Trailer (Forest #141e14 · Orange #e8630a · Sage #4a8a4a) ──
+    ['#0e160e', 'var(--bs-dark)'],
+    ['#0a100a', 'var(--bs-dark)'],
+    ['#1a2a1a', 'var(--bs-dark)'],
+    ['#141e14', 'var(--bs-body-bg)'],
+    ['#e8630a', 'var(--bs-primary)'],
+    ['#4a8a4a', 'var(--bs-secondary)'],
+    ['#c8dcc8', 'var(--bs-body-color)'],
+  ]
+
+  /**
+   * Scan all canvas blocks and replace hardcoded theme-palette hex colors in
+   * inline style attributes with CSS var() references.
+   *
+   * • Safe to call repeatedly — once a hex is replaced by a var(), subsequent
+   *   calls are no-ops since the hex pattern no longer matches.
+   * • Only 6-digit hex codes are replaced; 8-digit hex (e.g. #141e14cc) are
+   *   intentionally left alone (they carry alpha that has no CSS-var equivalent).
+   * • Populates editedHtml so the normalised HTML persists in auto-save.
+   */
+  function normalizeCanvasBlockColors() {
+    canvasBlocks.value.forEach(block => {
+      const src = block.editedHtml ?? block.html
+      if (!src) return
+
+      let html = src
+      for (const [hex, cssVar] of PALETTE_CSS_VAR_MAP) {
+        // Match only exact 6-char hex NOT followed by a 7th hex digit
+        const escaped = hex.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        html = html.replace(new RegExp(escaped + '(?![0-9a-fA-F])', 'gi'), cssVar)
+      }
+
+      if (html !== src) block.editedHtml = html
+    })
+  }
+
   // ─── Exports ───────────────────────────────────────────────
   return {
     // state
@@ -248,6 +313,7 @@ export const useBuilderStore = defineStore('builder', () => {
     clearCanvas,
     loadCanvasData,
     exportHTML,
+    normalizeCanvasBlockColors,
     // image picker actions
     openImagePicker,
     openImagePickerWithPreload,

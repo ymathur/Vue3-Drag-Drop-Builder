@@ -30,6 +30,11 @@ export default {
     '--bs-border-radius-sm':   '4px',
     '--bs-border-radius-lg':   '10px',
     '--bs-border-radius-pill': '50rem',
+    // Surface palette — consumed by buildComponentCss for .bg-dark / .bg-light
+    '--bs-dark':       '#3d2b1f',
+    '--bs-light':      '#f5e8d5',
+    '--bs-dark-text':  '#fef6ec',
+    '--bs-light-text': '#3d2b1f',
   },
 
   extraCss: `
@@ -41,10 +46,10 @@ export default {
 
 body { background: #fef6ec !important; color: #3d2b1f !important; }
 section:not([class*="bg-"]) { background-color: #fef6ec !important; }
-.bg-light  { background-color: #f5e8d5 !important; color: #3d2b1f !important; }
-.bg-white  { background-color: #ffffff !important; color: #3d2b1f !important; }
-.bg-dark   { background-color: #3d2b1f !important; color: #fef6ec !important; }
-.bg-primary { background-color: #c27a56 !important; color: #fff !important; }
+.bg-light  { background-color: var(--bs-light) !important; color: var(--bs-light-text) !important; }
+.bg-white  { background-color: var(--bs-body-bg) !important; color: var(--bs-body-color) !important; }
+.bg-dark   { background-color: var(--bs-dark)  !important; color: var(--bs-dark-text)  !important; }
+.bg-primary { background-color: var(--bs-primary) !important; color: #fff !important; }
 
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
@@ -67,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #6b4a30;
   line-height: 1.8;
 }
-p, body { font-family: "Lato", sans-serif; }
+p, body { font-family: var(--bs-font-sans-serif); }
 .text-muted { color: #9a7a60 !important; }
 .text-white { color: #fef6ec !important; }
 

@@ -30,6 +30,11 @@ export default {
     '--bs-border-radius-sm':   '2px',
     '--bs-border-radius-lg':   '8px',
     '--bs-border-radius-pill': '50rem',
+    // Surface palette — consumed by buildComponentCss for .bg-dark / .bg-light
+    '--bs-dark':       '#2d2f6b',
+    '--bs-light':      '#f5ead5',
+    '--bs-dark-text':  '#fdf8f0',
+    '--bs-light-text': '#2d2010',
   },
 
   extraCss: `
@@ -41,10 +46,10 @@ export default {
 
 body { background: #fdf8f0 !important; color: #2d2010 !important; }
 section:not([class*="bg-"]) { background-color: #fdf8f0 !important; }
-.bg-light  { background-color: #f5ead5 !important; color: #2d2010 !important; }
-.bg-white  { background-color: #fffdf5 !important; color: #2d2010 !important; }
-.bg-dark   { background-color: #2d2f6b !important; color: #fdf8f0 !important; }
-.bg-primary { background-color: #f0a500 !important; color: #1a1200 !important; }
+.bg-light  { background-color: var(--bs-light) !important; color: var(--bs-light-text) !important; }
+.bg-white  { background-color: var(--bs-body-bg) !important; color: var(--bs-body-color) !important; }
+.bg-dark   { background-color: var(--bs-dark)  !important; color: var(--bs-dark-text)  !important; }
+.bg-primary { background-color: var(--bs-primary) !important; color: #1a1200 !important; }
 
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
@@ -67,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #5a4020;
   line-height: 1.8;
 }
-p, body { font-family: "Nunito", sans-serif; }
+p, body { font-family: var(--bs-font-sans-serif); }
 .text-muted { color: #9a7850 !important; }
 
 /* ── Folk-inspired heading ornament ── */

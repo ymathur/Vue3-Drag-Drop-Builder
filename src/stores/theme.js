@@ -168,17 +168,35 @@ export const useThemeStore = defineStore('theme', () => {
 
     const primaryDark   = darken(primary)
     const secondaryDark = darken(secondary)
+    // Theme-aware dark/light surfaces — each preset declares --bs-dark / --bs-light
+    // so .bg-dark and .bg-light follow the theme palette rather than Bootstrap defaults.
+    const darkSurface  = vars['--bs-dark']  || '#212529'
+    const lightSurface = vars['--bs-light'] || '#f8f9fa'
+    const darkText     = vars['--bs-dark-text']  || '#ffffff'
+    const lightText    = vars['--bs-light-text'] || bodyColor
 
     return `/* ── Dynamic Bootstrap component overrides ── */
 
 /* ── Base typography & layout ── */
 body { background-color: ${bodyBg} !important; color: ${bodyColor} !important; font-family: ${font}; }
 body * { font-family: inherit; }
-h1,h2,h3,h4,h5,h6 { color: ${heading}; font-family: ${font}; }
+h1,h2,h3,h4,h5,h6 { color: ${heading}; }
 p, span, li, label, td, th, caption, figcaption { font-family: ${font}; }
 a { color: ${link}; }
 a:hover { color: ${linkHover}; }
 section:not([class*="bg-"]) { background-color: ${bodyBg} !important; }
+
+/* ── Theme-aware surface utilities ── */
+/* These override Bootstrap's fixed .bg-dark/#f8f9fa so each theme
+   can define what "dark" and "light" mean for its own palette.    */
+.bg-dark  { background-color: ${darkSurface}  !important; color: ${darkText}  !important; }
+.bg-light { background-color: ${lightSurface} !important; color: ${lightText} !important; }
+.bg-white { background-color: ${bodyBg}       !important; color: ${bodyColor} !important; }
+.navbar-dark, nav.bg-dark    { background-color: ${darkSurface} !important; }
+.navbar-light, nav.bg-light  { background-color: ${lightSurface} !important; }
+.text-dark  { color: ${bodyColor} !important; }
+.text-muted { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
+.text-white { color: ${darkText}  !important; }
 
 /* ── Buttons — primary ── */
 .btn-primary {

@@ -4,7 +4,7 @@ export const jewelleryBlocks = [
     id: 'jwl-nav-1',
     categoryId: 'navigation',
     label: 'Jewellery – Minimal Dark Nav',
-    html: `<nav class="navbar navbar-dark bg-dark navbar-expand-lg py-3" style="background:#0a0a0a!important;border-bottom:1px solid rgba(201,169,110,0.18);">
+    html: `<nav class="navbar navbar-dark bg-dark navbar-expand-lg py-3" style="background:var(--bs-body-bg)!important;border-bottom:1px solid rgba(201,169,110,0.18);">
   <div class="container">
     <a class="navbar-brand fw-bold text-white ls-wide" href="#" style="letter-spacing:0.18em;font-size:1.15rem;">MAISON AUREL</a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#jwlNav1" aria-controls="jwlNav1" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ export const jewelleryBlocks = [
     id: 'jwl-nav-2',
     categoryId: 'navigation',
     label: 'Jewellery – Centered Logo Nav',
-    html: `<nav class="navbar navbar-dark navbar-expand-lg py-4" style="background:#0a0a0a;border-bottom:1px solid rgba(201,169,110,0.15);">
+    html: `<nav class="navbar navbar-dark navbar-expand-lg py-4" style="background:var(--bs-body-bg);border-bottom:1px solid rgba(201,169,110,0.15);">
   <div class="container position-relative">
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#jwlNav2" aria-controls="jwlNav2" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -74,10 +74,10 @@ export const jewelleryBlocks = [
     id: 'jwl-hero-2',
     categoryId: 'heroes',
     label: 'Jewellery – Split Editorial Hero',
-    html: `<section style="background:#0a0a0a;min-height:88vh;" class="d-flex align-items-center">
+    html: `<section style="background:var(--bs-body-bg);min-height:88vh;" class="d-flex align-items-center">
   <div class="container-fluid px-0">
     <div class="row g-0 align-items-stretch" style="min-height:88vh;">
-      <div class="col-lg-6 d-flex align-items-center justify-content-center order-2 order-lg-1 px-5 py-5" style="background:#0a0a0a;">
+      <div class="col-lg-6 d-flex align-items-center justify-content-center order-2 order-lg-1 px-5 py-5" style="background:var(--bs-body-bg);">
         <div style="max-width:480px;">
           <p class="text-primary mb-3" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">New Arrival — 2026</p>
           <h1 class="text-white fw-light mb-4" style="font-size:clamp(2.4rem,5vw,4rem);line-height:1.1;letter-spacing:0.02em;">The Soleil<br>Diamond Ring</h1>
@@ -102,7 +102,7 @@ export const jewelleryBlocks = [
     id: 'jwl-feat-1',
     categoryId: 'features',
     label: 'Jewellery – 3-Column Icon Features',
-    html: `<section class="py-6" style="background:#0a0a0a;padding-top:5rem;padding-bottom:5rem;">
+    html: `<section class="py-6" style="background:var(--bs-body-bg);padding-top:5rem;padding-bottom:5rem;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">The Maison Promise</p>
@@ -110,19 +110,19 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4 mt-2">
       <div class="col-md-4 text-center">
-        <div class="mb-4" style="width:56px;height:1px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);margin:0 auto 1.5rem;"></div>
+        <div class="mb-4" style="width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--bs-primary),transparent);margin:0 auto 1.5rem;"></div>
         <p class="text-primary mb-2" style="letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;">I.</p>
         <h5 class="text-white fw-light mb-3" style="letter-spacing:0.08em;">Ethically Sourced</h5>
         <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.9;font-family:'Jost',sans-serif;">Every stone is traceable to a conflict-free origin, certified by the Responsible Jewellery Council. We know the story of each gem.</p>
       </div>
       <div class="col-md-4 text-center">
-        <div class="mb-4" style="width:56px;height:1px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);margin:0 auto 1.5rem;"></div>
+        <div class="mb-4" style="width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--bs-primary),transparent);margin:0 auto 1.5rem;"></div>
         <p class="text-primary mb-2" style="letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;">II.</p>
         <h5 class="text-white fw-light mb-3" style="letter-spacing:0.08em;">Handset in Paris</h5>
         <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.9;font-family:'Jost',sans-serif;">Our master jewellers spend up to 40 hours on a single piece — the hands of artisans trained over decades in the Place Vendôme tradition.</p>
       </div>
       <div class="col-md-4 text-center">
-        <div class="mb-4" style="width:56px;height:1px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);margin:0 auto 1.5rem;"></div>
+        <div class="mb-4" style="width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--bs-primary),transparent);margin:0 auto 1.5rem;"></div>
         <p class="text-primary mb-2" style="letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;">III.</p>
         <h5 class="text-white fw-light mb-3" style="letter-spacing:0.08em;">Lifetime Guarantee</h5>
         <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.9;font-family:'Jost',sans-serif;">Every creation carries a lifetime craftsmanship guarantee. We will clean, polish and resize your piece for as long as you own it.</p>
@@ -135,7 +135,7 @@ export const jewelleryBlocks = [
     id: 'jwl-feat-2',
     categoryId: 'features',
     label: 'Jewellery – Split Image Feature',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-5">
@@ -174,13 +174,13 @@ export const jewelleryBlocks = [
     id: 'jwl-content-1',
     categoryId: 'content',
     label: 'Jewellery – Editorial Long-form Content',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-7 text-center">
         <p class="text-primary mb-3" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Our Story</p>
         <h2 class="text-white fw-light mb-5" style="font-size:2.6rem;line-height:1.2;letter-spacing:0.02em;">A Maison Born of Devotion to Beauty</h2>
-        <div style="width:40px;height:1px;background:#c9a96e;margin:0 auto 2.5rem;"></div>
+        <div style="width:40px;height:1px;background:var(--bs-primary);margin:0 auto 2.5rem;"></div>
         <p style="color:rgba(255,255,255,0.55);line-height:2;font-size:1.02rem;margin-bottom:1.8rem;font-family:'Jost',sans-serif;">Founded in 1882 by Émile Aurel, a Lyonnais goldsmith who believed that jewellery should tell a story, Maison Aurel has dressed the wrists, necks and fingers of those who value the quietly extraordinary.</p>
         <p style="color:rgba(255,255,255,0.55);line-height:2;font-size:1.02rem;margin-bottom:2.5rem;font-family:'Jost',sans-serif;">Today, under the stewardship of the fifth generation, the maison continues to honour its founding principle: that beauty made with intention endures forever.</p>
         <a href="#" class="btn btn-outline-light px-5 py-3" style="letter-spacing:0.12em;font-size:0.78rem;text-transform:uppercase;">Read Our History</a>
@@ -193,7 +193,7 @@ export const jewelleryBlocks = [
     id: 'jwl-content-2',
     categoryId: 'content',
     label: 'Jewellery – Alternating Text & Image',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="row g-5 align-items-center mb-6" style="margin-bottom:5rem;">
       <div class="col-lg-6">
@@ -226,7 +226,7 @@ export const jewelleryBlocks = [
     id: 'jwl-cards-1',
     categoryId: 'cards',
     label: 'Jewellery – Collection Cards',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Curated Selections</p>
@@ -234,7 +234,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100" style="background:#111;border:none;border-top:1px solid #c9a96e;">
+        <div class="card h-100" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
           <img src="https://images.unsplash.com/photo-1515562141155-7a31e9680ef7?w=800&q=80" class="card-img-top" alt="Eternal Collection" style="height:280px;object-fit:cover;">
           <div class="card-body p-4">
             <p class="text-primary mb-1" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Solitaires</p>
@@ -245,7 +245,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100" style="background:#111;border:none;border-top:1px solid #c9a96e;">
+        <div class="card h-100" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
           <img src="https://images.unsplash.com/photo-1602751584552-8ba47a5b4024?w=800&q=80" class="card-img-top" alt="Heritage Collection" style="height:280px;object-fit:cover;">
           <div class="card-body p-4">
             <p class="text-primary mb-1" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Necklaces</p>
@@ -256,7 +256,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100" style="background:#111;border:none;border-top:1px solid #c9a96e;">
+        <div class="card h-100" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
           <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" class="card-img-top" alt="Éclat Collection" style="height:280px;object-fit:cover;">
           <div class="card-body p-4">
             <p class="text-primary mb-1" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Earrings</p>
@@ -282,7 +282,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
-        <div class="card text-center h-100 py-4" style="background:#1a1612;border:1px solid rgba(201,169,110,0.15);border-radius:0;">
+        <div class="card text-center h-100 py-4" style="background:var(--bs-dark);border:1px solid rgba(201,169,110,0.15);border-radius:0;">
           <div class="card-body">
             <div class="mx-auto mb-4 rounded-circle" style="width:64px;height:64px;background:radial-gradient(circle at 35% 35%,#e8e8e8,#aaa);box-shadow:0 0 24px rgba(201,169,110,0.2);"></div>
             <h6 class="text-white fw-light mb-2" style="letter-spacing:0.12em;text-transform:uppercase;font-size:0.85rem;">Diamond</h6>
@@ -291,7 +291,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div class="card text-center h-100 py-4" style="background:#1a1612;border:1px solid rgba(201,169,110,0.15);border-radius:0;">
+        <div class="card text-center h-100 py-4" style="background:var(--bs-dark);border:1px solid rgba(201,169,110,0.15);border-radius:0;">
           <div class="card-body">
             <div class="mx-auto mb-4 rounded-circle" style="width:64px;height:64px;background:radial-gradient(circle at 35% 35%,#1a4fa8,#0d2866);box-shadow:0 0 24px rgba(26,79,168,0.3);"></div>
             <h6 class="text-white fw-light mb-2" style="letter-spacing:0.12em;text-transform:uppercase;font-size:0.85rem;">Sapphire</h6>
@@ -300,7 +300,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div class="card text-center h-100 py-4" style="background:#1a1612;border:1px solid rgba(201,169,110,0.15);border-radius:0;">
+        <div class="card text-center h-100 py-4" style="background:var(--bs-dark);border:1px solid rgba(201,169,110,0.15);border-radius:0;">
           <div class="card-body">
             <div class="mx-auto mb-4 rounded-circle" style="width:64px;height:64px;background:radial-gradient(circle at 35% 35%,#c0392b,#6b1a14);box-shadow:0 0 24px rgba(192,57,43,0.3);"></div>
             <h6 class="text-white fw-light mb-2" style="letter-spacing:0.12em;text-transform:uppercase;font-size:0.85rem;">Ruby</h6>
@@ -309,7 +309,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div class="card text-center h-100 py-4" style="background:#1a1612;border:1px solid rgba(201,169,110,0.15);border-radius:0;">
+        <div class="card text-center h-100 py-4" style="background:var(--bs-dark);border:1px solid rgba(201,169,110,0.15);border-radius:0;">
           <div class="card-body">
             <div class="mx-auto mb-4 rounded-circle" style="width:64px;height:64px;background:radial-gradient(circle at 35% 35%,#27ae60,#145a32);box-shadow:0 0 24px rgba(39,174,96,0.3);"></div>
             <h6 class="text-white fw-light mb-2" style="letter-spacing:0.12em;text-transform:uppercase;font-size:0.85rem;">Emerald</h6>
@@ -327,7 +327,7 @@ export const jewelleryBlocks = [
     id: 'jwl-test-1',
     categoryId: 'testimonials',
     label: 'Jewellery – 3-Column Testimonials',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Client Stories</p>
@@ -335,7 +335,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid #c9a96e;">
+        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
           <div class="card-body">
             <p class="text-primary mb-3" style="font-size:1.3rem;letter-spacing:0.15em;">"</p>
             <p style="color:rgba(255,255,255,0.6);line-height:1.9;font-size:0.95rem;font-family:'Jost',sans-serif;font-style:italic;">Maison Aurel created our engagement ring with such care and sensitivity. Every detail of the brief was honoured — and exceeded. It is the most beautiful thing I have ever owned.</p>
@@ -350,7 +350,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid #c9a96e;">
+        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
           <div class="card-body">
             <p class="text-primary mb-3" style="font-size:1.3rem;letter-spacing:0.15em;">"</p>
             <p style="color:rgba(255,255,255,0.6);line-height:1.9;font-size:0.95rem;font-family:'Jost',sans-serif;font-style:italic;">I commissioned a bespoke bracelet for my wife's fortieth birthday. The team guided me through the entire process with extraordinary patience. The result moved her to tears.</p>
@@ -365,7 +365,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid #c9a96e;">
+        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
           <div class="card-body">
             <p class="text-primary mb-3" style="font-size:1.3rem;letter-spacing:0.15em;">"</p>
             <p style="color:rgba(255,255,255,0.6);line-height:1.9;font-size:0.95rem;font-family:'Jost',sans-serif;font-style:italic;">The sapphire ring I purchased is a work of art. Years later it still draws the most elegant compliments. Maison Aurel creates pieces that are truly timeless.</p>
@@ -391,10 +391,10 @@ export const jewelleryBlocks = [
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
-        <div style="width:1px;height:60px;background:linear-gradient(180deg,transparent,#c9a96e);margin:0 auto 2.5rem;"></div>
+        <div style="width:1px;height:60px;background:linear-gradient(180deg,transparent,var(--bs-primary));margin:0 auto 2.5rem;"></div>
         <p class="text-primary mb-4" style="font-size:1.8rem;letter-spacing:0.12em;line-height:1;">"</p>
         <blockquote class="text-white fw-light mb-5" style="font-size:1.55rem;line-height:1.6;letter-spacing:0.02em;font-style:italic;">"Wearing Aurel is to carry a piece of history. The craftsmanship is extraordinary — every detail communicates decades of devotion."</blockquote>
-        <div style="width:40px;height:1px;background:#c9a96e;margin:0 auto 2rem;"></div>
+        <div style="width:40px;height:1px;background:var(--bs-primary);margin:0 auto 2rem;"></div>
         <div class="d-flex align-items-center justify-content-center gap-3">
           <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Hélène V." style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid rgba(201,169,110,0.5);">
           <div class="text-start">
@@ -402,7 +402,7 @@ export const jewelleryBlocks = [
             <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin:0;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Art Director, Monaco</p>
           </div>
         </div>
-        <div style="width:1px;height:60px;background:linear-gradient(180deg,#c9a96e,transparent);margin:2.5rem auto 0;"></div>
+        <div style="width:1px;height:60px;background:linear-gradient(180deg,var(--bs-primary),transparent);margin:2.5rem auto 0;"></div>
       </div>
     </div>
   </div>
@@ -431,7 +431,7 @@ export const jewelleryBlocks = [
     id: 'jwl-cta-2',
     categoryId: 'cta',
     label: 'Jewellery – Newsletter CTA Banner',
-    html: `<section style="background:#1c1510;padding:4rem 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);">
+    html: `<section style="background:var(--bs-dark);padding:4rem 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);">
   <div class="container">
     <div class="row align-items-center g-4">
       <div class="col-lg-5">
@@ -456,14 +456,14 @@ export const jewelleryBlocks = [
     id: 'jwl-form-1',
     categoryId: 'forms',
     label: 'Jewellery – Consultation Booking Form',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-7">
         <div class="text-center mb-5">
           <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Private Appointments</p>
           <h2 class="text-white fw-light" style="font-size:2.3rem;letter-spacing:0.03em;">Request a Consultation</h2>
-          <div style="width:40px;height:1px;background:#c9a96e;margin:1.5rem auto 0;"></div>
+          <div style="width:40px;height:1px;background:var(--bs-primary);margin:1.5rem auto 0;"></div>
         </div>
         <form style="font-family:'Jost',sans-serif;">
           <div class="row g-3">
@@ -558,7 +558,7 @@ export const jewelleryBlocks = [
     id: 'jwl-price-1',
     categoryId: 'pricing',
     label: 'Jewellery – Bespoke Service Tiers',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Bespoke Services</p>
@@ -582,9 +582,9 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#1a1612;border:1px solid #c9a96e;border-radius:0;position:relative;">
-          <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#c9a96e;padding:3px 18px;">
-            <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#0a0a0a;">Preferred</span>
+        <div class="card h-100 p-4" style="background:var(--bs-dark);border:1px solid var(--bs-primary);border-radius:0;position:relative;">
+          <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--bs-primary);padding:3px 18px;">
+            <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--bs-body-bg);">Preferred</span>
           </div>
           <div class="card-body pt-4">
             <p class="text-primary mb-3" style="letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;">Atelier</p>
@@ -648,7 +648,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-5">
-        <div class="card p-4 h-100" style="background:#111;border:none;border-left:2px solid #c9a96e;border-radius:0;">
+        <div class="card p-4 h-100" style="background:#111;border:none;border-left:2px solid var(--bs-primary);border-radius:0;">
           <div class="card-body">
             <p class="text-primary mb-2" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Maison Care</p>
             <p class="text-white fw-light mb-1" style="font-size:1.8rem;">£195 <span style="font-size:0.85rem;color:rgba(255,255,255,0.35);">per year</span></p>
@@ -733,11 +733,11 @@ export const jewelleryBlocks = [
     id: 'jwl-footer-2',
     categoryId: 'footers',
     label: 'Jewellery – Minimal Gold Footer',
-    html: `<footer style="background:#0a0a0a;padding:3rem 0;border-top:1px solid rgba(201,169,110,0.2);">
+    html: `<footer style="background:var(--bs-body-bg);padding:3rem 0;border-top:1px solid rgba(201,169,110,0.2);">
   <div class="container">
     <div class="text-center mb-4">
       <p class="text-white mb-2" style="letter-spacing:0.35em;font-size:0.95rem;font-weight:300;">MAISON AUREL</p>
-      <div style="width:36px;height:1px;background:#c9a96e;margin:0.75rem auto;"></div>
+      <div style="width:36px;height:1px;background:var(--bs-primary);margin:0.75rem auto;"></div>
       <p style="color:rgba(255,255,255,0.3);font-size:0.78rem;font-family:'Jost',sans-serif;letter-spacing:0.06em;">Est. Paris, 1882</p>
     </div>
     <nav class="d-flex flex-wrap justify-content-center gap-4 mb-4">
@@ -757,7 +757,7 @@ export const jewelleryBlocks = [
     id: 'jwl-gallery-1',
     categoryId: 'gallery',
     label: 'Jewellery – Masonry Dark Gallery',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">The Collection</p>
@@ -875,7 +875,7 @@ export const jewelleryBlocks = [
     id: 'jwl-social-2',
     categoryId: 'social-proof',
     label: 'Jewellery – Awards & Accreditations',
-    html: `<section style="background:#0a0a0a;padding:4.5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:4.5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Recognition</p>
@@ -917,7 +917,7 @@ export const jewelleryBlocks = [
     id: 'jwl-process-1',
     categoryId: 'process',
     label: 'Jewellery – Bespoke Journey Steps',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">The Bespoke Journey</p>
@@ -1010,7 +1010,7 @@ export const jewelleryBlocks = [
     id: 'jwl-prod-1',
     categoryId: 'products',
     label: 'Jewellery – Dark Product Grid',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="text-center mb-5">
       <p class="text-primary mb-2" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">New Arrivals</p>
@@ -1021,8 +1021,8 @@ export const jewelleryBlocks = [
         <div style="background:#111;">
           <div class="position-relative overflow-hidden" style="aspect-ratio:3/4;">
             <img src="https://images.unsplash.com/photo-1515562141155-7a31e9680ef7?w=800&q=80" alt="Diamond Ring" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="position-absolute top-0 end-0 m-3" style="background:#c9a96e;padding:3px 10px;">
-              <span style="font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:#0a0a0a;">New</span>
+            <div class="position-absolute top-0 end-0 m-3" style="background:var(--bs-primary);padding:3px 10px;">
+              <span style="font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--bs-body-bg);">New</span>
             </div>
           </div>
           <div class="p-3">
@@ -1080,7 +1080,7 @@ export const jewelleryBlocks = [
     id: 'jwl-prod-2',
     categoryId: 'products',
     label: 'Jewellery – Featured Product Detail',
-    html: `<section style="background:#0a0a0a;padding:5rem 0;">
+    html: `<section style="background:var(--bs-body-bg);padding:5rem 0;">
   <div class="container">
     <div class="row g-5 align-items-start">
       <div class="col-lg-6">
@@ -1108,8 +1108,8 @@ export const jewelleryBlocks = [
         <div class="mb-3">
           <p style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-family:'Jost',sans-serif;margin-bottom:0.5rem;">Metal</p>
           <div class="d-flex gap-2">
-            <button style="width:36px;height:36px;background:#e8e4d8;border:2px solid #c9a96e;cursor:pointer;" title="Platinum"></button>
-            <button style="width:36px;height:36px;background:#c9a96e;border:1px solid rgba(255,255,255,0.2);cursor:pointer;" title="18k Yellow Gold"></button>
+            <button style="width:36px;height:36px;background:#e8e4d8;border:2px solid var(--bs-primary);cursor:pointer;" title="Platinum"></button>
+            <button style="width:36px;height:36px;background:var(--bs-primary);border:1px solid rgba(255,255,255,0.2);cursor:pointer;" title="18k Yellow Gold"></button>
             <button style="width:36px;height:36px;background:#d4b8b0;border:1px solid rgba(255,255,255,0.2);cursor:pointer;" title="18k Rose Gold"></button>
           </div>
         </div>

@@ -38,6 +38,19 @@ function scheduleAutoSave() {
 watch(() => store.canvasBlocks,    scheduleAutoSave, { deep: true })
 watch(() => store.activeCategory,  scheduleAutoSave)
 
+// ─── Theme-change: normalize inline colors to CSS vars ───────
+// When the active theme changes, scan all canvas blocks and replace
+// any hardcoded palette hex colors with CSS var() references so that
+// subsequent theme tweaks (ThemePanel sliders, color pickers) update live.
+watch(
+  () => themeStore.activeThemeId,
+  (newId, oldId) => {
+    if (newId && newId !== oldId) {
+      store.normalizeCanvasBlockColors()
+    }
+  }
+)
+
 // ─── Restore auto-save on startup ────────────────────────
 function tryRestoreAutoSave() {
   try {
@@ -52,6 +65,9 @@ function tryRestoreAutoSave() {
 // ─── Auto-open theme picker on first launch ───────────────
 onMounted(() => {
   tryRestoreAutoSave()
+  // Normalize any hardcoded palette hex colors in restored blocks so they
+  // immediately respond to the active theme's CSS variables.
+  store.normalizeCanvasBlockColors()
   // If no theme has ever been selected, open the picker immediately
   if (!themeStore.activeThemeId) {
     themeStore.openPicker()
