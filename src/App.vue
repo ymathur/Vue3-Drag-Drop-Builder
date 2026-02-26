@@ -27,6 +27,10 @@ function doAutoSave() {
       pages:          JSON.parse(JSON.stringify(store.pages)),
       activePageId:   store.activePageId,
       activeCategory: store.activeCategory,
+      theme: {
+        activeThemeId:  themeStore.activeThemeId,
+        customizations: JSON.parse(JSON.stringify(themeStore.customizations)),
+      },
     }
     localStorage.setItem(AUTO_SAVE_KEY, JSON.stringify(payload))
   } catch (_) { /* storage unavailable */ }
@@ -37,9 +41,11 @@ function scheduleAutoSave() {
   _autoSaveTimer = setTimeout(doAutoSave, 1000)
 }
 
-// Watch all pages (deep) + active category for auto-save
-watch(() => store.pages,          scheduleAutoSave, { deep: true })
-watch(() => store.activeCategory, scheduleAutoSave)
+// Watch all pages (deep) + active category + theme for auto-save
+watch(() => store.pages,              scheduleAutoSave, { deep: true })
+watch(() => store.activeCategory,     scheduleAutoSave)
+watch(() => themeStore.activeThemeId, scheduleAutoSave)
+watch(() => themeStore.customizations, scheduleAutoSave, { deep: true })
 
 // ─── Theme-change: normalize inline colors to CSS vars ───────
 // When the active theme changes, scan all canvas pages and replace
@@ -70,6 +76,12 @@ function tryRestoreAutoSave() {
         activePageId:   data.activePageId,
         activeCategory: data.activeCategory,
       })
+      // Restore theme from auto-save if present
+      if (data.theme?.activeThemeId) {
+        themeStore.selectTheme(data.theme.activeThemeId, { keepCustomizations: false })
+        const cust = data.theme.customizations ?? {}
+        Object.entries(cust).forEach(([k, v]) => themeStore.updateVar(k, v))
+      }
     } else if (Array.isArray(data?.blocks) && data.blocks.length > 0) {
       // v1.0 format — single page (backward compat)
       store.loadCanvasData({ blocks: data.blocks, activeCategory: data.activeCategory })

@@ -370,6 +370,15 @@ export const useBuilderStore = defineStore('builder', () => {
     ['#c8dcc8', 'var(--bs-body-color)'],
     ['#e8f4e8', 'var(--bs-heading-color)'],
     ['#253525', 'var(--bs-border-color)'],
+    // ── USA Trailer (Red #c8102e · Navy #0d1b2a) ────────────
+    ['#c8102e', 'var(--bs-primary)'],
+    ['#0d1b2a', 'var(--bs-dark)'],
+    ['#1a2744', 'var(--bs-dark)'],          // darker navy variant
+    ['#f5f7fa', 'var(--bs-light)'],
+    ['#f0f4ff', 'var(--bs-light)'],         // pill / card light bg
+    ['#dde3ec', 'var(--bs-light)'],         // image fallback bg
+    ['#6b7280', 'var(--bs-body-color)'],    // muted gray text
+    ['#d0d9f0', 'var(--bs-border-color)'],  // pill borders
   ]
 
   /**
