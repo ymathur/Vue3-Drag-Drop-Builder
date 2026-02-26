@@ -1421,5 +1421,473 @@ export const trailerBlocks = [
     </div>
   </div>
 </section>`
+  },
+
+
+  // ── USA Trailer Sales Homepage Blocks ───────────────────────────────────────
+
+  // 1. Navigation — site header
+  {
+    id: 'trl-nav-3',
+    categoryId: 'navigation',
+    label: 'USA Trailer \u2013 Site Header',
+    html: `<nav style="background:#0d1b2a; font-family:'Segoe UI',system-ui,sans-serif;">
+  <!-- Top utility bar -->
+  <div style="background:#c8102e; color:#fff; font-size:0.8rem; padding:6px 0;">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <span><i class="bi bi-telephone-fill me-1"></i>(989) 427-2715</span>
+      <span><i class="bi bi-geo-alt-fill me-1"></i>7 Michigan Locations</span>
+    </div>
+  </div>
+  <!-- Main navigation -->
+  <div class="container py-3 d-flex justify-content-between align-items-center">
+    <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/usa-logo.webp" alt="USA Trailer Sales" style="height:52px; object-fit:contain;" />
+    <div class="d-none d-lg-flex align-items-center gap-4">
+      <a href="#" style="color:#fff; text-decoration:none; font-size:0.9rem; font-weight:500; opacity:0.9;">Home</a>
+      <a href="#" style="color:#fff; text-decoration:none; font-size:0.9rem; font-weight:500; opacity:0.9;">All Inventory</a>
+      <a href="#" style="color:#fff; text-decoration:none; font-size:0.9rem; font-weight:500; opacity:0.9;">Financing</a>
+      <a href="#" style="color:#fff; text-decoration:none; font-size:0.9rem; font-weight:500; opacity:0.9;">Parts &amp; Service</a>
+      <a href="#" style="color:#fff; text-decoration:none; font-size:0.9rem; font-weight:500; opacity:0.9;">Contact Us</a>
+      <a href="#" class="btn btn-sm px-4 fw-bold" style="background:#c8102e; color:#fff; border:none; border-radius:6px;">Browse Inventory</a>
+    </div>
+    <button class="d-lg-none btn btn-sm" style="color:#fff; border:1px solid rgba(255,255,255,0.3);">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+  </div>
+</nav>`
+  },
+
+  // 2. Hero Banner
+  {
+    id: 'trl-hero-3',
+    categoryId: 'heroes',
+    label: 'USA Trailer \u2013 Hero Banner',
+    html: `<section style="min-height:90vh; background:url('https://www.usa-trailer.com/wp-content/uploads/2024/06/USA-Trailer-Sales-slide-2.webp') center/cover no-repeat; display:flex; align-items:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.58);"></div>
+  <div class="container position-relative py-5 text-white" style="font-family:'Segoe UI',system-ui,sans-serif;">
+    <div class="row justify-content-start">
+      <div class="col-lg-7 col-xl-6">
+        <span class="badge mb-4 px-3 py-2" style="background:#c8102e; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">MICHIGAN'S LARGEST TRAILER DEALER</span>
+        <h1 class="fw-black mb-4" style="font-size:clamp(2.2rem,5vw,3.8rem); line-height:1.1; font-weight:900;">Your Hometown<br>Trailer Dealership</h1>
+        <p class="lead mb-5" style="color:rgba(255,255,255,0.82); max-width:540px; line-height:1.7;">With 7 locations across Michigan and thousands of trailers in stock, USA Trailer Sales has everything you need &mdash; from utility trailers to heavy equipment haulers.</p>
+        <div class="d-flex flex-wrap gap-3 mb-5">
+          <a href="#" class="btn btn-lg px-5 fw-bold" style="background:#c8102e; color:#fff; border:none; border-radius:8px;">Browse All Inventory</a>
+          <a href="#" class="btn btn-lg px-4 fw-bold" style="background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.7); border-radius:8px;">Get Financing</a>
+        </div>
+        <!-- Trust stats -->
+        <div class="d-flex gap-5 flex-wrap">
+          <div>
+            <div class="fw-black" style="font-size:2rem; color:#c8102e; line-height:1;">50+</div>
+            <div style="font-size:0.8rem; color:rgba(255,255,255,0.65); margin-top:2px;">Years in<br>Business</div>
+          </div>
+          <div>
+            <div class="fw-black" style="font-size:2rem; color:#c8102e; line-height:1;">7</div>
+            <div style="font-size:0.8rem; color:rgba(255,255,255,0.65); margin-top:2px;">Michigan<br>Locations</div>
+          </div>
+          <div>
+            <div class="fw-black" style="font-size:2rem; color:#c8102e; line-height:1;">1,000s</div>
+            <div style="font-size:0.8rem; color:rgba(255,255,255,0.65); margin-top:2px;">Trailers<br>In Stock</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`
+  },
+
+  // 3. Category Grid
+  {
+    id: 'trl-products-3',
+    categoryId: 'products',
+    label: 'USA Trailer \u2013 Category Grid',
+    html: `<section style="background:#f5f7fa; padding:80px 0; font-family:'Segoe UI',system-ui,sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge mb-3 px-3 py-2" style="background:#c8102e; color:#fff; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">SHOP NOW</span>
+      <h2 class="fw-black mb-3" style="font-size:clamp(1.8rem,3.5vw,2.6rem); color:#0d1b2a;">Shop by Category</h2>
+      <p style="color:#6b7280; max-width:520px; margin:0 auto;">Michigan&apos;s widest selection of quality trailers for every need and budget.</p>
+    </div>
+    <div class="row g-4">
+      <!-- Equipment -->
+      <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:14px; overflow:hidden;">
+          <div style="aspect-ratio:4/3; overflow:hidden; background:#dde3ec;">
+            <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/equipment-category.webp" alt="Equipment Trailers" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <div class="card-body p-4">
+            <h5 class="fw-bold mb-2" style="color:#0d1b2a; font-size:1.05rem;">Equipment Trailers</h5>
+            <p class="mb-3" style="color:#6b7280; font-size:0.85rem; line-height:1.6;">Heavy-duty trailers built for machinery, vehicles, and oversized loads.</p>
+            <a href="#" style="color:#c8102e; font-weight:700; font-size:0.88rem; text-decoration:none;">Browse &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- Utility -->
+      <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:14px; overflow:hidden;">
+          <div style="aspect-ratio:4/3; overflow:hidden; background:#dde3ec;">
+            <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/utility-category.webp" alt="Landscape &amp; Utility Trailers" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <div class="card-body p-4">
+            <h5 class="fw-bold mb-2" style="color:#0d1b2a; font-size:1.05rem;">Landscape &amp; Utility</h5>
+            <p class="mb-3" style="color:#6b7280; font-size:0.85rem; line-height:1.6;">Versatile open trailers perfect for landscaping, hauling, and everyday work.</p>
+            <a href="#" style="color:#c8102e; font-weight:700; font-size:0.88rem; text-decoration:none;">Browse &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- Enclosed -->
+      <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:14px; overflow:hidden;">
+          <div style="aspect-ratio:4/3; overflow:hidden; background:#dde3ec;">
+            <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/enclosed-category-min.webp" alt="Cargo &amp; Enclosed Trailers" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <div class="card-body p-4">
+            <h5 class="fw-bold mb-2" style="color:#0d1b2a; font-size:1.05rem;">Cargo &amp; Enclosed</h5>
+            <p class="mb-3" style="color:#6b7280; font-size:0.85rem; line-height:1.6;">Secure your cargo with our wide range of enclosed trailer options.</p>
+            <a href="#" style="color:#c8102e; font-weight:700; font-size:0.88rem; text-decoration:none;">Browse &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- Dump -->
+      <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:14px; overflow:hidden;">
+          <div style="aspect-ratio:4/3; overflow:hidden; background:#dde3ec;">
+            <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/dump-category.webp" alt="Dump Trailers" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <div class="card-body p-4">
+            <h5 class="fw-bold mb-2" style="color:#0d1b2a; font-size:1.05rem;">Dump Trailers</h5>
+            <p class="mb-3" style="color:#6b7280; font-size:0.85rem; line-height:1.6;">Hydraulic dump trailers for construction, landscaping, and debris removal.</p>
+            <a href="#" style="color:#c8102e; font-weight:700; font-size:0.88rem; text-decoration:none;">Browse &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-lg px-5 fw-bold" style="background:#0d1b2a; color:#fff; border:none; border-radius:8px;">View All Categories</a>
+    </div>
+  </div>
+</section>`
+  },
+
+  // 4. Why Choose Us (Stats + Features)
+  {
+    id: 'trl-feat-3',
+    categoryId: 'features',
+    label: 'USA Trailer \u2013 Why Choose Us',
+    html: `<section style="background:#0d1b2a; padding:80px 0; color:#fff; font-family:'Segoe UI',system-ui,sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge mb-3 px-3 py-2" style="background:#c8102e; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">OUR PROMISE</span>
+      <h2 class="fw-black mb-3" style="font-size:clamp(1.8rem,3.5vw,2.6rem); color:#fff;">Why Choose USA Trailer Sales?</h2>
+      <p style="color:rgba(255,255,255,0.6); max-width:560px; margin:0 auto;">Michigan&apos;s most trusted trailer dealership &mdash; delivering quality, value, and service for over 50 years.</p>
+    </div>
+    <!-- Stat cards -->
+    <div class="row g-4 mb-5">
+      <div class="col-6 col-lg-3">
+        <div class="text-center p-4 rounded-3" style="background:#1a2744;">
+          <div style="font-size:2.8rem; line-height:1; color:#c8102e; font-weight:900;">50+</div>
+          <div class="fw-bold mt-2" style="font-size:1rem; color:#fff;">Years in Business</div>
+          <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-top:4px;">Family owned since 1972</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center p-4 rounded-3" style="background:#1a2744;">
+          <div style="font-size:2.8rem; line-height:1; color:#c8102e; font-weight:900;">7</div>
+          <div class="fw-bold mt-2" style="font-size:1rem; color:#fff;">Michigan Locations</div>
+          <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-top:4px;">Across the entire state</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center p-4 rounded-3" style="background:#1a2744;">
+          <div style="font-size:2.8rem; line-height:1; color:#c8102e; font-weight:900;">1,000s</div>
+          <div class="fw-bold mt-2" style="font-size:1rem; color:#fff;">Trailers In Stock</div>
+          <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-top:4px;">New &amp; used available</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center p-4 rounded-3" style="background:#1a2744;">
+          <div style="font-size:2.8rem; line-height:1; color:#c8102e; font-weight:900;">5&#9733;</div>
+          <div class="fw-bold mt-2" style="font-size:1rem; color:#fff;">Expert Staff</div>
+          <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-top:4px;">Knowledgeable &amp; friendly</div>
+        </div>
+      </div>
+    </div>
+    <!-- Feature bullets -->
+    <div class="row g-3 mb-5">
+      <div class="col-md-6">
+        <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:#1a2744;">
+          <span style="font-size:1.4rem; line-height:1.4;">&#127942;</span>
+          <div>
+            <div class="fw-bold mb-1" style="color:#fff;">Top Brand Selection</div>
+            <div style="color:rgba(255,255,255,0.58); font-size:0.85rem;">We carry Big Tex, PJ, Load Trail, Carry-On, and more top brands.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:#1a2744;">
+          <span style="font-size:1.4rem; line-height:1.4;">&#128176;</span>
+          <div>
+            <div class="fw-bold mb-1" style="color:#fff;">Competitive Pricing</div>
+            <div style="color:rgba(255,255,255,0.58); font-size:0.85rem;">Best prices in Michigan &mdash; we&apos;ll match any competitor&apos;s written quote.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:#1a2744;">
+          <span style="font-size:1.4rem; line-height:1.4;">&#128295;</span>
+          <div>
+            <div class="fw-bold mb-1" style="color:#fff;">Full Service Department</div>
+            <div style="color:rgba(255,255,255,0.58); font-size:0.85rem;">Repairs, parts, and inspections &mdash; all in-house by certified technicians.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:#1a2744;">
+          <span style="font-size:1.4rem; line-height:1.4;">&#128203;</span>
+          <div>
+            <div class="fw-bold mb-1" style="color:#fff;">Easy Financing</div>
+            <div style="color:rgba(255,255,255,0.58); font-size:0.85rem;">All credit situations considered &mdash; fast approvals and low monthly rates.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="#" class="btn btn-lg px-5 fw-bold me-3" style="background:#c8102e; color:#fff; border:none; border-radius:8px;">Browse All Inventory</a>
+      <a href="#" class="btn btn-lg px-4" style="background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.35); border-radius:8px;">Contact Us</a>
+    </div>
+  </div>
+</section>`
+  },
+
+  // 5. About / Inventory Intro
+  {
+    id: 'trl-content-3',
+    categoryId: 'content',
+    label: 'USA Trailer \u2013 About Inventory',
+    html: `<section style="background:#fff; padding:80px 0; font-family:'Segoe UI',system-ui,sans-serif;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div style="position:relative; display:inline-block; width:100%;">
+          <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/USA-Trailer-Sales-trailers-2-jpg.avif" alt="USA Trailer Sales Inventory" style="width:100%; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,0.14);">
+          <div style="position:absolute; bottom:24px; left:-16px; background:#c8102e; color:#fff; padding:14px 20px; border-radius:10px; box-shadow:0 8px 24px rgba(200,16,46,0.4);">
+            <div style="font-size:1.7rem; font-weight:900; line-height:1;">1,000+</div>
+            <div style="font-size:0.78rem; font-weight:600; opacity:0.9;">Trailers In Stock</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <span class="badge mb-3 px-3 py-2" style="background:#c8102e; color:#fff; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">MICHIGAN'S #1 TRAILER DEALER</span>
+        <h2 class="fw-black mb-4" style="font-size:clamp(1.7rem,3vw,2.4rem); color:#0d1b2a; line-height:1.2;">Michigan&apos;s #1 Source for<br>New &amp; Used Trailers</h2>
+        <p style="color:#6b7280; line-height:1.8; margin-bottom:1.5rem;">From everyday utility trailers to heavy equipment haulers, USA Trailer Sales carries the largest selection of trailers in Michigan. We stock top brands at unbeatable prices &mdash; ready to drive away today.</p>
+        <ul style="list-style:none; padding:0; margin-bottom:2rem;">
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> Utility, Equipment, Cargo &amp; Dump Trailers</li>
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> New &amp; Certified Pre-Owned Options</li>
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> Custom Configurations Available</li>
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> Same-Day Walk-Out Possible at All Locations</li>
+        </ul>
+        <a href="#" class="btn btn-lg px-5 fw-bold" style="background:#c8102e; color:#fff; border:none; border-radius:8px;">View All Inventory &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>`
+  },
+
+  // 6. Financing CTA
+  {
+    id: 'trl-cta-3',
+    categoryId: 'cta',
+    label: 'USA Trailer \u2013 Financing CTA',
+    html: `<section style="background:#f5f7fa; padding:80px 0; font-family:'Segoe UI',system-ui,sans-serif;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge mb-3 px-3 py-2" style="background:#c8102e; color:#fff; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">TRAILER FINANCING</span>
+        <h2 class="fw-black mb-4" style="font-size:clamp(1.7rem,3vw,2.4rem); color:#0d1b2a; line-height:1.2;">Flexible Financing Available</h2>
+        <p style="color:#6b7280; line-height:1.8; margin-bottom:1.5rem;">We work with all credit situations to get you into the trailer you need. Our fast, hassle-free financing process makes owning a trailer easier than ever.</p>
+        <ul style="list-style:none; padding:0; margin-bottom:2rem;">
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> All credit types accepted</li>
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> Low monthly payments available</li>
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> Quick approval &mdash; same day decisions</li>
+          <li class="d-flex align-items-center gap-2 mb-2" style="color:#333;"><span style="color:#c8102e; font-weight:800;">&#10003;</span> Competitive interest rates</li>
+        </ul>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#" class="btn btn-lg px-5 fw-bold" style="background:#c8102e; color:#fff; border:none; border-radius:8px;">Apply for Financing</a>
+          <a href="#" class="btn btn-lg px-4" style="background:transparent; color:#0d1b2a; border:2px solid #0d1b2a; border-radius:8px;">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/USA-Trailer-Sales-financing-jpg.avif" alt="Trailer Financing" style="width:100%; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,0.12);">
+      </div>
+    </div>
+  </div>
+</section>`
+  },
+
+  // 7. Michigan Locations Map
+  {
+    id: 'trl-content-4',
+    categoryId: 'content',
+    label: 'USA Trailer \u2013 Locations Map',
+    html: `<section style="background:#fff; padding:80px 0; font-family:'Segoe UI',system-ui,sans-serif;">
+  <div class="container text-center">
+    <span class="badge mb-3 px-3 py-2" style="background:#c8102e; color:#fff; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">FIND US</span>
+    <h2 class="fw-black mb-3" style="font-size:clamp(1.8rem,3.5vw,2.6rem); color:#0d1b2a;">7 Convenient Michigan Locations</h2>
+    <p style="color:#6b7280; max-width:560px; margin:0 auto 2.5rem;">Visit any of our statewide dealerships for the best selection, pricing, and expert service in Michigan.</p>
+    <!-- Map image -->
+    <div class="mb-4">
+      <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/USA-Trailer-Sales-Map-Locations.png" alt="USA Trailer Sales Michigan Locations Map" style="max-width:900px; width:100%; border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.1);">
+    </div>
+    <!-- Location pills -->
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; Edmore</span>
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; Ionia</span>
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; New Boston</span>
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; Wayland</span>
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; Grayling</span>
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; Monroe</span>
+      <span class="px-3 py-2 rounded-pill fw-semibold" style="background:#f0f4ff; color:#0d1b2a; font-size:0.88rem; border:1px solid #d0d9f0;">&#128205; Traverse City</span>
+    </div>
+    <a href="#" class="btn btn-lg px-5 fw-bold" style="background:#c8102e; color:#fff; border:none; border-radius:8px;">Find Your Nearest Location</a>
+  </div>
+</section>`
+  },
+
+  // 8. Parts & Service
+  {
+    id: 'trl-feat-4',
+    categoryId: 'features',
+    label: 'USA Trailer \u2013 Parts & Service',
+    html: `<section style="background:#0d1b2a; padding:80px 0; font-family:'Segoe UI',system-ui,sans-serif;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/USA-Trailer-Sales-parts-and-service-2-jpg.avif" alt="Parts &amp; Service" style="width:100%; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,0.45);">
+      </div>
+      <div class="col-lg-6 text-white">
+        <span class="badge mb-3 px-3 py-2" style="background:#c8102e; font-size:0.72rem; letter-spacing:2.5px; font-weight:700; border-radius:4px;">PARTS &amp; SERVICE</span>
+        <h2 class="fw-black mb-4" style="font-size:clamp(1.7rem,3vw,2.4rem); color:#fff; line-height:1.2;">Expert Trailer Parts &amp; Service</h2>
+        <p style="color:rgba(255,255,255,0.62); line-height:1.8; margin-bottom:2rem;">Our certified technicians handle everything from routine maintenance to major repairs. We stock a full inventory of OEM and aftermarket trailer parts at all locations.</p>
+        <ul style="list-style:none; padding:0; margin-bottom:2rem;">
+          <li class="d-flex align-items-center gap-3 mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:30px; height:30px; min-width:30px; background:#c8102e; border-radius:50%; font-size:0.8rem; color:#fff;">&#10003;</span>
+            <span style="color:rgba(255,255,255,0.82);">Brake inspections &amp; replacement</span>
+          </li>
+          <li class="d-flex align-items-center gap-3 mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:30px; height:30px; min-width:30px; background:#c8102e; border-radius:50%; font-size:0.8rem; color:#fff;">&#10003;</span>
+            <span style="color:rgba(255,255,255,0.82);">Axle replacement &amp; wheel alignment</span>
+          </li>
+          <li class="d-flex align-items-center gap-3 mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:30px; height:30px; min-width:30px; background:#c8102e; border-radius:50%; font-size:0.8rem; color:#fff;">&#10003;</span>
+            <span style="color:rgba(255,255,255,0.82);">Electrical wiring &amp; lighting repair</span>
+          </li>
+          <li class="d-flex align-items-center gap-3 mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:30px; height:30px; min-width:30px; background:#c8102e; border-radius:50%; font-size:0.8rem; color:#fff;">&#10003;</span>
+            <span style="color:rgba(255,255,255,0.82);">Tire service &amp; replacement</span>
+          </li>
+          <li class="d-flex align-items-center gap-3 mb-3">
+            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:30px; height:30px; min-width:30px; background:#c8102e; border-radius:50%; font-size:0.8rem; color:#fff;">&#10003;</span>
+            <span style="color:rgba(255,255,255,0.82);">Roof &amp; panel repair</span>
+          </li>
+        </ul>
+        <a href="#" class="btn btn-lg px-5 fw-bold" style="background:#c8102e; color:#fff; border:none; border-radius:8px;">Visit Our Service Department</a>
+      </div>
+    </div>
+  </div>
+</section>`
+  },
+
+  // 9. Site Footer
+  {
+    id: 'trl-footer-3',
+    categoryId: 'footers',
+    label: 'USA Trailer \u2013 Site Footer',
+    html: `<footer style="background:#0d1b2a; color:rgba(255,255,255,0.65); font-family:'Segoe UI',system-ui,sans-serif; padding:60px 0 0;">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <!-- Brand column -->
+      <div class="col-lg-3 col-md-6">
+        <img src="https://www.usa-trailer.com/wp-content/uploads/2024/06/usa-logo.webp" alt="USA Trailer Sales" style="height:48px; object-fit:contain; margin-bottom:1rem; display:block;">
+        <p style="font-size:0.86rem; line-height:1.7; color:rgba(255,255,255,0.5); margin-bottom:1rem;">Michigan&apos;s Largest Trailer Dealer. Serving communities statewide for over 50 years.</p>
+        <div class="d-flex gap-3">
+          <a href="#" style="color:rgba(255,255,255,0.45); font-size:1.2rem; text-decoration:none;"><i class="bi bi-facebook"></i></a>
+          <a href="#" style="color:rgba(255,255,255,0.45); font-size:1.2rem; text-decoration:none;"><i class="bi bi-instagram"></i></a>
+          <a href="#" style="color:rgba(255,255,255,0.45); font-size:1.2rem; text-decoration:none;"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-6">
+        <h6 class="fw-bold text-white mb-3" style="font-size:0.82rem; letter-spacing:1.2px; text-transform:uppercase;">Quick Links</h6>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Home</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">All Inventory</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Financing</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Parts &amp; Service</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Contact Us</a></li>
+        </ul>
+      </div>
+      <!-- Trailer Types -->
+      <div class="col-lg-2 col-6">
+        <h6 class="fw-bold text-white mb-3" style="font-size:0.82rem; letter-spacing:1.2px; text-transform:uppercase;">Trailer Types</h6>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Equipment Trailers</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Utility Trailers</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Cargo &amp; Enclosed</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Dump Trailers</a></li>
+          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.52); text-decoration:none; font-size:0.86rem;">Landscape Trailers</a></li>
+        </ul>
+      </div>
+      <!-- Locations -->
+      <div class="col-lg-5 col-md-6">
+        <h6 class="fw-bold text-white mb-3" style="font-size:0.82rem; letter-spacing:1.2px; text-transform:uppercase;">Our Locations</h6>
+        <div class="row g-2">
+          <div class="col-6">
+            <div style="font-size:0.82rem; margin-bottom:0.8rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">Edmore</div>
+              <div style="color:rgba(255,255,255,0.5);">(989) 427-2715</div>
+            </div>
+            <div style="font-size:0.82rem; margin-bottom:0.8rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">Ionia</div>
+              <div style="color:rgba(255,255,255,0.5);">(616) 527-1947</div>
+            </div>
+            <div style="font-size:0.82rem; margin-bottom:0.8rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">New Boston</div>
+              <div style="color:rgba(255,255,255,0.5);">(734) 753-4340</div>
+            </div>
+            <div style="font-size:0.82rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">Wayland</div>
+              <div style="color:rgba(255,255,255,0.5);">(269) 792-9550</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="font-size:0.82rem; margin-bottom:0.8rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">Grayling</div>
+              <div style="color:rgba(255,255,255,0.5);">(989) 348-2888</div>
+            </div>
+            <div style="font-size:0.82rem; margin-bottom:0.8rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">Monroe</div>
+              <div style="color:rgba(255,255,255,0.5);">(734) 242-7575</div>
+            </div>
+            <div style="font-size:0.82rem;">
+              <div class="fw-bold text-white" style="font-size:0.86rem; margin-bottom:2px;">Traverse City</div>
+              <div style="color:rgba(255,255,255,0.5);">(231) 941-0580</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom bar -->
+  <div style="border-top:1px solid rgba(255,255,255,0.1); padding:18px 0;">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <span style="font-size:0.8rem; color:rgba(255,255,255,0.35);">&copy; 2024 USA Trailer Sales. All rights reserved.</span>
+      <div class="d-flex gap-4">
+        <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.8rem;">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.8rem;">Terms of Use</a>
+        <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.8rem;">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>`
   }
+
 ]
