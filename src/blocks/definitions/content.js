@@ -14,7 +14,7 @@ export const contentBlocks = [
         <a href="#" class="btn btn-outline-primary">Read the Docs <i class="bi bi-box-arrow-up-right ms-1"></i></a>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=80" alt="Content image" class="img-fluid rounded-4 shadow" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=80" alt="Content image" class="img-fluid rounded-4 shadow" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>

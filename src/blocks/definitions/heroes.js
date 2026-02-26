@@ -33,7 +33,7 @@ export const heroBlocks = [
         </div>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=80" alt="Hero visual" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=80" alt="Hero visual" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@ export const heroBlocks = [
         </div>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80" alt="Product showcase" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80" alt="Product showcase" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>
@@ -114,7 +114,7 @@ export const heroBlocks = [
       <a href="#" class="btn btn-outline-dark btn-lg px-5 rounded-pill">Watch Demo</a>
     </div>
     <div class="rounded-4 overflow-hidden shadow-lg border mx-auto" style="max-width:900px;">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="Dashboard preview" class="img-fluid d-block" style="width:100%;">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="Dashboard preview" class="img-fluid d-block" style="width:100%;">
     </div>
   </div>
 </section>`
@@ -147,7 +147,7 @@ export const heroBlocks = [
         </p>
       </div>
       <div class="col-lg-6 text-center">
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=80" alt="Mobile app mockup" class="rounded-4 shadow-lg" style="height:400px; width:100%; object-fit:cover; max-width:360px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=80" alt="Mobile app mockup" class="rounded-4 shadow-lg" style="height:400px; width:100%; object-fit:cover; max-width:360px;">
       </div>
     </div>
   </div>

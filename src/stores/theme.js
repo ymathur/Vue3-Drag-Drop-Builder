@@ -194,9 +194,45 @@ section:not([class*="bg-"]) { background-color: ${bodyBg} !important; }
 .bg-white { background-color: ${bodyBg}       !important; color: ${bodyColor} !important; }
 .navbar-dark, nav.bg-dark    { background-color: ${darkSurface} !important; }
 .navbar-light, nav.bg-light  { background-color: ${lightSurface} !important; }
-.text-dark  { color: ${bodyColor} !important; }
-.text-muted { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
-.text-white { color: ${darkText}  !important; }
+.text-dark    { color: ${bodyColor} !important; }
+.text-muted   { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
+.text-white   { color: ${darkText}  !important; }
+.text-white-50 { color: color-mix(in srgb, ${heading} 65%, transparent) !important; }
+.text-light   { color: color-mix(in srgb, ${bodyColor} 80%, transparent) !important; }
+
+/* ── Context-aware text overrides — higher specificity (2 classes) beats Bootstrap ── */
+/* Inside .bg-dark — every text utility snaps to dark-surface text colour */
+.bg-dark h1,.bg-dark h2,.bg-dark h3,.bg-dark h4,.bg-dark h5,.bg-dark h6 { color: ${darkText} !important; }
+.bg-dark p,.bg-dark li,.bg-dark span:not(.badge),.bg-dark label { color: inherit; }
+.bg-dark .text-white,.bg-dark .text-light   { color: ${darkText} !important; }
+.bg-dark .text-white-50                     { color: color-mix(in srgb, ${darkText} 60%, transparent) !important; }
+.bg-dark .text-muted,.bg-dark .text-secondary { color: color-mix(in srgb, ${darkText} 58%, transparent) !important; }
+.bg-dark .text-dark,.bg-dark .text-body     { color: ${darkText} !important; }
+.bg-dark .nav-link                          { color: color-mix(in srgb, ${darkText} 75%, transparent); }
+.bg-dark .nav-link:hover                    { color: ${darkText}; }
+/* Inside .bg-light — text is always readable on the light surface */
+.bg-light h1,.bg-light h2,.bg-light h3,.bg-light h4,.bg-light h5,.bg-light h6 { color: ${heading} !important; }
+.bg-light .text-white,.bg-light .text-light { color: ${lightText} !important; }
+.bg-light .text-white-50                    { color: color-mix(in srgb, ${bodyColor} 65%, transparent) !important; }
+.bg-light .text-muted                       { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
+.bg-light .text-dark,.bg-light .text-body   { color: ${lightText} !important; }
+/* Inside .bg-white — same as bg-light */
+.bg-white h1,.bg-white h2,.bg-white h3,.bg-white h4,.bg-white h5,.bg-white h6 { color: ${heading} !important; }
+.bg-white .text-white,.bg-white .text-light { color: ${bodyColor} !important; }
+.bg-white .text-white-50                    { color: color-mix(in srgb, ${bodyColor} 65%, transparent) !important; }
+.bg-white .text-muted                       { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
+/* Sections with no explicit bg-* class get bodyBg — text-white must still be readable */
+section:not([class*="bg-"]) .text-white     { color: ${heading} !important; }
+section:not([class*="bg-"]) .text-white-50  { color: color-mix(in srgb, ${bodyColor} 65%, transparent) !important; }
+section:not([class*="bg-"]) .text-light     { color: color-mix(in srgb, ${bodyColor} 80%, transparent) !important; }
+section:not([class*="bg-"]) .text-dark      { color: ${bodyColor} !important; }
+
+/* ── Form controls — adapt to dark surfaces ── */
+.bg-dark .form-control,.bg-dark .form-select {
+  background-color: ${lightSurface} !important;
+  border-color: color-mix(in srgb, ${darkText} 20%, transparent) !important;
+  color: ${lightText} !important;
+}
 
 /* ── Buttons — primary ── */
 .btn-primary {
@@ -316,6 +352,18 @@ input[type="range"]::-webkit-slider-thumb { background-color: ${primary}; }
 
 /* ── Cards & layout ── */
 .card, .modal-content, .dropdown-menu { border-radius: ${radiusLg}; }
+
+/* ── Global img fallback — shows themed colour when an image fails to load ── */
+img { background-color: var(--bs-body-bg); }
+img[src=""] { min-height: 120px; display: block; }
+
+/* ── Ensure :root CSS vars are propagated for inline-style var() usage ── */
+:root {
+  --bs-dark:       ${darkSurface};
+  --bs-light:      ${lightSurface};
+  --bs-dark-text:  ${darkText};
+  --bs-light-text: ${lightText};
+}
 `
   }
 

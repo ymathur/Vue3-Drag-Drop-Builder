@@ -227,36 +227,56 @@ export const useBuilderStore = defineStore('builder', () => {
   // making all further theme-switches and ThemePanel tweaks live instantly.
   const PALETTE_CSS_VAR_MAP = [
     // ── Jewellery (Obsidian #0a0a0a · Gold #c9a96e) ──────────
-    ['#0f0d0b', 'var(--bs-body-bg)'],
-    ['#080808', 'var(--bs-body-bg)'],
-    ['#151515', 'var(--bs-body-bg)'],
+    ['#0f0d0b', 'var(--bs-dark)'],
+    ['#080808', 'var(--bs-dark)'],
+    ['#151515', 'var(--bs-light)'],       // dark theme's "light" surface (form inputs)
     ['#0a0a0a', 'var(--bs-body-bg)'],
     ['#050302', 'var(--bs-dark)'],
     ['#1a1612', 'var(--bs-dark)'],
     ['#1c1510', 'var(--bs-dark)'],
     ['#c9a96e', 'var(--bs-primary)'],
+    ['#e0c88a', 'var(--bs-primary)'],     // lighter gold variant
+    ['#a89070', 'var(--bs-secondary)'],   // warm brown secondary
+    ['#8b7355', 'var(--bs-secondary)'],
+    ['#6a5840', 'var(--bs-secondary)'],
+    ['#2a2218', 'var(--bs-border-color)'],
+    ['#f5e6d3', 'var(--bs-heading-color)'],
+    ['#d8c4a8', 'var(--bs-body-color)'],
     // ── Furniture (Linen #fef6ec · Terracotta #c27a56 · Walnut #3d2b1f) ──
-    ['#f5e6d8', 'var(--bs-body-bg)'],
+    ['#f5e8d5', 'var(--bs-light)'],
+    ['#f5e6d8', 'var(--bs-light)'],       // slightly different beige variant
     ['#fef6ec', 'var(--bs-body-bg)'],
-    ['#5a3e30', 'var(--bs-dark)'],
+    ['#5a3e30', 'var(--bs-body-color)'],  // body text on light bg
     ['#4e3728', 'var(--bs-dark)'],
     ['#3d2b1f', 'var(--bs-dark)'],
     ['#c27a56', 'var(--bs-primary)'],
     ['#7a5c47', 'var(--bs-secondary)'],
+    ['#a07860', 'var(--bs-secondary)'],   // lighter secondary
+    ['#d4b9a4', 'var(--bs-dark-text)'],   // footer light text on dark bg
     ['#e8d5c0', 'var(--bs-border-color)'],
+    ['#2a1a0f', 'var(--bs-heading-color)'],
     // ── Handicraft (Parchment #fdf8f0 · Saffron #f0a500 · Indigo #2d2f6b) ──
     ['#fdf8f0', 'var(--bs-body-bg)'],
+    ['#fffdf5', 'var(--bs-body-bg)'],
+    ['#f5ead5', 'var(--bs-light)'],
     ['#2d2f6b', 'var(--bs-dark)'],
+    ['#1a1c45', 'var(--bs-dark)'],
     ['#f0a500', 'var(--bs-primary)'],
     ['#e5d8c0', 'var(--bs-border-color)'],
+    ['#2d2010', 'var(--bs-body-color)'],
+    ['#1a1200', 'var(--bs-heading-color)'],
     // ── Trailer (Forest #141e14 · Orange #e8630a · Sage #4a8a4a) ──
     ['#0e160e', 'var(--bs-dark)'],
+    ['#111a11', 'var(--bs-dark)'],
     ['#0a100a', 'var(--bs-dark)'],
-    ['#1a2a1a', 'var(--bs-dark)'],
+    ['#1a2a1a', 'var(--bs-light)'],
     ['#141e14', 'var(--bs-body-bg)'],
     ['#e8630a', 'var(--bs-primary)'],
     ['#4a8a4a', 'var(--bs-secondary)'],
+    ['#8ab08a', 'var(--bs-secondary)'],
     ['#c8dcc8', 'var(--bs-body-color)'],
+    ['#e8f4e8', 'var(--bs-heading-color)'],
+    ['#253525', 'var(--bs-border-color)'],
   ]
 
   /**

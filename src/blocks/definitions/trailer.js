@@ -45,10 +45,10 @@ export const trailerBlocks = [
         <li class="nav-item"><a class="nav-link text-light" href="#">Home</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Adventure</a>
-          <ul class="dropdown-menu dropdown-menu-dark" style="background:var(--bs-light); border:1px solid #e8630a30;">
+          <ul class="dropdown-menu dropdown-menu-dark" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-primary) 19%, transparent);">
             <li><a class="dropdown-item" href="#">Trail Hiking</a></li>
             <li><a class="dropdown-item" href="#">Off-Road Camping</a></li>
-            <li><hr class="dropdown-divider" style="border-color:#e8630a30;"></li>
+            <li><hr class="dropdown-divider" style="border-color:color-mix(in srgb, var(--bs-primary) 19%, transparent);"></li>
             <li><a class="dropdown-item" href="#">Wilderness Survival</a></li>
           </ul>
         </li>
@@ -68,7 +68,7 @@ export const trailerBlocks = [
     categoryId: 'heroes',
     label: 'Trailer – Full-Width Wilderness Hero',
     html: `<section class="position-relative text-white text-center d-flex align-items-center" style="min-height:620px; background:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1400&q=80') center/cover no-repeat;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(20,30,20,0.72);"></div>
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:color-mix(in srgb, var(--bs-dark) 72%, transparent);"></div>
   <div class="container position-relative py-5">
     <span class="d-inline-block text-primary fw-bold mb-3" style="letter-spacing:4px; font-size:0.8rem;">WHERE THE ROAD ENDS</span>
     <h1 class="display-2 fw-bold text-white mb-4" style="line-height:1.05;">Built for the Wild.<br>Engineered to Last.</h1>
@@ -93,7 +93,7 @@ export const trailerBlocks = [
   <div class="container py-4">
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
-        <span class="badge mb-3 fw-bold px-3 py-2" style="background:#e8630a20; color:var(--bs-primary); letter-spacing:2px;">NEW SEASON</span>
+        <span class="badge mb-3 fw-bold px-3 py-2" style="background:color-mix(in srgb, var(--bs-primary) 12%, transparent); color:var(--bs-primary); letter-spacing:2px;">NEW SEASON</span>
         <h1 class="display-4 fw-bold text-white mb-4" style="line-height:1.1;">Your Next Expedition Starts Here</h1>
         <p class="mb-4" style="color:var(--bs-body-color); font-size:1.1rem; line-height:1.7;">TrailForce trailers are engineered for extreme conditions — off-grid living, mountain terrain, and backcountry routes that others can't reach. Rugged. Durable. Unstoppable.</p>
         <div class="d-flex gap-3 flex-wrap mb-4">
@@ -117,8 +117,8 @@ export const trailerBlocks = [
       </div>
       <div class="col-lg-6">
         <div class="position-relative">
-          <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="TrailForce campervan on open road" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
-          <div class="position-absolute bottom-0 start-0 m-3 px-3 py-2 rounded-2" style="background:#141e14cc; backdrop-filter:blur(8px);">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="TrailForce campervan on open road" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+          <div class="position-absolute bottom-0 start-0 m-3 px-3 py-2 rounded-2" style="background:color-mix(in srgb, var(--bs-dark) 80%, transparent); backdrop-filter:blur(8px);">
             <span class="text-primary fw-bold small">EXPEDITION SERIES</span>
             <div class="text-white fw-bold">TrailForce TX-7</div>
           </div>
@@ -144,7 +144,7 @@ export const trailerBlocks = [
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 p-4" style="background:var(--bs-light);">
-          <div class="mb-3" style="width:54px;height:54px;background:#e8630a20;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <div class="mb-3" style="width:54px;height:54px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:12px;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-shield-check fs-4 text-primary"></i>
           </div>
           <h5 class="fw-bold text-white mb-2">All-Terrain Durability</h5>
@@ -153,7 +153,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card h-100 p-4" style="background:var(--bs-light);">
-          <div class="mb-3" style="width:54px;height:54px;background:#e8630a20;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <div class="mb-3" style="width:54px;height:54px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:12px;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-lightning-charge fs-4 text-primary"></i>
           </div>
           <h5 class="fw-bold text-white mb-2">Off-Grid Power System</h5>
@@ -162,7 +162,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card h-100 p-4" style="background:var(--bs-light);">
-          <div class="mb-3" style="width:54px;height:54px;background:#e8630a20;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <div class="mb-3" style="width:54px;height:54px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:12px;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-snow2 fs-4 text-primary"></i>
           </div>
           <h5 class="fw-bold text-white mb-2">4-Season Insulation</h5>
@@ -171,7 +171,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card h-100 p-4" style="background:var(--bs-light);">
-          <div class="mb-3" style="width:54px;height:54px;background:#e8630a20;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <div class="mb-3" style="width:54px;height:54px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:12px;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-water fs-4 text-primary"></i>
           </div>
           <h5 class="fw-bold text-white mb-2">Fresh Water Independence</h5>
@@ -180,7 +180,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card h-100 p-4" style="background:var(--bs-light);">
-          <div class="mb-3" style="width:54px;height:54px;background:#e8630a20;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <div class="mb-3" style="width:54px;height:54px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:12px;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-tools fs-4 text-primary"></i>
           </div>
           <h5 class="fw-bold text-white mb-2">Modular Configuration</h5>
@@ -189,7 +189,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card h-100 p-4" style="background:var(--bs-light);">
-          <div class="mb-3" style="width:54px;height:54px;background:#e8630a20;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+          <div class="mb-3" style="width:54px;height:54px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:12px;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-geo-alt fs-4 text-primary"></i>
           </div>
           <h5 class="fw-bold text-white mb-2">GPS Trail Integration</h5>
@@ -208,7 +208,7 @@ export const trailerBlocks = [
   <div class="container py-3">
     <div class="row align-items-center g-5 mb-5">
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road rugged terrain" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:16/10;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road rugged terrain" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:16/10;">
       </div>
       <div class="col-lg-6">
         <span class="text-primary fw-bold d-block mb-2" style="letter-spacing:3px; font-size:0.8rem;">BUILT DIFFERENT</span>
@@ -254,7 +254,7 @@ export const trailerBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-5">
         <div class="position-relative">
-          <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689?w=800&q=80" alt="Campfire night" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:3/4;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?w=800&q=80" alt="Campfire night" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:3/4;">
           <div class="position-absolute top-0 start-0 m-3 px-3 py-2 rounded-2 text-center" style="background:var(--bs-primary);">
             <div class="text-white fw-bold fs-4 lh-1">25</div>
             <div class="text-white" style="font-size:0.7rem; letter-spacing:1px;">YEARS IN<br>THE FIELD</div>
@@ -313,7 +313,7 @@ export const trailerBlocks = [
     </div>
     <div class="row g-4 align-items-center">
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Forest trail path" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:16/9;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Forest trail path" class="img-fluid rounded-3" style="width:100%; object-fit:cover; aspect-ratio:16/9;">
       </div>
       <div class="col-lg-6">
         <div class="d-flex flex-column gap-4">
@@ -359,9 +359,9 @@ export const trailerBlocks = [
     <div class="row g-4">
       <div class="col-md-6 col-lg-3">
         <div class="card h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Mountain hiking" style="width:100%; height:180px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Mountain hiking" style="width:100%; height:180px; object-fit:cover;">
           <div class="card-body p-4" style="background:var(--bs-light);">
-            <span class="badge mb-2" style="background:#e8630a20; color:var(--bs-primary);">HIKING</span>
+            <span class="badge mb-2" style="background:color-mix(in srgb, var(--bs-primary) 12%, transparent); color:var(--bs-primary);">HIKING</span>
             <h6 class="fw-bold text-white mb-2">Alpine Summit Series</h6>
             <p style="color:var(--bs-body-color); font-size:0.85rem; margin:0;">Lightweight packs and trail systems engineered for high-altitude ascents.</p>
             <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-100">Explore</a>
@@ -370,9 +370,9 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1511310865647-f9a2a6a8ca12?w=800&q=80" alt="Kayaking" style="width:100%; height:180px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1511310865647-f9a2a6a8ca12?w=800&q=80" alt="Kayaking" style="width:100%; height:180px; object-fit:cover;">
           <div class="card-body p-4" style="background:var(--bs-light);">
-            <span class="badge mb-2" style="background:#e8630a20; color:var(--bs-primary);">WATER</span>
+            <span class="badge mb-2" style="background:color-mix(in srgb, var(--bs-primary) 12%, transparent); color:var(--bs-primary);">WATER</span>
             <h6 class="fw-bold text-white mb-2">Whitewater Expedition</h6>
             <p style="color:var(--bs-body-color); font-size:0.85rem; margin:0;">Kayak trailers and dry storage systems for class IV river runs.</p>
             <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-100">Explore</a>
@@ -381,9 +381,9 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1522163723043-8ad0a8c74f79?w=800&q=80" alt="Rock climbing" style="width:100%; height:180px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1522163723043-8ad0a8c74f79?w=800&q=80" alt="Rock climbing" style="width:100%; height:180px; object-fit:cover;">
           <div class="card-body p-4" style="background:var(--bs-light);">
-            <span class="badge mb-2" style="background:#e8630a20; color:var(--bs-primary);">CLIMBING</span>
+            <span class="badge mb-2" style="background:color-mix(in srgb, var(--bs-primary) 12%, transparent); color:var(--bs-primary);">CLIMBING</span>
             <h6 class="fw-bold text-white mb-2">Vertical Basecamp Kit</h6>
             <p style="color:var(--bs-body-color); font-size:0.85rem; margin:0;">Everything a climbing team needs — hauled in, set up fast, ready at dawn.</p>
             <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-100">Explore</a>
@@ -392,9 +392,9 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road" style="width:100%; height:180px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road" style="width:100%; height:180px; object-fit:cover;">
           <div class="card-body p-4" style="background:var(--bs-light);">
-            <span class="badge mb-2" style="background:#e8630a20; color:var(--bs-primary);">OFF-ROAD</span>
+            <span class="badge mb-2" style="background:color-mix(in srgb, var(--bs-primary) 12%, transparent); color:var(--bs-primary);">OFF-ROAD</span>
             <h6 class="fw-bold text-white mb-2">Desert Overland Pack</h6>
             <p style="color:var(--bs-body-color); font-size:0.85rem; margin:0;">Overland trailers with extended water range for multi-day desert crossings.</p>
             <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-100">Explore</a>
@@ -422,7 +422,7 @@ export const trailerBlocks = [
       <div class="col-md-4">
         <div class="card h-100" style="background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=800&q=80" alt="Outdoor gear" style="width:100%; height:220px; object-fit:cover; border-radius:8px 8px 0 0;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=800&q=80" alt="Outdoor gear" style="width:100%; height:220px; object-fit:cover; border-radius:8px 8px 0 0;">
             <span class="position-absolute top-0 end-0 m-2 badge" style="background:var(--bs-primary);">BESTSELLER</span>
           </div>
           <div class="card-body p-4">
@@ -438,7 +438,7 @@ export const trailerBlocks = [
       <div class="col-md-4">
         <div class="card h-100" style="background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Camping tent" style="width:100%; height:220px; object-fit:cover; border-radius:8px 8px 0 0;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Camping tent" style="width:100%; height:220px; object-fit:cover; border-radius:8px 8px 0 0;">
           </div>
           <div class="card-body p-4">
             <h6 class="text-white fw-bold mb-1">Basecamp Roof Tent XL</h6>
@@ -453,7 +453,7 @@ export const trailerBlocks = [
       <div class="col-md-4">
         <div class="card h-100" style="background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Adventure hikers" style="width:100%; height:220px; object-fit:cover; border-radius:8px 8px 0 0;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Adventure hikers" style="width:100%; height:220px; object-fit:cover; border-radius:8px 8px 0 0;">
             <span class="position-absolute top-0 end-0 m-2 badge bg-success">NEW</span>
           </div>
           <div class="card-body p-4">
@@ -488,7 +488,7 @@ export const trailerBlocks = [
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.1rem;">★★★★★</div>
           <p style="color:var(--bs-body-color); line-height:1.7; font-size:0.95rem;" class="mb-4">"Took the TX-7 through the Mojave for 10 days — 40°C heat, pure sand, zero hookups. Not a single failure. This thing is absolutely indestructible."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Marcus Webb" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Marcus Webb" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--bs-primary);">
             <div>
               <div class="text-white fw-bold small">Marcus Webb</div>
               <div style="color:var(--bs-body-color); font-size:0.78rem;">Desert Overland Guide, Arizona</div>
@@ -501,7 +501,7 @@ export const trailerBlocks = [
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.1rem;">★★★★★</div>
           <p style="color:var(--bs-body-color); line-height:1.7; font-size:0.95rem;" class="mb-4">"I've owned three different overland trailers. TrailForce is on a different level. The solar setup alone paid for itself in one season. I'll never go back."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Sarah Kline" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Sarah Kline" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--bs-primary);">
             <div>
               <div class="text-white fw-bold small">Sarah Kline</div>
               <div style="color:var(--bs-body-color); font-size:0.78rem;">Full-Time Nomad, Pacific Crest</div>
@@ -514,7 +514,7 @@ export const trailerBlocks = [
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.1rem;">★★★★★</div>
           <p style="color:var(--bs-body-color); line-height:1.7; font-size:0.95rem;" class="mb-4">"Ran a 14-day Patagonia crossing with a full film crew. The gear bay fit everything. Setup took 10 minutes. If you're serious about expedition travel — this is it."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Elena Rossi" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Elena Rossi" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--bs-primary);">
             <div>
               <div class="text-white fw-bold small">Elena Rossi</div>
               <div style="color:var(--bs-body-color); font-size:0.78rem;">Adventure Filmmaker, Patagonia</div>
@@ -534,11 +534,11 @@ export const trailerBlocks = [
   <div class="container py-3">
     <div class="row justify-content-center">
       <div class="col-lg-9">
-        <div class="card p-5 text-center" style="background:var(--bs-body-bg); border:1px solid #e8630a30;">
+        <div class="card p-5 text-center" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-primary) 19%, transparent);">
           <div class="mb-4" style="color:var(--bs-primary); font-size:1.3rem; letter-spacing:2px;">★★★★★</div>
           <p class="text-white mb-5" style="font-size:1.4rem; line-height:1.6; font-style:italic;">"We drove TrailForce rigs from Alaska to Tierra del Fuego — 18,000 miles, 22 countries, every road surface imaginable. Not one axle, not one seal, not one panel gave out. That kind of reliability isn't luck. It's engineering."</p>
           <div class="d-flex align-items-center justify-content-center gap-3">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="James & Dana Trethewey" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="James & Dana Trethewey" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--bs-primary);">
             <div class="text-start">
               <div class="text-white fw-bold">James & Dana Trethewey</div>
               <div style="color:var(--bs-body-color); font-size:0.85rem;">Pan-American Overland Expedition, 2024</div>
@@ -571,7 +571,7 @@ export const trailerBlocks = [
     categoryId: 'cta',
     label: 'Trailer – Bold CTA Banner',
     html: `<section class="py-5 text-center position-relative" style="background:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80') center/cover no-repeat; min-height:380px; display:flex; align-items:center;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(20,30,20,0.82);"></div>
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:color-mix(in srgb, var(--bs-dark) 82%, transparent);"></div>
   <div class="container position-relative py-5">
     <span class="text-primary fw-bold d-block mb-3" style="letter-spacing:4px; font-size:0.8rem;">LIMITED SEASON STOCK</span>
     <h2 class="fw-bold text-white display-5 mb-3">Your Wilderness Window Is Open</h2>
@@ -633,19 +633,19 @@ export const trailerBlocks = [
             <div class="row g-3">
               <div class="col-sm-6">
                 <label class="form-label text-light small fw-semibold">First Name</label>
-                <input type="text" class="form-control" style="background:var(--bs-body-bg); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="Jake">
+                <input type="text" class="form-control" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="Jake">
               </div>
               <div class="col-sm-6">
                 <label class="form-label text-light small fw-semibold">Last Name</label>
-                <input type="text" class="form-control" style="background:var(--bs-body-bg); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="Holloway">
+                <input type="text" class="form-control" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="Holloway">
               </div>
               <div class="col-12">
                 <label class="form-label text-light small fw-semibold">Email Address</label>
-                <input type="email" class="form-control" style="background:var(--bs-body-bg); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="jake@expedition.com">
+                <input type="email" class="form-control" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="jake@expedition.com">
               </div>
               <div class="col-sm-6">
                 <label class="form-label text-light small fw-semibold">Adventure Type</label>
-                <select class="form-select" style="background:var(--bs-body-bg); border:1px solid #4a8a4a50; color:var(--bs-body-color);">
+                <select class="form-select" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);">
                   <option value="">Select terrain...</option>
                   <option>Desert Overland</option>
                   <option>Mountain / Alpine</option>
@@ -655,7 +655,7 @@ export const trailerBlocks = [
               </div>
               <div class="col-sm-6">
                 <label class="form-label text-light small fw-semibold">Trip Duration</label>
-                <select class="form-select" style="background:var(--bs-body-bg); border:1px solid #4a8a4a50; color:var(--bs-body-color);">
+                <select class="form-select" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);">
                   <option value="">Select duration...</option>
                   <option>Weekend (2-3 days)</option>
                   <option>Week (5-7 days)</option>
@@ -665,7 +665,7 @@ export const trailerBlocks = [
               </div>
               <div class="col-12">
                 <label class="form-label text-light small fw-semibold">Tell us about your expedition</label>
-                <textarea class="form-control" rows="4" style="background:var(--bs-body-bg); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="Destination, group size, special requirements..."></textarea>
+                <textarea class="form-control" rows="4" style="background:var(--bs-body-bg); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="Destination, group size, special requirements..."></textarea>
               </div>
               <div class="col-12">
                 <div class="form-check">
@@ -708,19 +708,19 @@ export const trailerBlocks = [
             <div class="row g-3">
               <div class="col-sm-6">
                 <label class="form-label small fw-semibold text-light">Full Name</label>
-                <input type="text" class="form-control" style="background:var(--bs-light); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="Your name">
+                <input type="text" class="form-control" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="Your name">
               </div>
               <div class="col-sm-6">
                 <label class="form-label small fw-semibold text-light">Email</label>
-                <input type="email" class="form-control" style="background:var(--bs-light); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="you@example.com">
+                <input type="email" class="form-control" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="you@example.com">
               </div>
               <div class="col-sm-6">
                 <label class="form-label small fw-semibold text-light">State / Region</label>
-                <input type="text" class="form-control" style="background:var(--bs-light); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="e.g. Colorado">
+                <input type="text" class="form-control" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="e.g. Colorado">
               </div>
               <div class="col-sm-6">
                 <label class="form-label small fw-semibold text-light">Interested In</label>
-                <select class="form-select" style="background:var(--bs-light); border:1px solid #4a8a4a50; color:var(--bs-body-color);">
+                <select class="form-select" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);">
                   <option value="">Select...</option>
                   <option>Trailers</option>
                   <option>Gear &amp; Accessories</option>
@@ -763,8 +763,8 @@ export const trailerBlocks = [
             <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill text-primary mt-1 flex-shrink-0"></i><span>Standard suspension system</span></li>
             <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill text-primary mt-1 flex-shrink-0"></i><span>20-gallon water tank</span></li>
             <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill text-primary mt-1 flex-shrink-0"></i><span>100W solar panel</span></li>
-            <li class="mb-2 d-flex gap-2"><i class="bi bi-x-circle-fill flex-shrink-0 mt-1" style="color:#4a8a4a60;"></i><span style="opacity:0.5;">Off-road upgrade package</span></li>
-            <li class="mb-2 d-flex gap-2"><i class="bi bi-x-circle-fill flex-shrink-0 mt-1" style="color:#4a8a4a60;"></i><span style="opacity:0.5;">Expedition configuration</span></li>
+            <li class="mb-2 d-flex gap-2"><i class="bi bi-x-circle-fill flex-shrink-0 mt-1" style="color:color-mix(in srgb, var(--bs-secondary) 38%, transparent);"></i><span style="opacity:0.5;">Off-road upgrade package</span></li>
+            <li class="mb-2 d-flex gap-2"><i class="bi bi-x-circle-fill flex-shrink-0 mt-1" style="color:color-mix(in srgb, var(--bs-secondary) 38%, transparent);"></i><span style="opacity:0.5;">Expedition configuration</span></li>
           </ul>
           <a href="#" class="btn btn-outline-primary w-100 fw-bold mt-auto">Configure Weekender</a>
         </div>
@@ -781,7 +781,7 @@ export const trailerBlocks = [
             <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill text-primary mt-1 flex-shrink-0"></i><span>40-gallon water with filtration</span></li>
             <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill text-primary mt-1 flex-shrink-0"></i><span>200W solar + lithium battery bank</span></li>
             <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill text-primary mt-1 flex-shrink-0"></i><span>Full off-road upgrade package</span></li>
-            <li class="mb-2 d-flex gap-2"><i class="bi bi-x-circle-fill flex-shrink-0 mt-1" style="color:#4a8a4a60;"></i><span style="opacity:0.5;">Custom expedition configuration</span></li>
+            <li class="mb-2 d-flex gap-2"><i class="bi bi-x-circle-fill flex-shrink-0 mt-1" style="color:color-mix(in srgb, var(--bs-secondary) 38%, transparent);"></i><span style="opacity:0.5;">Custom expedition configuration</span></li>
           </ul>
           <a href="#" class="btn btn-primary w-100 fw-bold mt-auto">Configure TX-7</a>
         </div>
@@ -822,7 +822,7 @@ export const trailerBlocks = [
         <div class="card p-4 h-100" style="background:var(--bs-body-bg);">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <h5 class="text-white fw-bold mb-0">Trail Ready</h5>
-            <span class="badge" style="background:#e8630a20; color:var(--bs-primary);">ANNUAL</span>
+            <span class="badge" style="background:color-mix(in srgb, var(--bs-primary) 12%, transparent); color:var(--bs-primary);">ANNUAL</span>
           </div>
           <div class="text-white mb-3" style="font-size:2rem; font-weight:800; line-height:1;">$299<span style="font-size:0.95rem; font-weight:400; color:var(--bs-body-color);">/yr</span></div>
           <ul class="list-unstyled mb-4" style="color:var(--bs-body-color); font-size:0.9rem;">
@@ -861,7 +861,7 @@ export const trailerBlocks = [
     id: 'trl-footer-1',
     categoryId: 'footers',
     label: 'Trailer – Full Dark Adventure Footer',
-    html: `<footer style="background:#0e160e; border-top:2px solid #e8630a30;">
+    html: `<footer style="background:var(--bs-dark); border-top:2px solid color-mix(in srgb, var(--bs-primary) 19%, transparent);">
   <div class="container py-5">
     <div class="row g-5">
       <div class="col-lg-4">
@@ -896,12 +896,12 @@ export const trailerBlocks = [
         <h6 class="text-white fw-bold mb-3" style="letter-spacing:1px;">STAY IN THE LOOP</h6>
         <p style="color:var(--bs-body-color); font-size:0.9rem;" class="mb-3">Get trail dispatches and new gear drops directly in your inbox.</p>
         <div class="input-group">
-          <input type="email" class="form-control" style="background:var(--bs-light); border:1px solid #4a8a4a50; color:var(--bs-body-color);" placeholder="your@email.com">
+          <input type="email" class="form-control" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-secondary) 31%, transparent); color:var(--bs-body-color);" placeholder="your@email.com">
           <button class="btn btn-primary fw-bold px-3">Subscribe</button>
         </div>
       </div>
     </div>
-    <hr style="border-color:#e8630a20; margin:2.5rem 0 1.5rem;">
+    <hr style="border-color:color-mix(in srgb, var(--bs-primary) 12%, transparent); margin:2.5rem 0 1.5rem;">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
       <p class="mb-0" style="color:var(--bs-body-color); font-size:0.82rem;">&copy; 2024 TrailForce Gear Co. All rights reserved.</p>
       <div class="d-flex gap-3" style="color:var(--bs-body-color); font-size:0.82rem;">
@@ -917,7 +917,7 @@ export const trailerBlocks = [
     id: 'trl-footer-2',
     categoryId: 'footers',
     label: 'Trailer – Compact Dark Footer',
-    html: `<footer style="background:var(--bs-body-bg); border-top:1px solid #4a8a4a30;">
+    html: `<footer style="background:var(--bs-body-bg); border-top:1px solid color-mix(in srgb, var(--bs-secondary) 19%, transparent);">
   <div class="container py-4">
     <div class="row align-items-center g-3">
       <div class="col-md-3">
@@ -941,7 +941,7 @@ export const trailerBlocks = [
         </div>
       </div>
     </div>
-    <hr style="border-color:#4a8a4a20; margin:1rem 0;">
+    <hr style="border-color:color-mix(in srgb, var(--bs-secondary) 12%, transparent); margin:1rem 0;">
     <p class="text-center mb-0" style="color:var(--bs-body-color); font-size:0.78rem; opacity:0.7;">&copy; 2024 TrailForce Gear Co. — Built for the Wild. Engineered to Last.</p>
   </div>
 </footer>`
@@ -962,32 +962,32 @@ export const trailerBlocks = [
     <div class="row g-3">
       <div class="col-6 col-md-4">
         <div class="overflow-hidden rounded-2 position-relative" style="aspect-ratio:1/1;">
-          <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Forest camp" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Forest camp" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="overflow-hidden rounded-2 position-relative" style="aspect-ratio:1/1;">
-          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Mountain sunrise" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Mountain sunrise" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="overflow-hidden rounded-2 position-relative" style="aspect-ratio:1/1;">
-          <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="Campervan road" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="Campervan road" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="overflow-hidden rounded-2 position-relative" style="aspect-ratio:1/1;">
-          <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road terrain" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road terrain" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="overflow-hidden rounded-2 position-relative" style="aspect-ratio:1/1;">
-          <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689?w=800&q=80" alt="Campfire night" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?w=800&q=80" alt="Campfire night" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="overflow-hidden rounded-2 position-relative" style="aspect-ratio:1/1;">
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Mountain vista" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Mountain vista" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
       </div>
     </div>
@@ -1010,36 +1010,36 @@ export const trailerBlocks = [
     <div class="row g-3">
       <div class="col-md-8">
         <div class="overflow-hidden rounded-2" style="height:360px;">
-          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Forest trail" style="width:100%; height:100%; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Forest trail" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
       <div class="col-md-4">
         <div class="row g-3">
           <div class="col-12">
             <div class="overflow-hidden rounded-2" style="height:172px;">
-              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Adventure hikers" style="width:100%; height:100%; object-fit:cover;">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Adventure hikers" style="width:100%; height:100%; object-fit:cover;">
             </div>
           </div>
           <div class="col-12">
             <div class="overflow-hidden rounded-2" style="height:172px;">
-              <img src="https://images.unsplash.com/photo-1522163723043-8ad0a8c74f79?w=800&q=80" alt="Rock climbing" style="width:100%; height:100%; object-fit:cover;">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1522163723043-8ad0a8c74f79?w=800&q=80" alt="Rock climbing" style="width:100%; height:100%; object-fit:cover;">
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="overflow-hidden rounded-2" style="height:240px;">
-          <img src="https://images.unsplash.com/photo-1511310865647-f9a2a6a8ca12?w=800&q=80" alt="Kayaking" style="width:100%; height:100%; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1511310865647-f9a2a6a8ca12?w=800&q=80" alt="Kayaking" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
       <div class="col-md-4">
         <div class="overflow-hidden rounded-2" style="height:240px;">
-          <img src="https://images.unsplash.com/photo-1496309732348-3627abaa4831?w=800&q=80" alt="Sunset overlook" style="width:100%; height:100%; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1496309732348-3627abaa4831?w=800&q=80" alt="Sunset overlook" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
       <div class="col-md-4">
         <div class="overflow-hidden rounded-2" style="height:240px;">
-          <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=800&q=80" alt="Outdoor equipment" style="width:100%; height:100%; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=800&q=80" alt="Outdoor equipment" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
     </div>
@@ -1052,7 +1052,7 @@ export const trailerBlocks = [
     id: 'trl-social-1',
     categoryId: 'social-proof',
     label: 'Trailer – Press Logos + Stats',
-    html: `<section class="py-5" style="background:var(--bs-body-bg); border-top:1px solid #4a8a4a20; border-bottom:1px solid #4a8a4a20;">
+    html: `<section class="py-5" style="background:var(--bs-body-bg); border-top:1px solid color-mix(in srgb, var(--bs-secondary) 12%, transparent); border-bottom:1px solid color-mix(in srgb, var(--bs-secondary) 12%, transparent);">
   <div class="container py-3">
     <div class="text-center mb-4">
       <p class="text-primary fw-bold mb-0" style="letter-spacing:3px; font-size:0.8rem;">AS SEEN IN</p>
@@ -1116,7 +1116,7 @@ export const trailerBlocks = [
     <div class="row g-4 justify-content-center mb-5">
       <div class="col-md-4 col-lg-3">
         <div class="card p-4 text-center h-100" style="background:var(--bs-body-bg);">
-          <div style="width:64px;height:64px;background:#e8630a20;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
+          <div style="width:64px;height:64px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-trophy-fill text-primary fs-3"></i>
           </div>
           <h6 class="text-white fw-bold mb-1">Best Overland Trailer 2024</h6>
@@ -1125,7 +1125,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4 col-lg-3">
         <div class="card p-4 text-center h-100" style="background:var(--bs-body-bg);">
-          <div style="width:64px;height:64px;background:#e8630a20;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
+          <div style="width:64px;height:64px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-patch-check-fill text-primary fs-3"></i>
           </div>
           <h6 class="text-white fw-bold mb-1">ISO 9001 Certified</h6>
@@ -1134,7 +1134,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4 col-lg-3">
         <div class="card p-4 text-center h-100" style="background:var(--bs-body-bg);">
-          <div style="width:64px;height:64px;background:#e8630a20;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
+          <div style="width:64px;height:64px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-award-fill text-primary fs-3"></i>
           </div>
           <h6 class="text-white fw-bold mb-1">Editor's Choice 3 Years Running</h6>
@@ -1143,7 +1143,7 @@ export const trailerBlocks = [
       </div>
       <div class="col-md-4 col-lg-3">
         <div class="card p-4 text-center h-100" style="background:var(--bs-body-bg);">
-          <div style="width:64px;height:64px;background:#e8630a20;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
+          <div style="width:64px;height:64px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
             <i class="bi bi-shield-fill-check text-primary fs-3"></i>
           </div>
           <h6 class="text-white fw-bold mb-1">Mil-Spec Tested</h6>
@@ -1222,28 +1222,28 @@ export const trailerBlocks = [
       <div class="col-lg-7">
         <div class="d-flex flex-column gap-3">
           <div class="d-flex gap-4 align-items-start p-4 rounded-2" style="background:var(--bs-body-bg);">
-            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:#e8630a20;font-size:1.1rem;">1</div>
+            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);font-size:1.1rem;">1</div>
             <div>
               <h6 class="text-white fw-bold mb-1">Route Intelligence</h6>
               <p style="color:var(--bs-body-color); font-size:0.9rem; margin:0;">Map your terrain type, elevation changes, and water sources. Build your route around confirmed access points and bail-out options.</p>
             </div>
           </div>
           <div class="d-flex gap-4 align-items-start p-4 rounded-2" style="background:var(--bs-body-bg);">
-            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:#e8630a20;font-size:1.1rem;">2</div>
+            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);font-size:1.1rem;">2</div>
             <div>
               <h6 class="text-white fw-bold mb-1">Gear Specification</h6>
               <p style="color:var(--bs-body-color); font-size:0.9rem; margin:0;">Match your trailer configuration to your route demands. Desert crossings need extra water. Alpine routes need insulation.</p>
             </div>
           </div>
           <div class="d-flex gap-4 align-items-start p-4 rounded-2" style="background:var(--bs-body-bg);">
-            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:#e8630a20;font-size:1.1rem;">3</div>
+            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);font-size:1.1rem;">3</div>
             <div>
               <h6 class="text-white fw-bold mb-1">Pre-Departure Checklist</h6>
               <p style="color:var(--bs-body-color); font-size:0.9rem; margin:0;">Run our 47-point systems check — suspension, water, power, communication, first aid — before every departure. No exceptions.</p>
             </div>
           </div>
           <div class="d-flex gap-4 align-items-start p-4 rounded-2" style="background:var(--bs-body-bg);">
-            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:#e8630a20;font-size:1.1rem;">4</div>
+            <div class="fw-bold text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:color-mix(in srgb, var(--bs-primary) 12%, transparent);font-size:1.1rem;">4</div>
             <div>
               <h6 class="text-white fw-bold mb-1">Execute &amp; Adapt</h6>
               <p style="color:var(--bs-body-color); font-size:0.9rem; margin:0;">Follow the plan, but trust your instincts in the field. Our satellite support team is available 24/7 for real-time trail guidance.</p>
@@ -1279,7 +1279,7 @@ export const trailerBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="background:var(--bs-light);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Basecamp Tent" style="width:100%; height:200px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Basecamp Tent" style="width:100%; height:200px; object-fit:cover;">
             <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-primary);">NEW</span>
           </div>
           <div class="card-body p-3 d-flex flex-column">
@@ -1296,7 +1296,7 @@ export const trailerBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="background:var(--bs-light);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=800&q=80" alt="Expedition Kit" style="width:100%; height:200px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=800&q=80" alt="Expedition Kit" style="width:100%; height:200px; object-fit:cover;">
             <span class="position-absolute top-0 start-0 m-2 badge bg-success">BESTSELLER</span>
           </div>
           <div class="card-body p-3 d-flex flex-column">
@@ -1313,7 +1313,7 @@ export const trailerBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="background:var(--bs-light);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="TrailForce TX-5" style="width:100%; height:200px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="TrailForce TX-5" style="width:100%; height:200px; object-fit:cover;">
           </div>
           <div class="card-body p-3 d-flex flex-column">
             <small class="text-primary fw-bold mb-1" style="letter-spacing:1px;">TRAILER</small>
@@ -1329,7 +1329,7 @@ export const trailerBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="background:var(--bs-light);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road lights" style="width:100%; height:200px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80" alt="Off-road lights" style="width:100%; height:200px; object-fit:cover;">
             <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-secondary);">ECO</span>
           </div>
           <div class="card-body p-3 d-flex flex-column">
@@ -1356,22 +1356,22 @@ export const trailerBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
         <div class="position-relative rounded-3 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="TrailForce TX-7 Expedition Trailer" style="width:100%; aspect-ratio:4/3; object-fit:cover;">
-          <div class="position-absolute bottom-0 start-0 w-100 p-3 d-flex gap-2" style="background:linear-gradient(to top, #141e14ee, transparent);">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=800&q=80" alt="TrailForce TX-7 Expedition Trailer" style="width:100%; aspect-ratio:4/3; object-fit:cover;">
+          <div class="position-absolute bottom-0 start-0 w-100 p-3 d-flex gap-2" style="background:linear-gradient(to top, color-mix(in srgb, var(--bs-dark) 93%, transparent), transparent);">
             <span class="badge" style="background:var(--bs-primary);">ALL-TERRAIN</span>
             <span class="badge" style="background:var(--bs-secondary);">SOLAR-READY</span>
-            <span class="badge" style="background:var(--bs-light); border:1px solid #e8630a30; color:var(--bs-body-color);">OFF-GRID</span>
+            <span class="badge" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-primary) 19%, transparent); color:var(--bs-body-color);">OFF-GRID</span>
           </div>
         </div>
         <div class="row g-2 mt-2">
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&q=80" alt="Suspension" class="img-fluid rounded-2" style="height:80px; width:100%; object-fit:cover; opacity:0.7; cursor:pointer;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&q=80" alt="Suspension" class="img-fluid rounded-2" style="height:80px; width:100%; object-fit:cover; opacity:0.7; cursor:pointer;">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=400&q=80" alt="Gear bay" class="img-fluid rounded-2" style="height:80px; width:100%; object-fit:cover; opacity:0.7; cursor:pointer;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1476611338391-6f395a0dd82e?w=400&q=80" alt="Gear bay" class="img-fluid rounded-2" style="height:80px; width:100%; object-fit:cover; opacity:0.7; cursor:pointer;">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689?w=400&q=80" alt="Campfire" class="img-fluid rounded-2" style="height:80px; width:100%; object-fit:cover; opacity:0.7; cursor:pointer;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?w=400&q=80" alt="Campfire" class="img-fluid rounded-2" style="height:80px; width:100%; object-fit:cover; opacity:0.7; cursor:pointer;">
           </div>
         </div>
       </div>

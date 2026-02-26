@@ -100,7 +100,7 @@ export const handicraftBlocks = [
       </div>
       <div class="col-lg-6">
         <div class="position-relative">
-          <img src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Artisan shaping pottery" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Artisan shaping pottery" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
           <div class="position-absolute bottom-0 start-0 m-3 px-3 py-2 rounded-2" style="background:var(--bs-primary);">
             <span class="fw-bold" style="color:var(--bs-dark); font-size:0.85rem;">100% Natural Dyes &amp; Handmade</span>
           </div>
@@ -156,7 +156,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="row align-items-center g-5">
       <div class="col-lg-5">
-        <img src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Colorful handcrafted textiles" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; aspect-ratio:3/4; max-height:480px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Colorful handcrafted textiles" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; aspect-ratio:3/4; max-height:480px;">
       </div>
       <div class="col-lg-7">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Our Craft Promise</p>
@@ -221,7 +221,7 @@ export const handicraftBlocks = [
         <a href="#" class="btn btn-primary px-5 fw-semibold">Read Our Full Story</a>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=800&q=80" alt="Weaver at traditional loom" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=800&q=80" alt="Weaver at traditional loom" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>
@@ -242,7 +242,7 @@ export const handicraftBlocks = [
     </div>
     <div class="row g-4 align-items-start">
       <div class="col-lg-7">
-        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Fabric dyeing in indigo vat" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; max-height:420px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Fabric dyeing in indigo vat" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; max-height:420px;">
       </div>
       <div class="col-lg-5">
         <h5 class="fw-bold mb-3" style="color:var(--bs-dark);">A Centuries-Old Process</h5>
@@ -274,7 +274,7 @@ export const handicraftBlocks = [
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
-          <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block Print" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block Print" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Block Printing</h6>
             <p class="text-muted small mb-3">Carved wooden blocks, vibrant pigments, and cloth — an ancient art form still alive in Rajasthan.</p>
@@ -284,7 +284,7 @@ export const handicraftBlocks = [
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
-          <img src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Weaving" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Weaving" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Handloom Weaving</h6>
             <p class="text-muted small mb-3">Every thread placed by a skilled weaver's hand — creating patterns that can take weeks to complete.</p>
@@ -294,7 +294,7 @@ export const handicraftBlocks = [
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
-          <img src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Ceramics" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Ceramics" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Painted Ceramics</h6>
             <p class="text-muted small mb-3">Blue pottery, terracotta ware, and hand-painted vessels shaped by the potters of Khurja and Jaipur.</p>
@@ -304,7 +304,7 @@ export const handicraftBlocks = [
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
-          <img src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Embroidery" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Embroidery" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Folk Embroidery</h6>
             <p class="text-muted small mb-3">Phulkari, Chikankari, Kantha — stitched stories of women who turned thread into art across India.</p>
@@ -330,7 +330,7 @@ export const handicraftBlocks = [
       <div class="col-md-4">
         <div class="card text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
-            <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan Meera" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan Meera" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Meera Kumari</h6>
             <p class="small mb-2" style="color:var(--bs-primary); font-weight:600;">Block Print Master — Sanganer, Rajasthan</p>
             <p class="text-muted small mb-3">Meera has practiced the art of hand block printing for 32 years, inheriting her craft from her grandmother. Her floral motifs are instantly recognisable.</p>
@@ -341,7 +341,7 @@ export const handicraftBlocks = [
       <div class="col-md-4">
         <div class="card text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
-            <img src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Artisan Rajan" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Artisan Rajan" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Rajan Prajapat</h6>
             <p class="small mb-2" style="color:var(--bs-primary); font-weight:600;">Potter — Khurja, Uttar Pradesh</p>
             <p class="text-muted small mb-3">Third-generation potter whose blue glazed ceramics have been showcased at national craft fairs and exported to over a dozen countries.</p>
@@ -352,7 +352,7 @@ export const handicraftBlocks = [
       <div class="col-md-4">
         <div class="card text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
-            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Artisan Fathima" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Artisan Fathima" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
             <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Fathima Bi</h6>
             <p class="small mb-2" style="color:var(--bs-primary); font-weight:600;">Basket Weaver — Nirmal, Telangana</p>
             <p class="text-muted small mb-3">Using bamboo, cane, and wild grass, Fathima creates functional and decorative pieces that tell the story of Telangana's forest craft tradition.</p>
@@ -382,7 +382,7 @@ export const handicraftBlocks = [
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.3rem;">★★★★★</div>
           <p class="text-muted mb-4" style="line-height:1.8;">"The block-print table runner I ordered is absolutely stunning. The craftsmanship is impeccable and it arrived with a handwritten note from the artisan. I felt a real connection to the heritage."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Ananya S." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Ananya S." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
             <div>
               <div class="fw-bold small" style="color:var(--bs-dark);">Ananya Sharma</div>
               <div class="text-muted" style="font-size:0.78rem;">Interior Designer, Mumbai</div>
@@ -395,7 +395,7 @@ export const handicraftBlocks = [
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.3rem;">★★★★★</div>
           <p class="text-muted mb-4" style="line-height:1.8;">"I gifted an indigo-dyed throw to my mother and she cried — it reminded her of the cloth her own mother used to weave. This is more than shopping. It's carrying tradition forward."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Rohan M." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Rohan M." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
             <div>
               <div class="fw-bold small" style="color:var(--bs-dark);">Rohan Mehta</div>
               <div class="text-muted" style="font-size:0.78rem;">Writer &amp; Heritage Traveller, Delhi</div>
@@ -408,7 +408,7 @@ export const handicraftBlocks = [
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.3rem;">★★★★★</div>
           <p class="text-muted mb-4" style="line-height:1.8;">"I have sourced artisan goods from across the globe but the quality and authenticity at Craft House Indira is second to none. Their curation is thoughtful and every piece is genuinely handcrafted."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Priya K." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Priya K." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
             <div>
               <div class="fw-bold small" style="color:var(--bs-dark);">Priya Krishnan</div>
               <div class="text-muted" style="font-size:0.78rem;">Boutique Owner, Bengaluru</div>
@@ -431,7 +431,7 @@ export const handicraftBlocks = [
         <div class="mb-4" style="font-size:3rem; color:var(--bs-primary); line-height:1;">"</div>
         <p class="fs-4 fw-semibold mb-5" style="font-family:'EB Garamond', serif; font-size:1.6rem !important; line-height:1.7; opacity:0.95;">Buying from The Folk Loom changed the way I think about shopping. Knowing that a real artisan — with a name, a family, a centuries-old skill — made the sari I'm wearing makes it infinitely more precious. This is heritage you can hold.</p>
         <div class="d-flex align-items-center justify-content-center gap-4">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Lakshmi Nair" class="rounded-circle shadow" style="width:64px;height:64px;object-fit:cover; border:3px solid var(--bs-primary);">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Lakshmi Nair" class="rounded-circle shadow" style="width:64px;height:64px;object-fit:cover; border:3px solid var(--bs-primary);">
           <div class="text-start">
             <div class="fw-bold" style="color:var(--bs-primary);">Lakshmi Nair</div>
             <div class="small" style="opacity:0.7;">Fashion Curator &amp; Cultural Commentator, Chennai</div>
@@ -476,7 +476,7 @@ export const handicraftBlocks = [
         </div>
       </div>
       <div class="col-lg-5">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Spices and saffron" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Spices and saffron" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>
@@ -717,21 +717,21 @@ export const handicraftBlocks = [
       <div class="col-lg-2 col-md-6 col-sm-6">
         <h6 class="fw-bold mb-3" style="color:var(--bs-primary);">Collections</h6>
         <ul class="list-unstyled small">
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Block Print</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Handloom Textiles</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Ceramics</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Embroidery</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Basket Weaving</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Block Print</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Handloom Textiles</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Ceramics</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Embroidery</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Basket Weaving</a></li>
         </ul>
       </div>
       <div class="col-lg-2 col-md-6 col-sm-6">
         <h6 class="fw-bold mb-3" style="color:var(--bs-primary);">About</h6>
         <ul class="list-unstyled small">
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Our Story</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Our Artisans</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Craft Journal</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Wholesale</a></li>
-          <li class="mb-2"><a href="#" style="color:rgba(255,255,255,0.7); text-decoration:none;">Contact Us</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Our Story</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Our Artisans</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Craft Journal</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Wholesale</a></li>
+          <li class="mb-2"><a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 70%, transparent); text-decoration:none;">Contact Us</a></li>
         </ul>
       </div>
       <div class="col-lg-4 col-md-6">
@@ -748,9 +748,9 @@ export const handicraftBlocks = [
     <div class="container py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
       <p class="small mb-0" style="opacity:0.55;">© 2025 Craft House Indira. All rights reserved.</p>
       <div class="d-flex gap-3">
-        <a href="#" class="small text-decoration-none" style="color:rgba(255,255,255,0.5);">Privacy</a>
-        <a href="#" class="small text-decoration-none" style="color:rgba(255,255,255,0.5);">Terms</a>
-        <a href="#" class="small text-decoration-none" style="color:rgba(255,255,255,0.5);">Shipping</a>
+        <a href="#" class="small text-decoration-none" style="color:color-mix(in srgb, var(--bs-dark-text) 50%, transparent);">Privacy</a>
+        <a href="#" class="small text-decoration-none" style="color:color-mix(in srgb, var(--bs-dark-text) 50%, transparent);">Terms</a>
+        <a href="#" class="small text-decoration-none" style="color:color-mix(in srgb, var(--bs-dark-text) 50%, transparent);">Shipping</a>
       </div>
     </div>
   </div>
@@ -813,20 +813,20 @@ export const handicraftBlocks = [
     </div>
     <div class="row g-3">
       <div class="col-md-8">
-        <img src="https://images.unsplash.com/photo-1452860606082-7e382d0bac84?w=1400&q=80" alt="Craft market" class="img-fluid rounded-3 shadow" style="width:100%; height:340px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1452860606082-7e382d0bac84?w=1400&q=80" alt="Craft market" class="img-fluid rounded-3 shadow" style="width:100%; height:340px; object-fit:cover;">
       </div>
       <div class="col-md-4 d-flex flex-column gap-3">
-        <img src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Pottery hands" class="img-fluid rounded-3 shadow" style="width:100%; height:160px; object-fit:cover;">
-        <img src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Painted ceramics" class="img-fluid rounded-3 shadow" style="width:100%; height:160px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Pottery hands" class="img-fluid rounded-3 shadow" style="width:100%; height:160px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Painted ceramics" class="img-fluid rounded-3 shadow" style="width:100%; height:160px; object-fit:cover;">
       </div>
       <div class="col-md-4">
-        <img src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Traditional embroidery" class="img-fluid rounded-3 shadow" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Traditional embroidery" class="img-fluid rounded-3 shadow" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-md-4">
-        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Fabric dyeing" class="img-fluid rounded-3 shadow" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Fabric dyeing" class="img-fluid rounded-3 shadow" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-md-4">
-        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Basket weaving" class="img-fluid rounded-3 shadow" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Basket weaving" class="img-fluid rounded-3 shadow" style="width:100%; height:220px; object-fit:cover;">
       </div>
     </div>
     <div class="text-center mt-4">
@@ -847,28 +847,28 @@ export const handicraftBlocks = [
     </div>
     <div class="row g-3">
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan at work" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan at work" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=800&q=80" alt="Weaving loom" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=800&q=80" alt="Weaving loom" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block print fabric" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block print fabric" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Colorful textiles" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Colorful textiles" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Artisan market" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Artisan market" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Spices saffron" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Spices saffron" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Pottery" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Pottery" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
       <div class="col-6 col-md-4 col-lg-3">
-        <img src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Ceramics" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Ceramics" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:220px; object-fit:cover;">
       </div>
     </div>
   </div>
@@ -928,25 +928,25 @@ export const handicraftBlocks = [
         <p class="text-uppercase fw-semibold mb-0" style="letter-spacing:0.12em; color:var(--bs-primary); opacity:0.8; font-size:0.8rem;">Awards &amp; Recognition</p>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(240,165,0,0.3);">
+        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">National Crafts Council</div>
           <div class="small" style="opacity:0.65;">Best Heritage Brand 2023</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(240,165,0,0.3);">
+        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">GI Certification</div>
           <div class="small" style="opacity:0.65;">14 Verified Craft Origins</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(240,165,0,0.3);">
+        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">UNESCO Nominee</div>
           <div class="small" style="opacity:0.65;">Living Heritage Partner</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid rgba(240,165,0,0.3);">
+        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">Vogue India</div>
           <div class="small" style="opacity:0.65;">Top 10 Craft Brands 2024</div>
         </div>
@@ -1059,7 +1059,7 @@ export const handicraftBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block Print Stole" class="card-img-top" style="height:240px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block Print Stole" class="card-img-top" style="height:240px; object-fit:cover;">
             <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-primary); color:var(--bs-dark);">New</span>
           </div>
           <div class="card-body d-flex flex-column">
@@ -1076,7 +1076,7 @@ export const handicraftBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Hand-painted Ceramic Bowl" class="card-img-top" style="height:240px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Hand-painted Ceramic Bowl" class="card-img-top" style="height:240px; object-fit:cover;">
             <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-dark); color:var(--bs-primary);">Bestseller</span>
           </div>
           <div class="card-body d-flex flex-column">
@@ -1093,7 +1093,7 @@ export const handicraftBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Phulkari Cushion" class="card-img-top" style="height:240px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Phulkari Cushion" class="card-img-top" style="height:240px; object-fit:cover;">
           </div>
           <div class="card-body d-flex flex-column">
             <p class="small mb-1" style="color:var(--bs-primary); font-weight:600;">Embroidery</p>
@@ -1109,7 +1109,7 @@ export const handicraftBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Bamboo Tray Set" class="card-img-top" style="height:240px; object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Bamboo Tray Set" class="card-img-top" style="height:240px; object-fit:cover;">
             <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-dark); color:var(--bs-primary);">Limited</span>
           </div>
           <div class="card-body d-flex flex-column">
@@ -1140,16 +1140,16 @@ export const handicraftBlocks = [
       <div class="col-lg-6">
         <div class="row g-2">
           <div class="col-12">
-            <img src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Handwoven Ikat Throw" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; height:360px;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Handwoven Ikat Throw" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; height:360px;">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=800&q=80" alt="Loom detail" class="img-fluid rounded-2" style="height:90px; width:100%; object-fit:cover; border:2px solid var(--bs-border-color);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=800&q=80" alt="Loom detail" class="img-fluid rounded-2" style="height:90px; width:100%; object-fit:cover; border:2px solid var(--bs-border-color);">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Dye process" class="img-fluid rounded-2" style="height:90px; width:100%; object-fit:cover; border:2px solid var(--bs-border-color);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Dye process" class="img-fluid rounded-2" style="height:90px; width:100%; object-fit:cover; border:2px solid var(--bs-border-color);">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan" class="img-fluid rounded-2" style="height:90px; width:100%; object-fit:cover; border:2px solid var(--bs-border-color);">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan" class="img-fluid rounded-2" style="height:90px; width:100%; object-fit:cover; border:2px solid var(--bs-border-color);">
           </div>
         </div>
       </div>

@@ -151,7 +151,7 @@ export const testimonialBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-md-6">
         <div class="position-relative rounded-4 overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" class="w-100" alt="Video testimonial thumbnail" style="height:350px;object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" class="w-100" alt="Video testimonial thumbnail" style="height:350px;object-fit:cover;">
           <div class="position-absolute top-50 start-50 translate-middle">
             <button class="btn btn-light btn-lg rounded-circle shadow" style="width:70px;height:70px;">
               <i class="bi bi-play-fill text-primary fs-3"></i>

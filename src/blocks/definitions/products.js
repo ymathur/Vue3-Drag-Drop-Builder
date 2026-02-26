@@ -18,7 +18,7 @@ export const productBlocks = [
     <div class="row g-4 mt-4">
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" class="card-img-top" alt="Wireless Headphones" style="height:220px;object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" class="card-img-top" alt="Wireless Headphones" style="height:220px;object-fit:cover;">
           <div class="card-body d-flex flex-column">
             <span class="badge bg-primary-subtle text-primary mb-2 align-self-start">Electronics</span>
             <h6 class="card-title fw-semibold mb-1">Wireless Headphones</h6>
@@ -29,7 +29,7 @@ export const productBlocks = [
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80" class="card-img-top" alt="Smart Watch" style="height:220px;object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80" class="card-img-top" alt="Smart Watch" style="height:220px;object-fit:cover;">
           <div class="card-body d-flex flex-column">
             <span class="badge bg-warning text-dark mb-2 align-self-start">NEW</span>
             <h6 class="card-title fw-semibold mb-1">Smart Watch</h6>
@@ -40,7 +40,7 @@ export const productBlocks = [
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80" class="card-img-top" alt="Portable Speaker" style="height:220px;object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80" class="card-img-top" alt="Portable Speaker" style="height:220px;object-fit:cover;">
           <div class="card-body d-flex flex-column">
             <span class="badge bg-primary-subtle text-primary mb-2 align-self-start">Audio</span>
             <h6 class="card-title fw-semibold mb-1">Portable Speaker</h6>
@@ -51,7 +51,7 @@ export const productBlocks = [
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&q=80" class="card-img-top" alt="Running Shoes" style="height:220px;object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&q=80" class="card-img-top" alt="Running Shoes" style="height:220px;object-fit:cover;">
           <div class="card-body d-flex flex-column">
             <span class="badge bg-warning text-dark mb-2 align-self-start">NEW</span>
             <h6 class="card-title fw-semibold mb-1">Running Shoes</h6>
@@ -72,7 +72,7 @@ export const productBlocks = [
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" class="img-fluid rounded-4 shadow" alt="Premium Wireless Headphones">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" class="img-fluid rounded-4 shadow" alt="Premium Wireless Headphones">
       </div>
       <div class="col-md-6">
         <span class="badge bg-success mb-2">NEW ARRIVAL</span>
@@ -132,16 +132,16 @@ export const productBlocks = [
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&q=80" class="img-fluid rounded-4 shadow-lg w-100 mb-3" alt="Featured Product" style="object-fit:cover;max-height:420px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&q=80" class="img-fluid rounded-4 shadow-lg w-100 mb-3" alt="Featured Product" style="object-fit:cover;max-height:420px;">
         <div class="row g-2 mb-4">
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&q=80" class="img-fluid rounded-3 shadow-sm w-100" alt="Product view 1" style="height:90px;object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&q=80" class="img-fluid rounded-3 shadow-sm w-100" alt="Product view 1" style="height:90px;object-fit:cover;">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&q=80" class="img-fluid rounded-3 shadow-sm w-100" alt="Product view 2" style="height:90px;object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&q=80" class="img-fluid rounded-3 shadow-sm w-100" alt="Product view 2" style="height:90px;object-fit:cover;">
           </div>
           <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" class="img-fluid rounded-3 shadow-sm w-100" alt="Product view 3" style="height:90px;object-fit:cover;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" class="img-fluid rounded-3 shadow-sm w-100" alt="Product view 3" style="height:90px;object-fit:cover;">
           </div>
         </div>
         <div class="text-center">

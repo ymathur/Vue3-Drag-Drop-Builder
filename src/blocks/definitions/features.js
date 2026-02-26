@@ -43,7 +43,7 @@ export const featureBlocks = [
   <div class="container">
     <div class="row align-items-center g-4 mb-5 pb-3">
       <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Analytics dashboard" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Analytics dashboard" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
       <div class="col-md-6">
         <span class="badge bg-primary mb-2">Feature One</span>
@@ -54,7 +54,7 @@ export const featureBlocks = [
     </div>
     <div class="row align-items-center g-4">
       <div class="col-md-6 order-md-2">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80" alt="Team collaboration" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80" alt="Team collaboration" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
       <div class="col-md-6 order-md-1">
         <span class="badge bg-success mb-2">Feature Two</span>
@@ -132,7 +132,7 @@ export const featureBlocks = [
         </ul>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Feature overview" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Feature overview" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>

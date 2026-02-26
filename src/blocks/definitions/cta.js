@@ -53,7 +53,7 @@ export const ctaBlocks = [
         <p class="small opacity-50 mb-0">We respect your privacy. Unsubscribe at any time. No spam, ever.</p>
       </div>
       <div class="col-md-6 text-center">
-        <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&q=80" class="img-fluid rounded-4 shadow-lg" alt="Newsletter illustration" style="max-height:340px;object-fit:cover;width:100%;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&q=80" class="img-fluid rounded-4 shadow-lg" alt="Newsletter illustration" style="max-height:340px;object-fit:cover;width:100%;">
       </div>
     </div>
   </div>

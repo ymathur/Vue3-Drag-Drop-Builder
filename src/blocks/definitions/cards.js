@@ -79,7 +79,7 @@ export const cardBlocks = [
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card border-0 shadow-sm h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&q=80" alt="Tech post" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&q=80" alt="Tech post" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body p-4">
             <span class="badge bg-primary mb-2">Tutorial</span>
             <h5 class="card-title fw-bold">Getting Started with Vue 3</h5>
@@ -90,7 +90,7 @@ export const cardBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card border-0 shadow-sm h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80" alt="Design post" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80" alt="Design post" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body p-4">
             <span class="badge bg-success mb-2">Product</span>
             <h5 class="card-title fw-bold">What's New in Bootstrap 5.3</h5>
@@ -101,7 +101,7 @@ export const cardBlocks = [
       </div>
       <div class="col-md-4">
         <div class="card border-0 shadow-sm h-100 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Business post" class="card-img-top" style="height:200px; object-fit:cover;">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Business post" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body p-4">
             <span class="badge bg-info mb-2">Design</span>
             <h5 class="card-title fw-bold">Design Systems at Scale</h5>
@@ -128,7 +128,7 @@ export const cardBlocks = [
       <div class="col-md-4">
         <div class="card border-0 shadow-sm overflow-hidden">
           <div class="position-relative overflow-hidden rounded-3">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
           </div>
           <div class="card-body px-0 pb-0 pt-3">
             <span class="badge bg-primary bg-opacity-10 text-primary small mb-1">Branding</span>
@@ -139,7 +139,7 @@ export const cardBlocks = [
       <div class="col-md-4">
         <div class="card border-0 shadow-sm overflow-hidden">
           <div class="position-relative overflow-hidden rounded-3">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
           </div>
           <div class="card-body px-0 pb-0 pt-3">
             <span class="badge bg-success bg-opacity-10 text-success small mb-1">Web Design</span>
@@ -150,7 +150,7 @@ export const cardBlocks = [
       <div class="col-md-4">
         <div class="card border-0 shadow-sm overflow-hidden">
           <div class="position-relative overflow-hidden rounded-3">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
           </div>
           <div class="card-body px-0 pb-0 pt-3">
             <span class="badge bg-warning bg-opacity-10 text-warning small mb-1">Interior</span>
@@ -161,7 +161,7 @@ export const cardBlocks = [
       <div class="col-md-4">
         <div class="card border-0 shadow-sm overflow-hidden">
           <div class="position-relative overflow-hidden rounded-3">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
           </div>
           <div class="card-body px-0 pb-0 pt-3">
             <span class="badge bg-info bg-opacity-10 text-info small mb-1">Mobile App</span>
@@ -172,7 +172,7 @@ export const cardBlocks = [
       <div class="col-md-4">
         <div class="card border-0 shadow-sm overflow-hidden">
           <div class="position-relative overflow-hidden rounded-3">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
           </div>
           <div class="card-body px-0 pb-0 pt-3">
             <span class="badge bg-danger bg-opacity-10 text-danger small mb-1">Dashboard</span>
@@ -183,7 +183,7 @@ export const cardBlocks = [
       <div class="col-md-4">
         <div class="card border-0 shadow-sm overflow-hidden">
           <div class="position-relative overflow-hidden rounded-3">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
           </div>
           <div class="card-body px-0 pb-0 pt-3">
             <span class="badge bg-secondary bg-opacity-10 text-secondary small mb-1">Strategy</span>
