@@ -175,7 +175,7 @@
 
 /* Large min-height only when the canvas is empty (enables full-area drop) */
 .drop-zone.is-empty {
-  min-height: calc(100vh - 56px - 3rem);
+  min-height: calc(100vh - 56px - 36px - 3rem);   /* 56px header + 36px page tabs */
 }
 
 /* --- Drag Reorder Handle --- */
@@ -1608,4 +1608,242 @@
   padding: 1px 4px;
   border-radius: 3px;
   color: #475569;
+}
+
+/* =====================================================
+   Page Tabs Bar (PageTabs.vue)
+   ===================================================== */
+.page-tabs-bar {
+  display: flex;
+  align-items: stretch;
+  background: #0c1220;
+  border-bottom: 1px solid #1e2a3a;
+  height: 36px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.page-tabs-list {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  overflow-x: auto;
+  height: 100%;
+  scrollbar-width: none;   /* Firefox */
+}
+
+.page-tabs-list::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
+
+/* ── Individual Tab ── */
+.page-tab {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px 0 4px;
+  min-width: 90px;
+  max-width: 200px;
+  height: 100%;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.76rem;
+  font-weight: 500;
+  border-right: 1px solid #1e2a3a;
+  transition: background 0.12s, color 0.12s;
+  user-select: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.page-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.page-tab--active {
+  background: rgba(59, 130, 246, 0.13);
+  color: #93c5fd;
+  box-shadow: inset 0 -2px 0 #3b82f6;
+}
+
+.page-tab--active:hover {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+/* Drag handle — hidden until hover */
+.page-tab-drag-handle {
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 1rem;
+  cursor: grab;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.12s;
+  line-height: 1;
+}
+
+.page-tab:hover .page-tab-drag-handle {
+  opacity: 1;
+}
+
+.page-tab-drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Tab name */
+.page-tab-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Inline rename input */
+.page-tab-rename-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 1px solid #3b82f6;
+  border-radius: 3px;
+  color: #f1f5f9;
+  font-size: 0.76rem;
+  padding: 1px 4px;
+  outline: none;
+  width: 100%;
+}
+
+/* Block count bubble */
+.page-tab-count {
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0 4px;
+  border-radius: 8px;
+  line-height: 1.6;
+  flex-shrink: 0;
+  min-width: 16px;
+  text-align: center;
+}
+
+.page-tab--active .page-tab-count {
+  background: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+}
+
+/* 3-dot menu button — hidden until tab is hovered/active */
+.page-tab-menu-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.28);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.12s, background 0.1s, color 0.1s;
+}
+
+.page-tab:hover .page-tab-menu-btn,
+.page-tab--active .page-tab-menu-btn {
+  opacity: 1;
+}
+
+.page-tab-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* ── Add Page Button ── */
+.page-tab-add-btn {
+  background: none;
+  border: none;
+  border-left: 1px solid #1e2a3a;
+  color: rgba(255, 255, 255, 0.38);
+  width: 40px;
+  min-width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: color 0.12s, background 0.12s;
+}
+
+.page-tab-add-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Drag ghost / chosen states ── */
+.page-tab--ghost {
+  opacity: 0.35;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.page-tab--chosen {
+  background: rgba(59, 130, 246, 0.22) !important;
+  box-shadow: 0 0 0 1px #3b82f6 inset !important;
+}
+
+/* ── Context Menu ── */
+.page-tab-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+
+.page-tab-menu {
+  position: fixed;
+  z-index: 9999;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  min-width: 158px;
+  padding: 3px 0;
+}
+
+.page-tab-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0.45rem 0.85rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s, color 0.1s;
+}
+
+.page-tab-menu button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.page-tab-menu button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-tab-menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 3px 0;
+}
+
+.page-tab-menu-delete:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.18) !important;
+  color: #fca5a5 !important;
 }

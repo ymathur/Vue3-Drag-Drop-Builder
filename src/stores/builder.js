@@ -4,11 +4,35 @@ import { cloneBlock } from '@/utils/blockCloner.js'
 import { generateFullHtml } from '@/utils/htmlExporter.js'
 
 export const useBuilderStore = defineStore('builder', () => {
+  // ─── Page ID Generator ──────────────────────────────────────
+  function _genPageId() {
+    return `p${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`
+  }
+
   // ─── Core State ────────────────────────────────────────────
   const activeCategory  = ref('navigation')
-  const canvasBlocks    = ref([])
   const selectedBlockId = ref(null)
   const previewOpen     = ref(false)
+
+  // ─── Pages State ───────────────────────────────────────────
+  const pages        = ref([{ id: _genPageId(), name: 'Page 1', blocks: [] }])
+  const activePageId = ref(pages.value[0].id)
+
+  /**
+   * Writable computed — proxies reads/writes to the active page's blocks array.
+   * All existing canvas code (push, splice, find, assignment) continues to work
+   * unchanged; it simply operates on the active page's blocks instead of a
+   * standalone array.
+   */
+  const canvasBlocks = computed({
+    get() {
+      return pages.value.find(p => p.id === activePageId.value)?.blocks ?? []
+    },
+    set(newBlocks) {
+      const page = pages.value.find(p => p.id === activePageId.value)
+      if (page) page.blocks = newBlocks
+    },
+  })
 
   // ─── Image Picker State ────────────────────────────────────
   const imagePickerOpen    = ref(false)
@@ -34,9 +58,76 @@ export const useBuilderStore = defineStore('builder', () => {
   const selectedBlock = computed(() =>
     canvasBlocks.value.find(b => b.instanceId === selectedBlockId.value) ?? null
   )
+  /** True when the active page has at least one block. */
   const hasBlocks    = computed(() => canvasBlocks.value.length > 0)
+  /** True when ANY page has at least one block (used for Save/Export enable). */
+  const anyPageHasBlocks = computed(() => pages.value.some(p => p.blocks.length > 0))
   const previewHtml  = computed(() => generateFullHtml(canvasBlocks.value))
+  /** Block count for the active page. */
   const blockCount   = computed(() => canvasBlocks.value.length)
+
+  // ─── Page Actions ──────────────────────────────────────────
+  function setActivePage(pageId) {
+    if (activePageId.value === pageId) return
+    activePageId.value    = pageId
+    selectedBlockId.value = null   // clear selection when switching pages
+  }
+
+  function addPage() {
+    const newPage = {
+      id:     _genPageId(),
+      name:   `Page ${pages.value.length + 1}`,
+      blocks: [],
+    }
+    pages.value.push(newPage)
+    setActivePage(newPage.id)
+    return newPage
+  }
+
+  function removePage(pageId) {
+    if (pages.value.length <= 1) return   // can't remove the last page
+    const index = pages.value.findIndex(p => p.id === pageId)
+    if (index === -1) return
+    // If removing the active page, switch to an adjacent page first
+    if (activePageId.value === pageId) {
+      const newIndex = index > 0 ? index - 1 : 1
+      setActivePage(pages.value[newIndex].id)
+    }
+    pages.value.splice(index, 1)
+  }
+
+  function renamePage(pageId, newName) {
+    const page    = pages.value.find(p => p.id === pageId)
+    const trimmed = (newName ?? '').trim()
+    if (page && trimmed) page.name = trimmed
+  }
+
+  function duplicatePage(pageId) {
+    const page = pages.value.find(p => p.id === pageId)
+    if (!page) return
+    const copy = {
+      id:     _genPageId(),
+      name:   `${page.name} Copy`,
+      blocks: JSON.parse(JSON.stringify(page.blocks)),  // deep-copy blocks
+    }
+    const index = pages.value.findIndex(p => p.id === pageId)
+    pages.value.splice(index + 1, 0, copy)
+    setActivePage(copy.id)
+  }
+
+  function reorderPages(newArray) {
+    pages.value = newArray
+  }
+
+  /**
+   * Restore multi-page state from a v2.0 project payload.
+   */
+  function loadPagesData({ pages: pagesData, activePageId: pageId, activeCategory: cat }) {
+    pages.value          = pagesData ?? [{ id: _genPageId(), name: 'Page 1', blocks: [] }]
+    activePageId.value   = pageId ?? pages.value[0]?.id ?? ''
+    activeCategory.value = cat    ?? 'navigation'
+    selectedBlockId.value = null
+  }
 
   // ─── Canvas Actions ────────────────────────────────────────
   function setActiveCategory(categoryId) {
@@ -94,22 +185,24 @@ export const useBuilderStore = defineStore('builder', () => {
   }
 
   function reorderBlocks(newArray) {
-    canvasBlocks.value = newArray
+    canvasBlocks.value = newArray   // calls setter → assigns to active page's blocks
   }
 
+  /** Clear all blocks on the active page only. */
   function clearCanvas() {
-    canvasBlocks.value  = []
+    canvasBlocks.value    = []   // calls setter
     selectedBlockId.value = null
   }
 
   /**
-   * Restore canvas state from a saved project payload.
-   * Blocks are stored as full objects (including html + editedHtml),
-   * so they can be assigned directly without re-cloning.
+   * v1.0 backward-compat: load a single-page project.
+   * Replaces ALL pages with one page containing the provided blocks.
    */
   function loadCanvasData({ blocks, activeCategory: cat }) {
-    canvasBlocks.value   = blocks ?? []
-    activeCategory.value = cat   ?? 'navigation'
+    const pageId = _genPageId()
+    pages.value          = [{ id: pageId, name: 'Page 1', blocks: blocks ?? [] }]
+    activePageId.value   = pageId
+    activeCategory.value = cat ?? 'navigation'
     selectedBlockId.value = null
   }
 
@@ -280,7 +373,7 @@ export const useBuilderStore = defineStore('builder', () => {
   ]
 
   /**
-   * Scan all canvas blocks and replace hardcoded theme-palette hex colors in
+   * Scan ALL canvas pages and replace hardcoded theme-palette hex colors in
    * inline style attributes with CSS var() references.
    *
    * • Safe to call repeatedly — once a hex is replaced by a var(), subsequent
@@ -290,18 +383,20 @@ export const useBuilderStore = defineStore('builder', () => {
    * • Populates editedHtml so the normalised HTML persists in auto-save.
    */
   function normalizeCanvasBlockColors() {
-    canvasBlocks.value.forEach(block => {
-      const src = block.editedHtml ?? block.html
-      if (!src) return
+    pages.value.forEach(page => {
+      page.blocks.forEach(block => {
+        const src = block.editedHtml ?? block.html
+        if (!src) return
 
-      let html = src
-      for (const [hex, cssVar] of PALETTE_CSS_VAR_MAP) {
-        // Match only exact 6-char hex NOT followed by a 7th hex digit
-        const escaped = hex.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-        html = html.replace(new RegExp(escaped + '(?![0-9a-fA-F])', 'gi'), cssVar)
-      }
+        let html = src
+        for (const [hex, cssVar] of PALETTE_CSS_VAR_MAP) {
+          // Match only exact 6-char hex NOT followed by a 7th hex digit
+          const escaped = hex.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+          html = html.replace(new RegExp(escaped + '(?![0-9a-fA-F])', 'gi'), cssVar)
+        }
 
-      if (html !== src) block.editedHtml = html
+        if (html !== src) block.editedHtml = html
+      })
     })
   }
 
@@ -315,11 +410,23 @@ export const useBuilderStore = defineStore('builder', () => {
     imagePickerOpen,
     imagePickerContext,
     lastAppliedImageContext,
+    // pages state
+    pages,
+    activePageId,
     // getters
     selectedBlock,
     hasBlocks,
+    anyPageHasBlocks,
     previewHtml,
     blockCount,
+    // page actions
+    setActivePage,
+    addPage,
+    removePage,
+    renamePage,
+    duplicatePage,
+    reorderPages,
+    loadPagesData,
     // canvas actions
     setActiveCategory,
     addBlock,

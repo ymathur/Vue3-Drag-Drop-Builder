@@ -3,6 +3,7 @@ import { onMounted, onUnmounted, watch } from 'vue'
 import { useBuilderStore } from '@/stores/builder.js'
 import { useThemeStore }   from '@/stores/theme.js'
 import AppHeader   from '@/components/layout/AppHeader.vue'
+import PageTabs    from '@/components/layout/PageTabs.vue'
 import Sidebar     from '@/components/layout/Sidebar.vue'
 import Canvas      from '@/components/layout/Canvas.vue'
 import PreviewModal         from '@/components/modals/PreviewModal.vue'
@@ -14,16 +15,17 @@ import '@/assets/styles/canvas.css'
 const store      = useBuilderStore()
 const themeStore = useThemeStore()
 
-// ─── Auto-save ────────────────────────────────────────────
+// ─── Auto-save (v2.0 — stores all pages) ──────────────────
 const AUTO_SAVE_KEY = 'builder-project'
 let _autoSaveTimer  = null
 
 function doAutoSave() {
   try {
     const payload = {
-      version:        '1.0',
+      version:        '2.0',
       savedAt:        new Date().toISOString(),
-      blocks:         JSON.parse(JSON.stringify(store.canvasBlocks)),
+      pages:          JSON.parse(JSON.stringify(store.pages)),
+      activePageId:   store.activePageId,
       activeCategory: store.activeCategory,
     }
     localStorage.setItem(AUTO_SAVE_KEY, JSON.stringify(payload))
@@ -35,11 +37,12 @@ function scheduleAutoSave() {
   _autoSaveTimer = setTimeout(doAutoSave, 1000)
 }
 
-watch(() => store.canvasBlocks,    scheduleAutoSave, { deep: true })
-watch(() => store.activeCategory,  scheduleAutoSave)
+// Watch all pages (deep) + active category for auto-save
+watch(() => store.pages,          scheduleAutoSave, { deep: true })
+watch(() => store.activeCategory, scheduleAutoSave)
 
 // ─── Theme-change: normalize inline colors to CSS vars ───────
-// When the active theme changes, scan all canvas blocks and replace
+// When the active theme changes, scan all canvas pages and replace
 // any hardcoded palette hex colors with CSS var() references so that
 // subsequent theme tweaks (ThemePanel sliders, color pickers) update live.
 watch(
@@ -57,8 +60,20 @@ function tryRestoreAutoSave() {
     const raw = localStorage.getItem(AUTO_SAVE_KEY)
     if (!raw) return
     const data = JSON.parse(raw)
-    if (!Array.isArray(data?.blocks) || data.blocks.length === 0) return
-    store.loadCanvasData({ blocks: data.blocks, activeCategory: data.activeCategory })
+
+    if (data.version === '2.0' && Array.isArray(data.pages) && data.pages.length > 0) {
+      // v2.0 format — multi-page
+      const hasAnyBlocks = data.pages.some(p => Array.isArray(p.blocks) && p.blocks.length > 0)
+      if (!hasAnyBlocks) return
+      store.loadPagesData({
+        pages:          data.pages,
+        activePageId:   data.activePageId,
+        activeCategory: data.activeCategory,
+      })
+    } else if (Array.isArray(data?.blocks) && data.blocks.length > 0) {
+      // v1.0 format — single page (backward compat)
+      store.loadCanvasData({ blocks: data.blocks, activeCategory: data.activeCategory })
+    }
   } catch (_) { /* corrupt storage — ignore */ }
 }
 
@@ -106,6 +121,7 @@ function onPaste(e) {
 <template>
   <div class="app-shell">
     <AppHeader />
+    <PageTabs />
     <div class="app-body">
       <Sidebar />
       <Canvas />

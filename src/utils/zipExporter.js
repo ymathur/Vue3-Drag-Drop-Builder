@@ -1,12 +1,13 @@
 /**
  * ZIP exporter — generates a downloadable project ZIP containing:
- *   • index.html  — clean standalone page (Bootstrap CDN + theme link + custom JS)
- *   • styles.css  — compiled theme CSS (:root vars + extraCss)
- *   • scripts.js  — all block <script> tags extracted and wrapped in DOMContentLoaded
+ *   • index.html        — first page (Bootstrap CDN + theme link + custom JS)
+ *   • {slug}.html       — additional pages (one file per page)
+ *   • styles.css        — compiled theme CSS (:root vars + extraCss) — shared
+ *   • {slug}-scripts.js — per-page block scripts (or shared scripts.js for 1-page)
  *
  * Usage:
  *   import { exportZip } from '@/utils/zipExporter.js'
- *   await exportZip(canvasBlocks, themeStore)
+ *   await exportZip(pages, themeStore)
  */
 import JSZip from 'jszip'
 
@@ -14,8 +15,7 @@ import JSZip from 'jszip'
 
 /**
  * Strips builder-specific attributes/classes from an HTML string.
- * (Mirrors cleanHtml in htmlExporter.js but also removes <script> tags
- *  since those go into scripts.js for the ZIP.)
+ * Optionally extracts <script> tags into a separate string.
  */
 function cleanBlockHtml(html, { extractScripts = false } = {}) {
   const parser = new DOMParser()
@@ -73,81 +73,34 @@ function buildRootCss(vars) {
   return `:root {\n${lines}\n}`
 }
 
-// ─── Main export function ────────────────────────────────────────────────────
+/**
+ * Convert a page name to a URL-safe filename slug.
+ * e.g. "About Us" → "about-us"
+ */
+function slugify(name) {
+  return (name || 'page')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    || 'page'
+}
 
 /**
- * @param {Array}  canvasBlocks  - blocks from builder store
- * @param {Object} themeStore    - useThemeStore() instance (or null for no theme)
- * @param {string} [filename]    - output filename (default: 'my-page.zip')
+ * Build the full HTML document for one page.
  */
-export async function exportZip(canvasBlocks, themeStore = null, filename = 'my-page.zip') {
-  const zip = new JSZip()
-
-  // ── 1. Process blocks ──────────────────────────────────────
-  const allScripts  = []
-  const htmlParts   = []
-
-  for (const block of canvasBlocks) {
-    const raw = block.editedHtml || block.html
-    const { html, scriptContent } = cleanBlockHtml(raw, { extractScripts: true })
-    htmlParts.push(html)
-    if (scriptContent) allScripts.push(scriptContent)
-  }
-
-  // ── 2. Build styles.css ────────────────────────────────────
-  let themeRootCss = ''
-  let themeExtraCss = ''
-  let googleFontNames = []
-
-  if (themeStore?.activeTheme) {
-    const theme = themeStore.activeTheme
-    const vars  = themeStore.mergedVars  // already includes branding overrides
-
-    themeRootCss  = buildRootCss(vars)
-    themeExtraCss = theme.extraCss || ''
-    googleFontNames = theme.googleFonts || []
-
-    // Include any font family override from customizations or branding
-    const fontVar = vars['--bs-font-sans-serif']
-    if (fontVar) {
-      const m = fontVar.match(/["']([^"']+)["']/)
-      if (m && m[1]) googleFontNames = [...new Set([...googleFontNames, m[1]])]
-    }
-    // Remove non-Google-Font sentinels
-    googleFontNames = googleFontNames.filter(n => n && n !== 'System Default' && n !== '-apple-system')
-  }
-
+function buildPageHtml({
+  bodyContent,
+  scriptFile,
+  pageTitle,
+  themeNameComment,
+  googleFontNames,
+}) {
   const googleFontsUrl = buildGoogleFontsUrl(googleFontNames)
-
-  // styles.css content
-  const stylesCss = [
-    googleFontsUrl ? `@import url('${googleFontsUrl}');\n` : '',
-    themeRootCss,
-    themeExtraCss,
-  ].filter(Boolean).join('\n')
-
-  zip.file('styles.css', stylesCss || '/* No theme applied */')
-
-  // ── 3. Build scripts.js ────────────────────────────────────
-  const scriptsCombined = allScripts.join('\n\n/* ── next block ── */\n\n')
-  const scriptsJs = allScripts.length
-    ? `document.addEventListener('DOMContentLoaded', function () {\n\n${scriptsCombined}\n\n});\n`
-    : '/* No custom scripts in this page */\n'
-
-  zip.file('scripts.js', scriptsJs)
-
-  // ── 4. Build index.html ────────────────────────────────────
-  const bodyContent = htmlParts.join('\n\n')
-
-  // Page title: branding name > theme name > default
-  const brandName   = themeStore?.brandingSettings?.brandName?.trim()
-  const pageTitle   = brandName || (themeStore?.activeTheme ? `${themeStore.activeTheme.name} — My Page` : 'My Page')
-
-  const themeNameComment = themeStore?.activeTheme
-    ? `<!-- Theme: ${themeStore.activeTheme.name}${brandName ? ` | Brand: ${brandName}` : ''} -->\n  `
+  const fontsLink = googleFontsUrl
+    ? `\n  <!-- Google Fonts -->\n  <link rel="stylesheet" href="${googleFontsUrl}" />`
     : ''
 
-  const indexHtml = `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -165,7 +118,7 @@ export async function exportZip(canvasBlocks, themeStore = null, filename = 'my-
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
+  />${fontsLink}
 
   ${themeNameComment}<!-- Custom theme + styles -->
   <link rel="stylesheet" href="styles.css" />
@@ -181,13 +134,111 @@ ${bodyContent}
     crossorigin="anonymous"
   ><\/script>
   <!-- Custom block scripts -->
-  <script src="scripts.js"><\/script>
+  <script src="${scriptFile}"><\/script>
 </body>
 </html>`
+}
 
-  zip.file('index.html', indexHtml)
+// ─── Main export function ────────────────────────────────────────────────────
 
-  // ── 5. Generate and trigger download ──────────────────────
+/**
+ * @param {Array}  pages      - pages array from builder store  ({ id, name, blocks })
+ * @param {Object} themeStore - useThemeStore() instance (or null for no theme)
+ * @param {string} [filename] - output ZIP filename (default: 'my-page.zip')
+ */
+export async function exportZip(pages, themeStore = null, filename = 'my-page.zip') {
+  const zip = new JSZip()
+
+  // ── 1. Build shared styles.css ─────────────────────────────
+  let themeRootCss    = ''
+  let themeExtraCss   = ''
+  let googleFontNames = []
+
+  if (themeStore?.activeTheme) {
+    const theme = themeStore.activeTheme
+    const vars  = themeStore.mergedVars  // already includes branding overrides
+
+    themeRootCss    = buildRootCss(vars)
+    themeExtraCss   = theme.extraCss || ''
+    googleFontNames = theme.googleFonts || []
+
+    // Include any font family override from customizations or branding
+    const fontVar = vars['--bs-font-sans-serif']
+    if (fontVar) {
+      const m = fontVar.match(/["']([^"']+)["']/)
+      if (m && m[1]) googleFontNames = [...new Set([...googleFontNames, m[1]])]
+    }
+    // Remove non-Google-Font sentinels
+    googleFontNames = googleFontNames.filter(n => n && n !== 'System Default' && n !== '-apple-system')
+  }
+
+  const stylesCss = [
+    themeRootCss,
+    themeExtraCss,
+  ].filter(Boolean).join('\n')
+
+  zip.file('styles.css', stylesCss || '/* No theme applied */')
+
+  // ── 2. Build brand/page metadata ───────────────────────────
+  const brandName = themeStore?.brandingSettings?.brandName?.trim()
+  const themeNameComment = themeStore?.activeTheme
+    ? `<!-- Theme: ${themeStore.activeTheme.name}${brandName ? ` | Brand: ${brandName}` : ''} -->\n  `
+    : ''
+
+  // Track used slugs to avoid filename collisions
+  const usedSlugs = new Map()  // slug → count
+
+  // ── 3. Process each page ───────────────────────────────────
+  pages.forEach((page, pageIndex) => {
+    const allScripts = []
+    const htmlParts  = []
+
+    for (const block of page.blocks) {
+      const raw = block.editedHtml || block.html
+      const { html, scriptContent } = cleanBlockHtml(raw, { extractScripts: true })
+      htmlParts.push(html)
+      if (scriptContent) allScripts.push(scriptContent)
+    }
+
+    // Determine unique file slug for this page
+    let baseSlug = pageIndex === 0 ? 'index' : slugify(page.name)
+    if (baseSlug === 'index' && pageIndex !== 0) baseSlug = 'page'
+    const slugCount = usedSlugs.get(baseSlug) ?? 0
+    usedSlugs.set(baseSlug, slugCount + 1)
+    const fileSlug = slugCount === 0 ? baseSlug : `${baseSlug}-${slugCount}`
+
+    const htmlFile   = `${fileSlug}.html`
+    const scriptFile = `${fileSlug}-scripts.js`
+
+    // Build scripts file for this page
+    const scriptsCombined = allScripts.join('\n\n/* ── next block ── */\n\n')
+    const scriptsJs = allScripts.length
+      ? `document.addEventListener('DOMContentLoaded', function () {\n\n${scriptsCombined}\n\n});\n`
+      : '/* No custom scripts on this page */\n'
+
+    zip.file(scriptFile, scriptsJs)
+
+    // Build page title
+    const pageTitle = pageIndex === 0 && brandName
+      ? brandName
+      : page.name
+        ? `${page.name}${brandName ? ` — ${brandName}` : (themeStore?.activeTheme ? ` — ${themeStore.activeTheme.name}` : '')}`
+        : (themeStore?.activeTheme ? `${themeStore.activeTheme.name} — My Page` : 'My Page')
+
+    // Build and save HTML file
+    const bodyContent = htmlParts.join('\n\n')
+    const pageHtml = buildPageHtml({
+      bodyContent,
+      scriptFile,
+      pageTitle,
+      themeNameComment,
+      googleFontNames,
+    })
+
+    zip.file(htmlFile, pageHtml)
+  })
+
+  // ── 4. Generate and trigger download ──────────────────────
   const blob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE' })
   const url  = URL.createObjectURL(blob)
   const a    = document.createElement('a')

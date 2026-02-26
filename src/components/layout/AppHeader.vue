@@ -11,24 +11,23 @@ const fileInputRef = ref(null)
 
 function onClear() {
   if (store.blockCount === 0) return
-  if (confirm('Clear the canvas? All blocks will be removed.')) {
+  if (confirm('Clear this page? All blocks on the current page will be removed.')) {
     store.clearCanvas()
   }
 }
 
 async function onExportZip() {
-  await exportZip(store.canvasBlocks, themeStore)
+  await exportZip(store.pages, themeStore)
 }
 
-// ─── Save project (download JSON) ────────────────────────
+// ─── Save project (download JSON) — v2.0 format ───────────
 function saveProject() {
   const payload = {
-    version:  '1.0',
-    savedAt:  new Date().toISOString(),
-    canvas: {
-      blocks:         JSON.parse(JSON.stringify(store.canvasBlocks)),
-      activeCategory: store.activeCategory,
-    },
+    version:        '2.0',
+    savedAt:        new Date().toISOString(),
+    pages:          JSON.parse(JSON.stringify(store.pages)),
+    activePageId:   store.activePageId,
+    activeCategory: store.activeCategory,
     theme: {
       activeThemeId:  themeStore.activeThemeId,
       customizations: JSON.parse(JSON.stringify(themeStore.customizations)),
@@ -60,24 +59,36 @@ function onFileSelected(event) {
     try {
       const data = JSON.parse(e.target.result)
 
-      // Validate basic structure
-      if (!data?.canvas?.blocks) {
-        alert('Invalid project file: missing canvas data.')
+      // Detect format version
+      const isV2 = data.version === '2.0' && Array.isArray(data.pages) && data.pages.length > 0
+      const isV1 = !isV2 && Array.isArray(data?.canvas?.blocks)
+
+      if (!isV2 && !isV1) {
+        alert('Invalid project file: unrecognised format.')
         fileInputRef.value.value = ''
         return
       }
 
-      // Confirm before overwriting an existing canvas
-      if (store.hasBlocks && !confirm('Load project? Your current canvas will be replaced.')) {
+      // Confirm before overwriting an existing project
+      if (store.anyPageHasBlocks && !confirm('Load project? Your current pages will be replaced.')) {
         fileInputRef.value.value = ''
         return
       }
 
-      // Restore canvas
-      store.loadCanvasData({
-        blocks:         data.canvas.blocks  ?? [],
-        activeCategory: data.canvas.activeCategory ?? 'navigation',
-      })
+      if (isV2) {
+        // v2.0 — multi-page
+        store.loadPagesData({
+          pages:          data.pages,
+          activePageId:   data.activePageId,
+          activeCategory: data.activeCategory,
+        })
+      } else {
+        // v1.0 — single-page backward compat
+        store.loadCanvasData({
+          blocks:         data.canvas.blocks  ?? [],
+          activeCategory: data.canvas.activeCategory ?? 'navigation',
+        })
+      }
 
       // Restore theme (if saved)
       if (data.theme?.activeThemeId) {
@@ -106,7 +117,7 @@ function onFileSelected(event) {
       Bootstrap <span>Page Builder</span>
     </span>
 
-    <!-- Block count indicator -->
+    <!-- Block count indicator (active page) -->
     <span v-if="store.blockCount > 0" class="block-count-badge">
       {{ store.blockCount }} block{{ store.blockCount !== 1 ? 's' : '' }}
     </span>
@@ -139,7 +150,7 @@ function onFileSelected(event) {
     <!-- Save / Load project -->
     <button
       class="btn btn-sm btn-outline-light"
-      :disabled="!store.hasBlocks"
+      :disabled="!store.anyPageHasBlocks"
       title="Save project as JSON"
       @click="saveProject"
     >
@@ -156,8 +167,8 @@ function onFileSelected(event) {
 
     <button
       class="btn btn-sm btn-primary"
-      :disabled="!store.hasBlocks"
-      title="Export project as ZIP (index.html + styles.css + scripts.js)"
+      :disabled="!store.anyPageHasBlocks"
+      title="Export all pages as ZIP (HTML + CSS + JS)"
       @click="onExportZip"
     >
       <i class="bi bi-file-zip me-1"></i>Export ZIP
@@ -167,7 +178,8 @@ function onFileSelected(event) {
 
     <button
       class="btn btn-sm btn-outline-danger"
-      :disabled="!store.hasBlocks"
+      :disabled="store.blockCount === 0"
+      title="Clear current page"
       @click="onClear"
     >
       <i class="bi bi-trash3 me-1"></i>Clear
