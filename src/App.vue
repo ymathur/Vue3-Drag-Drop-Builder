@@ -56,6 +56,7 @@ watch(
   (newId, oldId) => {
     if (newId && newId !== oldId) {
       store.normalizeCanvasBlockColors()
+      _normalizedOnRestore = true
     }
   }
 )
@@ -90,11 +91,16 @@ function tryRestoreAutoSave() {
 }
 
 // ─── Auto-open theme picker on first launch ───────────────
+let _normalizedOnRestore = false
+
 onMounted(() => {
   tryRestoreAutoSave()
   // Normalize any hardcoded palette hex colors in restored blocks so they
   // immediately respond to the active theme's CSS variables.
-  store.normalizeCanvasBlockColors()
+  // Skip if the theme-change watcher already ran it during tryRestoreAutoSave.
+  if (!_normalizedOnRestore) {
+    store.normalizeCanvasBlockColors()
+  }
   // If no theme has ever been selected, open the picker immediately
   if (!themeStore.activeThemeId) {
     themeStore.openPicker()

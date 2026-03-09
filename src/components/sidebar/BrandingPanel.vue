@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import { useThemeStore }   from '@/stores/theme.js'
 import { useBuilderStore } from '@/stores/builder.js'
 import { GOOGLE_FONTS } from '@/themes/variables.js'
@@ -86,6 +86,8 @@ function onLogoInput(e) {
     builderStore.applyBrandLogo(url)
   }, 600)
 }
+
+onUnmounted(() => clearTimeout(logoInjectTimer))
 
 // ─── Font handling ───────────────────────────────────────────
 

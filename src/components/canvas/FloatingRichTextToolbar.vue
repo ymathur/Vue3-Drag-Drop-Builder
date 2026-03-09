@@ -107,11 +107,7 @@ function applyLink() {
   const url = linkUrl.value.trim()
   if (!url) { cancelLink(); return }
 
-  // ── CRITICAL FIX ──────────────────────────────────────────
-  // execCommand('createLink') requires the contenteditable to be
-  // the *focused active element*. After the link input received
-  // focus, the contenteditable lost it. Refocus it first, then
-  // restore the saved selection range, THEN call execCommand.
+  // Restore focus + selection before modifying DOM
   if (savedEditable) savedEditable.focus()
 
   if (savedRange) {
@@ -120,21 +116,42 @@ function applyLink() {
     sel.addRange(savedRange)
   }
 
-  document.execCommand('createLink', false, url)
+  // Use Range API instead of deprecated execCommand('createLink')
+  const sel = window.getSelection()
+  if (sel && sel.rangeCount > 0) {
+    const range = sel.getRangeAt(0)
 
-  // Apply or clear target="_blank" based on the toggle
-  if (savedEditable) {
-    savedEditable.querySelectorAll('a').forEach(a => {
-      if (a.getAttribute('href') === url) {
-        if (openInNewTab.value) {
-          a.target = '_blank'
-          a.rel    = 'noopener noreferrer'
-        } else {
-          a.removeAttribute('target')
-          a.removeAttribute('rel')
-        }
+    // Check if the selection is already inside an <a> — update it
+    const existingAnchor = range.commonAncestorContainer.nodeType === 3
+      ? range.commonAncestorContainer.parentElement?.closest('a')
+      : range.commonAncestorContainer.closest?.('a') ?? null
+
+    if (existingAnchor) {
+      existingAnchor.href = url
+      if (openInNewTab.value) {
+        existingAnchor.target = '_blank'
+        existingAnchor.rel    = 'noopener noreferrer'
+      } else {
+        existingAnchor.removeAttribute('target')
+        existingAnchor.removeAttribute('rel')
       }
-    })
+    } else {
+      // Wrap selected text in a new <a>
+      const anchor = document.createElement('a')
+      anchor.href = url
+      if (openInNewTab.value) {
+        anchor.target = '_blank'
+        anchor.rel    = 'noopener noreferrer'
+      }
+      try {
+        range.surroundContents(anchor)
+      } catch (_) {
+        // surroundContents fails on partial element selections —
+        // fall back to extracting and wrapping
+        anchor.appendChild(range.extractContents())
+        range.insertNode(anchor)
+      }
+    }
   }
 
   linkUrl.value      = ''
@@ -213,13 +230,16 @@ function removeTooltipLink() {
   const editable = tooltipAnchor.closest('[contenteditable="true"]')
   if (editable) editable.focus()
 
-  const range = document.createRange()
-  range.selectNodeContents(tooltipAnchor)
-  const sel = window.getSelection()
-  sel.removeAllRanges()
-  sel.addRange(range)
-
-  document.execCommand('unlink', false, null)
+  // Use Range API instead of deprecated execCommand('unlink')
+  // Replace the <a> element with its text content
+  const parent = tooltipAnchor.parentNode
+  if (parent) {
+    while (tooltipAnchor.firstChild) {
+      parent.insertBefore(tooltipAnchor.firstChild, tooltipAnchor)
+    }
+    parent.removeChild(tooltipAnchor)
+    parent.normalize() // merge adjacent text nodes
+  }
   tooltipAnchor = null
 }
 

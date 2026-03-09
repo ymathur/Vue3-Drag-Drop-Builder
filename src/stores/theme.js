@@ -29,6 +29,9 @@ export const useThemeStore = defineStore('theme', () => {
   /** Whether the launch / onboarding picker modal is showing. */
   const pickerOpen = ref(false)
 
+  /** Branding overrides — user-set brand identity values. */
+  const brandingSettings = ref({})
+
   // ─── Derived ────────────────────────────────────────────────
 
   /** The full active preset object. */
@@ -50,6 +53,55 @@ export const useThemeStore = defineStore('theme', () => {
   /** Open / close the theme picker modal. */
   function openPicker()  { pickerOpen.value = true  }
   function closePicker() { pickerOpen.value = false }
+
+  /** True when at least one branding override is active. */
+  const hasBranding = computed(() =>
+    Object.values(brandingSettings.value).some(v => v !== '' && v != null)
+  )
+
+  /** Update a single branding field. Empty string = clear that override. */
+  function updateBranding(key, value) {
+    brandingSettings.value = { ...brandingSettings.value, [key]: value }
+    applyBrandingToTheme()
+    persistState()
+  }
+
+  /** Clear all branding overrides. */
+  function clearBranding() {
+    brandingSettings.value = {}
+    applyBrandingToTheme()
+    persistState()
+  }
+
+  /**
+   * Apply branding color/font/radius overrides on top of the current theme.
+   * Maps branding keys to their corresponding CSS variables.
+   */
+  function applyBrandingToTheme() {
+    const BRAND_TO_CSS = {
+      primaryColor:    '--bs-primary',
+      secondaryColor:  '--bs-secondary',
+      bodyBg:          '--bs-body-bg',
+      bodyColor:       '--bs-body-color',
+      headingColor:    '--bs-heading-color',
+      linkColor:       '--bs-link-color',
+      success:         '--bs-success',
+      danger:          '--bs-danger',
+      fontFamily:      '--bs-font-sans-serif',
+      borderRadius:    '--bs-border-radius',
+      borderRadiusLg:  '--bs-border-radius-lg',
+      borderRadiusPill:'--bs-border-radius-pill',
+    }
+    const overrides = {}
+    for (const [brandKey, cssVar] of Object.entries(BRAND_TO_CSS)) {
+      const val = brandingSettings.value[brandKey]
+      if (val) overrides[cssVar] = val
+    }
+    // Merge brand overrides into customizations layer so applyToCanvas picks them up
+    // We keep them separate in state but merged for CSS injection
+    customizations.value = { ...customizations.value, ...overrides }
+    applyToCanvas()
+  }
 
   /** Select a preset and immediately apply it. Wipes user customizations (not branding). */
   function selectTheme(id, { keepCustomizations = false } = {}) {
@@ -116,8 +168,9 @@ export const useThemeStore = defineStore('theme', () => {
   function persistState() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        activeThemeId:  activeThemeId.value,
-        customizations: customizations.value,
+        activeThemeId:   activeThemeId.value,
+        customizations:  customizations.value,
+        branding:        brandingSettings.value,
       }))
     } catch (_) { /* storage not available */ }
   }
@@ -127,11 +180,12 @@ export const useThemeStore = defineStore('theme', () => {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (!raw) return
       const parsed = JSON.parse(raw)
-      const { activeThemeId: id, customizations: cust } = parsed
+      const { activeThemeId: id, customizations: cust, branding } = parsed
       if (id && getThemeById(id)) {
-        activeThemeId.value  = id
-        customizations.value = cust ?? {}
-        applyToCanvas()
+        activeThemeId.value     = id
+        customizations.value    = cust ?? {}
+        brandingSettings.value  = branding ?? {}
+        applyBrandingToTheme()
       }
     } catch (_) { /* ignore corrupt storage */ }
   }
@@ -428,16 +482,23 @@ img[src=""] { min-height: 120px; display: block; }
   }
 
   // ─── Init ───────────────────────────────────────────────────
-  loadPersistedState()
+  // Only restore from theme-specific localStorage if there's no auto-save
+  // project data (which is the primary source of truth for theme state).
+  // This avoids the two stores getting out of sync on cold load.
+  if (!localStorage.getItem('builder-project')) {
+    loadPersistedState()
+  }
 
   return {
     // state
     activeThemeId,
     customizations,
     pickerOpen,
+    brandingSettings,
     // computed
     activeTheme,
     mergedVars,
+    hasBranding,
     // actions
     openPicker,
     closePicker,
@@ -446,6 +507,8 @@ img[src=""] { min-height: 120px; display: block; }
     resetToPreset,
     applyToCanvas,
     removeFromCanvas,
+    updateBranding,
+    clearBranding,
     // data
     themes: THEMES,
   }

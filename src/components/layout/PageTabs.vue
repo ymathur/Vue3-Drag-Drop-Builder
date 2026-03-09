@@ -50,8 +50,11 @@ const menuPos    = ref({ x: 0, y: 0 })
 function openMenu(event, pageId) {
   event.stopPropagation()
   menuPageId.value = pageId
-  // Position menu below the click point
-  menuPos.value = { x: event.clientX, y: event.clientY + 4 }
+  // Position menu below the click point, clamped to viewport
+  const MENU_HEIGHT = 140 // approximate height of 3 items + divider
+  const y = Math.min(event.clientY + 4, window.innerHeight - MENU_HEIGHT - 8)
+  const x = Math.min(event.clientX, window.innerWidth - 160)
+  menuPos.value = { x, y }
 }
 
 function closeMenu() {

@@ -16,7 +16,7 @@ export function cloneBlock(blockDefinition) {
   html = html.replace(/data-bs-target="#([^"]+)"/g, `data-bs-target="#$1-${suffix}"`)
   html = html.replace(/data-bs-parent="#([^"]+)"/g, `data-bs-parent="#$1-${suffix}"`)
   html = html.replace(/aria-controls="([^"]+)"/g, `aria-controls="$1-${suffix}"`)
-  html = html.replace(/href="#([^"a-z][^"]*)"/, `href="#$1-${suffix}"`)
+  html = html.replace(/href="#([^"a-z][^"]*)"/g, `href="#$1-${suffix}"`)
 
   return {
     instanceId,

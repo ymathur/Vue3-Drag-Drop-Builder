@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { cloneBlock } from '@/utils/blockCloner.js'
 import { generateFullHtml } from '@/utils/htmlExporter.js'
+import { sanitizeCssUrl } from '@/utils/htmlSanitizer.js'
 
 export const useBuilderStore = defineStore('builder', () => {
   // ─── Page ID Generator ──────────────────────────────────────
@@ -53,6 +54,7 @@ export const useBuilderStore = defineStore('builder', () => {
    * can show resize handles on the freshly applied image.
    */
   const lastAppliedImageContext = ref(null)
+  let _lastAppliedImageTimer = null
 
   // ─── Getters ───────────────────────────────────────────────
   const selectedBlock = computed(() =>
@@ -62,7 +64,8 @@ export const useBuilderStore = defineStore('builder', () => {
   const hasBlocks    = computed(() => canvasBlocks.value.length > 0)
   /** True when ANY page has at least one block (used for Save/Export enable). */
   const anyPageHasBlocks = computed(() => pages.value.some(p => p.blocks.length > 0))
-  const previewHtml  = computed(() => generateFullHtml(canvasBlocks.value))
+  /** Only generates full HTML when preview is open — avoids DOM-parsing all blocks on every keystroke. */
+  const previewHtml  = computed(() => previewOpen.value ? generateFullHtml(canvasBlocks.value) : '')
   /** Block count for the active page. */
   const blockCount   = computed(() => canvasBlocks.value.length)
 
@@ -261,7 +264,7 @@ export const useBuilderStore = defineStore('builder', () => {
       const imgs = div.querySelectorAll('img')
       const img  = imgs[ctx.elementIndex]
       if (img) {
-        img.src = src
+        img.src = sanitizeCssUrl(src) || src
         img.alt = alt ?? ''
         // Remove any old dimension constraints from a previous resize so
         // the new image can be sized naturally first.
@@ -284,20 +287,17 @@ export const useBuilderStore = defineStore('builder', () => {
       })
       const bgEl = bgEls[ctx.elementIndex]
       if (bgEl) {
+        const safeSrc = sanitizeCssUrl(src) || src
         const bgImg = bgEl.style.backgroundImage
         if (bgImg && bgImg !== 'none' && bgImg.includes('url(')) {
-          // Property is background-image — update it directly
-          bgEl.style.backgroundImage = `url("${src}")`
+          bgEl.style.backgroundImage = `url("${safeSrc}")`
         } else if (bgEl.style.background && bgEl.style.background.includes('url(')) {
-          // Property is the background shorthand — replace only the url() part,
-          // preserving position, size, repeat, etc.
           bgEl.style.background = bgEl.style.background.replace(
             /url\(["']?[^"')]+["']?\)/,
-            `url("${src}")`
+            `url("${safeSrc}")`
           )
         } else {
-          // Fallback
-          bgEl.style.backgroundImage = `url("${src}")`
+          bgEl.style.backgroundImage = `url("${safeSrc}")`
         }
       }
     }
@@ -309,8 +309,41 @@ export const useBuilderStore = defineStore('builder', () => {
     closeImagePicker()
 
     // Signal CanvasBlock to show resize handles on the freshly updated image
+    // Clear any pending timer to avoid race condition with concurrent image ops
+    clearTimeout(_lastAppliedImageTimer)
     lastAppliedImageContext.value = appliedCtx
-    setTimeout(() => { lastAppliedImageContext.value = null }, 300)
+    _lastAppliedImageTimer = setTimeout(() => { lastAppliedImageContext.value = null }, 300)
+  }
+
+  // ─── Brand Logo Injection ──────────────────────────────────
+  /**
+   * Replace the first logo-like <img> in each page's nav/header block
+   * with the brand logo URL. Pass empty string to restore originals.
+   */
+  function applyBrandLogo(url) {
+    const safeSrc = url ? (sanitizeCssUrl(url) || url) : ''
+    pages.value.forEach(page => {
+      page.blocks.forEach(block => {
+        const html = block.editedHtml ?? block.html
+        if (!html) return
+        const div = document.createElement('div')
+        div.innerHTML = html
+        // Target navbar-brand images or first img in nav blocks
+        const logo = div.querySelector('.navbar-brand img, nav img, header img')
+        if (logo) {
+          if (safeSrc) {
+            logo.src = safeSrc
+          } else if (block.html) {
+            // Restore original src from block definition
+            const origDiv = document.createElement('div')
+            origDiv.innerHTML = block.html
+            const origLogo = origDiv.querySelector('.navbar-brand img, nav img, header img')
+            if (origLogo) logo.src = origLogo.src
+          }
+          block.editedHtml = div.innerHTML
+        }
+      })
+    })
   }
 
   // ─── Palette Normalizer ────────────────────────────────────
@@ -450,6 +483,7 @@ export const useBuilderStore = defineStore('builder', () => {
     loadCanvasData,
     exportHTML,
     normalizeCanvasBlockColors,
+    applyBrandLogo,
     // image picker actions
     openImagePicker,
     openImagePickerWithPreload,
