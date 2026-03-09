@@ -3,6 +3,7 @@ import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useBuilderStore } from '@/stores/builder.js'
 import BlockControls from './BlockControls.vue'
 import { detectRepeatableItems } from '@/utils/repeatableDetector.js'
+import { sanitizeHtml } from '@/utils/htmlSanitizer.js'
 
 // ─── Props ──────────────────────────────────────────────────
 const props = defineProps({
@@ -22,7 +23,7 @@ const isSelected = computed(() => store.selectedBlockId === props.block.instance
 
 function setBlockHtml(html) {
   if (!blockRef.value) return
-  blockRef.value.innerHTML = html
+  blockRef.value.innerHTML = sanitizeHtml(html)
   nextTick(() => {
     initBootstrapComponents()
     // ── Order matters ──────────────────────────────────────────────────────
@@ -128,7 +129,7 @@ function commitEdit(el, { save = true, syncStore = true } = {}) {
   el.removeEventListener('blur', onEditBlur)
 
   if (!save) {
-    el.innerHTML = originalContent
+    el.innerHTML = sanitizeHtml(originalContent)
   }
 
   el.removeAttribute('contenteditable')
@@ -470,6 +471,8 @@ onUnmounted(() => {
   if (currentlyEditingEl.value) commitEdit(currentlyEditingEl.value, { save: true })
   cleanupRepeatableListeners()
   cleanupBgListeners()
+  clearTimeout(bgLeaveTimer)
+  clearTimeout(repLeaveTimer)
   document.removeEventListener('mousemove', onResizeMousemove)
   document.removeEventListener('mouseup',   onResizeMouseup)
 })

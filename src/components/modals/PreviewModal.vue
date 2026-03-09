@@ -33,8 +33,13 @@ function openInNewTab() {
   const html = store.previewHtml
   const blob = new Blob([html], { type: 'text/html' })
   const url  = URL.createObjectURL(blob)
-  window.open(url, '_blank')
-  setTimeout(() => URL.revokeObjectURL(url), 10000)
+  const win  = window.open(url, '_blank')
+  // Revoke after the new tab finishes loading, or after 60s as a safe fallback.
+  // 10s was too short — slow CDNs (Bootstrap CSS/JS) could still be loading.
+  if (win) {
+    win.addEventListener('load', () => URL.revokeObjectURL(url), { once: true })
+  }
+  setTimeout(() => URL.revokeObjectURL(url), 60000)
 }
 
 function close() {

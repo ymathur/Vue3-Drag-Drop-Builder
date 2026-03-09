@@ -102,7 +102,7 @@ function onFileSelected(event) {
     }
 
     // Reset input so the same file can be loaded again if needed
-    fileInputRef.value.value = ''
+    if (fileInputRef.value) fileInputRef.value.value = ''
   }
 
   reader.readAsText(file)
