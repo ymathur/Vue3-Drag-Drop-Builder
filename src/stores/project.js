@@ -218,6 +218,52 @@ export const useProjectStore = defineStore('project', () => {
     return newId
   }
 
+  // ─── Sharing ──────────────────────────────────────────────
+
+  /**
+   * Enable public sharing for the active project.
+   * @returns {string} shareToken
+   */
+  async function enableProjectSharing() {
+    if (!activeProjectId.value) return null
+    const { enableSharing } = await import('@/services/shareService.js')
+    const token = await enableSharing(activeProjectId.value)
+    // Update local state
+    const idx = projects.value.findIndex(p => p.id === activeProjectId.value)
+    if (idx !== -1) {
+      projects.value[idx].sharing = { enabled: true, shareToken: token }
+    }
+    return token
+  }
+
+  /**
+   * Disable public sharing for the active project.
+   */
+  async function disableProjectSharing() {
+    if (!activeProjectId.value) return
+    const { disableSharing } = await import('@/services/shareService.js')
+    await disableSharing(activeProjectId.value)
+    const idx = projects.value.findIndex(p => p.id === activeProjectId.value)
+    if (idx !== -1) {
+      projects.value[idx].sharing = { ...projects.value[idx].sharing, enabled: false }
+    }
+  }
+
+  /**
+   * Regenerate the share token (invalidates old links).
+   * @returns {string} new shareToken
+   */
+  async function regenerateProjectShareToken() {
+    if (!activeProjectId.value) return null
+    const { regenerateShareToken } = await import('@/services/shareService.js')
+    const token = await regenerateShareToken(activeProjectId.value)
+    const idx = projects.value.findIndex(p => p.id === activeProjectId.value)
+    if (idx !== -1) {
+      projects.value[idx].sharing = { ...projects.value[idx].sharing, shareToken: token }
+    }
+    return token
+  }
+
   // ─── Mark Unsaved ──────────────────────────────────────────
 
   function markUnsaved() {
@@ -274,6 +320,9 @@ export const useProjectStore = defineStore('project', () => {
     renameProject,
     removeProject,
     duplicateProject,
+    enableProjectSharing,
+    disableProjectSharing,
+    regenerateProjectShareToken,
     markUnsaved,
     $reset,
   }

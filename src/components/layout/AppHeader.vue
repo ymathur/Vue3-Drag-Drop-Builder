@@ -17,6 +17,73 @@ const projectName = computed(() => projectStore.activeProject?.name ?? 'Untitled
 
 const fileInputRef = ref(null)
 
+// ─── Share UI state ─────────────────────────────────────────
+const sharePopoverOpen = ref(false)
+const shareLoading     = ref(false)
+const shareCopied      = ref(false)
+
+const sharingEnabled = computed(() => projectStore.activeProject?.sharing?.enabled ?? false)
+const shareToken     = computed(() => projectStore.activeProject?.sharing?.shareToken ?? null)
+const shareUrl       = computed(() => {
+  if (!shareToken.value) return ''
+  return `${window.location.origin}/share/${shareToken.value}`
+})
+
+function toggleSharePopover() {
+  sharePopoverOpen.value = !sharePopoverOpen.value
+  shareCopied.value = false
+}
+
+function closeSharePopover() {
+  sharePopoverOpen.value = false
+}
+
+async function toggleSharing() {
+  shareLoading.value = true
+  try {
+    if (sharingEnabled.value) {
+      await projectStore.disableProjectSharing()
+    } else {
+      await projectStore.enableProjectSharing()
+    }
+  } catch (err) {
+    console.error('Failed to toggle sharing:', err)
+  } finally {
+    shareLoading.value = false
+  }
+}
+
+async function regenerateLink() {
+  if (!confirm('Regenerate link? The old link will stop working.')) return
+  shareLoading.value = true
+  try {
+    await projectStore.regenerateProjectShareToken()
+    shareCopied.value = false
+  } catch (err) {
+    console.error('Failed to regenerate share link:', err)
+  } finally {
+    shareLoading.value = false
+  }
+}
+
+async function copyShareLink() {
+  try {
+    await navigator.clipboard.writeText(shareUrl.value)
+    shareCopied.value = true
+    setTimeout(() => { shareCopied.value = false }, 2000)
+  } catch (_) {
+    // Fallback
+    const ta = document.createElement('textarea')
+    ta.value = shareUrl.value
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+    shareCopied.value = true
+    setTimeout(() => { shareCopied.value = false }, 2000)
+  }
+}
+
 function switchProject(projectId) {
   if (projectId === projectStore.activeProjectId) return
   router.push({ name: 'builder', params: { projectId } })
@@ -229,6 +296,98 @@ function onFileSelected(event) {
     >
       <i class="bi bi-file-zip me-1"></i>Export ZIP
     </button>
+
+    <!-- Share button (authenticated users with active project only) -->
+    <div v-if="authStore.isAuthenticated && projectStore.activeProjectId" class="share-wrapper">
+      <button
+        class="btn btn-sm"
+        :class="sharingEnabled ? 'btn-success' : 'btn-outline-light'"
+        title="Share project"
+        @click="toggleSharePopover"
+      >
+        <i class="bi bi-share me-1"></i>Share
+      </button>
+
+      <!-- Share popover -->
+      <div v-if="sharePopoverOpen" class="share-popover" @click.stop>
+        <!-- Backdrop to close popover -->
+        <div class="share-popover__backdrop" @click="closeSharePopover"></div>
+
+        <div class="share-popover__card">
+          <div class="share-popover__header">
+            <h6 class="mb-0"><i class="bi bi-globe me-1"></i>Public Sharing</h6>
+            <button class="btn-close btn-close-white btn-sm" @click="closeSharePopover"></button>
+          </div>
+
+          <div class="share-popover__body">
+            <!-- Toggle switch -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <label class="form-check-label share-popover__label" for="share-toggle">
+                {{ sharingEnabled ? 'Sharing enabled' : 'Sharing disabled' }}
+              </label>
+              <div class="form-check form-switch mb-0">
+                <input
+                  id="share-toggle"
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  :checked="sharingEnabled"
+                  :disabled="shareLoading"
+                  @change="toggleSharing"
+                />
+              </div>
+            </div>
+
+            <!-- Share link (only when enabled) -->
+            <template v-if="sharingEnabled && shareToken">
+              <div class="share-popover__url-row">
+                <input
+                  type="text"
+                  class="form-control form-control-sm share-popover__url"
+                  :value="shareUrl"
+                  readonly
+                  @focus="$event.target.select()"
+                />
+                <button
+                  class="btn btn-sm"
+                  :class="shareCopied ? 'btn-success' : 'btn-primary'"
+                  @click="copyShareLink"
+                  :disabled="shareLoading"
+                >
+                  <i :class="shareCopied ? 'bi bi-check-lg' : 'bi bi-clipboard'"></i>
+                </button>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between mt-2">
+                <a
+                  :href="shareUrl"
+                  target="_blank"
+                  class="share-popover__open-link"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Open preview
+                </a>
+                <button
+                  class="btn btn-sm btn-link text-muted share-popover__regen"
+                  @click="regenerateLink"
+                  :disabled="shareLoading"
+                >
+                  <i class="bi bi-arrow-clockwise me-1"></i>New link
+                </button>
+              </div>
+            </template>
+
+            <p v-if="!sharingEnabled" class="share-popover__hint">
+              Enable sharing to get a public read-only link to this project.
+            </p>
+          </div>
+
+          <!-- Loading overlay -->
+          <div v-if="shareLoading" class="share-popover__loading">
+            <span class="spinner-border spinner-border-sm"></span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="header-divider"></div>
 
