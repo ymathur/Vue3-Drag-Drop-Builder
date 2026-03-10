@@ -81,14 +81,70 @@ body,
   letter-spacing: -0.01em;
   color: #f8fafc;
   text-decoration: none;
-  margin-right: auto;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
 .app-header .app-title span {
   color: #60a5fa;
+}
+
+/* Project switcher / name in header */
+.project-switcher {
+  flex-shrink: 0;
+}
+.project-name-badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.project-name-badge:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.project-switcher__menu {
+  max-height: 300px;
+  overflow-y: auto;
+  min-width: 240px;
+}
+
+/* Cloud save status */
+.save-status {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.save-status--saved  { color: #86efac; }
+.save-status--saving { color: #fde68a; }
+.save-status--unsaved { color: rgba(255,255,255,0.4); }
+.save-status--error  { color: #fca5a5; }
+
+/* User avatar in header */
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
 }
 
 .header-divider {
