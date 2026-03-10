@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useThemeStore } from '@/stores/theme.js'
-import { VARIABLE_GROUPS, GOOGLE_FONTS, extractFontName } from '@/themes/variables.js'
+import { VARIABLE_GROUPS, GOOGLE_FONTS } from '@/themes/variables.js'
 
 const themeStore = useThemeStore()
 
