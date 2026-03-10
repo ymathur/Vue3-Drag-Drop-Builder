@@ -15,7 +15,6 @@ import {
   deleteDoc,
   query,
   where,
-  orderBy,
   serverTimestamp,
 } from 'firebase/firestore'
 import { db } from '@/firebase/config.js'
@@ -66,13 +65,23 @@ export async function getProject(projectId) {
  * @returns {object[]} — array of project summaries
  */
 export async function getUserProjects(uid) {
+  // Single-field query (no composite index needed).
+  // We sort client-side to avoid requiring a Firestore composite index.
   const q = query(
     collection(db, PROJECTS_COL),
     where('ownerId', '==', uid),
-    orderBy('updatedAt', 'desc'),
   )
   const snap = await getDocs(q)
-  return snap.docs.map(d => ({ id: d.id, ...d.data() }))
+  const projects = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+
+  // Sort by updatedAt descending (most recent first)
+  projects.sort((a, b) => {
+    const aTime = a.updatedAt?.toMillis?.() ?? a.updatedAt?.seconds * 1000 ?? 0
+    const bTime = b.updatedAt?.toMillis?.() ?? b.updatedAt?.seconds * 1000 ?? 0
+    return bTime - aTime
+  })
+
+  return projects
 }
 
 // ─── Update ──────────────────────────────────────────────────

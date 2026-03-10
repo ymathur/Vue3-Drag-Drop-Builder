@@ -54,6 +54,18 @@ export const useAuthStore = defineStore('auth', () => {
       const provider = new GoogleAuthProvider()
       const result   = await signInWithPopup(auth, provider)
 
+      // Create / update the user document in Firestore
+      try {
+        const { getOrCreateUserDoc } = await import('@/services/userService.js')
+        await getOrCreateUserDoc(result.user.uid, {
+          displayName: result.user.displayName,
+          email:       result.user.email,
+          photoURL:    result.user.photoURL,
+        })
+      } catch (e) {
+        console.error('Failed to create/update user doc:', e)
+      }
+
       // Always attempt migration — if there's guest data in localStorage,
       // save it as a project regardless of whether this is a new or returning user.
       await _migrateGuestData(result.user.uid)

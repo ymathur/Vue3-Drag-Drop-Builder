@@ -44,12 +44,19 @@ export const useProjectStore = defineStore('project', () => {
    * Also fetches the app config for tier limits.
    */
   async function loadUserProjects(uid) {
-    const [userProjects, config] = await Promise.all([
-      getUserProjects(uid),
-      getAppConfig(),
-    ])
-    projects.value  = userProjects
-    appConfig.value = config
+    try {
+      const [userProjects, config] = await Promise.all([
+        getUserProjects(uid),
+        getAppConfig(),
+      ])
+      projects.value  = userProjects
+      appConfig.value = config
+    } catch (err) {
+      console.error('Failed to load user projects:', err)
+      // Ensure we still have defaults so the UI doesn't break
+      projects.value  = []
+      appConfig.value = { freeTierMaxProjects: 3, proPriceMonthly: 500, stripePriceId: null }
+    }
   }
 
   // ─── Open Project ──────────────────────────────────────────

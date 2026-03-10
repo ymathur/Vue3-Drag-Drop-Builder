@@ -20,10 +20,15 @@ const maxProjects = computed(() => projectStore.appConfig?.freeTierMaxProjects ?
 const tierLabel   = computed(() => 'Free') // Phase 9 will check subscription
 
 onMounted(async () => {
-  if (authStore.isAuthenticated) {
-    await projectStore.loadUserProjects(authStore.user.uid)
+  try {
+    if (authStore.isAuthenticated) {
+      await projectStore.loadUserProjects(authStore.user.uid)
+    }
+  } catch (err) {
+    console.error('Dashboard: failed to load projects:', err)
+  } finally {
+    loading.value = false
   }
-  loading.value = false
 })
 
 async function createProject() {
