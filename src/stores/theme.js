@@ -103,6 +103,33 @@ export const useThemeStore = defineStore('theme', () => {
     applyToCanvas()
   }
 
+  /**
+   * Merge branding color/font/radius overrides into customizations
+   * WITHOUT injecting CSS. Used during store init (non-builder pages).
+   */
+  function _mergeBrandingIntoCustomizations() {
+    const BRAND_TO_CSS = {
+      primaryColor:    '--bs-primary',
+      secondaryColor:  '--bs-secondary',
+      bodyBg:          '--bs-body-bg',
+      bodyColor:       '--bs-body-color',
+      headingColor:    '--bs-heading-color',
+      linkColor:       '--bs-link-color',
+      success:         '--bs-success',
+      danger:          '--bs-danger',
+      fontFamily:      '--bs-font-sans-serif',
+      borderRadius:    '--bs-border-radius',
+      borderRadiusLg:  '--bs-border-radius-lg',
+      borderRadiusPill:'--bs-border-radius-pill',
+    }
+    const overrides = {}
+    for (const [brandKey, cssVar] of Object.entries(BRAND_TO_CSS)) {
+      const val = brandingSettings.value[brandKey]
+      if (val) overrides[cssVar] = val
+    }
+    customizations.value = { ...customizations.value, ...overrides }
+  }
+
   /** Select a preset and immediately apply it. Wipes user customizations (not branding). */
   function selectTheme(id, { keepCustomizations = false } = {}) {
     const theme = getThemeById(id)
@@ -175,7 +202,7 @@ export const useThemeStore = defineStore('theme', () => {
     } catch (_) { /* storage not available */ }
   }
 
-  function loadPersistedState() {
+  function loadPersistedState({ applyCSS = true } = {}) {
     try {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (!raw) return
@@ -185,7 +212,12 @@ export const useThemeStore = defineStore('theme', () => {
         activeThemeId.value     = id
         customizations.value    = cust ?? {}
         brandingSettings.value  = branding ?? {}
-        applyBrandingToTheme()
+        if (applyCSS) {
+          applyBrandingToTheme()
+        } else {
+          // Merge branding into customizations without injecting CSS
+          _mergeBrandingIntoCustomizations()
+        }
       }
     } catch (_) { /* ignore corrupt storage */ }
   }
@@ -482,11 +514,11 @@ img[src=""] { min-height: 120px; display: block; }
   }
 
   // ─── Init ───────────────────────────────────────────────────
-  // Only restore from theme-specific localStorage if there's no auto-save
-  // project data (which is the primary source of truth for theme state).
-  // This avoids the two stores getting out of sync on cold load.
+  // Restore state on store init, but do NOT inject CSS.
+  // CSS is only injected when BuilderPage mounts (applyToCanvas).
+  // This prevents theme styles from bleeding into dashboard/profile pages.
   if (!localStorage.getItem('builder-project')) {
-    loadPersistedState()
+    loadPersistedState({ applyCSS: false })
   }
 
   return {

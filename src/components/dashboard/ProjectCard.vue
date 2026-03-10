@@ -126,9 +126,9 @@ function finishRename() {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
   transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+  position: relative;
 }
 .project-card:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
@@ -145,6 +145,8 @@ function finishRename() {
   justify-content: center;
   color: #94a3b8;
   position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
 }
 .project-card__thumb > i {
   font-size: 2.5rem;
@@ -197,5 +199,10 @@ function finishRename() {
 }
 .project-card__menu-btn:hover {
   color: #475569;
+}
+
+/* Ensure the Bootstrap dropdown renders above sibling cards */
+.project-card :deep(.dropdown-menu) {
+  z-index: 1050;
 }
 </style>

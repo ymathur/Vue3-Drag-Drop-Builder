@@ -152,11 +152,18 @@ onMounted(async () => {
   // If no theme has ever been selected, open the picker immediately
   if (!themeStore.activeThemeId) {
     themeStore.openPicker()
+  } else {
+    // Ensure theme CSS is applied (may have been removed when leaving builder previously)
+    themeStore.applyToCanvas()
   }
   document.addEventListener('paste', onPaste)
 })
 
-onUnmounted(() => document.removeEventListener('paste', onPaste))
+onUnmounted(() => {
+  document.removeEventListener('paste', onPaste)
+  // Remove theme CSS so it doesn't bleed into other pages (dashboard, profile)
+  themeStore.removeFromCanvas()
+})
 
 // ─── Ctrl+V paste → open image picker pre-filled ─────────────
 function onPaste(e) {
