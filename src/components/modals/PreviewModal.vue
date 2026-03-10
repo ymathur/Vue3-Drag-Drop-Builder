@@ -49,7 +49,7 @@ function close() {
 
 <template>
   <Teleport to="body">
-    <div v-if="store.previewOpen" class="preview-overlay">
+    <div v-if="store.previewOpen" class="preview-overlay" role="dialog" aria-modal="true" aria-label="Page preview">
 
       <!-- Toolbar -->
       <div class="preview-toolbar">

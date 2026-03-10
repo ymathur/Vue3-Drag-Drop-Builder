@@ -13,10 +13,12 @@ const activeTab = ref('blocks')  // 'blocks' | 'theme'
   <aside class="sidebar">
 
     <!-- 2-tab switcher: Blocks / Theme -->
-    <div class="sidebar-tabs">
+    <div class="sidebar-tabs" role="tablist" aria-label="Sidebar panels">
       <button
         class="sidebar-tab"
         :class="{ 'sidebar-tab--active': activeTab === 'blocks' }"
+        role="tab"
+        :aria-selected="activeTab === 'blocks'"
         @click="activeTab = 'blocks'"
       >
         <i class="bi bi-columns-gap me-1"></i>Blocks
@@ -24,6 +26,8 @@ const activeTab = ref('blocks')  // 'blocks' | 'theme'
       <button
         class="sidebar-tab"
         :class="{ 'sidebar-tab--active': activeTab === 'theme' }"
+        role="tab"
+        :aria-selected="activeTab === 'theme'"
         @click="activeTab = 'theme'"
       >
         <i class="bi bi-palette2 me-1"></i>Theme
