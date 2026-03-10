@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertex Studio — Creative Digital Agency</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Vertex Studio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDark" aria-controls="navDark" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navDark">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">Web Development</a></li>
+            <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+      </ul>
+      <a href="#" class="btn btn-outline-light ms-3">Let's Talk</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="py-5 text-white text-center" style="background: linear-gradient(135deg, #212529 0%, #2d3748 50%, #1a365d 100%);">
+  <div class="container py-5">
+    <p class="text-white-50 text-uppercase fw-semibold mb-3" style="letter-spacing:0.08em;">Award-Winning Digital Agency</p>
+    <h1 class="display-3 fw-bold mb-3">We Build Digital Experiences</h1>
+    <p class="lead mb-5 mx-auto" style="max-width:550px; opacity:0.75">From branding to product launch — we partner with ambitious companies to create work that matters.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="#portfolio" class="btn btn-light btn-lg px-5 py-3 fw-semibold rounded-pill">See Our Work</a>
+      <a href="#" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trusted By -->
+<section class="py-5 bg-white border-top border-bottom">
+  <div class="container">
+    <div class="text-center mb-4">
+      <p class="text-muted text-uppercase fw-semibold small mb-0">TRUSTED BY LEADING BRANDS</p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-5 mt-4">
+      <span class="fw-bold text-muted opacity-75 fs-5">Google</span>
+      <span class="fw-bold text-muted opacity-75 fs-5">Stripe</span>
+      <span class="fw-bold text-muted opacity-75 fs-5">Airbnb</span>
+      <span class="fw-bold text-muted opacity-75 fs-5">Shopify</span>
+      <span class="fw-bold text-muted opacity-75 fs-5">Notion</span>
+      <span class="fw-bold text-muted opacity-75 fs-5">Vercel</span>
+    </div>
+    <div class="text-center mt-4">
+      <p class="text-muted small mb-0">Partnered with 200+ companies worldwide</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What We Do</h2>
+      <p class="text-muted lead">End-to-end services tailored to your goals</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <i class="bi bi-code-slash text-primary mb-3" style="font-size:2rem;"></i>
+          <h5 class="fw-bold mb-2">Web Development</h5>
+          <p class="text-muted small mb-3">Custom web applications built with modern frameworks, optimized for performance and designed to scale with your business.</p>
+          <a href="#" class="text-primary text-decoration-none small fw-semibold mt-auto">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <i class="bi bi-phone text-primary mb-3" style="font-size:2rem;"></i>
+          <h5 class="fw-bold mb-2">Mobile Apps</h5>
+          <p class="text-muted small mb-3">Native and cross-platform mobile experiences for iOS and Android that users love and keep coming back to every day.</p>
+          <a href="#" class="text-primary text-decoration-none small fw-semibold mt-auto">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <i class="bi bi-palette text-primary mb-3" style="font-size:2rem;"></i>
+          <h5 class="fw-bold mb-2">UI/UX Design</h5>
+          <p class="text-muted small mb-3">Research-driven design that puts your users first. From wireframes to polished interfaces, we craft experiences that convert.</p>
+          <a href="#" class="text-primary text-decoration-none small fw-semibold mt-auto">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <i class="bi bi-graph-up-arrow text-primary mb-3" style="font-size:2rem;"></i>
+          <h5 class="fw-bold mb-2">Growth Strategy</h5>
+          <p class="text-muted small mb-3">Data-backed growth strategies spanning SEO, paid acquisition, and conversion optimization to drive measurable, sustainable results.</p>
+          <a href="#" class="text-primary text-decoration-none small fw-semibold mt-auto">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Work</h2>
+      <p class="text-muted lead">A selection of recent projects we're proud of</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div class="position-relative overflow-hidden rounded-3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="card-body px-0 pb-0 pt-3">
+            <span class="badge bg-primary bg-opacity-10 text-primary small mb-1">Branding</span>
+            <h6 class="fw-bold mb-0">Horizon Brand Identity</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div class="position-relative overflow-hidden rounded-3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="card-body px-0 pb-0 pt-3">
+            <span class="badge bg-success bg-opacity-10 text-success small mb-1">Web Design</span>
+            <h6 class="fw-bold mb-0">Verdant Marketing Site</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div class="position-relative overflow-hidden rounded-3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="card-body px-0 pb-0 pt-3">
+            <span class="badge bg-warning bg-opacity-10 text-warning small mb-1">Interior</span>
+            <h6 class="fw-bold mb-0">Apex Office Redesign</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div class="position-relative overflow-hidden rounded-3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="card-body px-0 pb-0 pt-3">
+            <span class="badge bg-info bg-opacity-10 text-info small mb-1">Mobile App</span>
+            <h6 class="fw-bold mb-0">Pulse Fitness App</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div class="position-relative overflow-hidden rounded-3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="card-body px-0 pb-0 pt-3">
+            <span class="badge bg-danger bg-opacity-10 text-danger small mb-1">Dashboard</span>
+            <h6 class="fw-bold mb-0">Clarity Analytics Suite</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div class="position-relative overflow-hidden rounded-3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Portfolio item" class="w-100" style="height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="card-body px-0 pb-0 pt-3">
+            <span class="badge bg-secondary bg-opacity-10 text-secondary small mb-1">Strategy</span>
+            <h6 class="fw-bold mb-0">NorthStar Go-to-Market</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <span class="badge bg-primary mb-3">Our Story</span>
+        <h2 class="fw-bold mb-3">Built for Modern Teams</h2>
+        <p class="text-muted mb-3">Our studio was founded with one mission: help ambitious teams bring their boldest ideas to life. We combine strategy, design, and engineering under one roof.</p>
+        <p class="text-muted mb-4">With over 200 projects delivered across 30 countries, we've earned the trust of startups and Fortune 500 companies alike.</p>
+        <a href="#" class="btn btn-outline-primary">Read the Full Story <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+      </div>
+      <div class="col-lg-6">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=80" alt="Content image" class="img-fluid rounded-4 shadow" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-2">
+      <h2 class="fw-bold">How We Work</h2>
+      <p class="text-muted lead">From discovery to delivery in four focused phases</p>
+    </div>
+    <div class="row g-0 mt-5">
+      <div class="col-md-3 text-center position-relative">
+        <div class="mx-auto mb-3 rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center" style="width:60px;height:60px;font-size:1.3rem;">1</div>
+        <div class="d-none d-md-block position-absolute top-50 end-0 translate-middle-y text-muted" style="font-size:1.5rem;margin-top:-30px;"><i class="bi bi-arrow-right"></i></div>
+        <h5 class="fw-semibold mt-2">Discover</h5>
+        <small class="text-muted">We learn about your goals, audience, and competition to define the project scope.</small>
+      </div>
+      <div class="col-md-3 text-center position-relative">
+        <div class="mx-auto mb-3 rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center" style="width:60px;height:60px;font-size:1.3rem;">2</div>
+        <div class="d-none d-md-block position-absolute top-50 end-0 translate-middle-y text-muted" style="font-size:1.5rem;margin-top:-30px;"><i class="bi bi-arrow-right"></i></div>
+        <h5 class="fw-semibold mt-2">Design</h5>
+        <small class="text-muted">We craft wireframes and prototypes, iterating until the experience feels right.</small>
+      </div>
+      <div class="col-md-3 text-center position-relative">
+        <div class="mx-auto mb-3 rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center" style="width:60px;height:60px;font-size:1.3rem;">3</div>
+        <div class="d-none d-md-block position-absolute top-50 end-0 translate-middle-y text-muted" style="font-size:1.5rem;margin-top:-30px;"><i class="bi bi-arrow-right"></i></div>
+        <h5 class="fw-semibold mt-2">Develop</h5>
+        <small class="text-muted">Pixel-perfect code, rigorously tested across devices and browsers.</small>
+      </div>
+      <div class="col-md-3 text-center position-relative">
+        <div class="mx-auto mb-3 rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center" style="width:60px;height:60px;font-size:1.3rem;">4</div>
+        <h5 class="fw-semibold mt-2">Launch</h5>
+        <small class="text-muted">We deploy, monitor, and optimize so your product hits the ground running.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="py-5 text-center">
+  <div class="container" style="max-width:720px">
+    <i class="bi bi-quote display-3 text-primary opacity-25"></i>
+    <blockquote class="blockquote my-3">
+      <p class="fs-3 fw-light fst-italic lh-base">"We evaluated 12 agencies before choosing Vertex. The decision took 2 weeks. The results spoke for themselves in 2 days."</p>
+    </blockquote>
+    <div class="d-flex align-items-center justify-content-center gap-3 mt-4 mb-5">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&q=80" alt="Emma Wilson" class="rounded-circle flex-shrink-0 object-fit-cover" style="width:54px;height:54px;">
+      <div class="text-start">
+        <div class="fw-bold">Emma Wilson</div>
+        <div class="text-muted small">Director of Engineering, Stripe</div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <p class="text-muted small text-uppercase fw-semibold mb-4" style="letter-spacing:0.08em;">Trusted by teams at</p>
+    <div class="row row-cols-3 row-cols-md-6 g-3 align-items-center justify-content-center">
+      <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Google</div></div>
+      <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Stripe</div></div>
+      <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Airbnb</div></div>
+      <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Shopify</div></div>
+      <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Notion</div></div>
+      <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Vercel</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Meet Our Team</h2>
+      <p class="text-muted">The talented people behind the work</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 text-center shadow-sm h-100">
+          <div class="card-body p-4">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Jane Doe" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
+            <h6 class="card-title fw-bold mb-0">Jane Doe</h6>
+            <small class="text-muted d-block mb-3">CEO & Co-Founder</small>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-muted"><i class="bi bi-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 text-center shadow-sm h-100">
+          <div class="card-body p-4">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" alt="Mark Smith" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
+            <h6 class="card-title fw-bold mb-0">Mark Smith</h6>
+            <small class="text-muted d-block mb-3">Chief Technology Officer</small>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-muted"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 text-center shadow-sm h-100">
+          <div class="card-body p-4">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="Amy Lee" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
+            <h6 class="card-title fw-bold mb-0">Amy Lee</h6>
+            <small class="text-muted d-block mb-3">Head of Design</small>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-muted"><i class="bi bi-dribbble"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 text-center shadow-sm h-100">
+          <div class="card-body p-4">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Ryan Kim" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
+            <h6 class="card-title fw-bold mb-0">Ryan Kim</h6>
+            <small class="text-muted d-block mb-3">Lead Engineer</small>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-muted"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-dark text-white">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h3 class="fw-bold mb-2">Have a Project in Mind?</h3>
+        <p class="mb-0 text-white-50">Drop us a line and let's turn your vision into reality. We typically respond within 24 hours.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group input-group-lg">
+          <input type="email" class="form-control border-0" placeholder="Enter your email address">
+          <button class="btn btn-primary px-4 fw-semibold" type="button">Get in Touch</button>
+        </div>
+        <p class="small mt-2 text-white-50">No spam, ever. Unsubscribe at any time. We respect your privacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="fw-bold fs-4 text-white mb-2">Vertex Studio</div>
+        <p class="text-white-50 small mb-3">Building the future, one product at a time. Trusted by teams around the world.</p>
+        <div class="d-flex">
+          <a href="#" class="text-white-50 me-3 fs-5 text-decoration-none"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white-50 me-3 fs-5 text-decoration-none"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="text-white-50 me-3 fs-5 text-decoration-none"><i class="bi bi-github"></i></a>
+          <a href="#" class="text-white-50 me-3 fs-5 text-decoration-none"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 offset-md-2">
+        <h6 class="fw-bold mb-3">Services</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Web Development</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Mobile Apps</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">UI/UX Design</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Growth Strategy</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6 class="fw-bold mb-3">Company</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">About</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Blog</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Careers</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Press</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6 class="fw-bold mb-3">Legal</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Privacy</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Terms</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Cookies</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none d-block mb-2 small">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-top border-secondary pt-4 mt-4 d-flex flex-wrap justify-content-between align-items-center">
+      <p class="text-white-50 small mb-0">&copy; 2026 Vertex Studio, Inc. All rights reserved.</p>
+      <p class="text-white-50 small mb-0">Made with &hearts; by Vertex</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
