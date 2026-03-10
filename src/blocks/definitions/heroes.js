@@ -43,9 +43,9 @@ export const heroBlocks = [
     id: 'hero-dark-gradient',
     categoryId: 'heroes',
     label: 'Dark Gradient Hero',
-    html: `<section class="py-5 text-white text-center" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+    html: `<section class="py-5 text-white text-center" style="background: linear-gradient(135deg, var(--bs-dark) 0%, color-mix(in srgb, var(--bs-primary) 30%, var(--bs-dark)) 50%, color-mix(in srgb, var(--bs-primary) 50%, var(--bs-dark)) 100%);">
   <div class="container py-5">
-    <p class="text-white-50 text-uppercase fw-semibold letter-spacing mb-3">The Platform for Modern Teams</p>
+    <p class="text-white-50 text-uppercase fw-semibold mb-3" style="letter-spacing:0.08em;">The Platform for Modern Teams</p>
     <h1 class="display-3 fw-bold mb-3">Transform Your Business</h1>
     <p class="lead mb-5 mx-auto" style="max-width:550px; opacity:0.75">Powerful tools built for modern teams. Scale faster with our enterprise-grade platform.</p>
     <div class="d-flex gap-3 justify-content-center flex-wrap">
@@ -60,7 +60,7 @@ export const heroBlocks = [
     categoryId: 'heroes',
     label: 'Full-Width Background Image Hero',
     html: `<section class="py-5 text-white text-center position-relative" style="background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1400&q=80') center/cover no-repeat; min-height: 520px; display:flex; align-items:center;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,0.55);"></div>
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:color-mix(in srgb, var(--bs-dark) 55%, transparent);"></div>
   <div class="container py-5 position-relative">
     <span class="badge bg-primary mb-3 fs-6 px-3 py-2">Explore the World</span>
     <h1 class="display-3 fw-bold mb-3">Where Will You Go Next?</h1>

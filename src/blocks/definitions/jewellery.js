@@ -234,7 +234,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
+        <div class="card h-100" style="background:var(--bs-dark);border:none;border-top:1px solid var(--bs-primary);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1515562141155-7a31e9680ef7?w=800&q=80" class="card-img-top" alt="Eternal Collection" style="height:280px;object-fit:cover;">
           <div class="card-body p-4">
             <p class="text-primary mb-1" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Solitaires</p>
@@ -245,7 +245,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
+        <div class="card h-100" style="background:var(--bs-dark);border:none;border-top:1px solid var(--bs-primary);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1602751584552-8ba47a5b4024?w=800&q=80" class="card-img-top" alt="Heritage Collection" style="height:280px;object-fit:cover;">
           <div class="card-body p-4">
             <p class="text-primary mb-1" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Necklaces</p>
@@ -256,7 +256,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
+        <div class="card h-100" style="background:var(--bs-dark);border:none;border-top:1px solid var(--bs-primary);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" class="card-img-top" alt="Éclat Collection" style="height:280px;object-fit:cover;">
           <div class="card-body p-4">
             <p class="text-primary mb-1" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Earrings</p>
@@ -335,7 +335,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
+        <div class="card h-100 p-4" style="background:var(--bs-dark);border:none;border-top:1px solid var(--bs-primary);">
           <div class="card-body">
             <p class="text-primary mb-3" style="font-size:1.3rem;letter-spacing:0.15em;">"</p>
             <p style="color:color-mix(in srgb, var(--bs-dark-text) 60%, transparent);line-height:1.9;font-size:0.95rem;font-family:var(--bs-font-sans-serif);font-style:italic;">Maison Aurel created our engagement ring with such care and sensitivity. Every detail of the brief was honoured — and exceeded. It is the most beautiful thing I have ever owned.</p>
@@ -350,7 +350,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
+        <div class="card h-100 p-4" style="background:var(--bs-dark);border:none;border-top:1px solid var(--bs-primary);">
           <div class="card-body">
             <p class="text-primary mb-3" style="font-size:1.3rem;letter-spacing:0.15em;">"</p>
             <p style="color:color-mix(in srgb, var(--bs-dark-text) 60%, transparent);line-height:1.9;font-size:0.95rem;font-family:var(--bs-font-sans-serif);font-style:italic;">I commissioned a bespoke bracelet for my wife's fortieth birthday. The team guided me through the entire process with extraordinary patience. The result moved her to tears.</p>
@@ -365,7 +365,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:none;border-top:1px solid var(--bs-primary);">
+        <div class="card h-100 p-4" style="background:var(--bs-dark);border:none;border-top:1px solid var(--bs-primary);">
           <div class="card-body">
             <p class="text-primary mb-3" style="font-size:1.3rem;letter-spacing:0.15em;">"</p>
             <p style="color:color-mix(in srgb, var(--bs-dark-text) 60%, transparent);line-height:1.9;font-size:0.95rem;font-family:var(--bs-font-sans-serif);font-style:italic;">The sapphire ring I purchased is a work of art. Years later it still draws the most elegant compliments. Maison Aurel creates pieces that are truly timeless.</p>
@@ -415,7 +415,7 @@ export const jewelleryBlocks = [
     categoryId: 'cta',
     label: 'Jewellery – Dark Full-Width CTA',
     html: `<section class="text-center text-white position-relative" style="background:url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80') center/cover no-repeat;padding:7rem 0;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(10,10,10,0.78);"></div>
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:color-mix(in srgb, var(--bs-dark) 78%, transparent);"></div>
   <div class="container position-relative">
     <p class="text-primary mb-3" style="letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;">Private Appointments Available</p>
     <h2 class="fw-light mb-4 mx-auto" style="font-size:clamp(2rem,5vw,3.2rem);max-width:700px;line-height:1.15;letter-spacing:0.03em;">Begin Your Bespoke Journey</h2>
@@ -441,7 +441,7 @@ export const jewelleryBlocks = [
       <div class="col-lg-6 offset-lg-1">
         <p style="color:color-mix(in srgb, var(--bs-dark-text) 45%, transparent);font-family:var(--bs-font-sans-serif);font-size:0.92rem;line-height:1.8;margin-bottom:1.5rem;">Join our private list for early previews, exclusive invitations to trunk shows, and stories from the atelier — delivered with discernment.</p>
         <form class="d-flex gap-2 flex-wrap">
-          <input type="email" class="form-control flex-grow-1" placeholder="Your email address" style="background:rgba(255,255,255,0.06);border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);color:#fff;border-radius:0;font-family:var(--bs-font-sans-serif);font-size:0.88rem;" aria-label="Email address">
+          <input type="email" class="form-control flex-grow-1" placeholder="Your email address" style="background:color-mix(in srgb, var(--bs-light) 6%, transparent);border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);color:var(--bs-light);border-radius:0;font-family:var(--bs-font-sans-serif);font-size:0.88rem;" aria-label="Email address">
           <button type="submit" class="btn btn-primary px-4" style="letter-spacing:0.1em;font-size:0.78rem;text-transform:uppercase;border-radius:0;">Join</button>
         </form>
         <p style="color:color-mix(in srgb, var(--bs-dark-text) 25%, transparent);font-size:0.75rem;margin-top:0.75rem;font-family:var(--bs-font-sans-serif);">We respect your privacy. Unsubscribe at any time.</p>
@@ -469,15 +469,15 @@ export const jewelleryBlocks = [
           <div class="row g-3">
             <div class="col-sm-6">
               <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">First Name</label>
-              <input type="text" class="form-control" placeholder="Isabelle" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:#fff;border-radius:0;font-size:0.9rem;">
+              <input type="text" class="form-control" placeholder="Isabelle" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;">
             </div>
             <div class="col-sm-6">
               <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Last Name</label>
-              <input type="text" class="form-control" placeholder="Morel" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:#fff;border-radius:0;font-size:0.9rem;">
+              <input type="text" class="form-control" placeholder="Morel" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;">
             </div>
             <div class="col-sm-6">
               <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Email</label>
-              <input type="email" class="form-control" placeholder="isabelle@example.com" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:#fff;border-radius:0;font-size:0.9rem;">
+              <input type="email" class="form-control" placeholder="isabelle@example.com" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;">
             </div>
             <div class="col-sm-6">
               <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Preferred Atelier</label>
@@ -489,7 +489,7 @@ export const jewelleryBlocks = [
             </div>
             <div class="col-12">
               <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Occasion &amp; Vision</label>
-              <textarea class="form-control" rows="4" placeholder="Tell us about the piece you have in mind — the occasion, the recipient, the feeling you wish to evoke…" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:#fff;border-radius:0;font-size:0.9rem;resize:none;"></textarea>
+              <textarea class="form-control" rows="4" placeholder="Tell us about the piece you have in mind — the occasion, the recipient, the feeling you wish to evoke…" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 12%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;resize:none;"></textarea>
             </div>
             <div class="col-12 text-center mt-2">
               <button type="submit" class="btn btn-primary px-5 py-3" style="letter-spacing:0.14em;font-size:0.78rem;text-transform:uppercase;border-radius:0;">Send Request</button>
@@ -525,11 +525,11 @@ export const jewelleryBlocks = [
         <form style="font-family:var(--bs-font-sans-serif);">
           <div class="mb-3">
             <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Full Name</label>
-            <input type="text" class="form-control" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 10%, transparent);color:#fff;border-radius:0;font-size:0.9rem;">
+            <input type="text" class="form-control" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 10%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;">
           </div>
           <div class="mb-3">
             <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Email Address</label>
-            <input type="email" class="form-control" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 10%, transparent);color:#fff;border-radius:0;font-size:0.9rem;">
+            <input type="email" class="form-control" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 10%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;">
           </div>
           <div class="mb-3">
             <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Subject</label>
@@ -543,7 +543,7 @@ export const jewelleryBlocks = [
           </div>
           <div class="mb-4">
             <label class="form-label text-white-50" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Message</label>
-            <textarea class="form-control" rows="5" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 10%, transparent);color:#fff;border-radius:0;font-size:0.9rem;resize:none;"></textarea>
+            <textarea class="form-control" rows="5" style="background:color-mix(in srgb, var(--bs-dark-text)  5%, transparent);border:1px solid color-mix(in srgb, var(--bs-dark-text) 10%, transparent);color:var(--bs-light);border-radius:0;font-size:0.9rem;resize:none;"></textarea>
           </div>
           <button type="submit" class="btn btn-primary w-100 py-3" style="letter-spacing:0.14em;font-size:0.78rem;text-transform:uppercase;border-radius:0;">Send Message</button>
         </form>
@@ -566,7 +566,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:1px solid color-mix(in srgb, var(--bs-primary) 15%, transparent);border-radius:0;">
+        <div class="card h-100 p-4" style="background:var(--bs-dark);border:1px solid color-mix(in srgb, var(--bs-primary) 15%, transparent);border-radius:0;">
           <div class="card-body">
             <p class="text-primary mb-3" style="letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;">Signature</p>
             <p class="text-white fw-light mb-1" style="font-size:2.2rem;letter-spacing:0.02em;">From £1,200</p>
@@ -601,7 +601,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100 p-4" style="background:#111;border:1px solid color-mix(in srgb, var(--bs-primary) 15%, transparent);border-radius:0;">
+        <div class="card h-100 p-4" style="background:var(--bs-dark);border:1px solid color-mix(in srgb, var(--bs-primary) 15%, transparent);border-radius:0;">
           <div class="card-body">
             <p class="text-primary mb-3" style="letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;">Haute Joaillerie</p>
             <p class="text-white fw-light mb-1" style="font-size:2.2rem;letter-spacing:0.02em;">By Quotation</p>
@@ -633,7 +633,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-5">
-        <div class="card p-4 h-100" style="background:#111;border:none;border-left:2px solid color-mix(in srgb, var(--bs-primary) 40%, transparent);border-radius:0;">
+        <div class="card p-4 h-100" style="background:var(--bs-dark);border:none;border-left:2px solid color-mix(in srgb, var(--bs-primary) 40%, transparent);border-radius:0;">
           <div class="card-body">
             <p class="text-primary mb-2" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Essential Care</p>
             <p class="text-white fw-light mb-1" style="font-size:1.8rem;">£75 <span style="font-size:0.85rem;color:color-mix(in srgb, var(--bs-dark-text) 35%, transparent);">per year</span></p>
@@ -648,7 +648,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-md-5">
-        <div class="card p-4 h-100" style="background:#111;border:none;border-left:2px solid var(--bs-primary);border-radius:0;">
+        <div class="card p-4 h-100" style="background:var(--bs-dark);border:none;border-left:2px solid var(--bs-primary);border-radius:0;">
           <div class="card-body">
             <p class="text-primary mb-2" style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;">Maison Care</p>
             <p class="text-white fw-light mb-1" style="font-size:1.8rem;">£195 <span style="font-size:0.85rem;color:color-mix(in srgb, var(--bs-dark-text) 35%, transparent);">per year</span></p>
@@ -678,7 +678,7 @@ export const jewelleryBlocks = [
     <div class="row g-5 mb-5">
       <div class="col-lg-4">
         <p class="text-white mb-4" style="letter-spacing:0.3em;font-size:1.05rem;font-weight:300;">MAISON AUREL</p>
-        <p style="color:rgba(255,255,255,0.38);font-size:0.88rem;line-height:2;font-family:var(--bs-font-sans-serif);max-width:300px;">Five generations of Parisian jewellery-making. Each piece is an heirloom in the making.</p>
+        <p style="color:color-mix(in srgb, var(--bs-light) 38%, transparent);font-size:0.88rem;line-height:2;font-family:var(--bs-font-sans-serif);max-width:300px;">Five generations of Parisian jewellery-making. Each piece is an heirloom in the making.</p>
         <div class="d-flex gap-3 mt-4">
           <a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 35%, transparent);text-decoration:none;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Instagram</a>
           <a href="#" style="color:color-mix(in srgb, var(--bs-dark-text) 35%, transparent);text-decoration:none;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;">Pinterest</a>
@@ -715,10 +715,10 @@ export const jewelleryBlocks = [
       </div>
       <div class="col-lg-2">
         <p class="text-primary mb-3" style="font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;">Ateliers</p>
-        <p style="color:rgba(255,255,255,0.38);font-size:0.82rem;line-height:1.8;font-family:var(--bs-font-sans-serif);">Paris · London<br>Geneva · Tokyo</p>
+        <p style="color:color-mix(in srgb, var(--bs-light) 38%, transparent);font-size:0.82rem;line-height:1.8;font-family:var(--bs-font-sans-serif);">Paris · London<br>Geneva · Tokyo</p>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem;" class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <div style="border-top:1px solid color-mix(in srgb, var(--bs-light) 7%, transparent);padding-top:1.5rem;" class="d-flex flex-wrap justify-content-between align-items-center gap-2">
       <p style="color:rgba(255,255,255,0.22);font-size:0.75rem;margin:0;font-family:var(--bs-font-sans-serif);">© 2026 Maison Aurel. All rights reserved.</p>
       <div class="d-flex gap-4">
         <a href="#" style="color:rgba(255,255,255,0.22);text-decoration:none;font-size:0.72rem;letter-spacing:0.08em;font-family:var(--bs-font-sans-serif);">Privacy</a>
@@ -1018,7 +1018,7 @@ export const jewelleryBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
-        <div style="background:#111;">
+        <div style="background:var(--bs-dark);">
           <div class="position-relative overflow-hidden" style="aspect-ratio:3/4;">
             <img loading="lazy" src="https://images.unsplash.com/photo-1515562141155-7a31e9680ef7?w=800&q=80" alt="Diamond Ring" style="width:100%;height:100%;object-fit:cover;display:block;">
             <div class="position-absolute top-0 end-0 m-3" style="background:var(--bs-primary);padding:3px 10px;">
@@ -1034,7 +1034,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div style="background:#111;">
+        <div style="background:var(--bs-dark);">
           <div class="position-relative overflow-hidden" style="aspect-ratio:3/4;">
             <img loading="lazy" src="https://images.unsplash.com/photo-1602751584552-8ba47a5b4024?w=800&q=80" alt="Gold Necklace" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
@@ -1047,7 +1047,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div style="background:#111;">
+        <div style="background:var(--bs-dark);">
           <div class="position-relative overflow-hidden" style="aspect-ratio:3/4;">
             <img loading="lazy" src="https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=800&q=80" alt="Sapphire Ring" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
@@ -1060,7 +1060,7 @@ export const jewelleryBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div style="background:#111;">
+        <div style="background:var(--bs-dark);">
           <div class="position-relative overflow-hidden" style="aspect-ratio:3/4;">
             <img loading="lazy" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" alt="Earrings" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
@@ -1128,7 +1128,7 @@ export const jewelleryBlocks = [
           <a href="#" class="btn btn-primary flex-grow-1 py-3" style="border-radius:0;letter-spacing:0.12em;font-size:0.8rem;text-transform:uppercase;">Add to Wish List</a>
           <a href="#" class="btn btn-outline-light py-3 px-4" style="border-radius:0;letter-spacing:0.1em;font-size:0.8rem;text-transform:uppercase;">Book a Viewing</a>
         </div>
-        <div class="d-flex gap-4 flex-wrap" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem;">
+        <div class="d-flex gap-4 flex-wrap" style="border-top:1px solid color-mix(in srgb, var(--bs-light) 7%, transparent);padding-top:1.5rem;">
           <div>
             <p class="text-primary mb-0" style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;">Delivery</p>
             <p style="color:color-mix(in srgb, var(--bs-dark-text) 40%, transparent);font-size:0.8rem;margin:0;font-family:var(--bs-font-sans-serif);">4–8 weeks</p>

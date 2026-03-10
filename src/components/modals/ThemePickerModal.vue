@@ -61,6 +61,7 @@ const themeGroups = computed(() => {
               v-if="themeStore.activeThemeId"
               class="tp-close-btn"
               title="Close"
+              aria-label="Close theme picker"
               @click="dismiss"
             >
               <i class="bi bi-x-lg"></i>

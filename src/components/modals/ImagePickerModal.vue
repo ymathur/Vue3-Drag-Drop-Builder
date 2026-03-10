@@ -120,14 +120,14 @@ function close() {
       class="ip-backdrop"
       @click.self="close"
     >
-      <div class="ip-modal" role="dialog" aria-modal="true">
+      <div class="ip-modal" role="dialog" aria-modal="true" aria-labelledby="ip-dialog-title">
 
         <!-- Header -->
         <div class="ip-header">
-          <span class="ip-title">
+          <span id="ip-dialog-title" class="ip-title">
             <i class="bi bi-image me-2"></i>{{ modalTitle }}
           </span>
-          <button class="ip-close-btn" @click="close">
+          <button class="ip-close-btn" aria-label="Close" @click="close">
             <i class="bi bi-x-lg"></i>
           </button>
         </div>

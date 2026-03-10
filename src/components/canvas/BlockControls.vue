@@ -34,6 +34,7 @@ function onDelete() {
     <!-- Move Up -->
     <button
       title="Move Up"
+      aria-label="Move block up"
       :disabled="blockIndex === 0"
       @click="store.moveBlock(instanceId, 'up')"
     >
@@ -43,23 +44,24 @@ function onDelete() {
     <!-- Move Down -->
     <button
       title="Move Down"
+      aria-label="Move block down"
       :disabled="blockIndex === totalBlocks - 1"
       @click="store.moveBlock(instanceId, 'down')"
     >
       <i class="bi bi-arrow-down"></i>
     </button>
 
-    <div class="block-controls-divider"></div>
+    <div class="block-controls-divider" role="separator"></div>
 
     <!-- Duplicate -->
-    <button title="Duplicate" @click="store.duplicateBlock(instanceId)">
+    <button title="Duplicate" aria-label="Duplicate block" @click="store.duplicateBlock(instanceId)">
       <i class="bi bi-copy"></i>
     </button>
 
-    <div class="block-controls-divider"></div>
+    <div class="block-controls-divider" role="separator"></div>
 
     <!-- Delete -->
-    <button class="btn-delete" title="Delete" @click="onDelete">
+    <button class="btn-delete" title="Delete" aria-label="Delete block" @click="onDelete">
       <i class="bi bi-trash3"></i>
     </button>
   </div>

@@ -1,4 +1,8 @@
-let instanceCounter = 0
+// Persist counter across HMR to prevent duplicate IDs during development
+let instanceCounter = import.meta.hot?.data?.instanceCounter ?? 0
+if (import.meta.hot) {
+  import.meta.hot.dispose((data) => { data.instanceCounter = instanceCounter })
+}
 
 /**
  * Creates a unique canvas instance from a block definition.

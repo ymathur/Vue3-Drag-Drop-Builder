@@ -188,8 +188,15 @@ export async function exportZip(pages, themeStore = null, filename = 'my-page.zi
   // Track used slugs to avoid filename collisions
   const usedSlugs = new Map()  // slug → count
 
-  // ── 3. Process each page ───────────────────────────────────
-  pages.forEach((page, pageIndex) => {
+  // ── 3. Process each page (skip empty pages) ────────────────
+  const nonEmptyPages = pages.filter(p => p.blocks && p.blocks.length > 0)
+
+  if (nonEmptyPages.length === 0) {
+    alert('Nothing to export — all pages are empty.')
+    return
+  }
+
+  nonEmptyPages.forEach((page, pageIndex) => {
     const allScripts = []
     const htmlParts  = []
 

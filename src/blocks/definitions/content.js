@@ -161,7 +161,7 @@ export const contentBlocks = [
         <p class="text-muted mb-0">From onboarding to scaling to enterprise — our platform meets you where you are and grows as your ambitions do. Thousands of companies trust us to keep their most critical workflows running.</p>
       </div>
       <div class="col-lg-6">
-        <h6 class="fw-bold text-uppercase text-muted small letter-spacing mb-3">Key Benefits</h6>
+        <h6 class="fw-bold text-uppercase text-muted small mb-3" style="letter-spacing:0.08em;">Key Benefits</h6>
         <ul class="list-unstyled mb-0">
           <li class="d-flex align-items-start gap-3 mb-3">
             <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>

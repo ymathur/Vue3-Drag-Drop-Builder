@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GearVault — Premium Gear & Gadgets</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-4" href="#">GearVault</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDefault" aria-controls="navDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navDefault">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#" class="btn btn-primary ms-3"><i class="bi bi-cart me-1"></i> Cart (0)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="py-5">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge text-bg-success fw-semibold mb-3">New Arrival</span>
+        <h1 class="display-5 fw-bold lh-1 mb-3">Crafted for Those Who Demand the Best</h1>
+        <p class="lead text-muted mb-4">Award-winning design meets cutting-edge technology. Our flagship product redefines what's possible — built for creators, leaders, and innovators.</p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="#products" class="btn btn-dark btn-lg px-4">Shop Now</a>
+          <a href="#featured" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
+        </div>
+        <div class="mt-4 d-flex gap-4">
+          <div><div class="fw-bold fs-4">10k+</div><div class="text-muted small">Happy Customers</div></div>
+          <div><div class="fw-bold fs-4">4.9★</div><div class="text-muted small">Average Rating</div></div>
+          <div><div class="fw-bold fs-4">2yr</div><div class="text-muted small">Warranty</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80" alt="Product showcase" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="py-5 bg-primary text-white text-center">
+  <div class="container">
+    <h2 class="fw-bold">Trusted by Thousands</h2>
+    <p class="text-white-50">Numbers that speak for themselves</p>
+    <div class="row g-4 mt-4">
+      <div class="col-6 col-md-3">
+        <div class="display-4 fw-bold">10,000+</div>
+        <div class="text-white-50 small mt-1">Happy Customers</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="display-4 fw-bold">99.9%</div>
+        <div class="text-white-50 small mt-1">Satisfaction Rate</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="display-4 fw-bold">150+</div>
+        <div class="text-white-50 small mt-1">Countries Served</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="display-4 fw-bold">4.9★</div>
+        <div class="text-white-50 small mt-1">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products Grid -->
+<section id="products" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Our Products</h2>
+      <p class="text-muted lead">Handpicked gear for every lifestyle and budget</p>
+      <div class="btn-group mt-3" role="group" aria-label="Product filters">
+        <button type="button" class="btn btn-outline-primary btn-sm active">All</button>
+        <button type="button" class="btn btn-outline-primary btn-sm">New</button>
+        <button type="button" class="btn btn-outline-primary btn-sm">Popular</button>
+        <button type="button" class="btn btn-outline-primary btn-sm">Sale</button>
+      </div>
+    </div>
+    <div class="row g-4 mt-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" class="card-img-top" alt="Wireless Headphones" style="height:220px;object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-primary-subtle text-primary mb-2 align-self-start">Electronics</span>
+            <h6 class="card-title fw-semibold mb-1">Wireless Headphones</h6>
+            <p class="fw-bold text-dark mb-3">$79.00</p>
+            <button class="btn btn-sm btn-outline-primary w-100 mt-auto">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80" class="card-img-top" alt="Smart Watch" style="height:220px;object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-warning text-dark mb-2 align-self-start">NEW</span>
+            <h6 class="card-title fw-semibold mb-1">Smart Watch</h6>
+            <p class="fw-bold text-dark mb-3">$199.00</p>
+            <button class="btn btn-sm btn-outline-primary w-100 mt-auto">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80" class="card-img-top" alt="Portable Speaker" style="height:220px;object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-primary-subtle text-primary mb-2 align-self-start">Audio</span>
+            <h6 class="card-title fw-semibold mb-1">Portable Speaker</h6>
+            <p class="fw-bold text-dark mb-3">$49.00</p>
+            <button class="btn btn-sm btn-outline-primary w-100 mt-auto">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&q=80" class="card-img-top" alt="Running Shoes" style="height:220px;object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-warning text-dark mb-2 align-self-start">NEW</span>
+            <h6 class="card-title fw-semibold mb-1">Running Shoes</h6>
+            <p class="fw-bold text-dark mb-3">$129.00</p>
+            <button class="btn btn-sm btn-outline-primary w-100 mt-auto">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Buy From Us -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge bg-primary mb-3">Why GearVault</span>
+        <h2 class="fw-bold mb-3">All the Features You Need to Succeed</h2>
+        <p class="text-muted mb-4">We're obsessed with quality and customer experience. Every product is hand-tested and every order ships with care.</p>
+        <ul class="list-unstyled mb-0">
+          <li class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>
+            <span>Free worldwide shipping on orders over $50</span>
+          </li>
+          <li class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>
+            <span>30-day hassle-free returns with full refund guarantee</span>
+          </li>
+          <li class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>
+            <span>2-year warranty on all electronics and accessories</span>
+          </li>
+          <li class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>
+            <span>24/7 customer support via chat, email, and phone</span>
+          </li>
+          <li class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>
+            <span>Secure checkout with SSL encryption and fraud protection</span>
+          </li>
+          <li class="d-flex align-items-start gap-3">
+            <i class="bi bi-check-circle-fill text-success fs-5 flex-shrink-0 mt-1"></i>
+            <span>Eco-friendly packaging — 100% recyclable materials</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Feature overview" class="img-fluid rounded-4 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Product Detail -->
+<section id="featured" class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" class="img-fluid rounded-4 shadow" alt="Premium Wireless Headphones">
+      </div>
+      <div class="col-md-6">
+        <span class="badge bg-success mb-2">NEW ARRIVAL</span>
+        <h2 class="fw-bold mb-2">Premium Wireless Headphones</h2>
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </span>
+          <small class="text-muted">(128 reviews)</small>
+        </div>
+        <div class="mb-3">
+          <span class="display-6 fw-bold text-primary">$79.00</span>
+          <small class="text-decoration-line-through text-muted ms-2">$129.00</small>
+        </div>
+        <p class="text-muted mb-4">Experience studio-quality sound with active noise cancellation and 30-hour battery life. Engineered for all-day comfort with premium memory foam ear cushions.</p>
+        <div class="mb-3">
+          <span class="fw-semibold me-3">Color:</span>
+          <span class="d-inline-block rounded-circle border border-dark me-2" style="width:28px;height:28px;background-color:#212529;cursor:pointer;"></span>
+          <span class="d-inline-block rounded-circle border border-secondary me-2 bg-white" style="width:28px;height:28px;cursor:pointer;"></span>
+          <span class="d-inline-block rounded-circle border border-primary me-2 bg-primary" style="width:28px;height:28px;cursor:pointer;"></span>
+        </div>
+        <select class="form-select mb-3" aria-label="Select size">
+          <option selected disabled>Select Size</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+        </select>
+        <div class="d-flex gap-2 mb-4">
+          <input type="number" class="form-control" style="max-width:80px;" value="1" min="1">
+          <button class="btn btn-primary flex-grow-1">Add to Cart</button>
+          <button class="btn btn-outline-secondary"><i class="bi bi-heart"></i> Wishlist</button>
+        </div>
+        <div class="d-flex gap-4 text-muted small">
+          <span><i class="bi bi-truck me-1"></i>Free Shipping</span>
+          <span><i class="bi bi-arrow-return-left me-1"></i>30-day Returns</span>
+          <span><i class="bi bi-shield-check me-1"></i>2-Year Warranty</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Our Customers Say</h2>
+    </div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-primary" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-primary" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-primary" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner pb-5">
+        <div class="carousel-item active">
+          <div class="text-center px-5 mx-auto" style="max-width:680px">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Sarah M." class="rounded-circle mx-auto mb-4 object-fit-cover" style="width:60px;height:60px;">
+            <p class="fs-4 fst-italic fw-light mb-4">"The quality is unbelievable for this price. I've been using these headphones daily and they still look and sound brand new."</p>
+            <div class="fw-semibold">Sarah M.</div>
+            <div class="text-muted small">Verified Buyer</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="text-center px-5 mx-auto" style="max-width:680px">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="James K." class="rounded-circle mx-auto mb-4 object-fit-cover" style="width:60px;height:60px;">
+            <p class="fs-4 fst-italic fw-light mb-4">"Fast shipping, great packaging, and the product exceeded my expectations. GearVault is my go-to store now."</p>
+            <div class="fw-semibold">James K.</div>
+            <div class="text-muted small">Verified Buyer</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="text-center px-5 mx-auto" style="max-width:680px">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=80" alt="Priya R." class="rounded-circle mx-auto mb-4 object-fit-cover" style="width:60px;height:60px;">
+            <p class="fs-4 fst-italic fw-light mb-4">"I've recommended GearVault to all my friends. Their customer service is top-notch and their return policy is unbeatable."</p>
+            <div class="fw-semibold">Priya R.</div>
+            <div class="text-muted small">Verified Buyer</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="filter:invert(1)"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="filter:invert(1)"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Countdown CTA -->
+<section class="py-5 bg-dark text-white text-center">
+  <div class="container py-3">
+    <span class="badge bg-danger mb-3 px-3 py-2 text-uppercase fw-semibold">Limited Time Offer</span>
+    <h2 class="fw-bold display-6 mb-4">50% Off &mdash; This Week Only</h2>
+    <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+      <div class="bg-white bg-opacity-10 rounded-3 p-3 d-flex flex-column align-items-center" style="min-width:80px;">
+        <span class="display-5 fw-bold lh-1">02</span>
+        <span class="small text-white-50 mt-1">Days</span>
+      </div>
+      <div class="bg-white bg-opacity-10 rounded-3 p-3 d-flex flex-column align-items-center" style="min-width:80px;">
+        <span class="display-5 fw-bold lh-1">14</span>
+        <span class="small text-white-50 mt-1">Hours</span>
+      </div>
+      <div class="bg-white bg-opacity-10 rounded-3 p-3 d-flex flex-column align-items-center" style="min-width:80px;">
+        <span class="display-5 fw-bold lh-1">35</span>
+        <span class="small text-white-50 mt-1">Minutes</span>
+      </div>
+      <div class="bg-white bg-opacity-10 rounded-3 p-3 d-flex flex-column align-items-center" style="min-width:80px;">
+        <span class="display-5 fw-bold lh-1">22</span>
+        <span class="small text-white-50 mt-1">Seconds</span>
+      </div>
+    </div>
+    <a href="#" class="btn btn-warning btn-lg px-5 fw-semibold mb-3">Claim Your Discount &rarr;</a>
+    <p class="small text-white-50 mb-0">Offer ends Sunday midnight. No code needed.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-5 bg-light">
+  <div class="container" style="max-width:760px">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Frequently Asked Questions</h2>
+      <p class="text-muted">Can't find the answer you're looking for? <a href="#">Contact our support team.</a></p>
+    </div>
+    <div class="accordion shadow-sm" id="faqAccordion">
+      <div class="accordion-item border-0 mb-2 rounded">
+        <h2 class="accordion-header">
+          <button class="accordion-button rounded fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+            How long does shipping take?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted">Standard shipping takes 3-5 business days within the US. Express shipping (1-2 days) is available at checkout. International orders typically arrive within 7-14 business days.</div>
+        </div>
+      </div>
+      <div class="accordion-item border-0 mb-2 rounded">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed rounded fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+            What is your return policy?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted">We offer a 30-day hassle-free return policy. Items must be in original condition with tags attached. We'll provide a prepaid shipping label for your return.</div>
+        </div>
+      </div>
+      <div class="accordion-item border-0 mb-2 rounded">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed rounded fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+            Do you offer international shipping?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted">Yes! We ship to over 150 countries worldwide. Free shipping is available on orders over $50. Customs duties and taxes may apply depending on your location.</div>
+        </div>
+      </div>
+      <div class="accordion-item border-0 rounded">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed rounded fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+            Is my payment information secure?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted">Absolutely. We use industry-standard SSL encryption and are PCI DSS compliant. We never store your credit card details on our servers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter CTA -->
+<section class="py-5 bg-dark text-white">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h3 class="fw-bold mb-2">Get 10% Off Your First Order</h3>
+        <p class="mb-0 text-white-50">Subscribe to our newsletter for exclusive deals, new arrivals, and insider-only discounts.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group input-group-lg">
+          <input type="email" class="form-control border-0" placeholder="Enter your email address">
+          <button class="btn btn-primary px-4 fw-semibold" type="button">Subscribe</button>
+        </div>
+        <p class="small mt-2 text-white-50">No spam, ever. Unsubscribe at any time. We respect your privacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-lg-4">
+        <h5 class="fw-bold mb-3">GearVault</h5>
+        <p class="small mb-3 text-white-50">Premium gear and gadgets for modern life. Quality products, honest prices, and exceptional service since 2020.</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="fs-5 text-white-50"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="fs-5 text-white-50"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="fs-5 text-white-50"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="fs-5 text-white-50"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-2">
+        <h6 class="fw-bold mb-3">Shop</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">All Products</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">New Arrivals</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Best Sellers</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Sale</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="fw-bold mb-3">Support</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Help Center</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Shipping Info</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Returns</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Track Order</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="fw-bold mb-3">Legal</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Privacy</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Terms</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Cookies</a></li>
+          <li class="mb-2"><a href="#" class="text-decoration-none small text-white-50">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-light" style="opacity:0.15;">
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <p class="small mb-0 text-white-50">&copy; 2026 GearVault, Inc. All rights reserved.</p>
+      <p class="small mb-0 text-white-50">Made with &hearts; using Bootstrap 5</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

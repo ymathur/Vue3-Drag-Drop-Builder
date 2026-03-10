@@ -65,10 +65,10 @@ export const handicraftBlocks = [
     categoryId: 'heroes',
     label: 'Handicraft – Full-Width Block Print Hero',
     html: `<section class="position-relative text-white text-center" style="background:url('https://images.unsplash.com/photo-1452860606082-7e382d0bac84?w=1400&q=80') center/cover no-repeat; min-height:580px; display:flex; align-items:center;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(45,47,107,0.62);"></div>
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:color-mix(in srgb, var(--bs-dark) 62%, transparent);"></div>
   <div class="container position-relative py-5">
     <p class="text-uppercase fw-semibold mb-3" style="letter-spacing:0.15em; color:var(--bs-primary);">Handcrafted with Centuries of Tradition</p>
-    <h1 class="display-3 fw-bold mb-4" style="font-family:'EB Garamond', serif; max-width:760px; margin:0 auto 1rem;">Every Piece Tells a Story of Heritage</h1>
+    <h1 class="display-3 fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));max-width:760px; margin:0 auto 1rem;">Every Piece Tells a Story of Heritage</h1>
     <p class="lead mb-5 mx-auto" style="max-width:560px; opacity:0.9;">Discover artisan goods woven, dyed, and hand-printed by a community of weavers and craftspeople preserving India's folk heritage.</p>
     <div class="d-flex gap-3 justify-content-center flex-wrap">
       <a href="#" class="btn btn-primary btn-lg px-5 fw-semibold">Explore Collection</a>
@@ -86,8 +86,8 @@ export const handicraftBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Folk Loom — Est. 1974</p>
-        <h1 class="fw-bold mb-4" style="font-family:'EB Garamond', serif; font-size:3rem; line-height:1.15; color:var(--bs-dark);">Crafted by Hand,<br>Shaped by Heritage</h1>
-        <p class="lead mb-4" style="color:#555;">From the potter's wheel to the weaver's loom — each piece in our collection is made by skilled artisans using natural dyes and traditional techniques passed through generations.</p>
+        <h1 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:3rem; line-height:1.15; color:var(--bs-dark);">Crafted by Hand,<br>Shaped by Heritage</h1>
+        <p class="lead mb-4" style="color:var(--bs-secondary);">From the potter's wheel to the weaver's loom — each piece in our collection is made by skilled artisans using natural dyes and traditional techniques passed through generations.</p>
         <div class="d-flex gap-3 flex-wrap mb-4">
           <a href="#" class="btn btn-primary btn-lg px-5 fw-semibold">Shop Handcrafted</a>
           <a href="#" class="btn btn-secondary btn-lg px-4">Our Story</a>
@@ -120,7 +120,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Why Craft House Indira</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.4rem;">Rooted in Tradition, Made for Today</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.4rem;">Rooted in Tradition, Made for Today</h2>
     </div>
     <div class="row g-4 text-center">
       <div class="col-md-4">
@@ -160,7 +160,7 @@ export const handicraftBlocks = [
       </div>
       <div class="col-lg-7">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Our Craft Promise</p>
-        <h2 class="fw-bold mb-4" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.2rem;">Where Every Thread Carries Meaning</h2>
+        <h2 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">Where Every Thread Carries Meaning</h2>
         <div class="d-flex flex-column gap-4">
           <div class="d-flex gap-3 align-items-start">
             <div class="flex-shrink-0 rounded-2 d-flex align-items-center justify-content-center" style="width:44px;height:44px;background:var(--bs-dark);">
@@ -215,7 +215,7 @@ export const handicraftBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Our Heritage Story</p>
-        <h2 class="fw-bold mb-4" style="font-family:'EB Garamond', serif; font-size:2.4rem; color:#fff;">Born in the Weaving Villages of India</h2>
+        <h2 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:2.4rem; color:var(--bs-body-bg);">Born in the Weaving Villages of India</h2>
         <p class="mb-3" style="opacity:0.85; line-height:1.8;">In the narrow lanes of Bagru and the sun-baked courtyards of Kutch, craft is not a profession — it is a birthright. Craft House Indira was founded to bring these stories to the world.</p>
         <p class="mb-4" style="opacity:0.85; line-height:1.8;">We partner with over 500 artisan families across 14 Indian states, documenting and preserving craft traditions that might otherwise be lost to time. When you buy from us, you keep a tradition alive.</p>
         <a href="#" class="btn btn-primary px-5 fw-semibold">Read Our Full Story</a>
@@ -236,7 +236,7 @@ export const handicraftBlocks = [
     <div class="row justify-content-center mb-5">
       <div class="col-lg-7 text-center">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Art of Natural Dyeing</p>
-        <h2 class="fw-bold mb-3" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">Indigo: The Colour of the Cosmos</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Indigo: The Colour of the Cosmos</h2>
         <p class="text-muted lead" style="font-size:1.05rem;">Indigo dyeing is one of the oldest crafts in the world. The deep blue of the cosmos, extracted from the Indigofera plant, has coloured the robes of kings and the saris of village weavers alike.</p>
       </div>
     </div>
@@ -269,7 +269,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Explore by Craft</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">Traditions Passed Through Generations</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Traditions Passed Through Generations</h2>
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
@@ -324,7 +324,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Meet the Makers</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">The Hands Behind the Heritage</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">The Hands Behind the Heritage</h2>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-4">
@@ -374,7 +374,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Patron Stories</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.2rem;">Loved by Those Who Value Craft</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">Loved by Those Who Value Craft</h2>
     </div>
     <div class="row g-4">
       <div class="col-md-4">
@@ -429,7 +429,7 @@ export const handicraftBlocks = [
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
         <div class="mb-4" style="font-size:3rem; color:var(--bs-primary); line-height:1;">"</div>
-        <p class="fs-4 fw-semibold mb-5" style="font-family:'EB Garamond', serif; font-size:1.6rem !important; line-height:1.7; opacity:0.95;">Buying from The Folk Loom changed the way I think about shopping. Knowing that a real artisan — with a name, a family, a centuries-old skill — made the sari I'm wearing makes it infinitely more precious. This is heritage you can hold.</p>
+        <p class="fs-4 fw-semibold mb-5" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:1.6rem !important; line-height:1.7; opacity:0.95;">Buying from The Folk Loom changed the way I think about shopping. Knowing that a real artisan — with a name, a family, a centuries-old skill — made the sari I'm wearing makes it infinitely more precious. This is heritage you can hold.</p>
         <div class="d-flex align-items-center justify-content-center gap-4">
           <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Lakshmi Nair" class="rounded-circle shadow" style="width:64px;height:64px;object-fit:cover; border:3px solid var(--bs-primary);">
           <div class="text-start">
@@ -450,7 +450,7 @@ export const handicraftBlocks = [
     label: 'Handicraft – Saffron Banner CTA',
     html: `<section class="py-5 text-center" style="background:var(--bs-primary);">
   <div class="container py-3">
-    <h2 class="fw-bold mb-3" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.5rem;">Take a Piece of Heritage Home</h2>
+    <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.5rem;">Take a Piece of Heritage Home</h2>
     <p class="lead mb-4 mx-auto" style="color:var(--bs-dark); max-width:580px; opacity:0.85;">Every item in our collection directly supports a family of artisans. Shop handcrafted goods that carry the soul of centuries of Indian folk tradition.</p>
     <div class="d-flex gap-3 justify-content-center flex-wrap">
       <a href="#" class="btn btn-secondary btn-lg px-5 fw-semibold">Browse All Collections</a>
@@ -468,7 +468,7 @@ export const handicraftBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Join Our Craft Community</p>
-        <h2 class="fw-bold mb-3" style="font-family:'EB Garamond', serif; font-size:2.3rem;">Become a Patron of Living Heritage</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:2.3rem;">Become a Patron of Living Heritage</h2>
         <p class="mb-4" style="opacity:0.82; line-height:1.8;">Subscribe to The Folk Loom Journal and be the first to know about new artisan stories, seasonal collections, behind-the-craft features, and exclusive patron-only offers.</p>
         <div class="d-flex gap-3 flex-wrap">
           <a href="#" class="btn btn-primary btn-lg px-5 fw-semibold">Subscribe Free</a>
@@ -493,7 +493,7 @@ export const handicraftBlocks = [
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft Journal</p>
-        <h2 class="fw-bold mb-3" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.1rem;">Stay Close to the Craft</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.1rem;">Stay Close to the Craft</h2>
         <p class="text-muted mb-4">Get artisan spotlights, seasonal collections, natural dyeing guides, and exclusive offers delivered to your inbox — no noise, only craft.</p>
         <form>
           <div class="input-group mb-3" style="max-width:460px; margin:0 auto;">
@@ -516,7 +516,7 @@ export const handicraftBlocks = [
     <div class="row g-5 align-items-start">
       <div class="col-lg-5">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Trade &amp; Wholesale</p>
-        <h2 class="fw-bold mb-3" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.1rem;">Partner with Our Artisan Network</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.1rem;">Partner with Our Artisan Network</h2>
         <p class="text-muted mb-4" style="line-height:1.8;">Are you a boutique, hotel, gallery, or interior studio? We work with trade partners to supply authentic handcrafted goods at scale, without compromising on quality or artisan welfare.</p>
         <ul class="list-unstyled text-muted small">
           <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-primary); font-weight:700;">✦</span> Minimum order from 10 units per SKU</li>
@@ -579,7 +579,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft Box Subscription</p>
-      <h2 class="fw-bold mb-2" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">Handcrafted, Every Season</h2>
+      <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Handcrafted, Every Season</h2>
       <p class="text-muted">A curated selection of authentic artisan goods delivered to your door quarterly.</p>
     </div>
     <div class="row g-4 justify-content-center align-items-stretch">
@@ -648,7 +648,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Custom Commissions</p>
-      <h2 class="fw-bold mb-2" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">A Piece Made Just for You</h2>
+      <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">A Piece Made Just for You</h2>
       <p class="text-muted mx-auto" style="max-width:560px;">Commission a one-of-a-kind handcrafted piece with your chosen motifs, colours, and dimensions. Each commission is made by a master artisan and comes with a certificate of origin.</p>
     </div>
     <div class="row g-4 justify-content-center">
@@ -701,11 +701,11 @@ export const handicraftBlocks = [
     id: 'hcr-footer-1',
     categoryId: 'footers',
     label: 'Handicraft – Indigo Heritage Footer',
-    html: `<footer style="background:var(--bs-dark); color:rgba(255,255,255,0.85);">
+    html: `<footer style="background:var(--bs-dark); color:color-mix(in srgb, var(--bs-light) 85%, transparent);">
   <div class="container py-5">
     <div class="row g-4">
       <div class="col-lg-4 col-md-6">
-        <div class="fw-bold fs-5 mb-2" style="color:var(--bs-primary); font-family:'EB Garamond', serif; letter-spacing:0.05em;">Craft House Indira</div>
+        <div class="fw-bold fs-5 mb-2" style="color:var(--bs-primary); font-family:var(--bs-heading-font, var(--bs-body-font-family));letter-spacing:0.05em;">Craft House Indira</div>
         <p class="small mb-4" style="opacity:0.75; line-height:1.8;">Preserving India's living craft heritage since 1974. We work with a community of weavers, potters, and artisans across 14 states to bring you authentic handcrafted goods.</p>
         <div class="d-flex gap-3">
           <a href="#" style="color:var(--bs-primary);"><i class="bi bi-instagram fs-5"></i></a>
@@ -738,13 +738,13 @@ export const handicraftBlocks = [
         <h6 class="fw-bold mb-3" style="color:var(--bs-primary);">The Craft Journal</h6>
         <p class="small mb-3" style="opacity:0.75;">Artisan spotlights, natural dyeing guides, and exclusive offers — delivered quarterly.</p>
         <div class="input-group">
-          <input type="email" class="form-control form-control-sm" placeholder="Your email" style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:#fff;">
+          <input type="email" class="form-control form-control-sm" placeholder="Your email" style="background:color-mix(in srgb, var(--bs-light) 12%, transparent); border:1px solid color-mix(in srgb, var(--bs-light) 25%, transparent); color:var(--bs-light);">
           <button class="btn btn-primary btn-sm px-3 fw-semibold" type="button">Subscribe</button>
         </div>
       </div>
     </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.15);">
+  <div style="border-top:1px solid color-mix(in srgb, var(--bs-light) 15%, transparent);">
     <div class="container py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
       <p class="small mb-0" style="opacity:0.55;">© 2025 Craft House Indira. All rights reserved.</p>
       <div class="d-flex gap-3">
@@ -764,7 +764,7 @@ export const handicraftBlocks = [
   <div class="container py-5">
     <div class="row g-4 justify-content-between">
       <div class="col-lg-5">
-        <div class="fw-bold fs-5 mb-2" style="color:var(--bs-dark); font-family:'EB Garamond', serif;">The Folk Loom</div>
+        <div class="fw-bold fs-5 mb-2" style="color:var(--bs-dark); font-family:var(--bs-heading-font, var(--bs-body-font-family));">The Folk Loom</div>
         <p class="text-muted small mb-3" style="line-height:1.8;">Handcrafted goods made by India's finest artisans using traditional techniques, natural dyes, and heritage materials. Shipped worldwide with care.</p>
         <div class="d-flex gap-3">
           <a href="#" style="color:var(--bs-dark);"><i class="bi bi-instagram"></i></a>
@@ -809,7 +809,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft in Images</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.2rem;">A Visual Journey Through Heritage</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">A Visual Journey Through Heritage</h2>
     </div>
     <div class="row g-3">
       <div class="col-md-8">
@@ -843,7 +843,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Artisan at Work</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.2rem;">The Making of Craft</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">The Making of Craft</h2>
     </div>
     <div class="row g-3">
       <div class="col-6 col-md-4 col-lg-3">
@@ -888,11 +888,11 @@ export const handicraftBlocks = [
       </div>
       <div class="col-12 col-md-9">
         <div class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center gap-4">
-          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:'EB Garamond', serif;">Vogue India</span>
-          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:'EB Garamond', serif;">Craft Quarterly</span>
-          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:'EB Garamond', serif;">The Hindu</span>
-          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:'EB Garamond', serif;">Architectural Digest</span>
-          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:'EB Garamond', serif;">Artisan World</span>
+          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:var(--bs-heading-font, var(--bs-body-font-family));">Vogue India</span>
+          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:var(--bs-heading-font, var(--bs-body-font-family));">Craft Quarterly</span>
+          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:var(--bs-heading-font, var(--bs-body-font-family));">The Hindu</span>
+          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:var(--bs-heading-font, var(--bs-body-font-family));">Architectural Digest</span>
+          <span class="fw-bold text-muted" style="font-size:1.05rem; font-family:var(--bs-heading-font, var(--bs-body-font-family));">Artisan World</span>
         </div>
       </div>
     </div>
@@ -907,19 +907,19 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="row text-center g-4 mb-5">
       <div class="col-6 col-md-3">
-        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:'EB Garamond', serif;">500+</div>
+        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:var(--bs-heading-font, var(--bs-body-font-family));">500+</div>
         <div class="small" style="opacity:0.75;">Artisan Families Supported</div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:'EB Garamond', serif;">28</div>
+        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:var(--bs-heading-font, var(--bs-body-font-family));">28</div>
         <div class="small" style="opacity:0.75;">Living Craft Traditions</div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:'EB Garamond', serif;">15k+</div>
+        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:var(--bs-heading-font, var(--bs-body-font-family));">15k+</div>
         <div class="small" style="opacity:0.75;">Pieces Sold Worldwide</div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:'EB Garamond', serif;">4.9★</div>
+        <div class="fw-bold" style="font-size:2.8rem; color:var(--bs-primary); font-family:var(--bs-heading-font, var(--bs-body-font-family));">4.9★</div>
         <div class="small" style="opacity:0.75;">Average Patron Rating</div>
       </div>
     </div>
@@ -928,25 +928,25 @@ export const handicraftBlocks = [
         <p class="text-uppercase fw-semibold mb-0" style="letter-spacing:0.12em; color:var(--bs-primary); opacity:0.8; font-size:0.8rem;">Awards &amp; Recognition</p>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
+        <div class="p-3 rounded-2" style="background:color-mix(in srgb, var(--bs-light) 7%, transparent); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">National Crafts Council</div>
           <div class="small" style="opacity:0.65;">Best Heritage Brand 2023</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
+        <div class="p-3 rounded-2" style="background:color-mix(in srgb, var(--bs-light) 7%, transparent); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">GI Certification</div>
           <div class="small" style="opacity:0.65;">14 Verified Craft Origins</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
+        <div class="p-3 rounded-2" style="background:color-mix(in srgb, var(--bs-light) 7%, transparent); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">UNESCO Nominee</div>
           <div class="small" style="opacity:0.65;">Living Heritage Partner</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="p-3 rounded-2" style="background:rgba(255,255,255,0.07); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
+        <div class="p-3 rounded-2" style="background:color-mix(in srgb, var(--bs-light) 7%, transparent); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="fw-semibold small mb-1" style="color:var(--bs-primary);">Vogue India</div>
           <div class="small" style="opacity:0.65;">Top 10 Craft Brands 2024</div>
         </div>
@@ -965,27 +965,27 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft Process</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">From Loom to Your Doorstep</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">From Loom to Your Doorstep</h2>
       <p class="text-muted mx-auto" style="max-width:540px;">Every piece you receive has traveled a long and beautiful journey — here is how it comes to life.</p>
     </div>
     <div class="row g-4">
       <div class="col-md-3 text-center">
-        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:'EB Garamond',serif;">01</div>
+        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">01</div>
         <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Sourcing Materials</h6>
         <p class="text-muted small">Khadi cotton, natural wool, and wild plant fibres are sourced directly from farming cooperatives and forest communities.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:'EB Garamond',serif;">02</div>
+        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">02</div>
         <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Natural Dyeing</h6>
         <p class="text-muted small">Artisans prepare mordant baths and fermentation vats using indigo, madder, marigold, and turmeric to achieve rich, lasting colours.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:'EB Garamond',serif;">03</div>
+        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">03</div>
         <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Handcrafting</h6>
         <p class="text-muted small">Block printing, weaving, embroidery, or throwing on the potter's wheel — every item is made entirely by hand, one at a time.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-primary);color:var(--bs-dark);font-size:1.4rem;font-family:'EB Garamond',serif;">04</div>
+        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-primary);color:var(--bs-dark);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">04</div>
         <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Curated &amp; Shipped</h6>
         <p class="text-muted small">Each item is quality-checked, photographed, wrapped in recycled block-print paper, and shipped to you with an artisan origin card.</p>
       </div>
@@ -1001,7 +1001,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">How to Commission</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">A Bespoke Piece in 4 Simple Steps</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">A Bespoke Piece in 4 Simple Steps</h2>
     </div>
     <div class="row g-4 align-items-start">
       <div class="col-md-6 col-lg-3">
@@ -1053,7 +1053,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">New Arrivals</p>
-      <h2 class="fw-bold" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2.3rem;">Fresh from the Artisan's Hands</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Fresh from the Artisan's Hands</h2>
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
@@ -1155,7 +1155,7 @@ export const handicraftBlocks = [
       </div>
       <div class="col-lg-6">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.1em; color:var(--bs-primary);">Handloom Textiles</p>
-        <h2 class="fw-bold mb-2" style="font-family:'EB Garamond', serif; color:var(--bs-dark); font-size:2rem;">Double Ikat Silk Throw</h2>
+        <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2rem;">Double Ikat Silk Throw</h2>
         <div class="d-flex align-items-center gap-2 mb-3">
           <span style="color:var(--bs-primary);">★★★★★</span>
           <span class="small text-muted">(47 reviews)</span>

@@ -7,7 +7,7 @@
   position: relative;
   outline: 2px solid transparent;
   outline-offset: 0;
-  transition: outline-color 0.15s ease;
+  transition: outline-color var(--duration-normal) ease;
   cursor: default;
   margin-bottom: 2px;
 }
@@ -30,14 +30,14 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 50;
+  z-index: var(--z-block-reorder);
   display: flex;
   gap: 2px;
-  background: #1e293b;
+  background: var(--ui-dark);
   border-radius: 0 0 0 8px;
   padding: 4px 6px;
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-normal);
 }
 
 .canvas-block-wrapper.is-selected .block-controls {
@@ -53,7 +53,7 @@
   cursor: pointer;
   font-size: 0.85rem;
   line-height: 1;
-  transition: background 0.12s, color 0.12s;
+  transition: background var(--duration-fast), color var(--duration-fast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,7 +90,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #1e293b;
+  background: var(--ui-dark);
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.65rem;
   font-weight: 600;
@@ -100,7 +100,7 @@
   border-radius: 0 6px 0 0;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-normal);
 }
 
 .canvas-block-wrapper.is-selected .block-label-chip {
@@ -184,14 +184,14 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: #1e293b;
+  background: var(--ui-dark);
   color: rgba(255, 255, 255, 0.8);
   padding: 1px 14px 3px;
   border-radius: 0 0 8px 8px;
   cursor: grab;
-  z-index: 55;
+  z-index: var(--z-block-toolbar);
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-normal);
   font-size: 1.1rem;
   line-height: 1;
   user-select: none;
@@ -215,9 +215,9 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  z-index: 45;
+  z-index: var(--z-block-controls);
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-normal);
 }
 
 .canvas-block-wrapper:hover .side-reorder-controls,
@@ -226,7 +226,7 @@
 }
 
 .side-reorder-controls button {
-  background: #1e293b;
+  background: var(--ui-dark);
   border: none;
   color: rgba(255, 255, 255, 0.8);
   width: 28px;
@@ -238,7 +238,7 @@
   cursor: pointer;
   font-size: 0.8rem;
   line-height: 1;
-  transition: background 0.12s, color 0.12s;
+  transition: background var(--duration-fast), color var(--duration-fast);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
@@ -253,7 +253,7 @@
 }
 
 .side-reorder-controls button:disabled:hover {
-  background: #1e293b;
+  background: var(--ui-dark);
   color: rgba(255, 255, 255, 0.2);
 }
 
@@ -262,11 +262,11 @@
    ===================================================== */
 .rich-text-toolbar {
   position: fixed;
-  z-index: 9000;
+  z-index: var(--z-rich-text);
   display: flex;
   align-items: center;
   gap: 2px;
-  background: #1e293b;
+  background: var(--ui-dark);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 4px 6px;
@@ -292,7 +292,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: background 0.1s, color 0.1s;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .rich-text-toolbar button:hover {
@@ -346,8 +346,8 @@
 /* ── Link Hover Tooltip ── */
 .rt-link-tooltip {
   position: fixed;
-  z-index: 9100;
-  background: #1e293b;
+  z-index: var(--z-link-tooltip);
+  background: var(--ui-dark);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   padding: 5px 8px 5px 10px;
@@ -395,7 +395,7 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.8rem;
-  transition: background 0.1s, color 0.1s;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .rt-tooltip-actions button:hover {
@@ -408,7 +408,7 @@
    ===================================================== */
 .repeatable-controls-overlay {
   position: fixed;
-  z-index: 8000;
+  z-index: var(--z-overlays);
   display: flex;
   flex-direction: row;   /* horizontal pill — sits ON the element, no gap to cross */
   gap: 2px;
@@ -432,7 +432,7 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.8rem;
-  transition: background 0.1s, color 0.1s;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .repeatable-controls-overlay button:hover {
@@ -450,7 +450,7 @@
    ===================================================== */
 .bg-replace-overlay {
   position: fixed;
-  z-index: 8000;
+  z-index: var(--z-overlays);
   background: rgba(30, 41, 59, 0.9);
   color: #f1f5f9;
   font-size: 0.75rem;
@@ -462,7 +462,7 @@
   align-items: center;
   gap: 4px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-  transition: background 0.15s;
+  transition: background var(--duration-normal);
   pointer-events: all;
 }
 
@@ -475,7 +475,7 @@
    ===================================================== */
 .img-resize-overlay {
   position: fixed;
-  z-index: 7900;
+  z-index: var(--z-img-resize);
   outline: 2px solid #6366f1;
   outline-offset: 1px;
   pointer-events: none;
@@ -503,7 +503,7 @@
 .ip-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 9500;
+  z-index: var(--z-image-picker);
   background: rgba(15, 23, 42, 0.65);
   display: flex;
   align-items: center;
@@ -536,7 +536,7 @@
 .ip-title {
   font-weight: 700;
   font-size: 0.95rem;
-  color: #1e293b;
+  color: var(--ui-dark);
   flex: 1;
 }
 
@@ -552,12 +552,12 @@
   justify-content: center;
   border-radius: 6px;
   font-size: 0.85rem;
-  transition: background 0.12s, color 0.12s;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .ip-close-btn:hover {
   background: #f1f5f9;
-  color: #1e293b;
+  color: var(--ui-dark);
 }
 
 .ip-tabs {
@@ -575,11 +575,11 @@
   font-weight: 500;
   color: #64748b;
   cursor: pointer;
-  transition: color 0.12s, border-color 0.12s;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
   margin-bottom: -1px;
 }
 
-.ip-tabs button:hover { color: #1e293b; }
+.ip-tabs button:hover { color: var(--ui-dark); }
 
 .ip-tabs button.active {
   color: #1d4ed8;
@@ -602,7 +602,7 @@
   padding: 2rem 1rem;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color var(--duration-normal), background var(--duration-normal);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -652,9 +652,9 @@
   border-radius: 7px;
   padding: 0.45rem 0.75rem;
   font-size: 0.88rem;
-  color: #1e293b;
+  color: var(--ui-dark);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
 }
 
 .ip-url-input:focus {
@@ -707,8 +707,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
-  background: #1e293b;
+  z-index: var(--z-iframe-bar);
+  background: var(--ui-dark);
   border-top: 2px solid #3b82f6;
   padding: 0.55rem 1.25rem;
   box-shadow: 0 -4px 24px rgba(0,0,0,0.45);
@@ -770,7 +770,7 @@
   font-size: 0.72rem;
   padding: 3px 9px;
   cursor: pointer;
-  transition: background 0.12s;
+  transition: background var(--duration-fast);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -803,103 +803,6 @@
 .ip-fade-leave-to    { opacity: 0; }
 
 /* =====================================================
-   Canvas Area (unchanged from original)
-   ===================================================== */
-.canvas-area {
-  flex: 1;
-  overflow-y: auto;
-  background: #e2e8f0;
-  padding: 1.5rem;
-  min-width: 0;
-}
-
-.canvas-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: transparent;
-}
-
-.canvas-empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  border: 2px dashed #94a3b8;
-  border-radius: 16px;
-  color: #94a3b8;
-  text-align: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.4);
-  pointer-events: none;
-}
-
-.canvas-empty-state i {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
-.canvas-empty-state h5 { font-weight: 600; color: #64748b; }
-.canvas-empty-state p  { font-size: 0.9rem; max-width: 280px; }
-
-/* =====================================================
-   Preview Modal
-   ===================================================== */
-.preview-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-}
-
-.preview-toolbar {
-  height: 52px;
-  background: #1e293b;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-
-.preview-toolbar .preview-title {
-  font-weight: 600;
-  color: #f8fafc;
-  font-size: 0.9rem;
-  margin-right: auto;
-}
-
-.preview-iframe {
-  flex: 1;
-  border: none;
-  width: 100%;
-}
-
-/* =====================================================
-   Scrollbars
-   ===================================================== */
-.sidebar::-webkit-scrollbar,
-.block-palette::-webkit-scrollbar,
-.canvas-area::-webkit-scrollbar,
-.category-tabs::-webkit-scrollbar { width: 5px; }
-
-.sidebar::-webkit-scrollbar-track,
-.block-palette::-webkit-scrollbar-track,
-.canvas-area::-webkit-scrollbar-track,
-.category-tabs::-webkit-scrollbar-track { background: transparent; }
-
-.sidebar::-webkit-scrollbar-thumb,
-.block-palette::-webkit-scrollbar-thumb,
-.canvas-area::-webkit-scrollbar-thumb,
-.category-tabs::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 99px;
-}
-
-/* =====================================================
    Sidebar Tab Switcher (Blocks / Theme)
    ===================================================== */
 .sidebar-tabs {
@@ -920,7 +823,7 @@
   font-weight: 500;
   color: #64748b;
   cursor: pointer;
-  transition: color 0.12s, border-color 0.12s;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -928,7 +831,7 @@
   white-space: nowrap;
 }
 
-.sidebar-tab:hover { color: #1e293b; }
+.sidebar-tab:hover { color: var(--ui-dark); }
 
 .sidebar-tab--active {
   color: #1d4ed8;
@@ -959,7 +862,7 @@
 .tp-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 9800;
+  z-index: var(--z-theme-picker);
   background: rgba(2, 6, 23, 0.72);
   display: flex;
   align-items: center;
@@ -1029,11 +932,11 @@
   justify-content: center;
   border-radius: 8px;
   font-size: 0.9rem;
-  transition: background 0.12s, color 0.12s;
+  transition: background var(--duration-fast), color var(--duration-fast);
   flex-shrink: 0;
 }
 
-.tp-close-btn:hover { background: #f1f5f9; color: #1e293b; }
+.tp-close-btn:hover { background: #f1f5f9; color: var(--ui-dark); }
 
 /* Scrollable body area */
 .tp-body {
@@ -1100,7 +1003,7 @@
   padding: 0;
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  transition: border-color var(--duration-normal), box-shadow var(--duration-normal), transform var(--duration-normal);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1274,7 +1177,7 @@
   color: #334155;
   cursor: pointer;
   text-align: left;
-  transition: background 0.12s;
+  transition: background var(--duration-fast);
 }
 
 .tp-group-header:hover { background: #f1f5f9; }
@@ -1284,7 +1187,7 @@
 .tp-chevron {
   margin-left: auto;
   font-size: 0.7rem;
-  transition: transform 0.2s ease;
+  transition: transform var(--duration-slow) ease;
   color: #94a3b8;
 }
 
@@ -1358,7 +1261,7 @@
   background: #fff;
   outline: none;
   cursor: pointer;
-  transition: border-color 0.12s;
+  transition: border-color var(--duration-fast);
 }
 
 .tp-select:focus { border-color: #6366f1; }
@@ -1376,7 +1279,7 @@
   font-size: 0.78rem;
   color: #334155;
   outline: none;
-  transition: border-color 0.12s;
+  transition: border-color var(--duration-fast);
   width: 100%;
 }
 
@@ -1473,7 +1376,7 @@
   font-size: 0.68rem;
   padding: 1px 6px;
   cursor: pointer;
-  transition: background 0.12s;
+  transition: background var(--duration-fast);
 }
 .brand-clear-all:hover { background: #fee2e2; }
 
@@ -1493,7 +1396,7 @@
   color: #334155;
   cursor: pointer;
   text-align: left;
-  transition: background 0.12s;
+  transition: background var(--duration-fast);
 }
 
 .brand-group-header:hover { background: #f1f5f9; }
@@ -1551,7 +1454,7 @@
   cursor: pointer;
   font-size: 0.75rem;
   flex-shrink: 0;
-  transition: background 0.1s, color 0.1s;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 .brand-clear-btn:hover { background: #fee2e2; color: #dc2626; }
 
@@ -1648,7 +1551,7 @@
   font-size: 0.76rem;
   font-weight: 500;
   border-right: 1px solid #1e2a3a;
-  transition: background 0.12s, color 0.12s;
+  transition: background var(--duration-fast), color var(--duration-fast);
   user-select: none;
   position: relative;
   flex-shrink: 0;
@@ -1797,13 +1700,13 @@
 .page-tab-menu-overlay {
   position: fixed;
   inset: 0;
-  z-index: 9998;
+  z-index: var(--z-context-menu);
 }
 
 .page-tab-menu {
   position: fixed;
-  z-index: 9999;
-  background: #1e293b;
+  z-index: var(--z-preview);
+  background: var(--ui-dark);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
@@ -1824,7 +1727,7 @@
   font-size: 0.82rem;
   cursor: pointer;
   text-align: left;
-  transition: background 0.1s, color 0.1s;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .page-tab-menu button:hover:not(:disabled) {
