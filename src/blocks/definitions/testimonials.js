@@ -17,7 +17,7 @@ export const testimonialBlocks = [
           </div>
           <p class="text-muted fst-italic mb-4">"This platform transformed how our team collaborates. We shipped 3x faster within the very first month of use."</p>
           <div class="d-flex align-items-center mt-auto">
-            <div class="bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="width:44px;height:44px">SC</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah Chen" class="rounded-circle me-3 flex-shrink-0 object-fit-cover" style="width:44px;height:44px;">
             <div>
               <div class="fw-bold small">Sarah Chen</div>
               <div class="text-muted small">VP Product, Acme Corp</div>
@@ -32,7 +32,7 @@ export const testimonialBlocks = [
           </div>
           <p class="text-muted fst-italic mb-4">"The onboarding was seamless and the support team genuinely cares. Best SaaS purchase our company has ever made."</p>
           <div class="d-flex align-items-center mt-auto">
-            <div class="bg-success rounded-circle me-3 d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="width:44px;height:44px">TM</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Tom Miller" class="rounded-circle me-3 flex-shrink-0 object-fit-cover" style="width:44px;height:44px;">
             <div>
               <div class="fw-bold small">Tom Miller</div>
               <div class="text-muted small">Founder, BuildFast</div>
@@ -47,7 +47,7 @@ export const testimonialBlocks = [
           </div>
           <p class="text-muted fst-italic mb-4">"Replaced three tools with this one. Saved $800/month and gained features we didn't even know we needed."</p>
           <div class="d-flex align-items-center mt-auto">
-            <div class="bg-danger rounded-circle me-3 d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="width:44px;height:44px">LJ</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Laura Jones" class="rounded-circle me-3 flex-shrink-0 object-fit-cover" style="width:44px;height:44px;">
             <div>
               <div class="fw-bold small">Laura Jones</div>
               <div class="text-muted small">CTO, DevStream</div>
@@ -70,14 +70,14 @@ export const testimonialBlocks = [
       <p class="fs-3 fw-light fst-italic lh-base">"We evaluated 12 platforms before choosing this one. The decision took 2 weeks. The results spoke for themselves in 2 days."</p>
     </blockquote>
     <div class="d-flex align-items-center justify-content-center gap-3 mt-4 mb-5">
-      <div class="bg-dark rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="width:54px;height:54px">EW</div>
+      <img loading="lazy" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&q=80" alt="Emma Wilson" class="rounded-circle flex-shrink-0 object-fit-cover" style="width:54px;height:54px;">
       <div class="text-start">
         <div class="fw-bold">Emma Wilson</div>
         <div class="text-muted small">Director of Engineering, Stripe</div>
       </div>
     </div>
     <hr class="my-4">
-    <p class="text-muted small text-uppercase fw-semibold mb-4 letter-spacing">Trusted by teams at</p>
+    <p class="text-muted small text-uppercase fw-semibold mb-4" style="letter-spacing:0.08em;">Trusted by teams at</p>
     <div class="row row-cols-3 row-cols-md-6 g-3 align-items-center justify-content-center">
       <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Google</div></div>
       <div class="col"><div class="bg-secondary bg-opacity-15 rounded-2 p-2 text-center text-muted small fw-semibold">Stripe</div></div>
@@ -107,7 +107,7 @@ export const testimonialBlocks = [
       <div class="carousel-inner pb-5">
         <div class="carousel-item active">
           <div class="text-center px-5 mx-auto" style="max-width:680px">
-            <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-4" style="width:60px;height:60px">SM</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Sarah M." class="rounded-circle mx-auto mb-4 object-fit-cover" style="width:60px;height:60px;">
             <p class="fs-4 fst-italic fw-light mb-4">"This platform completely revolutionized how our team approaches campaigns. We saw results in the very first week."</p>
             <div class="fw-semibold">Sarah M.</div>
             <div class="text-muted small">Marketing Director</div>
@@ -115,7 +115,7 @@ export const testimonialBlocks = [
         </div>
         <div class="carousel-item">
           <div class="text-center px-5 mx-auto" style="max-width:680px">
-            <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-4" style="width:60px;height:60px">JK</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="James K." class="rounded-circle mx-auto mb-4 object-fit-cover" style="width:60px;height:60px;">
             <p class="fs-4 fst-italic fw-light mb-4">"As a CTO I care deeply about reliability and developer experience. This product delivers on both without compromise."</p>
             <div class="fw-semibold">James K.</div>
             <div class="text-muted small">CTO</div>
@@ -123,7 +123,7 @@ export const testimonialBlocks = [
         </div>
         <div class="carousel-item">
           <div class="text-center px-5 mx-auto" style="max-width:680px">
-            <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-4" style="width:60px;height:60px">PR</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=80" alt="Priya R." class="rounded-circle mx-auto mb-4 object-fit-cover" style="width:60px;height:60px;">
             <p class="fs-4 fst-italic fw-light mb-4">"I built my entire startup on this. The support team feels like co-founders. Couldn't have shipped without them."</p>
             <div class="fw-semibold">Priya R.</div>
             <div class="text-muted small">Founder</div>
@@ -163,7 +163,7 @@ export const testimonialBlocks = [
         <i class="bi bi-quote fs-1 text-primary mb-3"></i>
         <p class="fst-italic fs-5 fw-light mb-4">"Switching to this platform was the best decision we made all year. Our team's productivity doubled, our churn dropped, and customers keep telling us how much smoother everything feels now."</p>
         <div class="d-flex align-items-center mb-3">
-          <div class="bg-primary rounded-circle text-white fw-bold d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width:48px;height:48px;">AL</div>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Alex Lee" class="rounded-circle me-3 flex-shrink-0 object-fit-cover" style="width:48px;height:48px;">
           <div>
             <div class="fw-semibold">Alex Lee</div>
             <div class="text-muted small">Head of Product, Launchpad Co.</div>

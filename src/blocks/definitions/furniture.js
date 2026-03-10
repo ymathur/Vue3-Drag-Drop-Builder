@@ -357,7 +357,7 @@ export const furnitureBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="p-4 h-100 d-flex flex-column" style="background-color:#fff; border:1px solid var(--bs-border-color); border-radius:3px;">
+        <div class="p-4 h-100 d-flex flex-column" style="background-color:var(--bs-body-bg); border:1px solid var(--bs-border-color); border-radius:3px;">
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.4rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="flex-grow-1 mb-4" style="color:var(--bs-body-color); line-height:1.8; font-style:italic;">"The oak dining table is beyond anything I hoped for. Six of us eat around it every Sunday and it has become the literal centre of our home. Worth every penny and every week of the wait."</p>
           <div class="d-flex align-items-center gap-3">
@@ -370,7 +370,7 @@ export const furnitureBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-4 h-100 d-flex flex-column" style="background-color:#fff; border:1px solid var(--bs-border-color); border-radius:3px;">
+        <div class="p-4 h-100 d-flex flex-column" style="background-color:var(--bs-body-bg); border:1px solid var(--bs-border-color); border-radius:3px;">
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.4rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="flex-grow-1 mb-4" style="color:var(--bs-body-color); line-height:1.8; font-style:italic;">"I ordered a bespoke wardrobe in walnut for our master bedroom. The team at Atelier Madera was thoughtful throughout the process, and the finished piece is genuinely extraordinary."</p>
           <div class="d-flex align-items-center gap-3">
@@ -383,7 +383,7 @@ export const furnitureBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-4 h-100 d-flex flex-column" style="background-color:#fff; border:1px solid var(--bs-border-color); border-radius:3px;">
+        <div class="p-4 h-100 d-flex flex-column" style="background-color:var(--bs-body-bg); border:1px solid var(--bs-border-color); border-radius:3px;">
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.4rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="flex-grow-1 mb-4" style="color:var(--bs-body-color); line-height:1.8; font-style:italic;">"We furnished our entire apartment through Atelier Madera. Everything is cohesive, beautiful, and obviously built to last. Our friends ask about the furniture every single time they visit."</p>
           <div class="d-flex align-items-center gap-3">
@@ -474,7 +474,7 @@ export const furnitureBlocks = [
           <h2 class="fw-bold" style="color:var(--bs-dark);">Tell Us About Your Space</h2>
           <p style="color:var(--bs-secondary);">Share a few details and one of our design advisors will be in touch within one working day.</p>
         </div>
-        <div class="p-4 p-lg-5" style="background-color:#fff; border:1px solid var(--bs-border-color); border-radius:3px;">
+        <div class="p-4 p-lg-5" style="background-color:var(--bs-body-bg); border:1px solid var(--bs-border-color); border-radius:3px;">
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label fw-semibold" style="color:var(--bs-dark);">First Name</label>
@@ -526,7 +526,7 @@ export const furnitureBlocks = [
         <h2 class="fw-bold mb-3" style="color:var(--bs-body-bg);">Inspiration, Delivered Monthly</h2>
         <p class="mb-4" style="color:var(--bs-dark-text); line-height:1.7;">New collections, behind-the-scenes from the atelier, interior ideas, and occasional subscriber-only offers — curated and sent once a month.</p>
         <div class="d-flex gap-2">
-          <input type="email" class="form-control flex-grow-1 py-3" placeholder="Your email address" style="border:1px solid var(--bs-secondary); background:rgba(254,246,236,0.08); color:var(--bs-body-bg); border-radius:2px;">
+          <input type="email" class="form-control flex-grow-1 py-3" placeholder="Your email address" style="border:1px solid var(--bs-secondary); background:color-mix(in srgb, var(--bs-body-bg) 8%, transparent); color:var(--bs-body-bg); border-radius:2px;">
           <button class="btn px-4 fw-semibold" style="background-color:var(--bs-primary); border-color:var(--bs-primary); color:#fff; border-radius:2px; white-space:nowrap;">Subscribe</button>
         </div>
         <p class="mt-3 mb-0 small" style="color:var(--bs-secondary);">Unsubscribe at any time. We will never share your address.</p>
@@ -550,7 +550,7 @@ export const furnitureBlocks = [
     </div>
     <div class="row g-4 align-items-stretch justify-content-center">
       <div class="col-md-4">
-        <div class="p-4 p-lg-5 h-100 d-flex flex-column" style="background-color:#fff; border:1px solid var(--bs-border-color); border-radius:3px;">
+        <div class="p-4 p-lg-5 h-100 d-flex flex-column" style="background-color:var(--bs-body-bg); border:1px solid var(--bs-border-color); border-radius:3px;">
           <h5 class="fw-bold mb-1" style="color:var(--bs-dark);">Discovery</h5>
           <p class="mb-4" style="color:var(--bs-secondary); font-size:0.88rem;">For focused single-room projects</p>
           <div class="fw-bold mb-4" style="font-size:2.2rem; color:var(--bs-dark);">£350<small style="font-size:0.9rem; color:var(--bs-secondary); font-weight:400;"> flat fee</small></div>
@@ -570,18 +570,18 @@ export const furnitureBlocks = [
           </div>
           <h5 class="fw-bold mb-1" style="color:var(--bs-body-bg);">Atelier Full Room</h5>
           <p class="mb-4" style="color:color-mix(in srgb, var(--bs-dark-text) 75%, transparent); font-size:0.88rem;">A complete, coordinated room design</p>
-          <div class="fw-bold mb-4" style="font-size:2.2rem; color:var(--bs-body-bg);">£1,200<small style="font-size:0.9rem; color:rgba(254,246,236,0.7); font-weight:400;"> flat fee</small></div>
+          <div class="fw-bold mb-4" style="font-size:2.2rem; color:var(--bs-body-bg);">£1,200<small style="font-size:0.9rem; color:color-mix(in srgb, var(--bs-body-bg) 70%, transparent); font-weight:400;"> flat fee</small></div>
           <ul class="list-unstyled mb-5 flex-grow-1">
-            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:rgba(254,246,236,0.9);">Everything in Discovery</span></li>
-            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:rgba(254,246,236,0.9);">3D mood board &amp; render</span></li>
-            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:rgba(254,246,236,0.9);">Full procurement management</span></li>
-            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:rgba(254,246,236,0.9);">Delivery &amp; placement day</span></li>
+            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:color-mix(in srgb, var(--bs-body-bg) 90%, transparent);">Everything in Discovery</span></li>
+            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:color-mix(in srgb, var(--bs-body-bg) 90%, transparent);">3D mood board &amp; render</span></li>
+            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:color-mix(in srgb, var(--bs-body-bg) 90%, transparent);">Full procurement management</span></li>
+            <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-body-bg);">&#10003;</span><span style="color:color-mix(in srgb, var(--bs-body-bg) 90%, transparent);">Delivery &amp; placement day</span></li>
           </ul>
           <a href="#" class="btn w-100 py-3 fw-semibold" style="background-color:var(--bs-body-bg); border-color:var(--bs-body-bg); color:var(--bs-primary); border-radius:2px;">Book Atelier Room</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-4 p-lg-5 h-100 d-flex flex-column" style="background-color:#fff; border:1px solid var(--bs-border-color); border-radius:3px;">
+        <div class="p-4 p-lg-5 h-100 d-flex flex-column" style="background-color:var(--bs-body-bg); border:1px solid var(--bs-border-color); border-radius:3px;">
           <h5 class="fw-bold mb-1" style="color:var(--bs-dark);">Whole Home</h5>
           <p class="mb-4" style="color:var(--bs-secondary); font-size:0.88rem;">End-to-end design &amp; fit-out</p>
           <div class="fw-bold mb-4" style="font-size:2.2rem; color:var(--bs-dark);">Custom<small style="font-size:0.9rem; color:var(--bs-secondary); font-weight:400;"> pricing</small></div>
@@ -612,7 +612,7 @@ export const furnitureBlocks = [
     <div class="row g-0 justify-content-center">
       <div class="col-lg-8">
         <div style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden;">
-          <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color:#fff; border-bottom:1px solid var(--bs-border-color);">
+          <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color:var(--bs-body-bg); border-bottom:1px solid var(--bs-border-color);">
             <div>
               <div class="fw-semibold" style="color:var(--bs-dark);">Dining Table — 180cm</div>
               <div class="small" style="color:var(--bs-secondary);">Solid oak top, turned legs, hardwax finish</div>
@@ -626,7 +626,7 @@ export const furnitureBlocks = [
             </div>
             <div class="fw-bold" style="color:var(--bs-primary); font-size:1.15rem;">From £395</div>
           </div>
-          <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color:#fff; border-bottom:1px solid var(--bs-border-color);">
+          <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color:var(--bs-body-bg); border-bottom:1px solid var(--bs-border-color);">
             <div>
               <div class="fw-semibold" style="color:var(--bs-dark);">Sideboard — 160cm</div>
               <div class="small" style="color:var(--bs-secondary);">Three doors, soft-close hinges, brass handles</div>
@@ -640,7 +640,7 @@ export const furnitureBlocks = [
             </div>
             <div class="fw-bold" style="color:var(--bs-primary); font-size:1.15rem;">From £1,100</div>
           </div>
-          <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color:#fff; border-bottom:1px solid var(--bs-border-color);">
+          <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color:var(--bs-body-bg); border-bottom:1px solid var(--bs-border-color);">
             <div>
               <div class="fw-semibold" style="color:var(--bs-dark);">Bed Frame — King</div>
               <div class="small" style="color:var(--bs-secondary);">Solid headboard, slatted base, natural oil finish</div>
@@ -705,7 +705,7 @@ export const furnitureBlocks = [
         <a href="#" class="btn mt-2 btn-sm px-4" style="border:1px solid var(--bs-primary); color:var(--bs-primary); border-radius:2px; background:transparent; font-size:0.85rem;">Book a Visit</a>
       </div>
     </div>
-    <div class="pt-4 d-flex flex-wrap justify-content-between align-items-center gap-2" style="border-top:1px solid rgba(232,213,192,0.2); font-size:0.82rem;">
+    <div class="pt-4 d-flex flex-wrap justify-content-between align-items-center gap-2" style="border-top:1px solid color-mix(in srgb, var(--bs-border-color) 30%, transparent); font-size:0.82rem;">
       <span>&copy; 2025 Atelier Madera. All rights reserved.</span>
       <div class="d-flex gap-3">
         <a href="#" style="color:var(--bs-dark-text); text-decoration:none;">Privacy Policy</a>
@@ -896,7 +896,7 @@ export const furnitureBlocks = [
     id: 'fur-social-proof-2',
     categoryId: 'social-proof',
     label: 'Furniture – Awards & Certification Bar',
-    html: `<section class="py-5" style="background-color:#fff; border-top:1px solid var(--bs-border-color);">
+    html: `<section class="py-5" style="background-color:var(--bs-body-bg); border-top:1px solid var(--bs-border-color);">
   <div class="container py-2">
     <div class="row align-items-center g-4 justify-content-center text-center">
       <div class="col-6 col-md-2">
@@ -1049,7 +1049,7 @@ export const furnitureBlocks = [
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
-        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:#fff;">
+        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:var(--bs-body-bg);">
           <div class="position-relative">
             <img loading="lazy" src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80" alt="Tiago Lounge Chair" style="width:100%; height:240px; object-fit:cover;">
             <span class="badge position-absolute top-0 start-0 m-3" style="background-color:var(--bs-primary); border-radius:0;">Bestseller</span>
@@ -1063,7 +1063,7 @@ export const furnitureBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:#fff;">
+        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:var(--bs-body-bg);">
           <div class="position-relative">
             <img loading="lazy" src="https://images.unsplash.com/photo-1524234107056-1c1f48f64ab8?w=800&q=80" alt="Harvest Dining Table" style="width:100%; height:240px; object-fit:cover;">
           </div>
@@ -1076,7 +1076,7 @@ export const furnitureBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:#fff;">
+        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:var(--bs-body-bg);">
           <div class="position-relative">
             <img loading="lazy" src="https://images.unsplash.com/photo-1556909114-44e3e70034be?w=800&q=80" alt="Grain Sideboard" style="width:100%; height:240px; object-fit:cover;">
             <span class="badge position-absolute top-0 start-0 m-3" style="background-color:var(--bs-dark); border-radius:0;">New</span>
@@ -1090,7 +1090,7 @@ export const furnitureBlocks = [
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
-        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:#fff;">
+        <div class="h-100 d-flex flex-column" style="border:1px solid var(--bs-border-color); border-radius:3px; overflow:hidden; background-color:var(--bs-body-bg);">
           <div class="position-relative">
             <img loading="lazy" src="https://images.unsplash.com/photo-1567538096630-e3838a7f1a9b?w=800&q=80" alt="Volta Dining Chair" style="width:100%; height:240px; object-fit:cover;">
           </div>
@@ -1151,7 +1151,7 @@ export const furnitureBlocks = [
         </div>
         <div class="mb-4">
           <label class="fw-semibold mb-2 d-block" style="color:var(--bs-dark); font-size:0.9rem;">Wood Finish</label>
-          <select class="form-select" style="border-color:var(--bs-border-color); background:#fff; color:var(--bs-dark); border-radius:2px; max-width:260px;">
+          <select class="form-select" style="border-color:var(--bs-border-color); background:var(--bs-body-bg); color:var(--bs-dark); border-radius:2px; max-width:260px;">
             <option>European White Oak — Natural</option>
             <option>European White Oak — Smoked</option>
             <option>Black American Walnut</option>

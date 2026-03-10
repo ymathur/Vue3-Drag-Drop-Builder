@@ -497,7 +497,7 @@ export const trailerBlocks = [
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card p-4 h-100" style="background:var(--bs-light); border:1px solid #e8630a50;">
+        <div class="card p-4 h-100" style="background:var(--bs-light); border:1px solid color-mix(in srgb, var(--bs-primary) 30%, transparent);">
           <div class="mb-3" style="color:var(--bs-primary); font-size:1.1rem;">★★★★★</div>
           <p style="color:var(--bs-body-color); line-height:1.7; font-size:0.95rem;" class="mb-4">"I've owned three different overland trailers. TrailForce is on a different level. The solar setup alone paid for itself in one season. I'll never go back."</p>
           <div class="d-flex align-items-center gap-3 mt-auto">

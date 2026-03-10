@@ -13,7 +13,7 @@ export const cardBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 text-center shadow-sm h-100">
           <div class="card-body p-4">
-            <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white fw-bold fs-4" style="width:80px;height:80px">JD</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Jane Doe" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
             <h6 class="card-title fw-bold mb-0">Jane Doe</h6>
             <small class="text-muted d-block mb-3">CEO & Co-Founder</small>
             <div class="d-flex justify-content-center gap-2">
@@ -26,7 +26,7 @@ export const cardBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 text-center shadow-sm h-100">
           <div class="card-body p-4">
-            <div class="bg-success rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white fw-bold fs-4" style="width:80px;height:80px">MS</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" alt="Mark Smith" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
             <h6 class="card-title fw-bold mb-0">Mark Smith</h6>
             <small class="text-muted d-block mb-3">Chief Technology Officer</small>
             <div class="d-flex justify-content-center gap-2">
@@ -39,7 +39,7 @@ export const cardBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 text-center shadow-sm h-100">
           <div class="card-body p-4">
-            <div class="bg-warning rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white fw-bold fs-4" style="width:80px;height:80px">AL</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="Amy Lee" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
             <h6 class="card-title fw-bold mb-0">Amy Lee</h6>
             <small class="text-muted d-block mb-3">Head of Design</small>
             <div class="d-flex justify-content-center gap-2">
@@ -52,7 +52,7 @@ export const cardBlocks = [
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 text-center shadow-sm h-100">
           <div class="card-body p-4">
-            <div class="bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white fw-bold fs-4" style="width:80px;height:80px">RK</div>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Ryan Kim" class="rounded-circle mx-auto mb-3 object-fit-cover" style="width:80px;height:80px;">
             <h6 class="card-title fw-bold mb-0">Ryan Kim</h6>
             <small class="text-muted d-block mb-3">Lead Engineer</small>
             <div class="d-flex justify-content-center gap-2">
