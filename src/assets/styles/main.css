@@ -81,14 +81,70 @@ body,
   letter-spacing: -0.01em;
   color: #f8fafc;
   text-decoration: none;
-  margin-right: auto;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
 .app-header .app-title span {
   color: #60a5fa;
+}
+
+/* Project switcher / name in header */
+.project-switcher {
+  flex-shrink: 0;
+}
+.project-name-badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.project-name-badge:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.project-switcher__menu {
+  max-height: 300px;
+  overflow-y: auto;
+  min-width: 240px;
+}
+
+/* Cloud save status */
+.save-status {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.save-status--saved  { color: #86efac; }
+.save-status--saving { color: #fde68a; }
+.save-status--unsaved { color: rgba(255,255,255,0.4); }
+.save-status--error  { color: #fca5a5; }
+
+/* User avatar in header */
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
 }
 
 .header-divider {
@@ -102,6 +158,100 @@ body,
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
   white-space: nowrap;
+}
+
+/* Share button wrapper + popover */
+.share-wrapper {
+  position: relative;
+}
+.share-popover__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+}
+.share-popover__card {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1050;
+  width: 340px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: sharePopIn 0.15s ease-out;
+}
+@keyframes sharePopIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.share-popover__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+}
+.share-popover__header h6 {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.share-popover__body {
+  padding: 0.85rem;
+}
+.share-popover__label {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+.share-popover__body .form-check-input {
+  cursor: pointer;
+}
+.share-popover__url-row {
+  display: flex;
+  gap: 0.35rem;
+}
+.share-popover__url {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  flex: 1;
+  min-width: 0;
+}
+.share-popover__url:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #f1f5f9;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.15);
+}
+.share-popover__open-link {
+  font-size: 0.75rem;
+  color: #60a5fa;
+  text-decoration: none;
+}
+.share-popover__open-link:hover {
+  text-decoration: underline;
+}
+.share-popover__regen {
+  font-size: 0.72rem;
+  text-decoration: none;
+  padding: 0;
+}
+.share-popover__hint {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+.share-popover__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 41, 59, 0.7);
+  z-index: 1;
 }
 
 /* --- Sidebar --- */

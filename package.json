@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "firebase": "^12.10.0",
     "jszip": "^3.10.1",
     "pinia": "^2.1.7",
     "sortablejs": "^1.15.4",
     "vue": "^3.4.21",
+    "vue-router": "^4.6.4",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {

@@ -17,219 +17,59 @@ const FONTS_TAG_ID = 'theme-fonts'
 const STORAGE_KEY  = 'builder-theme'
 
 
-export const useThemeStore = defineStore('theme', () => {
+// ─── Pure CSS Builders (module-level so they can be reused outside the store) ──
 
-  // ─── State ──────────────────────────────────────────────────
-  /** ID of the currently selected preset (null = no theme applied yet). */
-  const activeThemeId   = ref(null)
+/**
+ * Return a hex color darkened by ~18% (used for hover states).
+ * Falls back gracefully to the original if the input isn't a valid hex.
+ */
+function darken(hex) {
+  if (!hex || !hex.startsWith('#')) return hex
+  const clean = hex.replace('#', '')
+  if (clean.length !== 6) return hex
+  const factor = 0.82  // darken by ~18%
+  const r = Math.round(parseInt(clean.slice(0,2),16) * factor)
+  const g = Math.round(parseInt(clean.slice(2,4),16) * factor)
+  const b = Math.round(parseInt(clean.slice(4,6),16) * factor)
+  return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`
+}
 
-  /** User overrides via ThemePanel: { '--bs-primary': '#ff0000', ... }  */
-  const customizations  = ref({})
+function buildRootBlock(vars) {
+  const lines = Object.entries(vars)
+    .map(([k, v]) => `  ${k}: ${v};`)
+    .join('\n')
+  return `:root {\n${lines}\n}`
+}
 
-  /** Whether the launch / onboarding picker modal is showing. */
-  const pickerOpen = ref(false)
+/**
+ * Generate Bootstrap component-level CSS variable overrides.
+ *
+ * Bootstrap 5.3 defines component-scoped vars (e.g. `.btn-primary { --bs-btn-bg: ... }`)
+ * that SHADOW the :root vars, so changing :root alone doesn't update components.
+ * This block explicitly overrides those component vars with our current values.
+ */
+function buildComponentCss(vars) {
+  const primary   = vars['--bs-primary']          || '#0d6efd'
+  const secondary = vars['--bs-secondary']        || '#6c757d'
+  const bodyBg    = vars['--bs-body-bg']          || '#ffffff'
+  const bodyColor = vars['--bs-body-color']       || '#212529'
+  const font      = vars['--bs-font-sans-serif']  || 'sans-serif'
+  const radius    = vars['--bs-border-radius']    || '0.375rem'
+  const radiusLg  = vars['--bs-border-radius-lg'] || '0.5rem'
+  const success   = vars['--bs-success']          || '#198754'
+  const danger    = vars['--bs-danger']           || '#dc3545'
+  const heading   = vars['--bs-heading-color']    || bodyColor
+  const link      = vars['--bs-link-color']       || primary
+  const linkHover = vars['--bs-link-hover-color'] || darken(primary)
 
-  /** Branding overrides — user-set brand identity values. */
-  const brandingSettings = ref({})
+  const primaryDark   = darken(primary)
+  const secondaryDark = darken(secondary)
+  const darkSurface  = vars['--bs-dark']  || '#212529'
+  const lightSurface = vars['--bs-light'] || '#f8f9fa'
+  const darkText     = vars['--bs-dark-text']  || '#ffffff'
+  const lightText    = vars['--bs-light-text'] || bodyColor
 
-  // ─── Derived ────────────────────────────────────────────────
-
-  /** The full active preset object. */
-  const activeTheme = computed(() =>
-    activeThemeId.value ? getThemeById(activeThemeId.value) : null
-  )
-
-  /**
-   * Merged vars — two-layer priority:
-   *   preset.vars  →  customizations (ThemePanel overrides)
-   */
-  const mergedVars = computed(() => {
-    if (!activeTheme.value) return {}
-    return { ...activeTheme.value.vars, ...customizations.value }
-  })
-
-  // ─── Actions ────────────────────────────────────────────────
-
-  /** Open / close the theme picker modal. */
-  function openPicker()  { pickerOpen.value = true  }
-  function closePicker() { pickerOpen.value = false }
-
-  /** True when at least one branding override is active. */
-  const hasBranding = computed(() =>
-    Object.values(brandingSettings.value).some(v => v !== '' && v != null)
-  )
-
-  /** Update a single branding field. Empty string = clear that override. */
-  function updateBranding(key, value) {
-    brandingSettings.value = { ...brandingSettings.value, [key]: value }
-    applyBrandingToTheme()
-    persistState()
-  }
-
-  /** Clear all branding overrides. */
-  function clearBranding() {
-    brandingSettings.value = {}
-    applyBrandingToTheme()
-    persistState()
-  }
-
-  /**
-   * Apply branding color/font/radius overrides on top of the current theme.
-   * Maps branding keys to their corresponding CSS variables.
-   */
-  function applyBrandingToTheme() {
-    const BRAND_TO_CSS = {
-      primaryColor:    '--bs-primary',
-      secondaryColor:  '--bs-secondary',
-      bodyBg:          '--bs-body-bg',
-      bodyColor:       '--bs-body-color',
-      headingColor:    '--bs-heading-color',
-      linkColor:       '--bs-link-color',
-      success:         '--bs-success',
-      danger:          '--bs-danger',
-      fontFamily:      '--bs-font-sans-serif',
-      borderRadius:    '--bs-border-radius',
-      borderRadiusLg:  '--bs-border-radius-lg',
-      borderRadiusPill:'--bs-border-radius-pill',
-    }
-    const overrides = {}
-    for (const [brandKey, cssVar] of Object.entries(BRAND_TO_CSS)) {
-      const val = brandingSettings.value[brandKey]
-      if (val) overrides[cssVar] = val
-    }
-    // Merge brand overrides into customizations layer so applyToCanvas picks them up
-    // We keep them separate in state but merged for CSS injection
-    customizations.value = { ...customizations.value, ...overrides }
-    applyToCanvas()
-  }
-
-  /** Select a preset and immediately apply it. Wipes user customizations (not branding). */
-  function selectTheme(id, { keepCustomizations = false } = {}) {
-    const theme = getThemeById(id)
-    if (!theme) return
-    activeThemeId.value = id
-    if (!keepCustomizations) customizations.value = {}
-    applyToCanvas()
-    persistState()
-  }
-
-  /**
-   * Update a single CSS variable override (ThemePanel).
-   * Automatically keeps RGB companion variables in sync.
-   */
-  function updateVar(key, value) {
-    customizations.value = { ...customizations.value, [key]: value }
-    const rgbKey = RGB_COMPANIONS[key]
-    if (rgbKey && value.startsWith('#')) {
-      const rgb = hexToRgb(value)
-      if (rgb) customizations.value = { ...customizations.value, [rgbKey]: rgb }
-    }
-    applyToCanvas()
-    persistState()
-  }
-
-  /** Reset ThemePanel customizations back to preset defaults. */
-  function resetToPreset() {
-    customizations.value = {}
-    applyToCanvas()
-    persistState()
-  }
-
-  /**
-   * Inject theme + component + branding styles into document <head>.
-   * Creates / updates <style id="theme-styles"> and <link id="theme-fonts">.
-   */
-  function applyToCanvas() {
-    if (!activeTheme.value) return
-
-    const vars = mergedVars.value
-
-    const css = [
-      `/* Theme: ${activeTheme.value.name} — applied by builder */`,
-      buildRootBlock(vars),         // 1. CSS custom properties
-      buildComponentCss(vars),      // 2. Dynamic Bootstrap component overrides
-      activeTheme.value.extraCss || '', // 3. Preset decorative extras
-    ].join('\n')
-
-    injectStyleTag(STYLE_TAG_ID, css)
-    injectFonts(activeTheme.value.googleFonts ?? [], vars)
-  }
-
-  /** Remove the injected theme styles (reset to Bootstrap defaults). */
-  function removeFromCanvas() {
-    const el = document.getElementById(STYLE_TAG_ID)
-    if (el) el.remove()
-    const fl = document.getElementById(FONTS_TAG_ID)
-    if (fl) fl.remove()
-  }
-
-  // ─── Persistence ────────────────────────────────────────────
-
-  function persistState() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        activeThemeId:   activeThemeId.value,
-        customizations:  customizations.value,
-        branding:        brandingSettings.value,
-      }))
-    } catch (_) { /* storage not available */ }
-  }
-
-  function loadPersistedState() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY)
-      if (!raw) return
-      const parsed = JSON.parse(raw)
-      const { activeThemeId: id, customizations: cust, branding } = parsed
-      if (id && getThemeById(id)) {
-        activeThemeId.value     = id
-        customizations.value    = cust ?? {}
-        brandingSettings.value  = branding ?? {}
-        applyBrandingToTheme()
-      }
-    } catch (_) { /* ignore corrupt storage */ }
-  }
-
-  // ─── CSS Builders ────────────────────────────────────────────
-
-  function buildRootBlock(vars) {
-    const lines = Object.entries(vars)
-      .map(([k, v]) => `  ${k}: ${v};`)
-      .join('\n')
-    return `:root {\n${lines}\n}`
-  }
-
-  /**
-   * Generate Bootstrap component-level CSS variable overrides.
-   *
-   * Bootstrap 5.3 defines component-scoped vars (e.g. `.btn-primary { --bs-btn-bg: ... }`)
-   * that SHADOW the :root vars, so changing :root alone doesn't update components.
-   * This block explicitly overrides those component vars with our current values.
-   */
-  function buildComponentCss(vars) {
-    const primary   = vars['--bs-primary']          || '#0d6efd'
-    const secondary = vars['--bs-secondary']        || '#6c757d'
-    const bodyBg    = vars['--bs-body-bg']          || '#ffffff'
-    const bodyColor = vars['--bs-body-color']       || '#212529'
-    const font      = vars['--bs-font-sans-serif']  || 'sans-serif'
-    const radius    = vars['--bs-border-radius']    || '0.375rem'
-    const radiusLg  = vars['--bs-border-radius-lg'] || '0.5rem'
-    const success   = vars['--bs-success']          || '#198754'
-    const danger    = vars['--bs-danger']           || '#dc3545'
-    const heading   = vars['--bs-heading-color']    || bodyColor
-    const link      = vars['--bs-link-color']       || primary
-    const linkHover = vars['--bs-link-hover-color'] || darken(primary)
-
-    const primaryDark   = darken(primary)
-    const secondaryDark = darken(secondary)
-    // Theme-aware dark/light surfaces — each preset declares --bs-dark / --bs-light
-    // so .bg-dark and .bg-light follow the theme palette rather than Bootstrap defaults.
-    const darkSurface  = vars['--bs-dark']  || '#212529'
-    const lightSurface = vars['--bs-light'] || '#f8f9fa'
-    const darkText     = vars['--bs-dark-text']  || '#ffffff'
-    const lightText    = vars['--bs-light-text'] || bodyColor
-
-    return `/* ── Dynamic Bootstrap component overrides ── */
+  return `/* ── Dynamic Bootstrap component overrides ── */
 
 /* ── Base typography & layout ── */
 body { background-color: ${bodyBg} !important; color: ${bodyColor} !important; font-family: ${font}; }
@@ -241,8 +81,6 @@ a:hover { color: ${linkHover}; }
 section:not([class*="bg-"]) { background-color: ${bodyBg} !important; }
 
 /* ── Theme-aware surface utilities ── */
-/* These override Bootstrap's fixed .bg-dark/#f8f9fa so each theme
-   can define what "dark" and "light" mean for its own palette.    */
 .bg-dark  { background-color: ${darkSurface}  !important; color: ${darkText}  !important; }
 .bg-light { background-color: ${lightSurface} !important; color: ${lightText} !important; }
 .bg-white { background-color: ${bodyBg}       !important; color: ${bodyColor} !important; }
@@ -254,8 +92,7 @@ section:not([class*="bg-"]) { background-color: ${bodyBg} !important; }
 .text-white-50 { color: color-mix(in srgb, ${heading} 65%, transparent) !important; }
 .text-light   { color: color-mix(in srgb, ${bodyColor} 80%, transparent) !important; }
 
-/* ── Context-aware text overrides — higher specificity (2 classes) beats Bootstrap ── */
-/* Inside .bg-dark — every text utility snaps to dark-surface text colour */
+/* ── Context-aware text overrides ── */
 .bg-dark h1,.bg-dark h2,.bg-dark h3,.bg-dark h4,.bg-dark h5,.bg-dark h6 { color: ${darkText} !important; }
 .bg-dark p,.bg-dark li,.bg-dark span:not(.badge),.bg-dark label { color: inherit; }
 .bg-dark .text-white,.bg-dark .text-light   { color: ${darkText} !important; }
@@ -264,18 +101,15 @@ section:not([class*="bg-"]) { background-color: ${bodyBg} !important; }
 .bg-dark .text-dark,.bg-dark .text-body     { color: ${darkText} !important; }
 .bg-dark .nav-link                          { color: color-mix(in srgb, ${darkText} 75%, transparent); }
 .bg-dark .nav-link:hover                    { color: ${darkText}; }
-/* Inside .bg-light — text is always readable on the light surface */
 .bg-light h1,.bg-light h2,.bg-light h3,.bg-light h4,.bg-light h5,.bg-light h6 { color: ${heading} !important; }
 .bg-light .text-white,.bg-light .text-light { color: ${lightText} !important; }
 .bg-light .text-white-50                    { color: color-mix(in srgb, ${bodyColor} 65%, transparent) !important; }
 .bg-light .text-muted                       { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
 .bg-light .text-dark,.bg-light .text-body   { color: ${lightText} !important; }
-/* Inside .bg-white — same as bg-light */
 .bg-white h1,.bg-white h2,.bg-white h3,.bg-white h4,.bg-white h5,.bg-white h6 { color: ${heading} !important; }
 .bg-white .text-white,.bg-white .text-light { color: ${bodyColor} !important; }
 .bg-white .text-white-50                    { color: color-mix(in srgb, ${bodyColor} 65%, transparent) !important; }
 .bg-white .text-muted                       { color: color-mix(in srgb, ${bodyColor} 55%, transparent) !important; }
-/* Sections with no explicit bg-* class get bodyBg — text-white must still be readable */
 section:not([class*="bg-"]) .text-white     { color: ${heading} !important; }
 section:not([class*="bg-"]) .text-white-50  { color: color-mix(in srgb, ${bodyColor} 65%, transparent) !important; }
 section:not([class*="bg-"]) .text-light     { color: color-mix(in srgb, ${bodyColor} 80%, transparent) !important; }
@@ -407,7 +241,7 @@ input[type="range"]::-webkit-slider-thumb { background-color: ${primary}; }
 /* ── Cards & layout ── */
 .card, .modal-content, .dropdown-menu { border-radius: ${radiusLg}; }
 
-/* ── Global img fallback — shows themed colour when an image fails to load ── */
+/* ── Global img fallback ── */
 img { background-color: var(--bs-body-bg); }
 img[src=""] { min-height: 120px; display: block; }
 
@@ -419,22 +253,264 @@ img[src=""] { min-height: 120px; display: block; }
   --bs-light-text: ${lightText};
 }
 `
+}
+
+/**
+ * Build Google Fonts href URL for the given theme fonts + vars.
+ * Returns null if no Google Fonts are needed.
+ */
+function buildGoogleFontsHref(googleFontNames, vars) {
+  const names = new Set(googleFontNames)
+  const fontVar = vars['--bs-font-sans-serif']
+  if (fontVar) {
+    const extracted = extractFontName(fontVar)
+    if (extracted) names.add(extracted)
+  }
+  names.delete('System Default')
+  names.delete('-apple-system')
+
+  if (names.size === 0) return null
+
+  const families = [...names]
+    .map(n => `family=${encodeURIComponent(n)}:wght@300;400;500;600;700;800`)
+    .join('&')
+  return `https://fonts.googleapis.com/css2?${families}&display=swap`
+}
+
+/**
+ * Generate theme CSS string + Google Fonts href from a theme ID and customizations,
+ * WITHOUT any DOM side effects. Used by SharedPreviewPage to reconstruct theme CSS
+ * from saved project data.
+ *
+ * @param {string} themeId        — preset ID (e.g. 'elegant-dark')
+ * @param {object} customizations — user overrides { '--bs-primary': '#ff0000', ... }
+ * @returns {{ css: string, googleFontsHref: string|null }}
+ */
+export function generateThemeCssString(themeId, customizations = {}) {
+  const theme = getThemeById(themeId)
+  if (!theme) return { css: '', googleFontsHref: null }
+
+  const vars = { ...theme.vars, ...customizations }
+
+  const css = [
+    `/* Theme: ${theme.name} */`,
+    buildRootBlock(vars),
+    buildComponentCss(vars),
+    theme.extraCss || '',
+  ].join('\n')
+
+  const googleFontsHref = buildGoogleFontsHref(theme.googleFonts ?? [], vars)
+
+  return { css, googleFontsHref }
+}
+
+
+export const useThemeStore = defineStore('theme', () => {
+
+  // ─── State ──────────────────────────────────────────────────
+  /** ID of the currently selected preset (null = no theme applied yet). */
+  const activeThemeId   = ref(null)
+
+  /** User overrides via ThemePanel: { '--bs-primary': '#ff0000', ... }  */
+  const customizations  = ref({})
+
+  /** Whether the launch / onboarding picker modal is showing. */
+  const pickerOpen = ref(false)
+
+  /** Branding overrides — user-set brand identity values. */
+  const brandingSettings = ref({})
+
+  // ─── Derived ────────────────────────────────────────────────
+
+  /** The full active preset object. */
+  const activeTheme = computed(() =>
+    activeThemeId.value ? getThemeById(activeThemeId.value) : null
+  )
+
+  /**
+   * Merged vars — two-layer priority:
+   *   preset.vars  →  customizations (ThemePanel overrides)
+   */
+  const mergedVars = computed(() => {
+    if (!activeTheme.value) return {}
+    return { ...activeTheme.value.vars, ...customizations.value }
+  })
+
+  // ─── Actions ────────────────────────────────────────────────
+
+  /** Open / close the theme picker modal. */
+  function openPicker()  { pickerOpen.value = true  }
+  function closePicker() { pickerOpen.value = false }
+
+  /** True when at least one branding override is active. */
+  const hasBranding = computed(() =>
+    Object.values(brandingSettings.value).some(v => v !== '' && v != null)
+  )
+
+  /** Update a single branding field. Empty string = clear that override. */
+  function updateBranding(key, value) {
+    brandingSettings.value = { ...brandingSettings.value, [key]: value }
+    applyBrandingToTheme()
+    persistState()
+  }
+
+  /** Clear all branding overrides. */
+  function clearBranding() {
+    brandingSettings.value = {}
+    applyBrandingToTheme()
+    persistState()
   }
 
   /**
-   * Return a hex color darkened by ~15% (used for hover states).
-   * Falls back gracefully to the original if the input isn't a valid hex.
+   * Apply branding color/font/radius overrides on top of the current theme.
+   * Maps branding keys to their corresponding CSS variables.
    */
-  function darken(hex) {
-    if (!hex || !hex.startsWith('#')) return hex
-    const clean = hex.replace('#', '')
-    if (clean.length !== 6) return hex
-    const factor = 0.82  // darken by ~18%
-    const r = Math.round(parseInt(clean.slice(0,2),16) * factor)
-    const g = Math.round(parseInt(clean.slice(2,4),16) * factor)
-    const b = Math.round(parseInt(clean.slice(4,6),16) * factor)
-    return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`
+  function applyBrandingToTheme() {
+    const BRAND_TO_CSS = {
+      primaryColor:    '--bs-primary',
+      secondaryColor:  '--bs-secondary',
+      bodyBg:          '--bs-body-bg',
+      bodyColor:       '--bs-body-color',
+      headingColor:    '--bs-heading-color',
+      linkColor:       '--bs-link-color',
+      success:         '--bs-success',
+      danger:          '--bs-danger',
+      fontFamily:      '--bs-font-sans-serif',
+      borderRadius:    '--bs-border-radius',
+      borderRadiusLg:  '--bs-border-radius-lg',
+      borderRadiusPill:'--bs-border-radius-pill',
+    }
+    const overrides = {}
+    for (const [brandKey, cssVar] of Object.entries(BRAND_TO_CSS)) {
+      const val = brandingSettings.value[brandKey]
+      if (val) overrides[cssVar] = val
+    }
+    // Merge brand overrides into customizations layer so applyToCanvas picks them up
+    // We keep them separate in state but merged for CSS injection
+    customizations.value = { ...customizations.value, ...overrides }
+    applyToCanvas()
   }
+
+  /**
+   * Merge branding color/font/radius overrides into customizations
+   * WITHOUT injecting CSS. Used during store init (non-builder pages).
+   */
+  function _mergeBrandingIntoCustomizations() {
+    const BRAND_TO_CSS = {
+      primaryColor:    '--bs-primary',
+      secondaryColor:  '--bs-secondary',
+      bodyBg:          '--bs-body-bg',
+      bodyColor:       '--bs-body-color',
+      headingColor:    '--bs-heading-color',
+      linkColor:       '--bs-link-color',
+      success:         '--bs-success',
+      danger:          '--bs-danger',
+      fontFamily:      '--bs-font-sans-serif',
+      borderRadius:    '--bs-border-radius',
+      borderRadiusLg:  '--bs-border-radius-lg',
+      borderRadiusPill:'--bs-border-radius-pill',
+    }
+    const overrides = {}
+    for (const [brandKey, cssVar] of Object.entries(BRAND_TO_CSS)) {
+      const val = brandingSettings.value[brandKey]
+      if (val) overrides[cssVar] = val
+    }
+    customizations.value = { ...customizations.value, ...overrides }
+  }
+
+  /** Select a preset and immediately apply it. Wipes user customizations (not branding). */
+  function selectTheme(id, { keepCustomizations = false } = {}) {
+    const theme = getThemeById(id)
+    if (!theme) return
+    activeThemeId.value = id
+    if (!keepCustomizations) customizations.value = {}
+    applyToCanvas()
+    persistState()
+  }
+
+  /**
+   * Update a single CSS variable override (ThemePanel).
+   * Automatically keeps RGB companion variables in sync.
+   */
+  function updateVar(key, value) {
+    customizations.value = { ...customizations.value, [key]: value }
+    const rgbKey = RGB_COMPANIONS[key]
+    if (rgbKey && value.startsWith('#')) {
+      const rgb = hexToRgb(value)
+      if (rgb) customizations.value = { ...customizations.value, [rgbKey]: rgb }
+    }
+    applyToCanvas()
+    persistState()
+  }
+
+  /** Reset ThemePanel customizations back to preset defaults. */
+  function resetToPreset() {
+    customizations.value = {}
+    applyToCanvas()
+    persistState()
+  }
+
+  /**
+   * Inject theme + component + branding styles into document <head>.
+   * Creates / updates <style id="theme-styles"> and <link id="theme-fonts">.
+   */
+  function applyToCanvas() {
+    if (!activeTheme.value) return
+
+    const vars = mergedVars.value
+
+    const css = [
+      `/* Theme: ${activeTheme.value.name} — applied by builder */`,
+      buildRootBlock(vars),         // 1. CSS custom properties
+      buildComponentCss(vars),      // 2. Dynamic Bootstrap component overrides
+      activeTheme.value.extraCss || '', // 3. Preset decorative extras
+    ].join('\n')
+
+    injectStyleTag(STYLE_TAG_ID, css)
+    injectFonts(activeTheme.value.googleFonts ?? [], vars)
+  }
+
+  /** Remove the injected theme styles (reset to Bootstrap defaults). */
+  function removeFromCanvas() {
+    const el = document.getElementById(STYLE_TAG_ID)
+    if (el) el.remove()
+    const fl = document.getElementById(FONTS_TAG_ID)
+    if (fl) fl.remove()
+  }
+
+  // ─── Persistence ────────────────────────────────────────────
+
+  function persistState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        activeThemeId:   activeThemeId.value,
+        customizations:  customizations.value,
+        branding:        brandingSettings.value,
+      }))
+    } catch (_) { /* storage not available */ }
+  }
+
+  function loadPersistedState({ applyCSS = true } = {}) {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY)
+      if (!raw) return
+      const parsed = JSON.parse(raw)
+      const { activeThemeId: id, customizations: cust, branding } = parsed
+      if (id && getThemeById(id)) {
+        activeThemeId.value     = id
+        customizations.value    = cust ?? {}
+        brandingSettings.value  = branding ?? {}
+        if (applyCSS) {
+          applyBrandingToTheme()
+        } else {
+          // Merge branding into customizations without injecting CSS
+          _mergeBrandingIntoCustomizations()
+        }
+      }
+    } catch (_) { /* ignore corrupt storage */ }
+  }
+
+  // ─── CSS Builders (use module-level pure functions) ──────────
 
   function injectStyleTag(id, css) {
     let el = document.getElementById(id)
@@ -447,29 +523,13 @@ img[src=""] { min-height: 120px; display: block; }
   }
 
   function injectFonts(googleFontNames, vars) {
-    const names = new Set(googleFontNames)
+    const href = buildGoogleFontsHref(googleFontNames, vars)
 
-    // Include font from vars (ThemePanel override)
-    const fontVar = vars['--bs-font-sans-serif']
-    if (fontVar) {
-      const extracted = extractFontName(fontVar)
-      if (extracted) names.add(extracted)
-    }
-
-    // Remove system font sentinels
-    names.delete('System Default')
-    names.delete('-apple-system')
-
-    if (names.size === 0) {
+    if (!href) {
       const fl = document.getElementById(FONTS_TAG_ID)
       if (fl) fl.remove()
       return
     }
-
-    const families = [...names]
-      .map(n => `family=${encodeURIComponent(n)}:wght@300;400;500;600;700;800`)
-      .join('&')
-    const href = `https://fonts.googleapis.com/css2?${families}&display=swap`
 
     let el = document.getElementById(FONTS_TAG_ID)
     if (!el) {
@@ -482,11 +542,11 @@ img[src=""] { min-height: 120px; display: block; }
   }
 
   // ─── Init ───────────────────────────────────────────────────
-  // Only restore from theme-specific localStorage if there's no auto-save
-  // project data (which is the primary source of truth for theme state).
-  // This avoids the two stores getting out of sync on cold load.
+  // Restore state on store init, but do NOT inject CSS.
+  // CSS is only injected when BuilderPage mounts (applyToCanvas).
+  // This prevents theme styles from bleeding into dashboard/profile pages.
   if (!localStorage.getItem('builder-project')) {
-    loadPersistedState()
+    loadPersistedState({ applyCSS: false })
   }
 
   return {

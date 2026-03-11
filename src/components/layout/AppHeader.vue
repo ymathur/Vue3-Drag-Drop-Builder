@@ -1,13 +1,93 @@
 <script setup>
-import { ref } from 'vue'
-import { useBuilderStore } from '@/stores/builder.js'
-import { useThemeStore }   from '@/stores/theme.js'
-import { exportZip }       from '@/utils/zipExporter.js'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useBuilderStore }  from '@/stores/builder.js'
+import { useThemeStore }    from '@/stores/theme.js'
+import { useAuthStore }     from '@/stores/auth.js'
+import { useProjectStore }  from '@/stores/project.js'
+import { exportZip }        from '@/utils/zipExporter.js'
 
-const store      = useBuilderStore()
-const themeStore = useThemeStore()
+const router       = useRouter()
+const store        = useBuilderStore()
+const themeStore   = useThemeStore()
+const authStore    = useAuthStore()
+const projectStore = useProjectStore()
+
+const projectName = computed(() => projectStore.activeProject?.name ?? 'Untitled')
 
 const fileInputRef = ref(null)
+
+// ─── Share UI state ─────────────────────────────────────────
+const sharePopoverOpen = ref(false)
+const shareLoading     = ref(false)
+const shareCopied      = ref(false)
+
+const sharingEnabled = computed(() => projectStore.activeProject?.sharing?.enabled ?? false)
+const shareToken     = computed(() => projectStore.activeProject?.sharing?.shareToken ?? null)
+const shareUrl       = computed(() => {
+  if (!shareToken.value) return ''
+  return `${window.location.origin}/share/${shareToken.value}`
+})
+
+function toggleSharePopover() {
+  sharePopoverOpen.value = !sharePopoverOpen.value
+  shareCopied.value = false
+}
+
+function closeSharePopover() {
+  sharePopoverOpen.value = false
+}
+
+async function toggleSharing() {
+  shareLoading.value = true
+  try {
+    if (sharingEnabled.value) {
+      await projectStore.disableProjectSharing()
+    } else {
+      await projectStore.enableProjectSharing()
+    }
+  } catch (err) {
+    console.error('Failed to toggle sharing:', err)
+  } finally {
+    shareLoading.value = false
+  }
+}
+
+async function regenerateLink() {
+  if (!confirm('Regenerate link? The old link will stop working.')) return
+  shareLoading.value = true
+  try {
+    await projectStore.regenerateProjectShareToken()
+    shareCopied.value = false
+  } catch (err) {
+    console.error('Failed to regenerate share link:', err)
+  } finally {
+    shareLoading.value = false
+  }
+}
+
+async function copyShareLink() {
+  try {
+    await navigator.clipboard.writeText(shareUrl.value)
+    shareCopied.value = true
+    setTimeout(() => { shareCopied.value = false }, 2000)
+  } catch (_) {
+    // Fallback
+    const ta = document.createElement('textarea')
+    ta.value = shareUrl.value
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+    shareCopied.value = true
+    setTimeout(() => { shareCopied.value = false }, 2000)
+  }
+}
+
+function switchProject(projectId) {
+  if (projectId === projectStore.activeProjectId) return
+  router.push({ name: 'builder', params: { projectId } })
+}
 
 function onClear() {
   if (store.blockCount === 0) return
@@ -112,9 +192,52 @@ function onFileSelected(event) {
 <template>
   <header class="app-header">
     <!-- Brand -->
-    <span class="app-title">
+    <span class="app-title" role="button" @click="authStore.isAuthenticated ? router.push('/') : null" :title="authStore.isAuthenticated ? 'Back to Dashboard' : ''">
       <i class="bi bi-columns-gap"></i>
       Bootstrap <span>Page Builder</span>
+    </span>
+
+    <!-- Project switcher dropdown (when authenticated) -->
+    <div v-if="authStore.isAuthenticated && projectStore.activeProjectId" class="dropdown project-switcher">
+      <button
+        class="project-name-badge dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        :title="projectName"
+      >
+        {{ projectName }}
+      </button>
+      <ul class="dropdown-menu project-switcher__menu">
+        <li class="dropdown-item-text small text-muted px-3 py-1">
+          Switch project
+        </li>
+        <li v-for="p in projectStore.projects" :key="p.id">
+          <button
+            class="dropdown-item d-flex align-items-center gap-2"
+            :class="{ 'active': p.id === projectStore.activeProjectId }"
+            @click="switchProject(p.id)"
+          >
+            <i class="bi" :class="p.id === projectStore.activeProjectId ? 'bi-check-lg' : 'bi-file-earmark'"></i>
+            <span class="text-truncate" style="max-width:180px;">{{ p.name }}</span>
+          </button>
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <button class="dropdown-item" @click="router.push('/')">
+            <i class="bi bi-grid me-2"></i>All Projects
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cloud save status indicator -->
+    <span v-if="authStore.isAuthenticated && projectStore.activeProjectId" class="save-status" :class="`save-status--${projectStore.saveStatus}`">
+      <i v-if="projectStore.saveStatus === 'saved'" class="bi bi-cloud-check"></i>
+      <span v-else-if="projectStore.saveStatus === 'saving'" class="spinner-border spinner-border-sm"></span>
+      <i v-else-if="projectStore.saveStatus === 'unsaved'" class="bi bi-cloud-arrow-up"></i>
+      <i v-else-if="projectStore.saveStatus === 'error'" class="bi bi-cloud-slash"></i>
+      <small>{{ projectStore.saveStatus === 'saved' ? 'Saved' : projectStore.saveStatus === 'saving' ? 'Saving...' : projectStore.saveStatus === 'error' ? 'Error' : '' }}</small>
     </span>
 
     <!-- Block count indicator (active page) -->
@@ -147,7 +270,7 @@ function onFileSelected(event) {
       <i class="bi bi-eye me-1"></i>Preview
     </button>
 
-    <!-- Save / Load project -->
+    <!-- Save / Load project (JSON) -->
     <button
       class="btn btn-sm btn-outline-light"
       :disabled="!store.anyPageHasBlocks"
@@ -174,6 +297,98 @@ function onFileSelected(event) {
       <i class="bi bi-file-zip me-1"></i>Export ZIP
     </button>
 
+    <!-- Share button (authenticated users with active project only) -->
+    <div v-if="authStore.isAuthenticated && projectStore.activeProjectId" class="share-wrapper">
+      <button
+        class="btn btn-sm"
+        :class="sharingEnabled ? 'btn-success' : 'btn-outline-light'"
+        title="Share project"
+        @click="toggleSharePopover"
+      >
+        <i class="bi bi-share me-1"></i>Share
+      </button>
+
+      <!-- Share popover -->
+      <div v-if="sharePopoverOpen" class="share-popover" @click.stop>
+        <!-- Backdrop to close popover -->
+        <div class="share-popover__backdrop" @click="closeSharePopover"></div>
+
+        <div class="share-popover__card">
+          <div class="share-popover__header">
+            <h6 class="mb-0"><i class="bi bi-globe me-1"></i>Public Sharing</h6>
+            <button class="btn-close btn-close-white btn-sm" @click="closeSharePopover"></button>
+          </div>
+
+          <div class="share-popover__body">
+            <!-- Toggle switch -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <label class="form-check-label share-popover__label" for="share-toggle">
+                {{ sharingEnabled ? 'Sharing enabled' : 'Sharing disabled' }}
+              </label>
+              <div class="form-check form-switch mb-0">
+                <input
+                  id="share-toggle"
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  :checked="sharingEnabled"
+                  :disabled="shareLoading"
+                  @change="toggleSharing"
+                />
+              </div>
+            </div>
+
+            <!-- Share link (only when enabled) -->
+            <template v-if="sharingEnabled && shareToken">
+              <div class="share-popover__url-row">
+                <input
+                  type="text"
+                  class="form-control form-control-sm share-popover__url"
+                  :value="shareUrl"
+                  readonly
+                  @focus="$event.target.select()"
+                />
+                <button
+                  class="btn btn-sm"
+                  :class="shareCopied ? 'btn-success' : 'btn-primary'"
+                  @click="copyShareLink"
+                  :disabled="shareLoading"
+                >
+                  <i :class="shareCopied ? 'bi bi-check-lg' : 'bi bi-clipboard'"></i>
+                </button>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between mt-2">
+                <a
+                  :href="shareUrl"
+                  target="_blank"
+                  class="share-popover__open-link"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Open preview
+                </a>
+                <button
+                  class="btn btn-sm btn-link text-muted share-popover__regen"
+                  @click="regenerateLink"
+                  :disabled="shareLoading"
+                >
+                  <i class="bi bi-arrow-clockwise me-1"></i>New link
+                </button>
+              </div>
+            </template>
+
+            <p v-if="!sharingEnabled" class="share-popover__hint">
+              Enable sharing to get a public read-only link to this project.
+            </p>
+          </div>
+
+          <!-- Loading overlay -->
+          <div v-if="shareLoading" class="share-popover__loading">
+            <span class="spinner-border spinner-border-sm"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="header-divider"></div>
 
     <button
@@ -184,6 +399,58 @@ function onFileSelected(event) {
     >
       <i class="bi bi-trash3 me-1"></i>Clear
     </button>
+
+    <div class="header-divider"></div>
+
+    <!-- Auth: Sign in / User menu -->
+    <button
+      v-if="authStore.isGuest"
+      class="btn btn-sm btn-outline-light"
+      @click="authStore.openLoginModal()"
+    >
+      <i class="bi bi-box-arrow-in-right me-1"></i>Sign In
+    </button>
+
+    <div v-else class="user-menu dropdown">
+      <button
+        class="btn btn-sm btn-outline-light dropdown-toggle user-menu-btn"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          v-if="authStore.user?.photoURL"
+          :src="authStore.user.photoURL"
+          :alt="authStore.user.displayName"
+          class="user-avatar"
+          referrerpolicy="no-referrer"
+        />
+        <span v-else class="bi bi-person-circle"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li class="dropdown-item-text">
+          <strong>{{ authStore.user?.displayName }}</strong>
+          <br /><small class="text-muted">{{ authStore.user?.email }}</small>
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <button class="dropdown-item" @click="router.push('/')">
+            <i class="bi bi-grid me-2"></i>Dashboard
+          </button>
+        </li>
+        <li>
+          <button class="dropdown-item" @click="router.push('/profile')">
+            <i class="bi bi-person me-2"></i>Profile
+          </button>
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <button class="dropdown-item text-danger" @click="authStore.signOut(); router.push('/builder')">
+            <i class="bi bi-box-arrow-right me-2"></i>Sign Out
+          </button>
+        </li>
+      </ul>
+    </div>
 
     <!-- Hidden file input for loading JSON -->
     <input
