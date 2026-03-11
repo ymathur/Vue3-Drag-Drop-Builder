@@ -9,6 +9,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { getProjectByShareToken } from '@/services/shareService.js'
 import { generateFullHtml } from '@/utils/htmlExporter.js'
+import { generateThemeCssString } from '@/stores/theme.js'
 
 const route      = useRoute()
 const shareToken = route.params.shareToken
@@ -20,13 +21,23 @@ const activePage = ref(0) // index into pages array
 
 const pages = computed(() => project.value?.data?.pages ?? [])
 
+// Reconstruct theme CSS from saved project data (no DOM needed)
+const themeOverrides = computed(() => {
+  const themeData = project.value?.data?.theme
+  if (!themeData?.activeThemeId) return { css: '', googleFontsHref: null }
+  return generateThemeCssString(themeData.activeThemeId, themeData.customizations ?? {})
+})
+
 const previewHtml = computed(() => {
   if (!pages.value.length) return ''
   const page = pages.value[activePage.value]
   if (!page) return ''
 
   try {
-    return generateFullHtml(page.blocks ?? [])
+    return generateFullHtml(page.blocks ?? [], {
+      themeCss:        themeOverrides.value.css,
+      googleFontsHref: themeOverrides.value.googleFontsHref,
+    })
   } catch (_) {
     return '<p style="padding:2rem;color:#888;">Unable to render preview.</p>'
   }

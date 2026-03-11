@@ -56,14 +56,19 @@ function getGoogleFontsHref() {
 /**
  * Assembles a complete standalone HTML page from the array of canvas block instances.
  * Includes the active theme CSS and Google Fonts so the exported page matches the design.
+ *
+ * @param {Array}  canvasBlocks  — block instances with .html / .editedHtml
+ * @param {object} [options]     — optional overrides (used by SharedPreviewPage)
+ * @param {string} [options.themeCss]        — pre-built theme CSS string
+ * @param {string} [options.googleFontsHref] — Google Fonts stylesheet URL
  */
-export function generateFullHtml(canvasBlocks) {
+export function generateFullHtml(canvasBlocks, { themeCss: themeCssOverride, googleFontsHref: googleFontsHrefOverride } = {}) {
   const bodyContent = canvasBlocks
     .map(block => cleanHtml(block.editedHtml || block.html))
     .join('\n\n')
 
-  const themeCss        = getThemeCss()
-  const googleFontsHref = getGoogleFontsHref()
+  const themeCss        = themeCssOverride        ?? getThemeCss()
+  const googleFontsHref = googleFontsHrefOverride ?? getGoogleFontsHref()
 
   const googleFontsTag = googleFontsHref
     ? `\n  <!-- Google Fonts -->\n  <link rel="preconnect" href="https://fonts.googleapis.com" />\n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n  <link rel="stylesheet" href="${googleFontsHref}" />`
