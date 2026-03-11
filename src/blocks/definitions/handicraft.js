@@ -32,25 +32,25 @@ export const handicraftBlocks = [
     label: 'Handicraft – Parchment Top Bar Nav',
     html: `<div>
   <div style="background:var(--bs-primary);" class="py-2 text-center">
-    <span class="small fw-semibold" style="color:var(--bs-dark);">Free shipping on orders above ₹999 &nbsp;|&nbsp; Handcrafted with love, delivered to your door</span>
+    <span class="small fw-semibold" style="color:var(--bs-body-color);">Free shipping on orders above ₹999 &nbsp;|&nbsp; Handcrafted with love, delivered to your door</span>
   </div>
   <nav class="navbar navbar-expand-lg" style="background:var(--bs-body-bg); border-bottom:2px solid var(--bs-border-color);">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#" style="color:var(--bs-dark); font-size:1.3rem; letter-spacing:0.05em;">The Folk Loom</a>
+      <a class="navbar-brand fw-bold" href="#" style="color:var(--bs-body-color); font-size:1.3rem; letter-spacing:0.05em;">The Folk Loom</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hcrNav2" aria-controls="hcrNav2" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="hcrNav2">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-dark);">Textiles</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-dark);">Pottery</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-dark);">Block Prints</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-dark);">Embroidery</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-dark);">Gifting</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-body-color);">Textiles</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-body-color);">Pottery</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-body-color);">Block Prints</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-body-color);">Embroidery</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#" style="color:var(--bs-body-color);">Gifting</a></li>
         </ul>
         <div class="d-flex align-items-center gap-3">
-          <a href="#" style="color:var(--bs-dark);"><i class="bi bi-search fs-5"></i></a>
-          <a href="#" style="color:var(--bs-dark);"><i class="bi bi-bag fs-5"></i></a>
+          <a href="#" style="color:var(--bs-body-color);"><i class="bi bi-search fs-5"></i></a>
+          <a href="#" style="color:var(--bs-body-color);"><i class="bi bi-bag fs-5"></i></a>
           <a href="#" class="btn btn-secondary btn-sm px-3 fw-semibold">Sign In</a>
         </div>
       </div>
@@ -86,23 +86,23 @@ export const handicraftBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Folk Loom — Est. 1974</p>
-        <h1 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:3rem; line-height:1.15; color:var(--bs-dark);">Crafted by Hand,<br>Shaped by Heritage</h1>
+        <h1 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:3rem; line-height:1.15; color:var(--bs-heading-color);">Crafted by Hand,<br>Shaped by Heritage</h1>
         <p class="lead mb-4" style="color:var(--bs-secondary);">From the potter's wheel to the weaver's loom — each piece in our collection is made by skilled artisans using natural dyes and traditional techniques passed through generations.</p>
         <div class="d-flex gap-3 flex-wrap mb-4">
           <a href="#" class="btn btn-primary btn-lg px-5 fw-semibold">Shop Handcrafted</a>
           <a href="#" class="btn btn-secondary btn-lg px-4">Our Story</a>
         </div>
         <div class="d-flex gap-4 mt-2">
-          <div><div class="fw-bold fs-4" style="color:var(--bs-dark);">500+</div><div class="small text-muted">Artisan Partners</div></div>
-          <div><div class="fw-bold fs-4" style="color:var(--bs-dark);">28</div><div class="small text-muted">Craft Traditions</div></div>
-          <div><div class="fw-bold fs-4" style="color:var(--bs-dark);">15k+</div><div class="small text-muted">Happy Patrons</div></div>
+          <div><div class="fw-bold fs-4" style="color:var(--bs-body-color);">500+</div><div class="small text-muted">Artisan Partners</div></div>
+          <div><div class="fw-bold fs-4" style="color:var(--bs-body-color);">28</div><div class="small text-muted">Craft Traditions</div></div>
+          <div><div class="fw-bold fs-4" style="color:var(--bs-body-color);">15k+</div><div class="small text-muted">Happy Patrons</div></div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="position-relative">
           <img loading="lazy" src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Artisan shaping pottery" class="img-fluid rounded-3 shadow-lg" style="width:100%; object-fit:cover; aspect-ratio:4/3;">
           <div class="position-absolute bottom-0 start-0 m-3 px-3 py-2 rounded-2" style="background:var(--bs-primary);">
-            <span class="fw-bold" style="color:var(--bs-dark); font-size:0.85rem;">100% Natural Dyes &amp; Handmade</span>
+            <span class="fw-bold" style="color:var(--bs-body-color); font-size:0.85rem;">100% Natural Dyes &amp; Handmade</span>
           </div>
         </div>
       </div>
@@ -120,27 +120,27 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Why Craft House Indira</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.4rem;">Rooted in Tradition, Made for Today</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.4rem;">Rooted in Tradition, Made for Today</h2>
     </div>
     <div class="row g-4 text-center">
       <div class="col-md-4">
         <div class="p-4 rounded-3 h-100" style="background:var(--bs-body-bg); border:1.5px solid var(--bs-border-color);">
           <div class="mb-3" style="font-size:2.5rem;">🪡</div>
-          <h5 class="fw-bold mb-2" style="color:var(--bs-dark);">Authentic Block Print</h5>
+          <h5 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Authentic Block Print</h5>
           <p class="text-muted mb-0">Each fabric is hand-stamped using carved teakwood blocks, a technique unchanged for over 400 years in the villages of Rajasthan.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-4 rounded-3 h-100" style="background:var(--bs-body-bg); border:1.5px solid var(--bs-border-color);">
           <div class="mb-3" style="font-size:2.5rem;">🌿</div>
-          <h5 class="fw-bold mb-2" style="color:var(--bs-dark);">Natural Dye Heritage</h5>
+          <h5 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Natural Dye Heritage</h5>
           <p class="text-muted mb-0">We use indigo, turmeric, madder root, and pomegranate rind — plant-based dyes that are safe for you and gentle on the earth.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-4 rounded-3 h-100" style="background:var(--bs-body-bg); border:1.5px solid var(--bs-border-color);">
           <div class="mb-3" style="font-size:2.5rem;">🤝</div>
-          <h5 class="fw-bold mb-2" style="color:var(--bs-dark);">Fair Artisan Wages</h5>
+          <h5 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Fair Artisan Wages</h5>
           <p class="text-muted mb-0">Every purchase directly supports our community of weavers and craftspeople, ensuring fair pay and sustainable livelihoods.</p>
         </div>
       </div>
@@ -160,14 +160,14 @@ export const handicraftBlocks = [
       </div>
       <div class="col-lg-7">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Our Craft Promise</p>
-        <h2 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">Where Every Thread Carries Meaning</h2>
+        <h2 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.2rem;">Where Every Thread Carries Meaning</h2>
         <div class="d-flex flex-column gap-4">
           <div class="d-flex gap-3 align-items-start">
             <div class="flex-shrink-0 rounded-2 d-flex align-items-center justify-content-center" style="width:44px;height:44px;background:var(--bs-dark);">
               <span style="color:var(--bs-primary); font-size:1.2rem;">✦</span>
             </div>
             <div>
-              <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Handcrafted, Not Mass-Produced</h6>
+              <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Handcrafted, Not Mass-Produced</h6>
               <p class="text-muted mb-0 small">Each piece is made one at a time, by hand. No two are identical — that's the beauty of true artisan craft.</p>
             </div>
           </div>
@@ -176,7 +176,7 @@ export const handicraftBlocks = [
               <span style="color:var(--bs-primary); font-size:1.2rem;">✦</span>
             </div>
             <div>
-              <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Certified Craft Origin</h6>
+              <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Certified Craft Origin</h6>
               <p class="text-muted mb-0 small">All our artisans are verified members of recognised craft cooperatives and regional guilds.</p>
             </div>
           </div>
@@ -185,7 +185,7 @@ export const handicraftBlocks = [
               <span style="color:var(--bs-primary); font-size:1.2rem;">✦</span>
             </div>
             <div>
-              <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Ethically Sourced Materials</h6>
+              <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Ethically Sourced Materials</h6>
               <p class="text-muted mb-0 small">Khadi cotton, organic wool, and upcycled silk — sourced with care for both craft communities and the environment.</p>
             </div>
           </div>
@@ -194,7 +194,7 @@ export const handicraftBlocks = [
               <span style="color:var(--bs-primary); font-size:1.2rem;">✦</span>
             </div>
             <div>
-              <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Gift-Ready Packaging</h6>
+              <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Gift-Ready Packaging</h6>
               <p class="text-muted mb-0 small">All orders arrive wrapped in recycled block-print paper with a handwritten artisan note inside.</p>
             </div>
           </div>
@@ -215,7 +215,7 @@ export const handicraftBlocks = [
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Our Heritage Story</p>
-        <h2 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:2.4rem; color:var(--bs-body-bg);">Born in the Weaving Villages of India</h2>
+        <h2 class="fw-bold mb-4" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));font-size:2.4rem; color:var(--bs-dark-text);">Born in the Weaving Villages of India</h2>
         <p class="mb-3" style="opacity:0.85; line-height:1.8;">In the narrow lanes of Bagru and the sun-baked courtyards of Kutch, craft is not a profession — it is a birthright. Craft House Indira was founded to bring these stories to the world.</p>
         <p class="mb-4" style="opacity:0.85; line-height:1.8;">We partner with over 500 artisan families across 14 Indian states, documenting and preserving craft traditions that might otherwise be lost to time. When you buy from us, you keep a tradition alive.</p>
         <a href="#" class="btn btn-primary px-5 fw-semibold">Read Our Full Story</a>
@@ -236,7 +236,7 @@ export const handicraftBlocks = [
     <div class="row justify-content-center mb-5">
       <div class="col-lg-7 text-center">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Art of Natural Dyeing</p>
-        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Indigo: The Colour of the Cosmos</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">Indigo: The Colour of the Cosmos</h2>
         <p class="text-muted lead" style="font-size:1.05rem;">Indigo dyeing is one of the oldest crafts in the world. The deep blue of the cosmos, extracted from the Indigofera plant, has coloured the robes of kings and the saris of village weavers alike.</p>
       </div>
     </div>
@@ -245,7 +245,7 @@ export const handicraftBlocks = [
         <img loading="lazy" src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80" alt="Fabric dyeing in indigo vat" class="img-fluid rounded-3 shadow" style="width:100%; object-fit:cover; max-height:420px;">
       </div>
       <div class="col-lg-5">
-        <h5 class="fw-bold mb-3" style="color:var(--bs-dark);">A Centuries-Old Process</h5>
+        <h5 class="fw-bold mb-3" style="color:var(--bs-heading-color);">A Centuries-Old Process</h5>
         <p class="text-muted mb-3">The artisan dips clean cotton into the fermentation vat repeatedly, each dip building a richer, deeper shade of indigo blue. Exposure to air oxidises the dye and fixes it permanently.</p>
         <p class="text-muted mb-4">There are no shortcuts in natural dyeing — the process takes days and the results are gloriously unpredictable. This is why every piece dyed with natural indigo is unique.</p>
         <div class="d-flex flex-column gap-2">
@@ -269,14 +269,14 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Explore by Craft</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Traditions Passed Through Generations</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">Traditions Passed Through Generations</h2>
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block Print" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Block Printing</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Block Printing</h6>
             <p class="text-muted small mb-3">Carved wooden blocks, vibrant pigments, and cloth — an ancient art form still alive in Rajasthan.</p>
             <a href="#" class="text-primary fw-semibold small text-decoration-none">Explore →</a>
           </div>
@@ -286,7 +286,7 @@ export const handicraftBlocks = [
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1579703822122-204d51e1bf5e?w=800&q=80" alt="Weaving" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Handloom Weaving</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Handloom Weaving</h6>
             <p class="text-muted small mb-3">Every thread placed by a skilled weaver's hand — creating patterns that can take weeks to complete.</p>
             <a href="#" class="text-primary fw-semibold small text-decoration-none">Explore →</a>
           </div>
@@ -296,7 +296,7 @@ export const handicraftBlocks = [
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?w=800&q=80" alt="Ceramics" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Painted Ceramics</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Painted Ceramics</h6>
             <p class="text-muted small mb-3">Blue pottery, terracotta ware, and hand-painted vessels shaped by the potters of Khurja and Jaipur.</p>
             <a href="#" class="text-primary fw-semibold small text-decoration-none">Explore →</a>
           </div>
@@ -306,7 +306,7 @@ export const handicraftBlocks = [
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color);">
           <img loading="lazy" src="https://images.unsplash.com/photo-1518730518541-d0a677d23b19?w=800&q=80" alt="Embroidery" class="card-img-top" style="height:200px; object-fit:cover;">
           <div class="card-body">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Folk Embroidery</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Folk Embroidery</h6>
             <p class="text-muted small mb-3">Phulkari, Chikankari, Kantha — stitched stories of women who turned thread into art across India.</p>
             <a href="#" class="text-primary fw-semibold small text-decoration-none">Explore →</a>
           </div>
@@ -324,14 +324,14 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Meet the Makers</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">The Hands Behind the Heritage</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">The Hands Behind the Heritage</h2>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-4">
         <div class="card text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
             <img loading="lazy" src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800&q=80" alt="Artisan Meera" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Meera Kumari</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Meera Kumari</h6>
             <p class="small mb-2" style="color:var(--bs-primary); font-weight:600;">Block Print Master — Sanganer, Rajasthan</p>
             <p class="text-muted small mb-3">Meera has practiced the art of hand block printing for 32 years, inheriting her craft from her grandmother. Her floral motifs are instantly recognisable.</p>
             <span class="badge" style="background:var(--bs-dark); color:var(--bs-primary);">32 years of craft</span>
@@ -342,7 +342,7 @@ export const handicraftBlocks = [
         <div class="card text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
             <img loading="lazy" src="https://images.unsplash.com/photo-1492539438225-2666b2a98f93?w=800&q=80" alt="Artisan Rajan" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Rajan Prajapat</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Rajan Prajapat</h6>
             <p class="small mb-2" style="color:var(--bs-primary); font-weight:600;">Potter — Khurja, Uttar Pradesh</p>
             <p class="text-muted small mb-3">Third-generation potter whose blue glazed ceramics have been showcased at national craft fairs and exported to over a dozen countries.</p>
             <span class="badge" style="background:var(--bs-dark); color:var(--bs-primary);">National Award — 2019</span>
@@ -353,7 +353,7 @@ export const handicraftBlocks = [
         <div class="card text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
             <img loading="lazy" src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" alt="Artisan Fathima" class="rounded-circle mb-3 shadow" style="width:90px;height:90px;object-fit:cover; border:3px solid var(--bs-primary);">
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Fathima Bi</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Fathima Bi</h6>
             <p class="small mb-2" style="color:var(--bs-primary); font-weight:600;">Basket Weaver — Nirmal, Telangana</p>
             <p class="text-muted small mb-3">Using bamboo, cane, and wild grass, Fathima creates functional and decorative pieces that tell the story of Telangana's forest craft tradition.</p>
             <span class="badge" style="background:var(--bs-dark); color:var(--bs-primary);">Community of 40 weavers</span>
@@ -374,7 +374,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Patron Stories</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">Loved by Those Who Value Craft</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.2rem;">Loved by Those Who Value Craft</h2>
     </div>
     <div class="row g-4">
       <div class="col-md-4">
@@ -384,7 +384,7 @@ export const handicraftBlocks = [
           <div class="d-flex align-items-center gap-3 mt-auto">
             <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Ananya S." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
             <div>
-              <div class="fw-bold small" style="color:var(--bs-dark);">Ananya Sharma</div>
+              <div class="fw-bold small" style="color:var(--bs-body-color);">Ananya Sharma</div>
               <div class="text-muted" style="font-size:0.78rem;">Interior Designer, Mumbai</div>
             </div>
           </div>
@@ -397,7 +397,7 @@ export const handicraftBlocks = [
           <div class="d-flex align-items-center gap-3 mt-auto">
             <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Rohan M." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
             <div>
-              <div class="fw-bold small" style="color:var(--bs-dark);">Rohan Mehta</div>
+              <div class="fw-bold small" style="color:var(--bs-body-color);">Rohan Mehta</div>
               <div class="text-muted" style="font-size:0.78rem;">Writer &amp; Heritage Traveller, Delhi</div>
             </div>
           </div>
@@ -410,7 +410,7 @@ export const handicraftBlocks = [
           <div class="d-flex align-items-center gap-3 mt-auto">
             <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Priya K." class="rounded-circle" style="width:46px;height:46px;object-fit:cover; border:2px solid var(--bs-primary);">
             <div>
-              <div class="fw-bold small" style="color:var(--bs-dark);">Priya Krishnan</div>
+              <div class="fw-bold small" style="color:var(--bs-body-color);">Priya Krishnan</div>
               <div class="text-muted" style="font-size:0.78rem;">Boutique Owner, Bengaluru</div>
             </div>
           </div>
@@ -450,8 +450,8 @@ export const handicraftBlocks = [
     label: 'Handicraft – Saffron Banner CTA',
     html: `<section class="py-5 text-center" style="background:var(--bs-primary);">
   <div class="container py-3">
-    <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.5rem;">Take a Piece of Heritage Home</h2>
-    <p class="lead mb-4 mx-auto" style="color:var(--bs-dark); max-width:580px; opacity:0.85;">Every item in our collection directly supports a family of artisans. Shop handcrafted goods that carry the soul of centuries of Indian folk tradition.</p>
+    <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.5rem;">Take a Piece of Heritage Home</h2>
+    <p class="lead mb-4 mx-auto" style="color:var(--bs-body-color); max-width:580px; opacity:0.85;">Every item in our collection directly supports a family of artisans. Shop handcrafted goods that carry the soul of centuries of Indian folk tradition.</p>
     <div class="d-flex gap-3 justify-content-center flex-wrap">
       <a href="#" class="btn btn-secondary btn-lg px-5 fw-semibold">Browse All Collections</a>
       <a href="#" class="btn btn-outline-dark btn-lg px-5">Learn About Our Artisans</a>
@@ -493,7 +493,7 @@ export const handicraftBlocks = [
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft Journal</p>
-        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.1rem;">Stay Close to the Craft</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.1rem;">Stay Close to the Craft</h2>
         <p class="text-muted mb-4">Get artisan spotlights, seasonal collections, natural dyeing guides, and exclusive offers delivered to your inbox — no noise, only craft.</p>
         <form>
           <div class="input-group mb-3" style="max-width:460px; margin:0 auto;">
@@ -516,7 +516,7 @@ export const handicraftBlocks = [
     <div class="row g-5 align-items-start">
       <div class="col-lg-5">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Trade &amp; Wholesale</p>
-        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.1rem;">Partner with Our Artisan Network</h2>
+        <h2 class="fw-bold mb-3" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.1rem;">Partner with Our Artisan Network</h2>
         <p class="text-muted mb-4" style="line-height:1.8;">Are you a boutique, hotel, gallery, or interior studio? We work with trade partners to supply authentic handcrafted goods at scale, without compromising on quality or artisan welfare.</p>
         <ul class="list-unstyled text-muted small">
           <li class="mb-2 d-flex gap-2"><span style="color:var(--bs-primary); font-weight:700;">✦</span> Minimum order from 10 units per SKU</li>
@@ -526,24 +526,24 @@ export const handicraftBlocks = [
         </ul>
       </div>
       <div class="col-lg-7">
-        <div class="card p-4 p-lg-5" style="border:1.5px solid var(--bs-border-color); background:#fff;">
-          <h5 class="fw-bold mb-4" style="color:var(--bs-dark);">Send an Inquiry</h5>
+        <div class="card p-4 p-lg-5" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
+          <h5 class="fw-bold mb-4" style="color:var(--bs-heading-color);">Send an Inquiry</h5>
           <form>
             <div class="row g-3">
               <div class="col-sm-6">
-                <label class="form-label small fw-semibold" style="color:var(--bs-dark);">Full Name</label>
+                <label class="form-label small fw-semibold" style="color:var(--bs-body-color);">Full Name</label>
                 <input type="text" class="form-control" placeholder="Your name" style="border:1.5px solid var(--bs-border-color);">
               </div>
               <div class="col-sm-6">
-                <label class="form-label small fw-semibold" style="color:var(--bs-dark);">Business Name</label>
+                <label class="form-label small fw-semibold" style="color:var(--bs-body-color);">Business Name</label>
                 <input type="text" class="form-control" placeholder="Your business" style="border:1.5px solid var(--bs-border-color);">
               </div>
               <div class="col-12">
-                <label class="form-label small fw-semibold" style="color:var(--bs-dark);">Email Address</label>
+                <label class="form-label small fw-semibold" style="color:var(--bs-body-color);">Email Address</label>
                 <input type="email" class="form-control" placeholder="trade@yourbusiness.com" style="border:1.5px solid var(--bs-border-color);">
               </div>
               <div class="col-12">
-                <label class="form-label small fw-semibold" style="color:var(--bs-dark);">Craft Categories of Interest</label>
+                <label class="form-label small fw-semibold" style="color:var(--bs-body-color);">Craft Categories of Interest</label>
                 <select class="form-select" style="border:1.5px solid var(--bs-border-color);">
                   <option selected disabled>Select a category</option>
                   <option>Block Print Textiles</option>
@@ -555,7 +555,7 @@ export const handicraftBlocks = [
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label small fw-semibold" style="color:var(--bs-dark);">Tell Us About Your Requirements</label>
+                <label class="form-label small fw-semibold" style="color:var(--bs-body-color);">Tell Us About Your Requirements</label>
                 <textarea class="form-control" rows="3" placeholder="Expected volumes, specific requirements, timelines..." style="border:1.5px solid var(--bs-border-color);"></textarea>
               </div>
               <div class="col-12">
@@ -579,16 +579,16 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft Box Subscription</p>
-      <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Handcrafted, Every Season</h2>
+      <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">Handcrafted, Every Season</h2>
       <p class="text-muted">A curated selection of authentic artisan goods delivered to your door quarterly.</p>
     </div>
     <div class="row g-4 justify-content-center align-items-stretch">
       <div class="col-md-4">
         <div class="card h-100" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4 p-lg-5 d-flex flex-column">
-            <h5 class="fw-bold mb-1" style="color:var(--bs-dark);">Patron</h5>
+            <h5 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Patron</h5>
             <p class="text-muted small mb-4">For those beginning their craft journey</p>
-            <div class="display-5 fw-bold mb-4" style="color:var(--bs-dark);">₹999<small class="fs-5 text-muted fw-normal">/quarter</small></div>
+            <div class="display-5 fw-bold mb-4" style="color:var(--bs-body-color);">₹999<small class="fs-5 text-muted fw-normal">/quarter</small></div>
             <ul class="list-unstyled mb-4 flex-grow-1">
               <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill mt-1 flex-shrink-0" style="color:var(--bs-primary);"></i><span>2 handcrafted items</span></li>
               <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill mt-1 flex-shrink-0" style="color:var(--bs-primary);"></i><span>Artisan story card</span></li>
@@ -602,12 +602,12 @@ export const handicraftBlocks = [
       <div class="col-md-4">
         <div class="card h-100 position-relative overflow-hidden" style="border:2px solid var(--bs-primary); background:var(--bs-body-bg);">
           <div class="position-absolute top-0 end-0 px-3 py-1" style="background:var(--bs-primary);">
-            <span class="fw-bold small" style="color:var(--bs-dark);">Most Loved</span>
+            <span class="fw-bold small" style="color:var(--bs-body-color);">Most Loved</span>
           </div>
           <div class="card-body p-4 p-lg-5 d-flex flex-column">
-            <h5 class="fw-bold mb-1" style="color:var(--bs-dark);">Heritage</h5>
+            <h5 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Heritage</h5>
             <p class="text-muted small mb-4">Our signature craft experience</p>
-            <div class="display-5 fw-bold mb-4" style="color:var(--bs-dark);">₹1,999<small class="fs-5 text-muted fw-normal">/quarter</small></div>
+            <div class="display-5 fw-bold mb-4" style="color:var(--bs-body-color);">₹1,999<small class="fs-5 text-muted fw-normal">/quarter</small></div>
             <ul class="list-unstyled mb-4 flex-grow-1">
               <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill mt-1 flex-shrink-0" style="color:var(--bs-primary);"></i><span>5 handcrafted items</span></li>
               <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill mt-1 flex-shrink-0" style="color:var(--bs-primary);"></i><span>Artisan story card + photo</span></li>
@@ -622,9 +622,9 @@ export const handicraftBlocks = [
       <div class="col-md-4">
         <div class="card h-100" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4 p-lg-5 d-flex flex-column">
-            <h5 class="fw-bold mb-1" style="color:var(--bs-dark);">Connoisseur</h5>
+            <h5 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Connoisseur</h5>
             <p class="text-muted small mb-4">For the dedicated craft collector</p>
-            <div class="display-5 fw-bold mb-4" style="color:var(--bs-dark);">₹3,999<small class="fs-5 text-muted fw-normal">/quarter</small></div>
+            <div class="display-5 fw-bold mb-4" style="color:var(--bs-body-color);">₹3,999<small class="fs-5 text-muted fw-normal">/quarter</small></div>
             <ul class="list-unstyled mb-4 flex-grow-1">
               <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill mt-1 flex-shrink-0" style="color:var(--bs-primary);"></i><span>10 handcrafted items</span></li>
               <li class="mb-2 d-flex gap-2"><i class="bi bi-check-circle-fill mt-1 flex-shrink-0" style="color:var(--bs-primary);"></i><span>Personalised artisan letter</span></li>
@@ -648,45 +648,45 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Custom Commissions</p>
-      <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">A Piece Made Just for You</h2>
+      <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">A Piece Made Just for You</h2>
       <p class="text-muted mx-auto" style="max-width:560px;">Commission a one-of-a-kind handcrafted piece with your chosen motifs, colours, and dimensions. Each commission is made by a master artisan and comes with a certificate of origin.</p>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-6 col-lg-4">
-        <div class="card h-100 text-center" style="border:1.5px solid var(--bs-border-color); background:#fff;">
+        <div class="card h-100 text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
             <div class="mb-3 rounded-2 mx-auto d-flex align-items-center justify-content-center" style="width:56px;height:56px;background:var(--bs-dark);">
               <span style="color:var(--bs-primary); font-size:1.5rem;">🪡</span>
             </div>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Textile Commission</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Textile Commission</h6>
             <p class="text-muted small mb-3">Custom block-print yardage, handloom sarees, or embroidered table linen</p>
-            <div class="fw-bold fs-4 mb-3" style="color:var(--bs-dark);">From ₹3,500</div>
+            <div class="fw-bold fs-4 mb-3" style="color:var(--bs-body-color);">From ₹3,500</div>
             <a href="#" class="btn btn-primary btn-sm w-100 fw-semibold">Request Quote</a>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
-        <div class="card h-100 text-center" style="border:2px solid var(--bs-primary); background:#fff;">
+        <div class="card h-100 text-center" style="border:2px solid var(--bs-primary); background:var(--bs-body-bg);">
           <div class="card-body p-4">
             <div class="mb-3 rounded-2 mx-auto d-flex align-items-center justify-content-center" style="width:56px;height:56px;background:var(--bs-primary);">
-              <span style="color:var(--bs-dark); font-size:1.5rem;">🏺</span>
+              <span style="color:var(--bs-body-color); font-size:1.5rem;">🏺</span>
             </div>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Ceramic Commission</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Ceramic Commission</h6>
             <p class="text-muted small mb-3">Hand-thrown and painted dinnerware sets, planters, and decorative vessels</p>
-            <div class="fw-bold fs-4 mb-3" style="color:var(--bs-dark);">From ₹2,200</div>
+            <div class="fw-bold fs-4 mb-3" style="color:var(--bs-body-color);">From ₹2,200</div>
             <a href="#" class="btn btn-primary btn-sm w-100 fw-semibold">Request Quote</a>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
-        <div class="card h-100 text-center" style="border:1.5px solid var(--bs-border-color); background:#fff;">
+        <div class="card h-100 text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="card-body p-4">
             <div class="mb-3 rounded-2 mx-auto d-flex align-items-center justify-content-center" style="width:56px;height:56px;background:var(--bs-dark);">
               <span style="color:var(--bs-primary); font-size:1.5rem;">🧺</span>
             </div>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Woven &amp; Basket Commission</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Woven &amp; Basket Commission</h6>
             <p class="text-muted small mb-3">Custom bamboo furniture, storage baskets, and sculptural wall art</p>
-            <div class="fw-bold fs-4 mb-3" style="color:var(--bs-dark);">From ₹1,800</div>
+            <div class="fw-bold fs-4 mb-3" style="color:var(--bs-body-color);">From ₹1,800</div>
             <a href="#" class="btn btn-primary btn-sm w-100 fw-semibold">Request Quote</a>
           </div>
         </div>
@@ -764,16 +764,16 @@ export const handicraftBlocks = [
   <div class="container py-5">
     <div class="row g-4 justify-content-between">
       <div class="col-lg-5">
-        <div class="fw-bold fs-5 mb-2" style="color:var(--bs-dark); font-family:var(--bs-heading-font, var(--bs-body-font-family));">The Folk Loom</div>
+        <div class="fw-bold fs-5 mb-2" style="color:var(--bs-body-color); font-family:var(--bs-heading-font, var(--bs-body-font-family));">The Folk Loom</div>
         <p class="text-muted small mb-3" style="line-height:1.8;">Handcrafted goods made by India's finest artisans using traditional techniques, natural dyes, and heritage materials. Shipped worldwide with care.</p>
         <div class="d-flex gap-3">
-          <a href="#" style="color:var(--bs-dark);"><i class="bi bi-instagram"></i></a>
-          <a href="#" style="color:var(--bs-dark);"><i class="bi bi-facebook"></i></a>
-          <a href="#" style="color:var(--bs-dark);"><i class="bi bi-pinterest"></i></a>
+          <a href="#" style="color:var(--bs-body-color);"><i class="bi bi-instagram"></i></a>
+          <a href="#" style="color:var(--bs-body-color);"><i class="bi bi-facebook"></i></a>
+          <a href="#" style="color:var(--bs-body-color);"><i class="bi bi-pinterest"></i></a>
         </div>
       </div>
       <div class="col-sm-4 col-lg-2">
-        <h6 class="fw-bold mb-3" style="color:var(--bs-dark);">Shop</h6>
+        <h6 class="fw-bold mb-3" style="color:var(--bs-heading-color);">Shop</h6>
         <ul class="list-unstyled small text-muted">
           <li class="mb-2"><a href="#" class="text-muted text-decoration-none">New Arrivals</a></li>
           <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Textiles</a></li>
@@ -782,7 +782,7 @@ export const handicraftBlocks = [
         </ul>
       </div>
       <div class="col-sm-4 col-lg-2">
-        <h6 class="fw-bold mb-3" style="color:var(--bs-dark);">Help</h6>
+        <h6 class="fw-bold mb-3" style="color:var(--bs-heading-color);">Help</h6>
         <ul class="list-unstyled small text-muted">
           <li class="mb-2"><a href="#" class="text-muted text-decoration-none">FAQs</a></li>
           <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Shipping Info</a></li>
@@ -809,7 +809,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft in Images</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">A Visual Journey Through Heritage</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.2rem;">A Visual Journey Through Heritage</h2>
     </div>
     <div class="row g-3">
       <div class="col-md-8">
@@ -843,7 +843,7 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">Artisan at Work</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.2rem;">The Making of Craft</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.2rem;">The Making of Craft</h2>
     </div>
     <div class="row g-3">
       <div class="col-6 col-md-4 col-lg-3">
@@ -965,28 +965,28 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">The Craft Process</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">From Loom to Your Doorstep</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">From Loom to Your Doorstep</h2>
       <p class="text-muted mx-auto" style="max-width:540px;">Every piece you receive has traveled a long and beautiful journey — here is how it comes to life.</p>
     </div>
     <div class="row g-4">
       <div class="col-md-3 text-center">
         <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">01</div>
-        <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Sourcing Materials</h6>
+        <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Sourcing Materials</h6>
         <p class="text-muted small">Khadi cotton, natural wool, and wild plant fibres are sourced directly from farming cooperatives and forest communities.</p>
       </div>
       <div class="col-md-3 text-center">
         <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">02</div>
-        <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Natural Dyeing</h6>
+        <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Natural Dyeing</h6>
         <p class="text-muted small">Artisans prepare mordant baths and fermentation vats using indigo, madder, marigold, and turmeric to achieve rich, lasting colours.</p>
       </div>
       <div class="col-md-3 text-center">
         <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-dark);color:var(--bs-primary);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">03</div>
-        <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Handcrafting</h6>
+        <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Handcrafting</h6>
         <p class="text-muted small">Block printing, weaving, embroidery, or throwing on the potter's wheel — every item is made entirely by hand, one at a time.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-primary);color:var(--bs-dark);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">04</div>
-        <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Curated &amp; Shipped</h6>
+        <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width:60px;height:60px;background:var(--bs-primary);color:var(--bs-body-color);font-size:1.4rem;font-family:var(--bs-heading-font, var(--bs-body-font-family));">04</div>
+        <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Curated &amp; Shipped</h6>
         <p class="text-muted small">Each item is quality-checked, photographed, wrapped in recycled block-print paper, and shipped to you with an artisan origin card.</p>
       </div>
     </div>
@@ -1001,38 +1001,38 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">How to Commission</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">A Bespoke Piece in 4 Simple Steps</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">A Bespoke Piece in 4 Simple Steps</h2>
     </div>
     <div class="row g-4 align-items-start">
       <div class="col-md-6 col-lg-3">
-        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:#fff;">
+        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="mb-3" style="font-size:2rem; color:var(--bs-primary);">📋</div>
           <div class="fw-bold small mb-1" style="color:var(--bs-primary);">Step 01</div>
-          <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Tell Us Your Vision</h6>
+          <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Tell Us Your Vision</h6>
           <p class="text-muted small mb-0">Fill in our commission inquiry form with your preferred craft type, dimensions, colour palette, and budget.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:#fff;">
+        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="mb-3" style="font-size:2rem; color:var(--bs-primary);">🎨</div>
           <div class="fw-bold small mb-1" style="color:var(--bs-primary);">Step 02</div>
-          <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Design Consultation</h6>
+          <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Design Consultation</h6>
           <p class="text-muted small mb-0">Our craft advisor connects you with the ideal artisan and shares sample motifs, colour swatches, and a detailed quote.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:#fff;">
+        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="mb-3" style="font-size:2rem; color:var(--bs-primary);">🪡</div>
           <div class="fw-bold small mb-1" style="color:var(--bs-primary);">Step 03</div>
-          <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Artisan Creates</h6>
+          <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Artisan Creates</h6>
           <p class="text-muted small mb-0">Your approved artisan begins work. You receive progress photographs and can request adjustments along the way.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:#fff;">
+        <div class="card h-100 p-4 text-center" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="mb-3" style="font-size:2rem; color:var(--bs-primary);">📦</div>
           <div class="fw-bold small mb-1" style="color:var(--bs-primary);">Step 04</div>
-          <h6 class="fw-bold mb-2" style="color:var(--bs-dark);">Delivered with Care</h6>
+          <h6 class="fw-bold mb-2" style="color:var(--bs-heading-color);">Delivered with Care</h6>
           <p class="text-muted small mb-0">Your finished piece is inspected, packed in heritage gift wrap, and shipped with a signed certificate of artisan origin.</p>
         </div>
       </div>
@@ -1053,21 +1053,21 @@ export const handicraftBlocks = [
   <div class="container py-3">
     <div class="text-center mb-5">
       <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.12em; color:var(--bs-primary);">New Arrivals</p>
-      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2.3rem;">Fresh from the Artisan's Hands</h2>
+      <h2 class="fw-bold" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2.3rem;">Fresh from the Artisan's Hands</h2>
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 overflow-hidden" style="border:1.5px solid var(--bs-border-color); background:var(--bs-body-bg);">
           <div class="position-relative">
             <img loading="lazy" src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=800&q=80" alt="Block Print Stole" class="card-img-top" style="height:240px; object-fit:cover;">
-            <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-primary); color:var(--bs-dark);">New</span>
+            <span class="position-absolute top-0 start-0 m-2 badge" style="background:var(--bs-primary); color:var(--bs-body-color);">New</span>
           </div>
           <div class="card-body d-flex flex-column">
             <p class="small mb-1" style="color:var(--bs-primary); font-weight:600;">Block Print</p>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Indigo Floral Stole</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Indigo Floral Stole</h6>
             <p class="text-muted small mb-2">By Meera Kumari, Sanganer</p>
             <div class="d-flex justify-content-between align-items-center mt-auto">
-              <span class="fw-bold" style="color:var(--bs-dark);">₹1,200</span>
+              <span class="fw-bold" style="color:var(--bs-body-color);">₹1,200</span>
               <a href="#" class="btn btn-primary btn-sm px-3 fw-semibold">Add to Cart</a>
             </div>
           </div>
@@ -1081,10 +1081,10 @@ export const handicraftBlocks = [
           </div>
           <div class="card-body d-flex flex-column">
             <p class="small mb-1" style="color:var(--bs-primary); font-weight:600;">Ceramics</p>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Hand-painted Serving Bowl</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Hand-painted Serving Bowl</h6>
             <p class="text-muted small mb-2">By Rajan Prajapat, Khurja</p>
             <div class="d-flex justify-content-between align-items-center mt-auto">
-              <span class="fw-bold" style="color:var(--bs-dark);">₹850</span>
+              <span class="fw-bold" style="color:var(--bs-body-color);">₹850</span>
               <a href="#" class="btn btn-primary btn-sm px-3 fw-semibold">Add to Cart</a>
             </div>
           </div>
@@ -1097,10 +1097,10 @@ export const handicraftBlocks = [
           </div>
           <div class="card-body d-flex flex-column">
             <p class="small mb-1" style="color:var(--bs-primary); font-weight:600;">Embroidery</p>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Phulkari Cushion Cover</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Phulkari Cushion Cover</h6>
             <p class="text-muted small mb-2">Punjab Embroidery Collective</p>
             <div class="d-flex justify-content-between align-items-center mt-auto">
-              <span class="fw-bold" style="color:var(--bs-dark);">₹680</span>
+              <span class="fw-bold" style="color:var(--bs-body-color);">₹680</span>
               <a href="#" class="btn btn-primary btn-sm px-3 fw-semibold">Add to Cart</a>
             </div>
           </div>
@@ -1114,10 +1114,10 @@ export const handicraftBlocks = [
           </div>
           <div class="card-body d-flex flex-column">
             <p class="small mb-1" style="color:var(--bs-primary); font-weight:600;">Basket Weaving</p>
-            <h6 class="fw-bold mb-1" style="color:var(--bs-dark);">Bamboo Serving Tray Set</h6>
+            <h6 class="fw-bold mb-1" style="color:var(--bs-heading-color);">Bamboo Serving Tray Set</h6>
             <p class="text-muted small mb-2">By Fathima Bi, Nirmal</p>
             <div class="d-flex justify-content-between align-items-center mt-auto">
-              <span class="fw-bold" style="color:var(--bs-dark);">₹1,450</span>
+              <span class="fw-bold" style="color:var(--bs-body-color);">₹1,450</span>
               <a href="#" class="btn btn-primary btn-sm px-3 fw-semibold">Add to Cart</a>
             </div>
           </div>
@@ -1155,22 +1155,22 @@ export const handicraftBlocks = [
       </div>
       <div class="col-lg-6">
         <p class="text-uppercase fw-semibold mb-2" style="letter-spacing:0.1em; color:var(--bs-primary);">Handloom Textiles</p>
-        <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-dark); font-size:2rem;">Double Ikat Silk Throw</h2>
+        <h2 class="fw-bold mb-2" style="font-family:var(--bs-heading-font, var(--bs-body-font-family));color:var(--bs-heading-color); font-size:2rem;">Double Ikat Silk Throw</h2>
         <div class="d-flex align-items-center gap-2 mb-3">
           <span style="color:var(--bs-primary);">★★★★★</span>
           <span class="small text-muted">(47 reviews)</span>
         </div>
         <p class="text-muted small mb-2">By the Patan Weaving Cooperative, Gujarat</p>
         <div class="mb-3">
-          <span class="fw-bold" style="color:var(--bs-dark); font-size:1.8rem;">₹4,800</span>
+          <span class="fw-bold" style="color:var(--bs-body-color); font-size:1.8rem;">₹4,800</span>
           <span class="text-decoration-line-through text-muted ms-2 small">₹6,200</span>
-          <span class="badge ms-2" style="background:var(--bs-primary); color:var(--bs-dark);">Save 22%</span>
+          <span class="badge ms-2" style="background:var(--bs-primary); color:var(--bs-body-color);">Save 22%</span>
         </div>
         <p class="text-muted mb-4" style="line-height:1.8;">Woven on a traditional pit loom using the rare double ikat technique — where both warp and weft threads are resist-dyed before weaving. Each throw takes three master weavers up to 14 days to complete.</p>
         <div class="mb-3">
-          <span class="fw-semibold small me-3" style="color:var(--bs-dark);">Colour:</span>
+          <span class="fw-semibold small me-3" style="color:var(--bs-body-color);">Colour:</span>
           <button class="btn btn-sm rounded-pill me-2 fw-semibold" style="background:var(--bs-dark); color:var(--bs-primary); border:none; font-size:0.75rem;">Indigo &amp; Saffron</button>
-          <button class="btn btn-sm rounded-pill me-2 fw-semibold" style="background:var(--bs-body-bg); color:var(--bs-dark); border:1.5px solid var(--bs-border-color); font-size:0.75rem;">Rust &amp; Cream</button>
+          <button class="btn btn-sm rounded-pill me-2 fw-semibold" style="background:var(--bs-body-bg); color:var(--bs-body-color); border:1.5px solid var(--bs-border-color); font-size:0.75rem;">Rust &amp; Cream</button>
         </div>
         <div class="d-flex gap-3 mb-4 flex-wrap">
           <a href="#" class="btn btn-primary btn-lg px-5 fw-semibold">Add to Cart</a>
