@@ -76,13 +76,16 @@ export async function regenerateShareToken(projectId) {
  * @returns {object|null}
  */
 export async function getProjectByShareToken(token) {
+  // Single-field query to avoid needing a Firestore composite index.
+  // Check `enabled` client-side instead.
   const q = query(
     collection(db, PROJECTS_COL),
     where('sharing.shareToken', '==', token),
-    where('sharing.enabled', '==', true),
   )
   const snap = await getDocs(q)
   if (snap.empty) return null
   const d = snap.docs[0]
-  return { id: d.id, ...d.data() }
+  const data = d.data()
+  if (!data.sharing?.enabled) return null
+  return { id: d.id, ...data }
 }
